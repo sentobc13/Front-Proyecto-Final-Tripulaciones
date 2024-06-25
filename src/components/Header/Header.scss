@@ -1,0 +1,66 @@
+.navbar {
+  background-color: #333;
+  width: 100%;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+
+      li {
+        a {
+          color: #fff;
+          text-decoration: none;
+          font-size: 1.2rem;
+          padding: 0.5rem 1rem;
+          transition: background-color 0.3s, color 0.3s;
+          border-radius: 5px;
+
+          &:hover {
+            background-color: #555;
+            color: rgb(228, 169, 243);
+          }
+
+          &:active {
+            background-color: #666;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media query for mobile devices
+@media (max-width: 768px) {
+  .navbar {
+    nav {
+      ul {
+        flex-direction: column;
+        gap: 1rem;
+
+        li {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+// // Ajuste para el contenido principal
+// .main-content {
+//   padding-top: 2rem; // Ajusta este valor según la altura de tu navbar
+// }
