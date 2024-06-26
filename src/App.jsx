@@ -6,7 +6,7 @@ import Register from "./components/Register/Register";
 import Profile from "./components/Profile/Profile";
 import NotFound from "./components/NotFound/NotFound";
 import Speaker from "./components/Register/Speaker/Speaker"
-// import AboutYou from "./components/Register/Attendee/AboutYou/AboutYou";
+import AboutYou from "./components/Register/Attendee/AboutYou/AboutYou";
 // import Footer from "./components/Footer/Footer";
 import './App.css'; 
 import Attendee from "./components/Register/Attendee/Attendee";
@@ -23,7 +23,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/attendee" element={<Attendee />} />
-            {/* <Route path="/aboutyou" element={<AboutYou />} /> */}
+            <Route path="/aboutyou" element={<AboutYou />} />
             <Route path="/speaker" element={<Speaker />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
