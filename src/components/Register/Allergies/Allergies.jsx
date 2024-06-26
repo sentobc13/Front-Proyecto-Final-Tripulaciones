@@ -1,4 +1,4 @@
-import React from 'react'
+
 import './Allergies.scss'
 import { Link } from 'react-router-dom'
 
