@@ -16,37 +16,34 @@
     AlertIcon,
     Flex,
     Text,
-    useSteps,
-    Step,
-    Steps,
   } from '@chakra-ui/react';
-  
-    const Login = () => {
+ 
+  const Login = () => {
     const [formData, setFormData] = useState({
       email: '',
       password: '',
     });
     const { email, password } = formData;
     const { message, isSuccess, isError } = useSelector((state) => state.auth);
-  
+
     const [emailError, setEmailError] = useState(null);
-  
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
-  
+
     useEffect(() => {
       if (isSuccess) {
         navigate('/profile');
       }
       dispatch(reset());
     }, [isSuccess, dispatch, navigate]);
-  
+
     const onChange = (e) => {
       setFormData({
         ...formData,
         [e.target.name]: e.target.value,
       });
-  
+
       if (e.target.name === 'email') {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(e.target.value)) {
@@ -56,51 +53,81 @@
         }
       }
     };
-  
+
     const onSubmit = (e) => {
       e.preventDefault();
-  
+
       if (emailError) {
         return;
       }
-  
+
       dispatch(login(formData));
     };
-  
-    // Define los pasos para el Stepper
-    const steps = [
-      { title: 'Step 1', description: 'Enter email and password' },
-      { title: 'Step 2', description: 'Next step description' },
-      { title: 'Step 3', description: 'Final step description' },
-    ];
-  
-    // Usa el hook useSteps para manejar el estado del Stepper
-    const { activeStep } = useSteps({ initialStep: 0, count: steps.length });
-  
+
     return (
-      <div className="loginContainer">
-        <div className='bienvenidos'>
-          <h3>Bienvenid@ a</h3>
-          <div className='logoImagen'>
-            <img className="logo" src={logo} alt="Logo" />
-          </div>
-        </div>
-        <div className='formLogin'>
-          <Flex minHeight="50vh" alignItems="center" justifyContent="center" p={5}>
-            <Steps activeStep={activeStep}>
-              {steps.map((step, index) => (
-                <Step key={index} label={step.title}>
-                  <Box p={4}>
-                    <Text>{step.description}</Text>
-                  </Box>
-                </Step>
-              ))}
-            </Steps>
-          </Flex>
+    <div className="loginContainer">
+      <div className='bienvenidos'>
+        <h3>Bienvenid@ a</h3>
+        <div className='logoImagen'>
+          <img className="logo" src={logo} alt="Logo" />
         </div>
       </div>
-    );
+      <div className='formLogin'>
+        <Flex minHeight="50vh" alignItems="center" justifyContent="center" p={5}>
+          {isSuccess && (
+            <Alert status="success" mb={4}>
+              <AlertIcon />
+              <Text flex="1">
+                <strong>Success:</strong> {message}
+              </Text>
+              <Button onClick={() => dispatch(reset())} size="sm" variant="ghost">
+                X
+              </Button>
+            </Alert>
+          )}
+          {isError && (
+            <Alert status="error" mb={4}>
+              <AlertIcon />
+              <Text flex="1">
+                <strong>Error:</strong> {message}
+              </Text>
+              <Button onClick={() => dispatch(reset())} size="sm" variant="ghost">
+                X
+              </Button>
+            </Alert>
+          )}
+          <form onSubmit={onSubmit}>
+            <Stack spacing={4}>
+              <FormControl isRequired isInvalid={emailError}>
+                <FormLabel>Usuario</FormLabel>
+                <Input
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={onChange}
+                  placeholder="Inserte su correo"
+                />
+                {emailError && <Text color="red.500" fontSize="sm">{emailError}</Text>}
+              </FormControl>
+              <FormControl isRequired>
+                <FormLabel>Contraseña</FormLabel>
+                <Input
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={onChange}
+                  placeholder="Inserte su contraseña"
+                />
+              </FormControl>
+              <Button type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
+                Login
+              </Button>
+            </Stack>
+          </form>
+        </Flex>
+      </div>
+    </div>
+  );
   };
-  
 
   export default Login;
