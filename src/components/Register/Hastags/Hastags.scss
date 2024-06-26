@@ -1,0 +1,125 @@
+@import '../../../../colors.scss';
+
+.divtitleHastags {
+    width: 342px;
+    height: 66px;
+    top: 124px;
+    left: 25px;
+    gap: 0px;
+    opacity: 0px;
+}
+
+.titleHastags {
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 33px;
+    text-align: left;
+}
+
+.containerHastags {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.containerHastags2 {
+    display: flex;
+    margin-left: 5%;
+    align-items: center;
+    margin-bottom: 5%;
+    padding-left: 5%;
+}
+
+.divsubtitleHastags {
+    width: 328px;
+    height: 51px;
+    top: 242px;
+    left: 26px;
+    gap: 0px;
+    opacity: 0px;
+}
+
+.divsubtitleHastags2 {
+    width: 194px;
+    height: 17px;
+    top: 311px;
+    left: 24px;
+    gap: 0px;
+    opacity: 0px;
+}
+
+.subtitleHastags {
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: left;
+}
+
+.subtitleHastags2 {
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.07px;
+    text-align: left;
+}
+
+.divBadgesHastags {
+    width: Fixed (341px)px;
+    height: Hug (272px)px;
+    top: 372px;
+    left: 19px;
+    gap: 8px;
+    opacity: 0px;
+}
+
+.badgeGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(76px, 1fr));
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+
+    .uniqueBadge {
+        padding: 10px;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 10px;
+        border-radius: 10px;
+    }
+}
+
+.Badgecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divBadgesHastags {
+    margin-top: 20px;
+    display: flex;
+    width: 83.5%;
+}
+
+.BadgecontainerButton {
+    position: fixed;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.BadgecontainerButton button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: $buttons-register;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
