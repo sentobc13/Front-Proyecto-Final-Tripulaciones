@@ -1,6 +1,6 @@
 @import '../../../../colors.scss';
 
-.divtitleHastags {
+.divtitleLinkedin {
     width: 342px;
     height: 66px;
     top: 124px;
@@ -9,7 +9,7 @@
     opacity: 0px;
 }
 
-.titleHastags {
+.titleLinkedin {
     font-family: Montserrat;
     font-size: 30px;
     font-weight: 400;
@@ -17,35 +17,34 @@
     text-align: left;
 }
 
-.containerHastags {
+.containerLinkedin {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10%;
+    margin-bottom: 3%;
     padding-left: 10%;
     padding-right: 10%;
     margin-top: 30%;
 }
 
-.containerHastags2 {
+.containerLinkedin2 {
     display: flex;
     margin-left: 5%;
     align-items: center;
-    margin-bottom: 5%;
     padding-left: 5%;
 }
 
-.divsubtitleHastags {
+.divsubtitleLinkedin {
     width: 328px;
-    height: 51px;
+    height: 40px;
     top: 242px;
     left: 26px;
     gap: 0px;
     opacity: 0px;
 }
 
-.divsubtitleHastags2 {
-    width: 194px;
+.divsubtitleLinkedin2 {
+    width: 100%;
     height: 17px;
     top: 311px;
     left: 24px;
@@ -53,7 +52,7 @@
     opacity: 0px;
 }
 
-.subtitleHastags {
+.subtitleLinkedin {
     font-family: Montserrat;
     font-size: 14px;
     font-weight: 400;
@@ -61,7 +60,7 @@
     text-align: left;
 }
 
-.subtitleHastags2 {
+.subtitleLinkedin2 {
     font-family: Montserrat;
     font-size: 14px;
     font-weight: 400;
@@ -69,7 +68,7 @@
     text-align: left;
 }
 
-.divBadgesHastags {
+.divBadgesLinkedin {
     width: Fixed (341px)px;
     height: Hug (272px)px;
     top: 372px;
@@ -78,7 +77,7 @@
     opacity: 0px;
 }
 
-.badgeGrid {
+.LinkedinGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(76px, 1fr));
     gap: 10px;
@@ -86,7 +85,7 @@
     padding: 10px;
     border-radius: 20px;
 
-    .uniqueBadge {
+    .uniqueLinkedin {
         padding: 10px;
         text-align: center;
         font-family: Montserrat;
@@ -95,19 +94,19 @@
     }
 }
 
-.Badgecontainer {
+.Linkedincontainer {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.divBadgesHastags {
+.divBadgesLinkedin {
     margin-top: 20px;
     display: flex;
     width: 83.5%;
 }
 
-.BadgecontainerButton {
+.LinkedincontainerButton {
     position: fixed;
     bottom: 40px;
     width: 100%;
@@ -115,13 +114,39 @@
     padding: 10px;
 }
 
-.BadgecontainerButton button {
+.LinkedinButton {
     padding: 10px 20px;
     font-size: 16px;
-    color: white;
-    background-color: $buttons-register;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     width: 300px;
+    margin-bottom: 5%;
+    background-color: $buttons-register;
+    color: white;
+}
+
+.ContinueButtonLinkedin {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+    background-color: white;
+    border: 2px solid $buttons-register;
+    color: $buttons-register;
+}
+
+.LinkedinIcon {
+    font-size: 20px;
+    margin-right: 5%;
+}
+
+.pLinkedin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
 }

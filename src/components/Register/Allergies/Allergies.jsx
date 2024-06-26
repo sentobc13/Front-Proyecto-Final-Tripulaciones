@@ -1,5 +1,6 @@
 import React from 'react'
 import './Allergies.scss'
+import { Link } from 'react-router-dom'
 
 const Allergies = () => {
     return (
@@ -28,14 +29,16 @@ const Allergies = () => {
                         <p>
                             <input type="checkbox" name="frutas" value="manzana" /> Otro
                         </p>
-                        <div class="custom-input">
+                        <div className="custom-input">
                             <input type="text" placeholder="Otros alérgenos" />
                         </div>
                     </div>
                 </div>
             </div>
             <div className='BadgecontainerButton'>
-                <button>Finalizar</button>
+                <Link to="/hastags">
+                    <button>Siguiente</button>
+                </Link>
             </div>
         </>
     )
