@@ -5,6 +5,8 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Profile from "./components/Profile/Profile";
 import NotFound from "./components/NotFound/NotFound";
+import Attendee from "./components/Register/Attendee/Attende";
+import Speaker from "./components/Register/Speaker/Speaker"
 // import Footer from "./components/Footer/Footer";
 import './App.css'; 
 
@@ -15,10 +17,12 @@ function App() {
         <Header />
         <main className="main-content">
           <Routes>
-            <Route path="/home" element={<Home />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/attendee" element={<Attendee />} />
+            <Route path="/speaker" element={<Speaker />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

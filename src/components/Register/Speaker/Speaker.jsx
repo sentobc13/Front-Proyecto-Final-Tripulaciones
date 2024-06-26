@@ -15,7 +15,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 
-const Attendee = () => {
+const Speaker = () => {
   const [formData, setFormData] = useState({
     name: '',
     surname: '',
@@ -125,4 +125,4 @@ const Attendee = () => {
   );
 };
 
-export default Attendee;
+export default Speaker;
