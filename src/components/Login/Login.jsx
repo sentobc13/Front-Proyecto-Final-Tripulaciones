@@ -69,10 +69,12 @@ const Login = () => {
                 Bienvenido a
             </h3>
         </div>
+        <div>
+
+        </div>
     <Flex minHeight="100vh" alignItems="center" justifyContent="center" p={5}>
-      <Box width="100%" maxWidth="400px" mx="auto" p={5} boxShadow="md" borderRadius="md">
         <Heading as="h2" size="lg" mb={6} textAlign="center">
-          Login
+          
         </Heading>
         {isSuccess && (
           <Alert status="success" mb={4}>
@@ -99,31 +101,30 @@ const Login = () => {
         <form onSubmit={onSubmit}>
           <Stack spacing={4}>
             <FormControl isRequired isInvalid={emailError}>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>Usuario</FormLabel>
               <Input
                 type="email"
                 name="email"
                 value={email}
                 onChange={onChange}
-                placeholder="Insert your email"
+                placeholder="Inserte su correo"
               />
               {emailError && <Text color="red.500" fontSize="sm">{emailError}</Text>}
             </FormControl>
             <FormControl isRequired>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>Contraseña</FormLabel>
               <Input
                 type="password"
                 name="password"
                 value={password}
                 onChange={onChange}
-                placeholder="Insert your password"
+                placeholder="Inserte su contraseña"
               />
             </FormControl>
-            <Button type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>              Login
+            <Button type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth> Login 
             </Button>
           </Stack>
         </form>
-      </Box>
     </Flex>
     </div>
   );
