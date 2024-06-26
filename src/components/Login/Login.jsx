@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
   import { useEffect, useState } from 'react';
   import { useDispatch, useSelector } from 'react-redux';
   import { login, reset } from '../../features/auth/authSlice';
@@ -23,50 +23,7 @@
     const [formData, setFormData] = useState({
       email: '',
       password: '',
-=======
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { login, reset } from '../../features/auth/authSlice';
-import { useNavigate } from 'react-router-dom';
-import {
-  Box,
-  Button,
-  FormControl,
-  FormLabel,
-  Input,
-  Stack,
-  Heading,
-  Alert,
-  AlertIcon,
-  Flex,
-  Text,
-} from '@chakra-ui/react';
 
-const Login = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
-  const { email, password } = formData;
-  const { message, isSuccess, isError } = useSelector((state) => state.auth);
-
-  const [emailError, setEmailError] = useState(null);
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (isSuccess) {
-      navigate('/profile');
-    }
-    dispatch(reset());
-  }, [isSuccess, dispatch, navigate]);
-
-  const onChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
->>>>>>> Patri
     });
     const { email, password } = formData;
     const { message, isSuccess, isError } = useSelector((state) => state.auth);
