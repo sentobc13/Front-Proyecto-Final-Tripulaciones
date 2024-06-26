@@ -11,6 +11,7 @@ import AboutYou from "./components/Register/Attendee/AboutYou/AboutYou";
 import './App.css'; 
 import Attendee from "./components/Register/Attendee/Attendee";
 import Hastags from "./components/Register/Hastags/Hastags";
+import Allergies from "./components/Register/Allergies/Allergies";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/register" element={<Register />} />
             <Route path="/hastags" element={<Hastags />} />
+            <Route path="/allergies" element={<Allergies />} />
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />

@@ -1,6 +1,6 @@
 @import '../../../../colors.scss';
 
-.divtitleHastags {
+.divtitleAllergies {
     width: 342px;
     height: 66px;
     top: 124px;
@@ -9,7 +9,7 @@
     opacity: 0px;
 }
 
-.titleHastags {
+.titleAllergies {
     font-family: Montserrat;
     font-size: 30px;
     font-weight: 400;
@@ -17,7 +17,7 @@
     text-align: left;
 }
 
-.containerHastags {
+.containerAllergies {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +26,7 @@
     padding-right: 10%;
 }
 
-.containerHastags2 {
+.containerAllergies2 {
     display: flex;
     margin-left: 5%;
     align-items: center;
@@ -34,7 +34,7 @@
     padding-left: 5%;
 }
 
-.divsubtitleHastags {
+.divsubtitleAllergies {
     width: 328px;
     height: 51px;
     top: 242px;
@@ -43,7 +43,7 @@
     opacity: 0px;
 }
 
-.divsubtitleHastags2 {
+.divsubtitleAllergies2 {
     width: 194px;
     height: 17px;
     top: 311px;
@@ -52,15 +52,16 @@
     opacity: 0px;
 }
 
-.subtitleHastags {
+.subtitleAllergies {
     font-family: Montserrat;
     font-size: 14px;
     font-weight: 400;
     line-height: 16.8px;
     text-align: left;
+    margin-bottom: 3%;
 }
 
-.subtitleHastags2 {
+.subtitleAllergies2 {
     font-family: Montserrat;
     font-size: 14px;
     font-weight: 400;
@@ -68,7 +69,7 @@
     text-align: left;
 }
 
-.divBadgesHastags {
+.divBadgesAllergies {
     width: Fixed (341px)px;
     height: Hug (272px)px;
     top: 372px;
@@ -100,7 +101,7 @@
     align-items: center;
 }
 
-.divBadgesHastags {
+.divBadgesAllergies {
     margin-top: 20px;
     display: flex;
     width: 83.5%;
@@ -123,4 +124,25 @@
     border-radius: 5px;
     cursor: pointer;
     width: 300px;
+}
+
+.checkboxAllergies {
+    margin-left: 5%;
+}
+
+.custom-input input[type="text"] {
+    font-size: 13px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 50%;
+    height: 25px;
+}
+
+.custom-input input[type="text"]:focus {
+    outline: none;
+    border-color: #666;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
