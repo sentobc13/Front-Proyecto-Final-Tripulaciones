@@ -12,6 +12,7 @@ import './App.css';
 import Attendee from "./components/Register/Attendee/Attendee";
 import Hastags from "./components/Register/Hastags/Hastags";
 import Allergies from "./components/Register/Allergies/Allergies";
+import ConnectLinkedin from "./components/Register/ConnectLinkedin/ConnectLinkedin";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/hastags" element={<Hastags />} />
             <Route path="/allergies" element={<Allergies />} />
+            <Route path="/connectLinkedin" element={<ConnectLinkedin />} />
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
