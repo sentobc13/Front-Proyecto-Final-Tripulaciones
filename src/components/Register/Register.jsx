@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom';
 const Register = () => {
 
   return (
+    
     <div className="home-container">
+       
+            <h3>
+                Bienvenid@ a
+            </h3>
+       
       <img src={logo1} alt="Logo" className="logo" />
       <div className="buttons">
         <Link to="/attendee">
