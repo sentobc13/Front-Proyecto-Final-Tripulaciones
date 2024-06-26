@@ -7,11 +7,11 @@ const Register = () => {
     <div className="home-container">
       <img src={logo1} alt="Logo" className="logo" />
       <div className="buttons">
-        <Link to="/attendee">
+        <Link to="/loginPrincipal">
           <button className="button">Soy visitante</button>
         </Link>
-        <Link to="/speaker">
-          <button className="button">Soy ponente</button>
+        <Link to="/loginPrincipal">
+          <button className="button">Soy profesional</button>
         </Link>
       </div>
     </div>

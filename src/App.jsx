@@ -10,6 +10,7 @@ import Speaker from "./components/Register/Speaker/Speaker"
 // import Footer from "./components/Footer/Footer";
 import './App.css'; 
 import Hastags from "./components/Register/Hastags/Hastags";
+import LoginPrincipal from "./components/LoginPrincipal/LoginPrincipal";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/attendee" element={<Attendee />} />
             <Route path="/speaker" element={<Speaker />} />
+            <Route path="/loginPrincipal" element={<LoginPrincipal />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

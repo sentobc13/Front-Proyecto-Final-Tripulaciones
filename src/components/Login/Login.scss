@@ -32,5 +32,24 @@
       max-width: 400px;
       margin-top: -50px; // Ajusta este valor según tus necesidades
     }
+
+    .btn-login{
+        display: flex;
+        width: 342px;
+        height: 48px;
+        padding: 0 24px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 20px;
+        background-color: #4299e1;
+        color: white;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+
+    }
   }
   

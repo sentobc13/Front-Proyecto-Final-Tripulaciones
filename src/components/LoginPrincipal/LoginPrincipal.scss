@@ -1,0 +1,103 @@
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 30vh;
+    padding: 20px;
+  
+    .bienvenidos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      h3 {
+        margin: 0;
+        text-align: center;
+      }
+  
+      .logoImagen {
+        margin-top: 10px;
+  
+        .logo {
+          height: 100px;
+          width: 254.455px;
+          margin-bottom: 50px;
+        }
+      }
+    }
+  
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+      .btn-linkedin,
+      .btn-google,
+      .btn-crearCuenta,
+      .btn-iniciarSesion {
+        display: flex;
+        width: 342px;
+        height: 48px;
+        padding: 0 24px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 20px;
+        background-color: #4299e1;
+        color: white;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 6px;
+        transition: background-color 0.3s ease; // Transición suave para el color de fondo
+  
+        &:hover {
+          background-color: #3182ce; // Cambia el color de fondo al pasar el ratón
+        }
+      }
+  
+      .btn-iniciarSesion {
+        background-color: white;
+        color: #4299e1;
+        border: 1px solid #4299e1;
+  
+        &:hover {
+          background-color: #eee; // Cambia el color de fondo al pasar el ratón
+        }
+      }
+  
+      .btn-linkedin {
+        .iconLinkedin {
+          margin-right: 8px;
+        }
+      }
+  
+      .btn-google {
+        .iconGoogle {
+          margin-right: 8px;
+          margin-left: -10px;
+        }
+      }
+    }
+  
+    .separator {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin: 80px 0;
+  
+      .line {
+        flex-grow: 1;
+        height: 1px;
+        background-color: #ccc;
+      }
+  
+      .or {
+        margin: 0 10px;
+        color: #666;
+      }
+    }
+  }
+  
