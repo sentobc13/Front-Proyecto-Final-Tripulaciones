@@ -9,6 +9,7 @@ import Attendee from "./components/Register/Attendee/Attende";
 import Speaker from "./components/Register/Speaker/Speaker"
 // import Footer from "./components/Footer/Footer";
 import './App.css'; 
+import Hastags from "./components/Register/Hastags/Hastags";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/register" element={<Register />} />
+            <Route path="/hastags" element={<Hastags />} />
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
