@@ -1,15 +1,6 @@
-@import '../../../complements.scss';
-
-
-$gray300: rgba(203, 213, 224, 1);
-$gray400-medium: rgba(160, 174, 192, 1);
-$buttons-register: rgba(49, 130, 206, 1);
-$degradador-corporativo: rgba(16, 106, 242, 1);
-$degradado-corporativo2: rgba(102, 16, 242, 1);
-$font-family: $font-primary; 
 
 .menu-hamburguesa {
-  background: linear-gradient(180deg, $degradador-corporativo 0%, $degradado-corporativo2 100%);
+  background: var(--degradado-corporativo, radial-gradient(865.8% 89.15% at 6.03% 9.18%, #106AF2 0%, #6610F2 100%));
   width: 100%;
   padding: 1rem 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
