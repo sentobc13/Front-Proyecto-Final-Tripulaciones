@@ -31,6 +31,14 @@ const AboutYou = () => {
   };
 
   return (
+    <>
+    <div class="stepper">
+    <div class="step"></div>
+    <div class="step"></div>
+    <div class="step"></div>
+    <div class="step highlighted"></div>
+    <div class="step"></div>
+</div>
     <div className="about-you-container">
       <div>
         <h2>Sobre ti</h2>
@@ -84,6 +92,7 @@ const AboutYou = () => {
         </div>
       </form>
     </div>
+    </>
   );
 };
 

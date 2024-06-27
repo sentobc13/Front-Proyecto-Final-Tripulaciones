@@ -1,10 +1,12 @@
+@import '../../../../../colors.scss';
+
 .about-you-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 20px;
+    padding: 200px;
     background-color: #f9f9f9;
   }
   
@@ -39,26 +41,34 @@
     font-size: 14px;
     margin-top: 4px;
   }
-  
+
   .BadgecontainerAboutYouButton {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+  
+  .BadgecontainerAboutYouButton {
+    position: fixed;
+    bottom: 40px;
     width: 100%;
+    text-align: center;
+    padding: 10px;
   }
   
   .BadgecontainerAboutYouButton button {
     padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #4299E1;
-    color: white;
     font-size: 16px;
+    color: white;
+    background-color: $buttons-register;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    width: 300px;
   }
   
   .BadgecontainerAboutYouButton button:hover {
-    background-color: #3182CE;
+    background-color: #4299E1;
   }
   .about-you-container {
     display: flex;
@@ -69,4 +79,28 @@
     padding: 20px;
     background-color: #f9f9f9;
   }
-    
+  .stepper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 400px;
+    margin: auto;
+    padding: 10px;
+    margin-top: 30%;
+}
+.step {
+    width: 40px;
+    height: 4px;
+    background-color: #ddd;
+    margin: 0 10px;
+    border-radius: 10px;
+}
+
+.step.highlighted {
+    height:8px;
+    width: 60px;
+    /* Grosor de la línea resaltada */
+    background-color: $buttons-register;
+    /* Color de la línea resaltada */
+}
