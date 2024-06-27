@@ -36,7 +36,7 @@ const LoginPrincipal = () => {
           <hr className='line' />
         </div>
         <div>
-          <Link to="/attendee">
+          <Link to="/registerSegundoPaso">
             <Button className='btn-crearCuenta' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
               Crear cuenta
             </Button>

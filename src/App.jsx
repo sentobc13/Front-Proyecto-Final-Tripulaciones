@@ -13,6 +13,7 @@ import Hastags from "./components/Register/Hastags/Hastags";
 import Allergies from "./components/Register/Allergies/Allergies";
 import ConnectLinkedin from "./components/Register/ConnectLinkedin/ConnectLinkedin";
 import LoginPrincipal from "./components/LoginPrincipal/LoginPrincipal";
+import RegisterSegundoPaso from "./components/RegisterSegundoPaso/RegisterSegundoPaso";
 function App() {
   return (
     <div className="App">
@@ -31,6 +32,7 @@ function App() {
             <Route path="/aboutyou" element={<AboutYou />} />
             <Route path="/speaker" element={<Speaker />} />
             <Route path="/loginPrincipal" element={<LoginPrincipal />} />
+            <Route path="/registerSegundoPaso" element={<RegisterSegundoPaso />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
