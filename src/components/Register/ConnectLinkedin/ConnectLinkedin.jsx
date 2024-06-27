@@ -1,17 +1,18 @@
 import React from 'react'
 import './ConnectLinkedin.scss'
 import { FaLinkedin } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 
 const ConnectLinkedin = () => {
     return (
         <>
-            <div class="stepper">
-                <div class="step"></div>
-                <div class="step highlighted"></div>
-                <div class="step"></div>
-                <div class="step"></div>
-                <div class="step"></div>
+            <div className="stepper">
+                <div className="step"></div>
+                <div className="step highlighted"></div>
+                <div className="step"></div>
+                <div className="step"></div>
+                <div className="step"></div>
             </div>
 
             <div className="containerLinkedin">
@@ -35,7 +36,9 @@ const ConnectLinkedin = () => {
                         <FaLinkedin className='LinkedinIcon' />Conectar con Linkedin
                     </p>
                 </button>
-                <button className='ContinueButtonLinkedin'>Siguiente</button>
+                <Link to="/aboutyou">
+                    <button className='ContinueButtonLinkedin'>Siguiente</button>
+                </Link>
             </div>
         </>
     )
