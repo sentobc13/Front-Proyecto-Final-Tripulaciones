@@ -43,7 +43,7 @@ const LoginPrincipal = () => {
           </Link>
         </div>
         <div>
-          <Link to="/login">
+          <Link to="/identify">
             <Button className='btn-iniciarSesion' type="submit" bg="white" color="#4299E1" _hover={{ bg: '#eee' }} isFullWidth>
               Iniciar sesión
             </Button>

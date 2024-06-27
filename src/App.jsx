@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Header from "./components/Header/Header";
-import Register from "./components/Register/Register";
+import Identify from "./components/Register/Identify";
 import Profile from "./components/Profile/Profile";
 import NotFound from "./components/NotFound/NotFound";
 import Speaker from "./components/Register/Speaker/Speaker"
@@ -14,6 +14,8 @@ import ConnectLinkedin from "./components/Register/ConnectLinkedin/ConnectLinked
 import LoginPrincipal from "./components/LoginPrincipal/LoginPrincipal";
 import LoginAttendee from "./components/LoginAttendee/LoginAttendee";
 import LoginSpeaker from "./components/LoginSpeaker/LoginSpeaker";
+import PrivateZone from "./guards/PrivateZone";
+
 function App() {
   return (
     <div className="App">
@@ -21,12 +23,12 @@ function App() {
         {location.pathname !== "/allergies" && location.pathname !== "/hastags" && location.pathname !== "/login" && location.pathname !== "/attendee" && location.pathname !== "/connectLinkedin" && location.pathname !== "/aboutyou" && location.pathname !== "/speaker" && location.pathname !== "/loginPrincipal" && <Header />}
         <main className="main-content">
           <Routes>
-            <Route path="/register" element={<Register />} />
+            <Route path="/identify" element={<Identify />} />
             <Route path="/hastags" element={<Hastags />} />
             <Route path="/allergies" element={<Allergies />} />
             <Route path="/connectLinkedin" element={<ConnectLinkedin />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/" element={<PrivateZone><Home /></PrivateZone>} />
+            <Route path="/profile" element={<PrivateZone><Profile /></PrivateZone>} />
             <Route path="/loginAttendee" element={<LoginAttendee />} />
             <Route path="/loginSpeaker" element={<LoginSpeaker />} />
             <Route path="/attendee" element={<Attendee />} />

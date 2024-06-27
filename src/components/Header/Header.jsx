@@ -55,6 +55,7 @@ const Header = () => {
       </Flex>
       {menuOpen && (
         <VStack className="menu-hamburguesa" width="100%" position="absolute" top="64px" left="0" right="0" padding="1rem 0">
+          <Link to="/identify" onClick={toggleMenu}>Identifícate</Link> //EN TEORIA NO VA AcA PERO NOSE DONDE SINO
           <Link to="/programa" onClick={toggleMenu}>Programa</Link>
           <Link to="/mi-agenda" onClick={toggleMenu}>Mi agenda</Link>
           <Link to="/lista-asistentes" onClick={toggleMenu}>Lista de asistentes</Link>
