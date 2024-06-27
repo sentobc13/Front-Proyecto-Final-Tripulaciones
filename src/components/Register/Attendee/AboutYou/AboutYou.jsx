@@ -25,7 +25,7 @@ const AboutYou = () => {
 
   const handleNext = (e) => {
     e.preventDefault();
-    // Aquí puedes manejar la lógica para guardar los datos del formulario antes de la navegación
+   
     console.log(formData);
     navigate('/allergies');
   };
@@ -79,7 +79,7 @@ const AboutYou = () => {
             <input type="text" name="linkedin" value={formData.linkedin} onChange={handleChange} />
           </label>
         </p>
-        <div className="BadgecontainerButton">
+        <div className="BadgecontainerAboutYouButton">
           <button type="submit">Siguiente</button>
         </div>
       </form>

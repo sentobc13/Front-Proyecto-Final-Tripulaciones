@@ -40,13 +40,13 @@
     margin-top: 4px;
   }
   
-  .BadgecontainerButton {
+  .BadgecontainerAboutYouButton {
     display: flex;
     justify-content: center;
     width: 100%;
   }
   
-  .BadgecontainerButton button {
+  .BadgecontainerAboutYouButton button {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -57,7 +57,16 @@
     transition: background-color 0.3s ease;
   }
   
-  .BadgecontainerButton button:hover {
+  .BadgecontainerAboutYouButton button:hover {
     background-color: #3182CE;
   }
-  
+  .about-you-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+    
