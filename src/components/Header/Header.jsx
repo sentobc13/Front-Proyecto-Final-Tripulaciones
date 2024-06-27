@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Box, Flex, IconButton, Spacer, Image, VStack } from '@chakra-ui/react';
+import { Box, Flex, IconButton, Spacer, Image, VStack, Text } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/E-learning-Experience_Logo-negro.png';
+import './Header.scss'; // Asegúrate de importar el archivo SCSS
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,11 +38,16 @@ const Header = () => {
         />
       </Flex>
       {menuOpen && (
-        <VStack bg="white" width="100%" padding="1rem 0" boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)">
-          <Link to="/home" onClick={toggleMenu}>Home</Link>
-          <Link to="/register" onClick={toggleMenu}>Registro</Link>
-          <Link to="/profile" onClick={toggleMenu}>Perfil</Link>
-          <Link to="/loginPrincipal" onClick={toggleMenu}>Login</Link>
+        <VStack className="menu-hamburguesa" width="100%" padding="1rem 0">
+          <Link to="/programa" onClick={toggleMenu}>Programa</Link>
+          <Link to="/mi-agenda" onClick={toggleMenu}>Mi agenda</Link>
+          <Link to="/lista-asistentes" onClick={toggleMenu}>Lista de asistentes</Link>
+          <Link to="/mapa-sitio" onClick={toggleMenu}>Mapa del sitio</Link>
+          <Link to="/alojamientos" onClick={toggleMenu}>Alojamientos</Link>
+          <Link to="/colaboradores" onClick={toggleMenu}>Colaboradores</Link>
+          <Link to="/premios-digit" onClick={toggleMenu}>Premios Digit</Link>
+          <Link to="/contacto" onClick={toggleMenu}>Contacto</Link>
+          <Text className="footer-text">E-LEARNING EXPECIENCE by SAMOO<br />23 y 24 de mayo 2025<br />Valencia</Text>
         </VStack>
       )}
     </Box>
