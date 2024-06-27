@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, reset } from '../../features/auth/authSlice';
+import { login, reset } from '../../features/auth/attendee/authAttendeeSlice';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/E-learning-Experience_Logo-negro.png';
 import "./Login.scss"
@@ -18,13 +18,13 @@ import {
   Text,
 } from '@chakra-ui/react';
 
-const Login = () => {
+const LoginAttendee = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
   const { email, password } = formData;
-  const { message, isSuccess, isError } = useSelector((state) => state.auth);
+  const { message, isSuccess, isError } = useSelector((state) => state.authAttendee);
 
   const [emailError, setEmailError] = useState(null);
 
@@ -132,4 +132,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginAttendee;

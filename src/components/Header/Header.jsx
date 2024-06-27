@@ -77,6 +77,7 @@ const Header = () => {
               _hover={{ background: 'transparent' }}
             />
           </Flex>
+          <Link to="/identify" onClick={toggleMenu}>Identifícate</Link> //EN TEORIA NO VA AcA PERO NOSE DONDE SINO
           <Link to="/programa" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Programa</Link>
           <Link to="/mi-agenda" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Mi agenda</Link>
           <Link to="/lista-asistentes" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Lista de asistentes</Link>
