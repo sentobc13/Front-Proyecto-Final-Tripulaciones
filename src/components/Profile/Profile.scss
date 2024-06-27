@@ -1,0 +1,128 @@
+@import '../../../colors.scss';
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid $buttons-register;
+    background-color: white;
+    margin: 5%;
+    margin-bottom: 10px;
+    margin-left: 10%;
+}
+
+.profile-picture {
+    width: 100%;
+    height: auto;
+}
+
+.topProfile {
+    margin-top: 20%;
+    font-size: 20px;
+    width: 100%;
+}
+
+.pProfile {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    padding-right: 0px;
+    gap: 25%;
+}
+
+.iconProfile {
+    margin-right: 35%;
+}
+
+.titleNameProfile {
+    font-size: 30px;
+    margin-left: 6%;
+}
+
+.subtitleNameProfile {
+    font-size: 16px;
+    margin-left: 6%;
+}
+
+.descriptionNameProfile {
+    font-size: 14px;
+    margin-left: 6%;
+}
+
+.interestsProfile {
+    margin: 6%;
+}
+
+.interestsName {
+    margin-bottom: 5%;
+}
+
+.badgeGridProfile {
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    width: 100%;
+}
+
+.uniqueBadgeProfile {
+    text-align: center;
+    padding: 10px;
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    border-radius: 20px;
+    background-color: #BEE3F8;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto; /* El ancho se adapta al contenido */
+}
+
+.profileEdit {
+    font-size: 12px;
+    color: $buttons-register;
+}
+
+.linkedinNameProfile {
+    color: $buttons-register;
+}
+
+.moreInformationProfile {
+    margin-left: 6%;
+}
+
+.ShowQR {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+    margin-bottom: 5%;
+    background-color: $buttons-register;
+    color: white;
+}
+
+.ScanQR {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+    background-color: white;
+    border: 2px solid $buttons-register;
+    color: $buttons-register;
+}
+
+.containerButtonProfile {
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin-top: 5%;
+    position: fixed;
+}

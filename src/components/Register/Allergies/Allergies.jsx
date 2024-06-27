@@ -5,6 +5,13 @@ import { Link } from 'react-router-dom'
 const Allergies = () => {
     return (
         <>
+            <div className="stepper">
+                <div className="step"></div>
+                <div className="step"></div>
+                <div className="step"></div>
+                <div className="step highlighted"></div>
+                <div className="step"></div>
+            </div>
             <div className="containerAllergies">
                 <div className='divtitleAllergiess'>
                     <p className='titleAllergies'>Configura tu alimentacion</p>
