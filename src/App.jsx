@@ -19,11 +19,35 @@ import LoginAttendee from "./components/LoginAttendee/LoginAttendee";
 import LoginSpeaker from "./components/LoginSpeaker/LoginSpeaker";
 import PrivateZone from "./guards/PrivateZone";
 
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        {location.pathname !== "/allergies" && location.pathname !== "/hastags" && location.pathname !== "/login" && location.pathname !== "/attendee" && location.pathname !== "/connectLinkedin" && location.pathname !== "/aboutyou" && location.pathname !== "/speaker" && location.pathname !== "/loginPrincipal" && <Header />}
+  function App() {
+    return (
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <BrowserRouter>
+            <MainContent />
+          </BrowserRouter>
+        </div>
+      </ThemeProvider>
+    );
+  }
+
+  function MainContent() {
+    const location = useLocation();
+    const noHeaderPaths = [
+      "/allergies",
+      "/identify",
+      "/hastags",
+      "/login",
+      "/loginAttendee",
+      "/connectLinkedin",
+      "/aboutyou",
+      "/loginSpeaker",
+      "/loginPrincipal"
+    ];
+
+    return (
+      <>
+        {!noHeaderPaths.includes(location.pathname) && <Header />}
         <main className="main-content">
           <Routes>
             <Route path="/identify" element={<Identify />} />
@@ -41,58 +65,8 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
-        <MainContent />
-      </BrowserRouter>
-    </div>
-import theme from './theme';
+      </>
+    );
+  }
 
-function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        <BrowserRouter>
-          <MainContent />
-        </BrowserRouter>
-      </div>
-    </ThemeProvider>
-  );
-}
-
-function MainContent() {
-  const location = useLocation();
-  const noHeaderPaths = [
-    "/allergies",
-    "/register",
-    "/hastags",
-    "/login",
-    "/attendee",
-    "/connectLinkedin",
-    "/aboutyou",
-    "/speaker",
-    "/loginPrincipal"
-  ];
-
-  return (
-    <>
-      {!noHeaderPaths.includes(location.pathname) && <Header />}
-      <main className="main-content">
-        <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/hastags" element={<Hastags />} />
-          <Route path="/allergies" element={<Allergies />} />
-          <Route path="/connectLinkedin" element={<ConnectLinkedin />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/attendee" element={<Attendee />} />
-          <Route path="/aboutyou" element={<AboutYou />} />
-          <Route path="/speaker" element={<Speaker />} />
-          <Route path="/loginPrincipal" element={<LoginPrincipal />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
-    </>
-  );
-}
-
-export default App;
+  export default App;

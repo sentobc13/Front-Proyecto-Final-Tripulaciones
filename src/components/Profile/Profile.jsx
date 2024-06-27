@@ -24,14 +24,14 @@ const Profile = () => {
         <span>Fernando supervisa las ventas globales de productos de LVIS.</span>
       </div>
       <div className="interestsProfile">
-      <p className="interestsName">Intereses</p>
-      <div className="chipGrid">
-        <Chip className="uniqueChipProfile" label="E-learning" />
-        <Chip className="uniqueChipProfile" label="E-learning" />
-        <Chip className="uniqueChipProfile" label="E-learning" />
-        <Chip className="uniqueChipProfile" label="E-learning" />
+        <p className="interestsName">Intereses</p>
+        <div className="chipGrid">
+          <Chip className="uniqueChipProfile" label="E-learning" />
+          <Chip className="uniqueChipProfile" label="E-learning" />
+          <Chip className="uniqueChipProfile" label="E-learning" />
+          <Chip className="uniqueChipProfile" label="E-learning" />
+        </div>
       </div>
-    </div>
       <div className="moreInformationProfile">
         <p>Linkedin : <a href="https://www.linkedin.com/in/manel-piernas-hernandez/" className="linkedinNameProfile">Fernando_Redondo</a></p>
         <p>Website</p>
