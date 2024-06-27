@@ -1,4 +1,5 @@
 @import '../../../../colors.scss';
+@import '../complements';
 
 .divtitleLinkedin {
     width: 342px;
@@ -25,6 +26,7 @@
     padding-left: 10%;
     padding-right: 10%;
     margin-top: 7%;
+    font-family: $font-primary; 
 }
 
 .containerLinkedin2 {

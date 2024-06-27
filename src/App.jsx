@@ -1,4 +1,4 @@
-// App.js
+
 import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from '@mui/material/styles';
@@ -18,6 +18,7 @@ import LoginPrincipal from "./components/LoginPrincipal/LoginPrincipal";
 import LoginAttendee from "./components/LoginAttendee/LoginAttendee";
 import LoginSpeaker from "./components/LoginSpeaker/LoginSpeaker";
 import PrivateZone from "./guards/PrivateZone";
+import theme from './theme'
 
   function App() {
     return (
