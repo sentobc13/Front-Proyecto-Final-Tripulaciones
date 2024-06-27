@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom'
 const Allergies = () => {
     return (
         <>
-            <div class="stepper">
-                <div class="step"></div>
-                <div class="step"></div>
-                <div class="step"></div>
-                <div class="step highlighted"></div>
-                <div class="step"></div>
+            <div className="stepper">
+                <div className="step"></div>
+                <div className="step"></div>
+                <div className="step"></div>
+                <div className="step highlighted"></div>
+                <div className="step"></div>
             </div>
             <div className="containerAllergies">
                 <div className='divtitleAllergiess'>
