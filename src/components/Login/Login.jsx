@@ -1,49 +1,45 @@
-  import React, { useEffect, useState } from 'react';
+
+  import { useEffect, useState } from 'react';
   import { useDispatch, useSelector } from 'react-redux';
   import { login, reset } from '../../features/auth/authSlice';
   import { useNavigate } from 'react-router-dom';
   import logo from '../../assets/E-learning-Experience_Logo-negro.png';
   import "./Login.scss"
   import{
-    Box,
+    // Box,
     Button,
     FormControl,
     FormLabel,
     Input,
     Stack,
-    Heading,
+    // Heading,
     Alert,
     AlertIcon,
     Flex,
     Text,
   } from '@chakra-ui/react';
- 
   const Login = () => {
     const [formData, setFormData] = useState({
       email: '',
       password: '',
+
     });
     const { email, password } = formData;
     const { message, isSuccess, isError } = useSelector((state) => state.auth);
-
     const [emailError, setEmailError] = useState(null);
-
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
     useEffect(() => {
       if (isSuccess) {
         navigate('/profile');
       }
       dispatch(reset());
     }, [isSuccess, dispatch, navigate]);
-
     const onChange = (e) => {
       setFormData({
         ...formData,
         [e.target.name]: e.target.value,
       });
-
       if (e.target.name === 'email') {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(e.target.value)) {
@@ -53,17 +49,13 @@
         }
       }
     };
-
     const onSubmit = (e) => {
       e.preventDefault();
-
       if (emailError) {
         return;
       }
-
       dispatch(login(formData));
     };
-
     return (
     <div className="loginContainer">
       <div className='bienvenidos'>
@@ -129,5 +121,4 @@
     </div>
   );
   };
-
   export default Login;
