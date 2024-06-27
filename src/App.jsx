@@ -7,7 +7,6 @@ import Profile from "./components/Profile/Profile";
 import NotFound from "./components/NotFound/NotFound";
 import Speaker from "./components/Register/Speaker/Speaker"
 import AboutYou from "./components/Register/Attendee/AboutYou/AboutYou";
-// import Footer from "./components/Footer/Footer";
 import './App.css'; 
 import Attendee from "./components/Register/Attendee/Attendee";
 import Hastags from "./components/Register/Hastags/Hastags";

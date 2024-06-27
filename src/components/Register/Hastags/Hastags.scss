@@ -24,7 +24,7 @@
     margin-bottom: 10%;
     padding-left: 10%;
     padding-right: 10%;
-    margin-top: 30%;
+    margin-top: 7%;
 }
 
 .containerHastags2 {
@@ -124,4 +124,31 @@
     border-radius: 5px;
     cursor: pointer;
     width: 300px;
+}
+
+.stepper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 400px;
+    margin: auto;
+    padding: 10px;
+    margin-top: 30%;
+}
+
+.step {
+    width: 40px;
+    height: 4px;
+    background-color: #ddd;
+    margin: 0 10px;
+    border-radius: 10px;
+}
+
+.step.highlighted {
+    height:8px;
+    width: 60px;
+    /* Grosor de la línea resaltada */
+    background-color: $buttons-register;
+    /* Color de la línea resaltada */
 }
