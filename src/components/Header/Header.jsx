@@ -4,17 +4,16 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/E-learning-Experience_Logo-negro.png';
-import './Header.scss'; // Asegúrate de importar el archivo SCSS
+import './Header.scss'; 
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [headerColor, setHeaderColor] = useState('white'); // Color inicial del header
+  const [headerColor, setHeaderColor] = useState('white');
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    // Cambiar el color del header al abrir/cerrar el menú
     if (menuOpen) {
-      setHeaderColor('white'); // Color inicial cuando se cierra el menú
+      setHeaderColor('white'); 
     } else {
       setHeaderColor('radial-gradient(865.8% 89.15% at 6.03% 9.18%, #106AF2 0%, #6610F2 100%)'); // Cambiar por el gradiente deseado
     }
@@ -22,7 +21,7 @@ const Header = () => {
 
   return (
     <Box
-      bg={headerColor} // Aplicar el color dinámico del header
+      bg={headerColor} 
       width="100%"
       padding="1rem 0"
       boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
@@ -46,12 +45,14 @@ const Header = () => {
           </Link>
         </Box>
         <Spacer />
-        <IconButton
-          icon={<FaUserCircle />}
-          color="black"
-          variant="ghost"
-          aria-label="User Profile"
-        />
+        <Link to="/profile">
+          <IconButton
+            icon={<FaUserCircle />}
+            color="black"
+            variant="ghost"
+            aria-label="User Profile"
+          />
+        </Link>
       </Flex>
       {menuOpen && (
         <VStack className="menu-hamburguesa" width="100%" position="absolute" top="64px" left="0" right="0" padding="1rem 0">

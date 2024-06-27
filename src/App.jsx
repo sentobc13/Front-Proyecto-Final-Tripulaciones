@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {location.pathname !== "/allergies" && location.pathname !== "/hastags" && location.pathname !== "/login" && location.pathname !== "/attendee" && location.pathname !== "/connectLinkedin" && location.pathname !== "/aboutyou" && location.pathname !== "/speaker" && location.pathname !== "/loginPrincipal" && <Header />}
+        {location.pathname !== "/register" && location.pathname !== "/allergies" && location.pathname !== "/hastags" && location.pathname !== "/login" && location.pathname !== "/attendee" && location.pathname !== "/connectLinkedin" && location.pathname !== "/aboutyou" && location.pathname !== "/speaker" && location.pathname !== "/loginPrincipal" && <Header />}
         <main className="main-content">
           <Routes>
             <Route path="/register" element={<Register />} />
