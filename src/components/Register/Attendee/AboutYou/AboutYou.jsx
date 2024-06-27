@@ -35,8 +35,8 @@ const AboutYou = () => {
       <div className="stepper">
         <div className="step"></div>
         <div className="step"></div>
-        <div className="step"></div>
         <div className="step highlighted"></div>
+        <div className="step"></div>
         <div className="step"></div>
       </div>
       <div className="about-you-container">
