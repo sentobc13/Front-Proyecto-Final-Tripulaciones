@@ -16,6 +16,7 @@ import {
     Flex,
     Text,
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const RegisterSegundoPaso = () => {
     const [formData, setFormData] = useState({
@@ -141,9 +142,11 @@ const RegisterSegundoPaso = () => {
                                         placeholder="Confirme su contraseña"
                                     />
                                 </FormControl>
+                                <Link to="/connectLinkedin">
                                 <Button className='btn-register' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
                                     Crear cuenta
                                 </Button>
+                                </Link>
                                 <Text fontSize="sm" textAlign="" color="gray.600" mt={4}>
                                     Al registrarte, aceptas los <a href="/terminos" style={{ color: '#4299E1' }}>Términos de servicio</a> y la <a href="/privacidad" style={{ color: '#4299E1' }}>Política de privacidad</a>, incluida la politica de <a href="/cookies" style={{ color: '#4299E1' }}>Uso de Cookies.</a>
                                 </Text>
