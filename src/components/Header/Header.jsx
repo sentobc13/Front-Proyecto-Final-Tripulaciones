@@ -41,7 +41,7 @@ const Header = () => {
           <Link to="/home" onClick={toggleMenu}>Home</Link>
           <Link to="/register" onClick={toggleMenu}>Registro</Link>
           <Link to="/profile" onClick={toggleMenu}>Perfil</Link>
-          <Link to="/login" onClick={toggleMenu}>Login</Link>
+          <Link to="/loginPrincipal" onClick={toggleMenu}>Login</Link>
         </VStack>
       )}
     </Box>

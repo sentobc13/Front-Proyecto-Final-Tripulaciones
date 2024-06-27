@@ -15,10 +15,10 @@ const Register = () => {
        
       <img src={logo1} alt="Logo" className="logo" />
       <div className="buttons">
-        <Link to="/connectLinkedin">
+        <Link to="/loginPrincipal">
           <button className="button">Soy visitante</button>
         </Link>
-        <Link to="/speaker">
+        <Link to="/loginPrincipal">
           <button className="button">Soy profesional</button>
         </Link>
       </div>

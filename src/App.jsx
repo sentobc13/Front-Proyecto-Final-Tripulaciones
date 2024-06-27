@@ -12,12 +12,29 @@ import Hastags from "./components/Register/Hastags/Hastags";
 import Allergies from "./components/Register/Allergies/Allergies";
 import ConnectLinkedin from "./components/Register/ConnectLinkedin/ConnectLinkedin";
 import './App.css'; 
+import LoginPrincipal from "./components/LoginPrincipal/LoginPrincipal";
 
 function AppContent() {
   const location = useLocation();
   const isRegisterRoute = location.pathname === '/register';
 
   return (
+    <div className="App">
+      <BrowserRouter>
+        <Header />
+        <main className="main-content">
+          <Routes>
+            <Route path="/register" element={<Register />} />
+            <Route path="/hastags" element={<Hastags />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/attendee" element={<Attendee />} />
+            <Route path="/speaker" element={<Speaker />} />
+            <Route path="/loginPrincipal" element={<LoginPrincipal />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
     <>
       {!isRegisterRoute && <Header />}
       <main className="main-content">
