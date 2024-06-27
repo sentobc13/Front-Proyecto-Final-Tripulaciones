@@ -32,66 +32,49 @@ const AboutYou = () => {
 
   return (
     <>
-    <div class="stepper">
-    <div class="step"></div>
-    <div class="step"></div>
-    <div class="step"></div>
-    <div class="step highlighted"></div>
-    <div class="step"></div>
-</div>
-    <div className="about-you-container">
-      <div>
-        <h2>Sobre ti</h2>
+      <div className="stepper">
+        <div className="step"></div>
+        <div className="step"></div>
+        <div className="step"></div>
+        <div className="step highlighted"></div>
+        <div className="step"></div>
       </div>
-
-      <form className="containerAboutYouForm" onSubmit={handleNext}>
-        <p>
+      <div className="about-you-container">
+        <h2>Sobre ti</h2>
+        <form className="containerAboutYouForm" onSubmit={handleNext}>
           <label>
             Nombre
-            <input type="text" name="nombre" value={formData.nombre} onChange={handleChange} />
+            <input type="text" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Samuel"/>
           </label>
-        </p>
-        <p>
           <label>
             Apellido
-            <input type="text" name="apellido" value={formData.apellido} onChange={handleChange} />
+            <input type="text" name="apellido" value={formData.apellido} onChange={handleChange} placeholder="Ramírez"/>
           </label>
-        </p>
-        <p>
           <label>
             País de residencia
-            <input type="text" name="pais" value={formData.pais} onChange={handleChange} />
+            <input type="text" name="pais" value={formData.pais} onChange={handleChange} placeholder="Colombia"/>
           </label>
-        </p>
-        <p>
           <label>
             Empresa
-            <input type="text" name="empresa" value={formData.empresa} onChange={handleChange} />
+            <input type="text" name="empresa" value={formData.empresa} onChange={handleChange} placeholder="Nombre de la empresa..."/>
           </label>
-        </p>
-        <p>
           <label>
             Teléfono
-            <input type="text" name="telefono" value={formData.telefono} onChange={handleChange} />
+            <input type="text" name="telefono" value={formData.telefono} onChange={handleChange} placeholder="+34 63459392"/>
           </label>
-        </p>
-        <p>
           <label>
             Cargo
-            <input type="text" name="cargo" value={formData.cargo} onChange={handleChange} />
+            <input type="text" name="cargo" value={formData.cargo} onChange={handleChange} placeholder="CEO, Administrador..."/>
           </label>
-        </p>
-        <p>
           <label>
             Linkedin
-            <input type="text" name="linkedin" value={formData.linkedin} onChange={handleChange} />
+            <input type="text" name="linkedin" value={formData.linkedin} onChange={handleChange} placeholder="linkedin.com/in/samuelramirez"/>
           </label>
-        </p>
-        <div className="BadgecontainerAboutYouButton">
-          <button type="submit">Siguiente</button>
-        </div>
-      </form>
-    </div>
+          <div className="BadgecontainerAboutYouButton">
+            <button type="submit">Siguiente</button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };

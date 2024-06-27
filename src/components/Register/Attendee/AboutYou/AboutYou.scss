@@ -1,106 +1,85 @@
 @import '../../../../../colors.scss';
 
 .about-you-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 200px;
-    background-color: #f9f9f9;
-  }
-  
-  .containerAboutYouForm {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    max-width: 400px;
-    width: 100%;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .containerAboutYouForm p {
-    width: 100%;
-  }
-  
-  .containerAboutYouForm label {
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-    margin-bottom: 8px;
-  }
-  
-  .containerAboutYouForm input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    margin-top: 4px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
 
-  .BadgecontainerAboutYouButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 400px;
+  margin: auto;
+  padding: 10px;
+  margin-top: 30%;
 }
-  
-  .BadgecontainerAboutYouButton {
-    position: fixed;
-    bottom: 40px;
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-  }
-  
-  .BadgecontainerAboutYouButton button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: $buttons-register;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 300px;
-  }
-  
-  .BadgecontainerAboutYouButton button:hover {
-    background-color: #4299E1;
-  }
-  .about-you-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  .stepper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    max-width: 400px;
-    margin: auto;
-    padding: 10px;
-    margin-top: 30%;
-}
+
 .step {
-    width: 40px;
-    height: 4px;
-    background-color: #ddd;
-    margin: 0 10px;
-    border-radius: 10px;
+  width: 40px;
+  height: 4px;
+  background-color: #ddd;
+  margin: 0 10px;
+  border-radius: 10px;
 }
 
 .step.highlighted {
-    height:8px;
-    width: 60px;
-    /* Grosor de la línea resaltada */
-    background-color: $buttons-register;
-    /* Color de la línea resaltada */
+  height: 8px;
+  width: 60px;
+  background-color: $buttons-register;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.containerAboutYouForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.containerAboutYouForm label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.containerAboutYouForm input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.BadgecontainerAboutYouButton {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  bottom: 40px;
+}
+
+.BadgecontainerAboutYouButton button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: $buttons-register;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 90%;
+  max-width: 300px;
+}
+
+.BadgecontainerAboutYouButton button:hover {
+  background-color: lighten($buttons-register, 10%);
 }
