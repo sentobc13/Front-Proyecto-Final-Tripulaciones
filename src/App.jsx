@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from '@mui/material/styles';
 import Home from "./components/Home/Home";
@@ -19,55 +18,56 @@ import LoginAttendee from "./components/LoginAttendee/LoginAttendee";
 import LoginSpeaker from "./components/LoginSpeaker/LoginSpeaker";
 import PrivateZone from "./guards/PrivateZone";
 import theme from './theme'
+import Agency from './components/Agency/Agency';
 
-  function App() {
-    return (
-      <ThemeProvider theme={theme}>
-        <div className="App">
-          <BrowserRouter>
-            <MainContent />
-          </BrowserRouter>
-        </div>
-      </ThemeProvider>
-    );
-  }
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <BrowserRouter>
+          <MainContent />
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
+  );
+}
 
-  function MainContent() {
-    const location = useLocation();
-    const noHeaderPaths = [
-      "/allergies",
-      "/identify",
-      "/hastags",
-      "/login",
-      "/loginAttendee",
-      "/connectLinkedin",
-      "/aboutyou",
-      "/loginSpeaker",
-      "/loginPrincipal"
-    ];
+function MainContent() {
+  const location = useLocation();
+  const noHeaderPaths = [
+    "/allergies",
+    "/identify",
+    "/hastags",
+    "/loginAttendee",
+    "/connectLinkedin",
+    "/aboutyou",
+    "/loginSpeaker",
+    "/loginPrincipal"
+  ];
 
-    return (
-      <>
-        {!noHeaderPaths.includes(location.pathname) && <Header />}
-        <main className="main-content">
-          <Routes>
-            <Route path="/identify" element={<Identify />} />
-            <Route path="/hastags" element={<Hastags />} />
-            <Route path="/allergies" element={<Allergies />} />
-            <Route path="/connectLinkedin" element={<ConnectLinkedin />} />
-            <Route path="/" element={<PrivateZone><Home /></PrivateZone>} />
-            <Route path="/profile" element={<PrivateZone><Profile /></PrivateZone>} />
-            <Route path="/loginAttendee" element={<LoginAttendee />} />
-            <Route path="/loginSpeaker" element={<LoginSpeaker />} />
-            <Route path="/attendee" element={<Attendee />} />
-            <Route path="/aboutyou" element={<AboutYou />} />
-            <Route path="/speaker" element={<Speaker />} />
-            <Route path="/loginPrincipal" element={<LoginPrincipal />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-      </>
-    );
-  }
+  return (
+    <>
+      {!noHeaderPaths.includes(location.pathname) && <Header />}
+      <main className="main-content">
+        <Routes>
+          <Route path="/identify" element={<Identify />} />
+          <Route path="/agency" element={<Agency />} />
+          <Route path="/hastags" element={<Hastags />} />
+          <Route path="/allergies" element={<Allergies />} />
+          <Route path="/connectLinkedin" element={<ConnectLinkedin />} />
+          <Route path="/" element={<PrivateZone><Home /></PrivateZone>} />
+          <Route path="/profile" element={<PrivateZone><Profile /></PrivateZone>} />
+          <Route path="/loginAttendee" element={<LoginAttendee />} />
+          <Route path="/loginSpeaker" element={<LoginSpeaker />} />
+          <Route path="/attendee" element={<Attendee />} />
+          <Route path="/aboutyou" element={<AboutYou />} />
+          <Route path="/speaker" element={<Speaker />} />
+          <Route path="/loginPrincipal" element={<LoginPrincipal />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+    </>
+  );
+}
 
-  export default App;
+export default App;

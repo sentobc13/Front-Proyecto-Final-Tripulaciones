@@ -4,7 +4,6 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/E-learning-Experience_Logo-negro.png';
-import logo1 from '../../assets/E-learning-Experience_Logo-Blanco.png';
 import './Header.scss'; 
 
 const Header = () => {
