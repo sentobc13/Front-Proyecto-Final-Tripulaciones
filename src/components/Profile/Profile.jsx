@@ -1,7 +1,6 @@
-import { Badge } from "@chakra-ui/react"
 import "./Profile.scss"
 import { GoChevronLeft } from "react-icons/go";
-import { Link } from "react-router-dom";
+import Chip from '@mui/material/Chip';
 
 const Profile = () => {
   return (
@@ -25,13 +24,14 @@ const Profile = () => {
         <span>Fernando supervisa las ventas globales de productos de LVIS.</span>
       </div>
       <div className="interestsProfile">
-        <p className="interestsName">Intereses</p>
-        <div className='badgeGridProfile'>
-          <Badge className='uniqueBadgeProfile' style={{ backgroundColor: '#BEE3F8' }}>Inteligencia Artificial</Badge>
-          <Badge className='uniqueBadgeProfile' style={{ backgroundColor: '#BEE3F8' }}>E-learning</Badge>
-          <Badge className='uniqueBadgeProfile' style={{ backgroundColor: '#BEE3F8' }}>E-learning</Badge>
-        </div>
+      <p className="interestsName">Intereses</p>
+      <div className="chipGrid">
+        <Chip className="uniqueChipProfile" label="E-learning" />
+        <Chip className="uniqueChipProfile" label="E-learning" />
+        <Chip className="uniqueChipProfile" label="E-learning" />
+        <Chip className="uniqueChipProfile" label="E-learning" />
       </div>
+    </div>
       <div className="moreInformationProfile">
         <p>Linkedin : <a href="https://www.linkedin.com/in/manel-piernas-hernandez/" className="linkedinNameProfile">Fernando_Redondo</a></p>
         <p>Website</p>

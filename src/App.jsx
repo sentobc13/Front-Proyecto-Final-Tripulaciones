@@ -1,4 +1,7 @@
+// App.js
+import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { ThemeProvider } from '@mui/material/styles';
 import Home from "./components/Home/Home";
 import Header from "./components/Header/Header";
 import Identify from "./components/Register/Identify";
@@ -41,6 +44,17 @@ function App() {
         <MainContent />
       </BrowserRouter>
     </div>
+import theme from './theme';
+
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <BrowserRouter>
+          <MainContent />
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
   );
 }
 
