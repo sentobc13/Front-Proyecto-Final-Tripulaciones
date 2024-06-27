@@ -6,6 +6,14 @@ import { FaLinkedin } from "react-icons/fa";
 const ConnectLinkedin = () => {
     return (
         <>
+            <div class="stepper">
+                <div class="step"></div>
+                <div class="step highlighted"></div>
+                <div class="step"></div>
+                <div class="step"></div>
+                <div class="step"></div>
+            </div>
+
             <div className="containerLinkedin">
                 <div className='divtitleLinkedin'>
                     <p className='titleLinkedin'>Amplía tu network</p>

@@ -4,6 +4,13 @@ import { Stack, Badge } from '@chakra-ui/react'
 const Hastags = () => {
     return (
         <>
+            <div class="stepper">
+                <div class="step"></div>
+                <div class="step"></div>
+                <div class="step"></div>
+                <div class="step"></div>
+                <div class="step highlighted"></div>
+            </div>
             <div className="containerHastags">
                 <div className='divtitleHastags'>
                     <p className='titleHastags'>Ayúdanos a conocer mejor tu intereses</p>
