@@ -18,6 +18,7 @@ import LoginPrincipal from "./components/LoginPrincipal/LoginPrincipal";
 import LoginAttendee from "./components/LoginAttendee/LoginAttendee";
 import LoginSpeaker from "./components/LoginSpeaker/LoginSpeaker";
 import PrivateZone from "./guards/PrivateZone";
+import theme from "./theme"
 
   function App() {
     return (
@@ -37,7 +38,6 @@ import PrivateZone from "./guards/PrivateZone";
       "/allergies",
       "/identify",
       "/hastags",
-      "/login",
       "/loginAttendee",
       "/connectLinkedin",
       "/aboutyou",
