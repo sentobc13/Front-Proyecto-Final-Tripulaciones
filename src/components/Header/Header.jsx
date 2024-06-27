@@ -10,6 +10,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [headerColor, setHeaderColor] = useState('white'); // Color inicial del header
   const [menuButtonColor, setMenuButtonColor] = useState('black'); // Color inicial del botón del menú
+  const [menuButtonBgColor, setMenuButtonBgColor] = useState('transparent'); // Fondo inicial del botón del menú
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -17,21 +18,24 @@ const Header = () => {
     if (menuOpen) {
       setHeaderColor('white'); // Color inicial cuando se cierra el menú
       setMenuButtonColor('black'); // Color inicial cuando se cierra el menú
+      setMenuButtonBgColor('transparent'); // Fondo inicial cuando se cierra el menú
     } else {
       setHeaderColor('radial-gradient(865.8% 89.15% at 6.03% 9.18%, #106AF2 0%, #6610F2 100%)'); // Cambiar por el gradiente deseado
-      setMenuButtonColor('white'); // Cambiar por el color deseado del botón del menú
+      setMenuButtonColor('white'); // Cambiar por el color deseado del icono del botón del menú
+      setMenuButtonBgColor('radial-gradient(865.8% 89.15% at 6.03% 9.18%, #106AF2 0%, #6610F2 100%)'); // Fondo del botón del menú
     }
   };
 
   const closeMenu = () => {
     setMenuOpen(false);
     setHeaderColor('white'); // Restaurar color inicial del header al cerrar menú
-    setMenuButtonColor('black'); // Restaurar color inicial del botón del menú al cerrar menú
+    setMenuButtonColor('black'); // Restaurar color inicial del icono del botón del menú al cerrar menú
+    setMenuButtonBgColor('transparent'); // Restaurar fondo inicial del botón del menú al cerrar menú
   };
 
   return (
     <Box
-      bg={headerColor} // Aplicar el color dinámico del header
+      bg={menuOpen ? 'radial-gradient(865.8% 89.15% at 6.03% 9.18%, #106AF2 0%, #6610F2 100%)' : 'white'} // Aplicar el color dinámico del header cuando el menú está abierto
       width="100%"
       padding="1rem 0"
       boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
@@ -39,14 +43,17 @@ const Header = () => {
       top="0"
       left="0"
       zIndex="1000"
+      transition="background 0.3s ease" // Transición suave al cambiar el fondo
     >
       <Flex maxWidth="1200px" margin="0 auto" padding="0 2rem" alignItems="center">
         <IconButton
           icon={<HamburgerIcon />}
-          color={menuButtonColor} // Color dinámico del botón del menú
+          color={menuButtonColor} // Color dinámico del icono del botón del menú
+          background={menuButtonBgColor} // Fondo dinámico del botón del menú
           variant="ghost"
           aria-label="Open Menu"
           onClick={toggleMenu}
+          _hover={{ background: menuButtonBgColor }} // Mantener el color de fondo en hover
         />
         <Spacer />
         <Box>
