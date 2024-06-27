@@ -73,7 +73,7 @@ const Login = () => {
         </div>
       </div>
       <div className='formLogin'>
-        <Flex minHeight="50vh" alignItems="center" justifyContent="center" p={5}>
+        <Flex minHeight="54vh" alignItems="center" justifyContent="center" p={5}>
           {isSuccess && (
             <Alert status="success" mb={4}>
               <AlertIcon />
