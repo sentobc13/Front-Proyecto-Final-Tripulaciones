@@ -88,7 +88,7 @@ const RegisterSegundoPaso = () => {
                 </div>
             </div>
             <div className='form-register'>
-                <Flex minHeight="50vh" alignItems="center" justifyContent="center" p={5}>
+                <Flex minHeight="54vh" alignItems="center" justifyContent="center" p={5}>
                     <div style={{ width: '100%', maxWidth: '500px' }}>
                         {formError && (
                             <Alert status="error" mb={4}>
