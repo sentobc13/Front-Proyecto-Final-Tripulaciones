@@ -40,7 +40,7 @@ const AboutYou = () => {
         <div className="step"></div>
       </div>
       <div className="about-you-container">
-        <h2>Sobre ti</h2>
+      <h2 className="heading">Sobre ti</h2>
         <form className="containerAboutYouForm" onSubmit={handleNext}>
           <label>
             Nombre

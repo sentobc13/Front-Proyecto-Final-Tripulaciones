@@ -10,6 +10,16 @@
   font-family: $font-primary; 
 }
 
+.heading {
+    color: #000;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 33px; /* 110% */
+  }
+
 .stepper {
   display: flex;
   justify-content: space-between;
