@@ -12,7 +12,7 @@ import Attendee from "./components/Register/Attendee/Attendee";
 import Hastags from "./components/Register/Hastags/Hastags";
 import Allergies from "./components/Register/Allergies/Allergies";
 import ConnectLinkedin from "./components/Register/ConnectLinkedin/ConnectLinkedin";
-
+import LoginPrincipal from "./components/LoginPrincipal/LoginPrincipal";
 function App() {
   return (
     <div className="App">
@@ -30,6 +30,7 @@ function App() {
             <Route path="/attendee" element={<Attendee />} />
             <Route path="/aboutyou" element={<AboutYou />} />
             <Route path="/speaker" element={<Speaker />} />
+            <Route path="/loginPrincipal" element={<LoginPrincipal />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
