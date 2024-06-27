@@ -6,7 +6,7 @@ import Profile from "./components/Profile/Profile";
 import NotFound from "./components/NotFound/NotFound";
 import Speaker from "./components/Register/Speaker/Speaker"
 import AboutYou from "./components/Register/Attendee/AboutYou/AboutYou";
-import './App.css'; 
+import './App.css';
 import Attendee from "./components/Register/Attendee/Attendee";
 import Hastags from "./components/Register/Hastags/Hastags";
 import Allergies from "./components/Register/Allergies/Allergies";
@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
+        {location.pathname !== "/allergies" && location.pathname !== "/hastags" && location.pathname !== "/login" && location.pathname !== "/attendee" && location.pathname !== "/connectLinkedin" && location.pathname !== "/aboutyou" && location.pathname !== "/speaker" && location.pathname !== "/loginPrincipal" && <Header />}
         <main className="main-content">
           <Routes>
             <Route path="/register" element={<Register />} />

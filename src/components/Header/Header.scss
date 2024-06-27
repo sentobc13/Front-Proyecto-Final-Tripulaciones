@@ -1,3 +1,28 @@
-.main-content {
-  padding-top: 4rem; // Ajusta este valor según la altura de tu navbar
+
+.menu-hamburguesa {
+  background: var(--degradado-corporativo, radial-gradient(865.8% 89.15% at 6.03% 9.18%, #106AF2 0%, #6610F2 100%));
+  width: 100%;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  
+  a {
+    display: block;
+    color: white;
+    font-size: 18px;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  .footer-text {
+    color: white;
+    margin-top: 2rem;
+    font-size: 14px;
+    text-align: center;
+  }
 }
