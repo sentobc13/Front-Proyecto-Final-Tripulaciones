@@ -152,3 +152,16 @@
     background-color: $buttons-register;
     /* Color de la línea resaltada */
 }
+
+.uniqueChipProfile {
+    background-Color: #BEE3F8;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+.chipGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    width: 100%;
+}

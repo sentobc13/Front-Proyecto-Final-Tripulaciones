@@ -1,6 +1,7 @@
 import React from 'react'
 import './Hastags.scss'
 import { Stack, Badge } from '@chakra-ui/react'
+import { Chip } from '@mui/material'
 const Hastags = () => {
     return (
         <>
@@ -26,17 +27,13 @@ const Hastags = () => {
                     <p className='subtitleHastags2'>Selecciona un máximo de 4</p>
                 </div>
             </div>
-            <div className="Badgecontainer">
-                <div className='divBadgesHastags'>
-                    <div className='badgeGrid'>
-                        <Badge className='uniqueBadge'>E-learning</Badge>
-                        <Badge className='uniqueBadge'>E-learning</Badge>
-                        <Badge className='uniqueBadge'>E-learning</Badge>
-                        <Badge className='uniqueBadge'>E-learning</Badge>
-                        <Badge className='uniqueBadge'>E-learning</Badge>
-                        <Badge className='uniqueBadge'>E-learning</Badge>
-                        <Badge className='uniqueBadge'>E-lea</Badge>
-                    </div>
+            <div className="interestsProfile">
+                <p className="interestsName">Intereses</p>
+                <div className="chipGrid">
+                    <Chip className="uniqueChipProfile" label="E-learning" />
+                    <Chip className="uniqueChipProfile" label="E-learning" />
+                    <Chip className="uniqueChipProfile" label="E-learning" />
+                    <Chip className="uniqueChipProfile" label="E-learning" />
                 </div>
             </div>
             <div className='BadgecontainerButton'>

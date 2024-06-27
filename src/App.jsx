@@ -1,4 +1,7 @@
+// App.js
+import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { ThemeProvider } from '@mui/material/styles';
 import Home from "./components/Home/Home";
 import Header from "./components/Header/Header";
 import Login from "./components/Login/Login";
@@ -13,14 +16,17 @@ import Hastags from "./components/Register/Hastags/Hastags";
 import Allergies from "./components/Register/Allergies/Allergies";
 import ConnectLinkedin from "./components/Register/ConnectLinkedin/ConnectLinkedin";
 import LoginPrincipal from "./components/LoginPrincipal/LoginPrincipal";
+import theme from './theme';
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <MainContent />
-      </BrowserRouter>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <BrowserRouter>
+          <MainContent />
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
   );
 }
 

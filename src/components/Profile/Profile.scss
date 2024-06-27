@@ -78,7 +78,8 @@
     background-color: #BEE3F8;
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: auto; /* El ancho se adapta al contenido */
+    flex-basis: auto;
+    /* El ancho se adapta al contenido */
 }
 
 .profileEdit {
@@ -125,4 +126,17 @@
     padding: 10px;
     margin-top: 5%;
     position: fixed;
+}
+
+.uniqueChipProfile {
+    background-Color: #BEE3F8;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+.chipGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    width: 100%;
 }
