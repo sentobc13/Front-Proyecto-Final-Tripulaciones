@@ -1,75 +1,115 @@
+@import '../../../../complements.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-primary;
+}
+
+html, body {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .topProfile {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    background-color: #f0f0f0;
-  }
-  
-  .pProfile {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-    color: #333;
-  }
-  
-  .iconProfile {
-    margin-right: 0.5rem;
-    cursor: pointer;
-  }
-  
-  .profileEdit {
-    font-weight: bold;
-  }
-  
-  .titleNameProfile {
-    display: block;
-    margin: 1rem 0 0.5rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .inputField {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  .textareaField {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    resize: vertical;
-  }
-  
-  .chipGrid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  
-  .uniqueChipProfile {
-    background-color: #e0e0e0;
-  }
-  
-  .containerButtonProfile {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 2rem;
-  }
-  
-  .SaveChanges {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    background-color: #4caf50;
-    color: white;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pProfile {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.iconProfile {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.profileEdit {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.profile-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.titleNameProfile {
+  display: block;
+  margin: 1rem 0 0.5rem;
+  font-weight: bold;
+  color: #666;
+}
+
+.inputField,
+.textareaField {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: transparent;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.textareaField {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+.chipGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.uniqueChipProfile {
+  background-color: #d0e8f2;
+}
+
+.containerButtonProfile {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.SaveChanges,
+.DiscardChanges {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0 0.5rem;
+}
+
+.SaveChanges {
+  background-color: #4caf50;
+  color: white;
+}
+
+.DiscardChanges {
+  background-color: transparent;
+  color: #4caf50;
+  border: 1px solid #4caf50;
+}

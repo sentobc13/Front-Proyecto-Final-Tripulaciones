@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { GoChevronLeft } from 'react-icons/go';
+import { useNavigate } from 'react-router-dom'; // Si usas react-router-dom para la navegación
 import Chip from '@mui/material/Chip';
-import '../EditProfile/EditProfile.scss';
+import '../EditProfile/EditProfile.scss'
 
 const EditProfile = () => {
   const [name, setName] = useState('Fernando');
   const [surname, setSurname] = useState('Redondo');
   const [bio, setBio] = useState('Fernando supervisa las ventas globales de productos de LVIS.');
-  const [linkedin, setLinkedin] = useState('https://www.linkedin.com/in/fernando-redondo/');
-  const [interests, setInterests] = useState(['E-learning', 'Tecnología', 'Emprendimiento']);
+  const [linkedin, setLinkedin] = useState('linkedin.com/in/fernandoredondo');
+  const [interests, setInterests] = useState(['Inteligencia Artificial', 'Diversidad', 'Formación asd']);
   const [foodPreferences, setFoodPreferences] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
+  
+  const navigate = useNavigate();
 
   const handleSaveChanges = () => {
     console.log('Guardando cambios...');
@@ -21,7 +25,18 @@ const EditProfile = () => {
       interests,
       foodPreferences
     });
-    // Aquí iría la lógica para guardar los cambios
+    setIsEditing(false);
+  };
+
+  const handleDiscardChanges = () => {
+    console.log('Descartando cambios...');
+    setName('Fernando');
+    setSurname('Redondo');
+    setBio('Fernando supervisa las ventas globales de productos de LVIS.');
+    setLinkedin('linkedin.com/in/fernandoredondo');
+    setInterests(['Inteligencia Artificial', 'Diversidad', 'Formación asd']);
+    setFoodPreferences('');
+    setIsEditing(false);
   };
 
   const handleAddInterest = (e) => {
@@ -38,79 +53,95 @@ const EditProfile = () => {
   return (
     <>
       <div className="topProfile">
-        <p className="pProfile">
+        <div className="pProfile" onClick={() => navigate('/profile')}>
           <GoChevronLeft className="iconProfile" />
-          <span className="profileEdit">Editar perfil</span>
-        </p>
-      </div>
-      <div>
-        <span className="titleNameProfile">Nombre:</span>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="inputField"
-        />
-      </div>
-      <div>
-        <span className="titleNameProfile">Apellido:</span>
-        <input
-          type="text"
-          value={surname}
-          onChange={(e) => setSurname(e.target.value)}
-          className="inputField"
-        />
-      </div>
-      <div>
-        <span className="titleNameProfile">Biografía:</span>
-        <textarea
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
-          className="textareaField"
-        />
-      </div>
-      <div>
-        <span className="titleNameProfile">Linkedin:</span>
-        <input
-          type="text"
-          value={linkedin}
-          onChange={(e) => setLinkedin(e.target.value)}
-          className="inputField"
-        />
-      </div>
-      <div>
-        <span className="titleNameProfile">Intereses:</span>
-        <div className="chipGrid">
-          {interests.map((interest, index) => (
-            <Chip
-              key={index}
-              label={interest}
-              onDelete={() => handleRemoveInterest(index)}
-              className="uniqueChipProfile"
-            />
-          ))}
         </div>
-        <input
-          type="text"
-          placeholder="Añadir interés"
-          onKeyDown={handleAddInterest}
-          className="inputField"
-        />
+        <span className="profileEdit" onClick={() => setIsEditing(!isEditing)}>
+          {isEditing ? 'Cancelar' : 'Editar perfil'}
+        </span>
       </div>
-      <div>
-        <span className="titleNameProfile">Preferencias alimenticias:</span>
-        <input
-          type="text"
-          value={foodPreferences}
-          onChange={(e) => setFoodPreferences(e.target.value)}
-          className="inputField"
-        />
+      <div className="profile-content">
+        <div>
+          <span className="titleNameProfile">Nombre:</span>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="inputField"
+            disabled={!isEditing}
+          />
+        </div>
+        <div>
+          <span className="titleNameProfile">Apellidos:</span>
+          <input
+            type="text"
+            value={surname}
+            onChange={(e) => setSurname(e.target.value)}
+            className="inputField"
+            disabled={!isEditing}
+          />
+        </div>
+        <div>
+          <span className="titleNameProfile">Biografía:</span>
+          <textarea
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
+            className="textareaField"
+            disabled={!isEditing}
+          />
+        </div>
+        <div>
+          <span className="titleNameProfile">Enlace a Linkedin:</span>
+          <input
+            type="text"
+            value={linkedin}
+            onChange={(e) => setLinkedin(e.target.value)}
+            className="inputField"
+            disabled={!isEditing}
+          />
+        </div>
+        <div>
+          <span className="titleNameProfile">Intereses:</span>
+          <div className="chipGrid">
+            {interests.map((interest, index) => (
+              <Chip
+                key={index}
+                label={interest}
+                onDelete={isEditing ? () => handleRemoveInterest(index) : null}
+                className="uniqueChipProfile"
+              />
+            ))}
+            {isEditing && (
+              <input
+                type="text"
+                placeholder="Añadir interés"
+                onKeyDown={handleAddInterest}
+                className="inputField"
+              />
+            )}
+          </div>
+        </div>
+        <div>
+          <span className="titleNameProfile">Preferencias alimenticias:</span>
+          <input
+            type="text"
+            value={foodPreferences}
+            onChange={(e) => setFoodPreferences(e.target.value)}
+            className="inputField"
+            disabled={!isEditing}
+          />
+        </div>
       </div>
-      <div className='containerButtonProfile'>
-        <button className="SaveChanges" onClick={handleSaveChanges}>
-          Guardar cambios
-        </button>
-      </div>
+      {isEditing && (
+        <div className="containerButtonProfile">
+          <button className="SaveChanges" onClick={handleSaveChanges}>
+            Guardar cambios
+          </button>
+          <button className="DiscardChanges" onClick={handleDiscardChanges}>
+            Descartar
+          </button>
+        </div>
+      )}
     </>
   );
 };
