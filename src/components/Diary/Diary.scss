@@ -1,9 +1,12 @@
+@import '../complements';
+
 .div-agenda {
     display: flex;
     flex-direction: column;
     align-items: center; 
     margin-top: 100px;
     text-align: center; /* Centra el texto dentro del contenedor */
+    font-family: $font-primary;
 }
 
 .div-programa {
