@@ -39,6 +39,10 @@ const EditProfile = () => {
     navigate('/profile');
   };
 
+  const handleDeleteInterest = (interestToDelete) => {
+    setInterests((prevInterests) => prevInterests.filter((interest) => interest !== interestToDelete));
+  };
+
   return (
     <>
       <div className="topProfile">
@@ -89,6 +93,7 @@ const EditProfile = () => {
               <Chip
                 key={index}
                 label={interest}
+                onDelete={() => handleDeleteInterest(interest)}
                 className="uniqueChipProfile"
               />
             ))}
