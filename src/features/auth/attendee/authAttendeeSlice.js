@@ -47,21 +47,28 @@ export const authSlice = createSlice({
                 state.message = action.payload
                 state.isError = true
             })
+            .addCase(getLoggedAttendee.fulfilled, (state, action) => {
+                state.attendee = action.payload.userData;
+                state.isLoading = false;
+            })
+            .addCase(getLoggedAttendee.pending, (state) => {
+                state.isLoading = true
+            })
     }
 })
 
 export const registerAttendee = createAsyncThunk(
-    "auth/register", 
-    async(attendee, thunkAPI)=>{
-    try {
-      return await authAttendeeService.registerAttendee(attendee)    
-    } catch (error) {
-      console.error(error)
-      const msgError = error.response.data.messages[0]
-      return thunkAPI.rejectWithValue(msgError)
-    }
-  })
-  
+    "auth/register",
+    async (attendee, thunkAPI) => {
+        try {
+            return await authAttendeeService.registerAttendee(attendee)
+        } catch (error) {
+            console.error(error)
+            const msgError = error.response.data.messages[0]
+            return thunkAPI.rejectWithValue(msgError)
+        }
+    })
+
 export const login = createAsyncThunk("auth/login", async (attendee, thunkAPI) => {
     try {
         return await authAttendeeService.login(attendee)
@@ -71,6 +78,14 @@ export const login = createAsyncThunk("auth/login", async (attendee, thunkAPI) =
         return thunkAPI.rejectWithValue(msgError)
     }
 })
+export const getLoggedAttendee = createAsyncThunk("auth/getLoggedAttendee", async () => {
+    try {
+        return await authAttendeeService.getLoggedAttendee();
+    } catch (error) {
+        console.error(error);
+    }
+}
+)
 
 export default authSlice.reducer
 

@@ -18,6 +18,7 @@ const login = async (attendee)=>{
   return res.data
 }
 
+
 const authAttendeeService = {
     registerAttendee,
     login,

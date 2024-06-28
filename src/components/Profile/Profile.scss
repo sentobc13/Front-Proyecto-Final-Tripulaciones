@@ -13,6 +13,17 @@
     margin: 5%;
     margin-bottom: 10px;
     margin-left: 10%;
+
+    @media (max-width: 768px) {
+        width: 80px;
+        height: 80px;
+        margin-left: 5%;
+    }
+
+    @media (max-width: 480px) {
+        width: 60px;
+        height: 60px;
+    }
 }
 
 .profile-picture {
@@ -21,9 +32,17 @@
 }
 
 .topProfile {
-    margin-top: 20%;
+    margin-top: 5%;
     font-size: 20px;
     width: 100%;
+
+    @media (max-width: 1280px) {
+        margin-top: 12%;
+    }
+
+    @media (max-width: 480px) {
+        margin-top: 20%;
+    }
 }
 
 .pProfile {
@@ -32,33 +51,93 @@
     padding: 5px;
     padding-right: 0px;
     gap: 25%;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    @media (max-width: 480px) {
+        flex-direction: column;
+        gap: 5px;
+    }
 }
 
 .iconProfile {
     margin-right: 35%;
+
+    @media (max-width: 768px) {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 480px) {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
 }
 
 .titleNameProfile {
     font-size: 30px;
     margin-left: 6%;
+
+    @media (max-width: 768px) {
+        margin-left: 3%;
+    }
+
+    @media (max-width: 480px) {
+        margin-left: 2%;
+    }
 }
 
 .subtitleNameProfile {
     font-size: 16px;
     margin-left: 6%;
+
+    @media (max-width: 768px) {
+        margin-left: 3%;
+    }
+
+    @media (max-width: 480px) {
+        margin-left: 2%;
+    }
 }
 
 .descriptionNameProfile {
     font-size: 14px;
     margin-left: 6%;
+
+    @media (max-width: 768px) {
+        margin-left: 3%;
+    }
+
+    @media (max-width: 480px) {
+        margin-left: 2%;
+    }
 }
 
 .interestsProfile {
     margin: 6%;
+
+    @media (max-width: 768px) {
+        margin: 3%;
+    }
+
+    @media (max-width: 480px) {
+        margin: 2%;
+    }
 }
 
 .interestsName {
     margin-bottom: 5%;
+
+    @media (max-width: 768px) {
+        margin-bottom: 3%;
+    }
+
+    @media (max-width: 480px) {
+        margin-bottom: 2%;
+    }
 }
 
 .badgeGridProfile {
@@ -67,19 +146,30 @@
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px;
     width: 100%;
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    }
 }
 
 .uniqueBadgeProfile {
     text-align: center;
     padding: 10px;
-    text-align: center;
     font-family: Montserrat, sans-serif;
     border-radius: 20px;
     background-color: #BEE3F8;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: auto;
-    /* El ancho se adapta al contenido */
+
+    @media (max-width: 768px) {
+        padding: 5px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 3px;
+    }
 }
 
 .profileEdit {
@@ -93,6 +183,14 @@
 
 .moreInformationProfile {
     margin-left: 6%;
+
+    @media (max-width: 768px) {
+        margin-left: 3%;
+    }
+
+    @media (max-width: 480px) {
+        margin-left: 2%;
+    }
 }
 
 .ShowQR {
@@ -105,6 +203,10 @@
     margin-bottom: 5%;
     background-color: $buttons-register;
     color: white;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 }
 
 .ScanQR {
@@ -117,6 +219,10 @@
     background-color: white;
     border: 2px solid $buttons-register;
     color: $buttons-register;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 }
 
 .containerButtonProfile {
@@ -125,13 +231,30 @@
     text-align: center;
     padding: 10px;
     margin-top: 5%;
-    position: fixed;
+
+    @media (max-width: 768px) {
+        padding: 5px;
+        margin-top: 3%;
+    }
+
+    @media (max-width: 480px) {
+        padding: 3px;
+        margin-top: 2%;
+    }
 }
 
 .uniqueChipProfile {
-    background-Color: #BEE3F8;
+    background-color: #BEE3F8;
     margin: 5px;
     border-radius: 20px;
+
+    @media (max-width: 768px) {
+        margin: 3px;
+    }
+
+    @media (max-width: 480px) {
+        margin: 2px;
+    }
 }
 
 .chipGrid {
@@ -139,4 +262,12 @@
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px;
     width: 100%;
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    }
 }

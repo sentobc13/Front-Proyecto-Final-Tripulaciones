@@ -20,7 +20,7 @@ html, body {
   height: 100%;
 }
 
-.topProfile {
+.topProfileEdit {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -29,26 +29,26 @@ html, body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.pProfile {
+.pProfileEdit {
   display: flex;
   align-items: center;
   font-size: 1.5rem;
   color: #333;
   cursor: pointer;
 
-  .iconProfile {
+  .iconProfileEdit {
     margin-right: 0.5rem;
   }
 }
 
-.profile-content {
+.profile-contentEdit {
   flex: 1;
   overflow-y: auto;
   padding: 1rem;
   background-color: #fff;
 }
 
-.titleNameProfile {
+.titleNameProfileEdit {
   display: block;
   margin: 0.5rem 0 0.25rem;
   font-family: Montserrat;
@@ -58,8 +58,8 @@ html, body {
   color: var(--gray-500);
 }
 
-.inputField,
-.textareaField {
+.inputFieldEdit,
+.textareaFieldEdit {
   width: 100%;
   padding: 0.5rem;
   margin-bottom: 1rem;
@@ -79,7 +79,7 @@ html, body {
   }
 }
 
-.chipGrid {
+.chipGridEdit {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -87,7 +87,7 @@ html, body {
   border-radius: 6px;
 }
 
-.uniqueChipProfile {
+.uniqueChipProfileEdit {
   font-family: Montserrat;
   font-size: 14px;
   font-weight: 400;
@@ -96,7 +96,7 @@ html, body {
   border-radius: 6px;
 }
 
-.containerButtonProfile {
+.containerButtonProfileEdit {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,8 +106,8 @@ html, body {
   margin-top: 0.5rem;
 }
 
-.SaveChanges,
-.DiscardChanges {
+.SaveChangesEdit,
+.DiscardChangesEdit {
   display: flex;
   height: 48px;
   padding: 0px 24px;
@@ -119,7 +119,7 @@ html, body {
   font-size: 1rem;
 }
 
-.SaveChanges {
+.SaveChangesEdit {
   align-self: stretch;
   background: var(--blue-500);
   color: white;
@@ -127,7 +127,7 @@ html, body {
   margin-bottom: 0.5rem;
 }
 
-.DiscardChanges {
+.DiscardChangesEdit {
   width: 100%;
   border: 1px solid var(--blue-500);
   background: transparent;
@@ -141,19 +141,19 @@ html, body {
     margin: 0 auto;
   }
 
-  .containerButtonProfile {
+  .containerButtonProfileEditEdit {
     flex-direction: row;
     justify-content: space-between;
   }
 
-  .SaveChanges,
-  .DiscardChanges {
+  .SaveChangesEdit,
+  .DiscardChangesEdit {
     max-width: none;
     margin-bottom: 0;
     width: auto;
   }
 
-  .DiscardChanges {
+  .DiscardChangesEdit {
     margin-left: 1rem;
   }
 }

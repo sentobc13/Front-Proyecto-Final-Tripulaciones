@@ -109,7 +109,7 @@ const EditProfile = () => {
           />
         </div>
       </div>
-      <div className='containerButtonProfile'>
+      <div className='containerButtonProfileEdit'>
         <button className='SaveChanges' onClick={handleSaveChanges}>
           Guardar cambios
         </button>
