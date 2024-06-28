@@ -1,8 +1,8 @@
 import { Navigate } from "react-router-dom"
 
 const PrivateZone = ({ children }) => {
-  const logged = localStorage.getItem("Attendee") || localStorage.getItem("Speaker") 
-  return logged ? children : <Navigate to="/loginprincipal" />;
+  const isLoggedIn  = Boolean(localStorage.getItem("attendee")) || Boolean(localStorage.getItem("speaker"))  
+  return isLoggedIn  ? children : <Navigate to="/identify" />;
 };
 
 export default PrivateZone
