@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { register } from '../../features/auth/attendee/authAttendeeSlice';
+import {useSelector } from 'react-redux';
 import logo from '../../assets/E-learning-Experience_Logo-negro.png';
 import './RegisterSegundoPaso.scss';
 import {
-    Box,
     Button,
     FormControl,
     FormLabel,
     Input,
     Stack,
-    Heading,
     Alert,
     AlertIcon,
     Flex,
@@ -30,8 +30,8 @@ const RegisterSegundoPaso = () => {
     const [passwordError, setPasswordError] = useState(null);
     const [successMessage, setSuccessMessage] = useState(null);
 
-    const navigate = useNavigate()
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const { status, error } = useSelector((state) => state.authAttendee);
 
     const handleChange = (e) => {
@@ -82,11 +82,13 @@ const RegisterSegundoPaso = () => {
 
     return (
         <>
-            <div className="about-you-container">
+            <div className="Register-container">
                 <div className="stepper">
                     <div className="btn-back">
                         <Link to="/loginPrincipal" style={{ textDecoration: 'none', color: 'inherit' }}>
-                            <MdArrowBackIos style={{ fontSize: 18 }} /> {/* Ajusta el tamaño del ícono según tus necesidades */}
+                            <MdArrowBackIos style={{ fontSize: 14
+                                
+                             }} /> 
                         </Link>
                     </div>
                     <div className="step highlighted"></div>
@@ -98,7 +100,7 @@ const RegisterSegundoPaso = () => {
             </div>
             <div className="registerContainer">
                 <div className='bienvenidos'>
-                    <h3>Bienvenid@ a</h3>
+                    <h3 className="bienvenidos-text">Bienvenid@ a</h3>
                     <div className='logoImagen'>
                         <img className="logo" src={logo} alt="Logo" />
                     </div>
@@ -127,7 +129,7 @@ const RegisterSegundoPaso = () => {
                             <form onSubmit={handleSubmit}>
                                 <Stack spacing={4}>
                                     <FormControl isRequired isInvalid={emailError}>
-                                        <FormLabel>Email</FormLabel>
+                                        <FormLabel className="formulario-text">Email</FormLabel>
                                         <Input
                                             type="email"
                                             name="email"
@@ -138,7 +140,7 @@ const RegisterSegundoPaso = () => {
                                         {emailError && <Text color="red.500" fontSize="sm">{emailError}</Text>}
                                     </FormControl>
                                     <FormControl isRequired isInvalid={passwordError}>
-                                        <FormLabel>Contraseña</FormLabel>
+                                        <FormLabel className="formulario-text">Contraseña</FormLabel>
                                         <Input
                                             type="password"
                                             name="password"
@@ -148,7 +150,7 @@ const RegisterSegundoPaso = () => {
                                         />
                                     </FormControl>
                                     <FormControl isRequired isInvalid={passwordError}>
-                                        <FormLabel>Confirmar contraseña</FormLabel>
+                                        <FormLabel className="formulario-text">Confirmar contraseña</FormLabel>
                                         <Input
                                             type="password"
                                             name="password2"
