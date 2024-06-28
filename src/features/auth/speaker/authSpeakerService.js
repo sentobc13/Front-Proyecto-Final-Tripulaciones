@@ -2,9 +2,8 @@ import axios from "axios"
 
 const API_URL = "http://localhost:3001/speaker"
 
-const register = async (speaker)=>{
-console.log(speaker)
-  const res = await axios.post(API_URL, speaker)
+const registerSpeaker = async (speaker)=>{
+  const res = await axios.post(API_URL + "/registerSpeaker", speaker)
   return res.data
 }
 
@@ -19,7 +18,7 @@ const login = async (speaker)=>{
 }
 
 const authSpeakerService = {
-    register,
+    registerSpeaker,
     login,
     
     

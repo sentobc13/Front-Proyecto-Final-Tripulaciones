@@ -8,14 +8,13 @@ const Identify = () => {
   const optionSelected = (event) => {
     const buttonSelected = event.target.name;
     if (buttonSelected === "Attendee") {
-      localStorage.setItem("validator", JSON.stringify("Attendee"));
-      navigate("/loginAttendee");
+      localStorage.setItem("validator", "Attendee");
+      navigate("/loginPrincipal");
   } else {
-      localStorage.setItem("validator", JSON.stringify("Speaker"));
-      navigate("/loginSpeaker");
+      localStorage.setItem("validator", "Speaker");
+      navigate("/loginPrincipal");
   }
   };
-    
 
   return (
 
