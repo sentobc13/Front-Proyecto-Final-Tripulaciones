@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = "http://localhost:8080/attendee"
+const API_URL = "http://localhost:3001/attendee"
 
 const register = async (attendee)=>{
 console.log(attendee)
@@ -18,7 +18,7 @@ const login = async (attendee)=>{
   return res.data
 }
 
-const authService = {
+const authAttendeeService = {
     register,
     login,
     
@@ -26,4 +26,4 @@ const authService = {
   }
   
   
-  export default authService
+  export default authAttendeeService

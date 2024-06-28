@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import authService from "./authService"
+import authSpeakerService from "./authSpeakerService"
 
 
 const token = localStorage.getItem("token") || ""
-const attendee = JSON.parse(localStorage.getItem("attendee")) || null
+const speaker = JSON.parse(localStorage.getItem("speaker")) || null
 
 const initialState = {
-    attendee: attendee,
+    speaker: speaker,
     token: token,
     isError: false,
     isSuccess: false,
@@ -16,7 +16,7 @@ const initialState = {
 
 
 export const authSlice = createSlice({
-    name: "auth",
+    name: "authSpeaker",
     initialState,
     reducers: {
         reset: (state) => {
@@ -38,7 +38,7 @@ export const authSlice = createSlice({
                 state.message = action.payload
             })
             .addCase(login.fulfilled, (state, action) => {
-                state.attendee = action.payload.attendee
+                state.speaker = action.payload.speaker
                 state.token = action.payload.token
                 state.message = action.payload.message
                 state.isSuccess = true
@@ -52,9 +52,9 @@ export const authSlice = createSlice({
 
 export const register = createAsyncThunk(
     "auth/register", 
-    async(attendee, thunkAPI)=>{
+    async(speaker, thunkAPI)=>{
     try {
-      return await authService.register(attendee)    
+      return await authSpeakerService.register(speaker)    
     } catch (error) {
       console.error(error)
       const msgError = error.response.data.messages[0]
@@ -62,9 +62,9 @@ export const register = createAsyncThunk(
     }
   })
   
-export const login = createAsyncThunk("auth/login", async (attendee, thunkAPI) => {
+export const login = createAsyncThunk("auth/login", async (speaker, thunkAPI) => {
     try {
-        return await authService.login(attendee)
+        return await authSpeakerService.login(speaker)
     } catch (error) {
         console.error(error)
         const msgError = error.response.data.message

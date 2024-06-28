@@ -8,7 +8,8 @@ import { FaReact } from "react-icons/fa";
 
 
 const LoginPrincipal = () => {
-  const navigate = useNavigate();
+
+  const typeUser = localStorage.getItem('validator')
 
   return (
     <div className="loginContainer">
@@ -36,18 +37,29 @@ const LoginPrincipal = () => {
           <hr className='line' />
         </div>
         <div>
-          <Link to="/attendee">
+          <Link to="/registerSegundoPaso">
             <Button className='btn-crearCuenta' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
               Crear cuenta
             </Button>
           </Link>
         </div>
         <div>
-          <Link to="/login">
-            <Button className='btn-iniciarSesion' type="submit" bg="white" color="#4299E1" _hover={{ bg: '#eee' }} isFullWidth>
-              Iniciar sesión
-            </Button>
-          </Link>
+          {
+            typeUser == 'Attendee' ? (
+              <Link to="/loginAttendee">
+                <Button className='btn-iniciarSesion' type="submit" bg="white" color="#4299E1" _hover={{ bg: '#eee' }} isFullWidth>
+                  Iniciar sesión
+                </Button>
+              </Link>
+            ) : (
+              <Link to="/loginSpeaker">
+                <Button className='btn-iniciarSesion' type="submit" bg="white" color="#4299E1" _hover={{ bg: '#eee' }} isFullWidth>
+                  Iniciar sesión
+                </Button>
+              </Link>
+            )
+          }
+
         </div>
       </div>
     </div>
