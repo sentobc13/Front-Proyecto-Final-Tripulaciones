@@ -27,12 +27,12 @@ export const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(register.fulfilled, (state, action) => {
+            .addCase(registerAttendee.fulfilled, (state, action) => {
                 console.log(action)
                 state.isSuccess = true
                 state.message = action.payload.msg //Porque guardas el mns en el estado???
             })
-            .addCase(register.rejected, (state, action) => {
+            .addCase(registerAttendee.rejected, (state, action) => {
                 state.isSuccess = false
                 state.isError = true
                 state.message = action.payload
@@ -50,11 +50,11 @@ export const authSlice = createSlice({
     }
 })
 
-export const register = createAsyncThunk(
+export const registerAttendee = createAsyncThunk(
     "auth/register", 
     async(attendee, thunkAPI)=>{
     try {
-      return await authAttendeeService.register(attendee)    
+      return await authAttendeeService.registerAttendee(attendee)    
     } catch (error) {
       console.error(error)
       const msgError = error.response.data.messages[0]

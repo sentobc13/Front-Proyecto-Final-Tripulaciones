@@ -27,12 +27,12 @@ export const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(register.fulfilled, (state, action) => {
+            .addCase(registerSpeaker.fulfilled, (state, action) => {
                 console.log(action)
                 state.isSuccess = true
                 state.message = action.payload.msg
             })
-            .addCase(register.rejected, (state, action) => {
+            .addCase(registerSpeaker.rejected, (state, action) => {
                 state.isSuccess = false
                 state.isError = true
                 state.message = action.payload
@@ -50,11 +50,11 @@ export const authSlice = createSlice({
     }
 })
 
-export const register = createAsyncThunk(
+export const registerSpeaker = createAsyncThunk(
     "auth/register", 
     async(speaker, thunkAPI)=>{
     try {
-      return await authSpeakerService.register(speaker)    
+      return await authSpeakerService.registerSpeaker(speaker)    
     } catch (error) {
       console.error(error)
       const msgError = error.response.data.messages[0]

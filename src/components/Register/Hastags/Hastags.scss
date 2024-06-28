@@ -147,22 +147,24 @@
 }
 
 .step.highlighted {
-    height:8px;
+    height: 8px;
     width: 60px;
     /* Grosor de la línea resaltada */
     background-color: $buttons-register;
     /* Color de la línea resaltada */
 }
 
-.uniqueChipProfile {
-    background-Color: #BEE3F8;
-    margin: 5px;
-    border-radius: 20px;
-}
-
 .chipGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 10px;
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .uniqueChipProfile {
+        background-color: white;
+        border: 1px solid #4299e1;
+        color: black;
+        cursor: pointer; // Cambia el cursor al pasar sobre el chip        transition: background-color 0.3s ease, color 0.3s ease; // Transición suave de color y fondo
+        &:hover {
+            background-color: #4299e1;
+            color: white;
+        }
+    }
 }
