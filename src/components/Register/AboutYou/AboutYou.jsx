@@ -5,11 +5,11 @@ import './AboutYou.scss';
 
 const AboutYou = () => {
   const [formData, setFormData] = useState({
-    nombre: '',
-    apellido: '',
-    pais: '',
-    empresa: '',
-    telefono: '',
+    name: '',
+    surname: '',
+    nationality: '',
+    enterprise_name: '',
+    phone: '',
     cargo: '',
     linkedin: '',
   });
@@ -31,14 +31,14 @@ const AboutYou = () => {
 
     const errors = {};
 
-    if (!formData.nombre) {
-      errors.nombre = 'El nombre es requerido.';
-    } else if (!formData.apellido) {
-      errors.apellido = 'El apellido es requerido.';
-    } else if (!formData.pais) {
-      errors.pais = 'El país de residencia es requerido.';
-    } else if (typeUser === 'Attendee' && !formData.telefono) {
-      errors.telefono = 'El teléfono es requerido.';
+    if (!formData.name) {
+      errors.name = 'El nombre es requerido.';
+    } else if (!formData.surname) {
+      errors.surname = 'El apellido es requerido.';
+    } else if (!formData.nationality) {
+      errors.nationality = 'El país de residencia es requerido.';
+    } else if (typeUser === 'Attendee' && !formData.phone) {
+      errors.phone = 'El teléfono es requerido.';
     } else if (!formData.linkedin) {
       errors.linkedin = 'El LinkedIn es requerido.';
     }
@@ -85,42 +85,42 @@ const AboutYou = () => {
             <p>Nombre<span className='importantAboutYou'> *</span></p>
             <input
               type="text"
-              name="nombre"
-              value={formData.nombre}
+              name="name"
+              value={formData.name}
               onChange={handleChange}
               placeholder="Samuel"
             />
-            {formErrors.nombre && <p className="error">{formErrors.nombre}</p>}
+            {formErrors.name && <p className="error">{formErrors.name}</p>}
           </label>
           <label>
             <p>Apellido<span className='importantAboutYou'> *</span></p>
             <input
               type="text"
-              name="apellido"
-              value={formData.apellido}
+              name="surname"
+              value={formData.surname}
               onChange={handleChange}
               placeholder="Ramírez"
             />
-            {formErrors.apellido && <p className="error">{formErrors.apellido}</p>}
+            {formErrors.surname && <p className="error">{formErrors.surname}</p>}
           </label>
           <label>
             <p>País de residencia<span className='importantAboutYou'> *</span></p>
             <input
               type="text"
-              name="pais"
-              value={formData.pais}
+              name="nationality"
+              value={formData.nationality}
               onChange={handleChange}
               placeholder="Colombia"
             />
-            {formErrors.pais && <p className="error">{formErrors.pais}</p>}
+            {formErrors.nationality && <p className="error">{formErrors.nationality}</p>}
           </label>
           {typeUser === 'Speaker' && (
             <label>
               Empresa
               <input
                 type="text"
-                name="empresa"
-                value={formData.empresa}
+                name="enterprise_name"
+                value={formData.enterprise_name}
                 onChange={handleChange}
                 placeholder="Nombre de la empresa..."
               />
@@ -131,12 +131,12 @@ const AboutYou = () => {
               <p>Teléfono<span className='importantAboutYou'> *</span></p>
               <input
                 type="text"
-                name="telefono"
-                value={formData.telefono}
+                name="phone"
+                value={formData.phone}
                 onChange={handleChange}
                 placeholder="+34 63459392"
               />
-              {formErrors.telefono && <p className="error">{formErrors.telefono}</p>}
+              {formErrors.phone && <p className="error">{formErrors.phone}</p>}
             </label>
           )}
           <label>
