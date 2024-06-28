@@ -1,0 +1,145 @@
+.div-agenda {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 100px;
+    text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+.div-programa {
+    margin-bottom: 20px; /* Espacio entre el h3 y los párrafos */
+}
+
+.div-dias {
+    display: flex;
+    flex-wrap: wrap; /* Envuelve los días si no hay suficiente espacio */
+    justify-content: center; /* Centra los días horizontalmente */
+    width: 100%; /* Ocupa todo el ancho del contenedor padre */
+    max-width: 400px; /* Máximo ancho de los días */
+    cursor: pointer; 
+}
+
+.div-dias p {
+    margin: 5px; /* Espaciado entre los días */
+    padding: 5px 10px; /* Espaciado interno de los días */
+    cursor: pointer; /* Cambia el cursor a pointer al pasar sobre los días */
+    position: relative; /* Permite posicionar de forma relativa */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+.div-dias p.active {
+    color: #4fc3f7; /* Color celeste al activar */
+}
+
+.div-dias p.active::after {
+    content: ''; /* Agrega un elemento después del contenido */
+    position: absolute; /* Posiciona de forma absoluta con respecto al elemento padre */
+    left: 50%; /* Centra la línea horizontalmente */
+    transform: translateX(-50%); /* Centra la línea horizontalmente */
+    bottom: -2px; /* Distancia de la línea desde la parte inferior */
+    width: calc(100% - 20px); /* Ancho calculado menos el padding */
+    height: 2px; /* Grosor de la línea */
+    background-color: #4fc3f7; /* Color de la línea celeste */
+}
+
+
+.div-slider-chip {
+    display: flex;
+    align-items: center; /* Alinea el contenido verticalmente al centro */
+    background-color: #f5f5f5; /* Fondo blanco roto */
+    border-radius: 5px; /* Esquinas redondeadas */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+    margin-top: 1px; /* Espacio superior */
+}
+
+.slider {
+    display: flex;
+    align-items: center; /* Alinea el contenido del slider al centro verticalmente */
+    margin-right: 20px; /* Espacio entre el slider y los chips */
+    margin-left: 5px;
+    
+}
+
+.chip {
+    display: flex;
+    flex-wrap: wrap; /* Para que los chips se ajusten y envuelvan si es necesario */
+    align-items: center; /* Alinea los chips al centro verticalmente */
+    margin-left: 50px;
+}
+
+.uniqueChipProfile {
+    margin: 10px; /* Espaciado entre cada chip */
+}
+
+.div-horario {
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin-top: 10px; /* Espacio superior */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 400px; /* Máximo ancho del horario */
+    margin-left: auto; /* Empuja el horario hacia la izquierda */
+    margin-right: auto; /* Empuja el horario hacia la derecha */
+    padding: 0 20px; /* Espaciado interno */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+    margin-left: -10px;
+    font-weight: bold;
+}
+
+.div-card {
+    margin-top: 5px;
+    border: 1px solid #ccc; /* Borde de la tarjeta */
+    border-radius: 5px; /* Esquinas redondeadas */
+    padding: 10px; /* Espaciado interno reducido */
+    margin-bottom: 20px; /* Espacio inferior entre tarjetas */
+    width: 400px; /* Ancho deseado para la tarjeta */
+    max-width: 95%; /* Ancho máximo de la tarjeta */
+    box-sizing: border-box; /* Incluir el padding en el ancho total */
+}
+
+.div-card {
+    width: 95%;
+    max-width: 600px; /* Ancho máximo deseado para la tarjeta */
+    margin: 20px auto; /* Margen exterior para centrar la tarjeta */
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+}
+
+.div-horario-card {
+    align-self: flex-start; /* Alinea el horario a la izquierda */
+}
+
+.div-nombre {
+    align-self: flex-end; /* Alinea el nombre a la derecha */
+    font-weight: bold;
+}
+.div-cargo {
+    align-self: flex-end; /* Alinea el nombre a la derecha */
+}
+
+.div-ponencia {
+    margin-top: 10px; /* Espacio superior entre el horario y el chip */
+    align-self: flex-start; /* Alinea el chip de ponencia a la izquierda */
+    
+
+}
+
+.div-titulo {
+    text-align: center; /* Centra el título */
+    margin-top: 10px; /* Espacio superior entre el chip y el título */
+ ;
+}
+
+.div-icon-text {
+    margin-top: 5px;
+    display: flex;
+    align-items: center; /* Alinea verticalmente los íconos y el texto */
+}
+
+.div-down-text {
+    margin-left: 5px; /* Espacio a la izquierda del texto */
+    font-size: 12px;
+}

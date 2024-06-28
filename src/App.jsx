@@ -18,8 +18,8 @@ import LoginAttendee from "./components/LoginAttendee/LoginAttendee";
 import LoginSpeaker from "./components/LoginSpeaker/LoginSpeaker";
 import PrivateZone from "./guards/PrivateZone";
 import theme from './theme'
-import Agency from './components/Agency/Agency';
 import RegisterSegundoPaso from "./components/RegisterSegundoPaso/RegisterSegundoPaso";
+import Diary from "./components/Diary/Diary";
 
 function App() {
   return (
@@ -54,7 +54,6 @@ function MainContent() {
       <main className="main-content">
         <Routes>
           <Route path="/identify" element={<Identify />} />
-          <Route path="/agency" element={<Agency />} />
           <Route path="/hastags" element={<Hastags />} />
           <Route path="/allergies" element={<Allergies />} />
           <Route path="/connectLinkedin" element={<ConnectLinkedin />} />
@@ -67,6 +66,7 @@ function MainContent() {
           <Route path="/speaker" element={<Speaker />} />
           <Route path="/loginPrincipal" element={<LoginPrincipal />} />
           <Route path="/registerSegundoPaso" element={<RegisterSegundoPaso />} />
+          <Route path="/diary" element={<Diary />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
