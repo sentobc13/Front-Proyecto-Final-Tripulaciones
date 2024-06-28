@@ -8,9 +8,6 @@ $blue-500: #3182CE;
 
 html, body {
   height: 100%;
-}
-
-body {
   margin: 0;
   padding: 0;
   font-family: $font-primary;
@@ -59,11 +56,11 @@ body {
 
 .titleNameProfile {
   display: block;
-  margin: 1rem 0 0.5rem;
+  margin: 0.5rem 0 0.25rem; 
   font-family: Montserrat;
   font-size: 12px;
   font-weight: 400;
-  line-height: 16px; /* 133.333% */
+  line-height: 16px; 
   color: var(--gray-500);
 }
 
@@ -77,7 +74,7 @@ body {
   font-family: Montserrat;
   font-size: 14px;
   font-weight: 400;
-  line-height: 120%; /* 16.8px */
+  line-height: 120%; 
   color: var(--gray-800);
   border-radius: 6px;
   box-sizing: border-box;
@@ -113,37 +110,35 @@ body {
   padding: 1rem;
   background-color: #fff;
   box-shadow: none;
+  margin-top: 0.5rem; 
+}
+
+.SaveChanges,
+.DiscardChanges {
+  display: flex;
+  height: 48px;
+  padding: 0px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .SaveChanges {
-  display: flex;
-  height: 48px;
-  padding: 0px 24px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
   align-self: stretch;
-  border-radius: 6px;
   background: var(--blue-500, #3182CE);
   color: white;
   border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .DiscardChanges {
-  display: flex;
-  width: 342px;
-  height: 48px;
-  padding: 0px 24px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  border-radius: 6px;
+  width: 100%;
+  max-width: 342px; 
   border: 1px solid var(--blue-500, #3182CE);
   background: transparent;
   color: var(--blue-500, #3182CE);
-  cursor: pointer;
-  font-size: 1rem;
 }
+
