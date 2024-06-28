@@ -1,0 +1,95 @@
+@import '../../../colors.scss';
+@import '../complements';
+
+.body {
+  font-family: $font-primary;  
+}
+
+.registerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  padding: 20px;
+
+  .bienvenidos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h3 {
+      margin: 0;
+      text-align: center;
+    }
+
+    .logoImagen {
+      margin-top: 10px;
+
+      .logo {
+        height: 100px;
+        width: 254.455px;
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  .form-register {
+    width: 100%;
+    max-width: 400px;
+    margin-top: -50px; // Ajusta este valor según tus necesidades
+  }
+
+  .btn-register {
+    display: flex;
+    width: 342px;
+    height: 48px;
+    padding: 0 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 100px;
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+
+  }
+
+  .stepper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 400px;
+    margin: auto;
+    padding: 10px;
+    margin-top: 8%;
+}
+
+.step {
+    width: 40px;
+    height: 4px;
+    background-color: #ddd;
+    margin: 0 10px;
+    border-radius: 10px;
+}
+
+.step.highlighted {
+    height:8px;
+    width: 60px;
+    /* Grosor de la línea resaltada */
+    background-color: $buttons-register;
+    /* Color de la línea resaltada */
+}
+
+.btn-back {
+    display: flex; // Ajusta el margen según sea necesario
+    margin-right: 40px;
+    margin-left: -50px;
+  }
+}

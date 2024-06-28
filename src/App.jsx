@@ -1,5 +1,4 @@
-// App.js
-import React from 'react';
+
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from '@mui/material/styles';
 import Home from "./components/Home/Home";
@@ -21,6 +20,7 @@ import PrivateZone from "./guards/PrivateZone";
 import theme from './theme'
 import Agency from './components/Agency/Agency';
 import EditProfile from './components/Profile/EditProfile/EditProfile';
+import RegisterSegundoPaso from "./components/RegisterSegundoPaso/RegisterSegundoPaso";
 
 function App() {
   return (
@@ -66,6 +66,7 @@ function MainContent() {
           <Route path="/aboutyou" element={<AboutYou />} />
           <Route path="/speaker" element={<Speaker />} />
           <Route path="/loginPrincipal" element={<LoginPrincipal />} />
+          <Route path="/registerSegundoPaso" element={<RegisterSegundoPaso />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

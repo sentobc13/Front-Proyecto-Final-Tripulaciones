@@ -1,4 +1,5 @@
 @import '../../../../colors.scss';
+@import '../complements';
 
 .divtitleLinkedin {
     width: 342px;
@@ -25,6 +26,7 @@
     padding-left: 10%;
     padding-right: 10%;
     margin-top: 7%;
+    font-family: $font-primary; 
 }
 
 .containerLinkedin2 {
@@ -177,3 +179,9 @@
     background-color: $buttons-register;
     /* Color de la línea resaltada */
 }
+
+.btn-back {
+    display: flex; // Ajusta el margen según sea necesario
+    margin-right: 40px;
+    margin-left: -50px;
+  }
