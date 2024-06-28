@@ -8,8 +8,10 @@ const PaymentMethods = () => {
 
   return (
     <div className="paymentContainer">
-      <h1>Métodos de pago</h1>
-      <div className="ticketType">
+      <div className="divtitleAllergies">
+        <h1 className="titleAllergies">Métodos de pago</h1>
+      </div>
+      <div className="custom-input">
         <span>Tipo de entrada:</span>
         <input type="text" defaultValue="Educación, administración pública y Entidades sin ánimo de lucro." />
         <span className="price">-Entrada 2 días 360€</span>
