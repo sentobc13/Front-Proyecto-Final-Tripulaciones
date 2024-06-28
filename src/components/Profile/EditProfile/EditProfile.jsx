@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import { GoChevronLeft } from 'react-icons/go';
-import { useNavigate } from 'react-router-dom'; // Si usas react-router-dom para la navegación
 import Chip from '@mui/material/Chip';
-import '../EditProfile/EditProfile.scss'
+import { useNavigate } from 'react-router-dom';
+import '../EditProfile/EditProfile.scss';
 
 const EditProfile = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState('Fernando');
   const [surname, setSurname] = useState('Redondo');
   const [bio, setBio] = useState('Fernando supervisa las ventas globales de productos de LVIS.');
-  const [linkedin, setLinkedin] = useState('linkedin.com/in/fernandoredondo');
-  const [interests, setInterests] = useState(['Inteligencia Artificial', 'Diversidad', 'Formación asd']);
+  const [linkedin, setLinkedin] = useState('https://www.linkedin.com/in/fernando-redondo/');
+  const [interests, setInterests] = useState(['E-learning', 'Tecnología', 'Emprendimiento']);
   const [foodPreferences, setFoodPreferences] = useState('');
-  const [isEditing, setIsEditing] = useState(false);
-  
-  const navigate = useNavigate();
 
   const handleSaveChanges = () => {
     console.log('Guardando cambios...');
@@ -25,7 +23,6 @@ const EditProfile = () => {
       interests,
       foodPreferences
     });
-    setIsEditing(false);
   };
 
   const handleDiscardChanges = () => {
@@ -33,115 +30,88 @@ const EditProfile = () => {
     setName('Fernando');
     setSurname('Redondo');
     setBio('Fernando supervisa las ventas globales de productos de LVIS.');
-    setLinkedin('linkedin.com/in/fernandoredondo');
-    setInterests(['Inteligencia Artificial', 'Diversidad', 'Formación asd']);
+    setLinkedin('https://www.linkedin.com/in/fernando-redondo/');
+    setInterests(['E-learning', 'Tecnología', 'Emprendimiento']);
     setFoodPreferences('');
-    setIsEditing(false);
   };
 
-  const handleAddInterest = (e) => {
-    if (e.key === 'Enter' && e.target.value.trim() !== '') {
-      setInterests([...interests, e.target.value.trim()]);
-      e.target.value = '';
-    }
-  };
-
-  const handleRemoveInterest = (index) => {
-    setInterests(interests.filter((_, i) => i !== index));
+  const handleBack = () => {
+    navigate('/profile');
   };
 
   return (
     <>
       <div className="topProfile">
-        <div className="pProfile" onClick={() => navigate('/profile')}>
+        <p className="pProfile" onClick={handleBack}>
           <GoChevronLeft className="iconProfile" />
-        </div>
-        <span className="profileEdit" onClick={() => setIsEditing(!isEditing)}>
-          {isEditing ? 'Cancelar' : 'Editar perfil'}
-        </span>
+        </p>
       </div>
       <div className="profile-content">
         <div>
-          <span className="titleNameProfile">Nombre:</span>
+          <span className="titleNameProfile">Nombre</span>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="inputField"
-            disabled={!isEditing}
           />
         </div>
         <div>
-          <span className="titleNameProfile">Apellidos:</span>
+          <span className="titleNameProfile">Apellidos</span>
           <input
             type="text"
             value={surname}
             onChange={(e) => setSurname(e.target.value)}
             className="inputField"
-            disabled={!isEditing}
           />
         </div>
         <div>
-          <span className="titleNameProfile">Biografía:</span>
+          <span className="titleNameProfile">Biografía</span>
           <textarea
             value={bio}
             onChange={(e) => setBio(e.target.value)}
             className="textareaField"
-            disabled={!isEditing}
           />
         </div>
         <div>
-          <span className="titleNameProfile">Enlace a Linkedin:</span>
+          <span className="titleNameProfile">Enlace a Linkedin</span>
           <input
             type="text"
             value={linkedin}
             onChange={(e) => setLinkedin(e.target.value)}
             className="inputField"
-            disabled={!isEditing}
           />
         </div>
         <div>
-          <span className="titleNameProfile">Intereses:</span>
+          <span className="titleNameProfile">Intereses</span>
           <div className="chipGrid">
             {interests.map((interest, index) => (
               <Chip
                 key={index}
                 label={interest}
-                onDelete={isEditing ? () => handleRemoveInterest(index) : null}
                 className="uniqueChipProfile"
               />
             ))}
-            {isEditing && (
-              <input
-                type="text"
-                placeholder="Añadir interés"
-                onKeyDown={handleAddInterest}
-                className="inputField"
-              />
-            )}
           </div>
         </div>
         <div>
-          <span className="titleNameProfile">Preferencias alimenticias:</span>
+          <span className="titleNameProfile">Preferencias alimenticias</span>
           <input
             type="text"
             value={foodPreferences}
             onChange={(e) => setFoodPreferences(e.target.value)}
             className="inputField"
-            disabled={!isEditing}
           />
         </div>
       </div>
-      {isEditing && (
-        <div className="containerButtonProfile">
-          <button className="SaveChanges" onClick={handleSaveChanges}>
-            Guardar cambios
-          </button>
-          <button className="DiscardChanges" onClick={handleDiscardChanges}>
-            Descartar
-          </button>
-        </div>
-      )}
+      <div className='containerButtonProfile'>
+        <button className='SaveChanges' onClick={handleSaveChanges}>
+          Guardar cambios
+        </button>
+        <button className='DiscardChanges' onClick={handleDiscardChanges}>
+          Descartar
+        </button>
+      </div>
     </>
   );
 };

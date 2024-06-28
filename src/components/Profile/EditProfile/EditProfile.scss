@@ -1,5 +1,11 @@
 @import '../../../../complements.scss';
 
+:root {
+  --gray-500: #718096;
+  --gray-800: #1A202C;
+  --blue-100: #BEE3F8;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -30,16 +36,11 @@ html, body {
   align-items: center;
   font-size: 1.5rem;
   color: #333;
+  cursor: pointer;
 }
 
 .iconProfile {
   margin-right: 0.5rem;
-  cursor: pointer;
-}
-
-.profileEdit {
-  font-weight: bold;
-  cursor: pointer;
 }
 
 .profile-content {
@@ -51,8 +52,11 @@ html, body {
 .titleNameProfile {
   display: block;
   margin: 1rem 0 0.5rem;
-  font-weight: bold;
-  color: #666;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px; /* 133.333% */
+  color: var(--gray-500);
 }
 
 .inputField,
@@ -62,15 +66,17 @@ html, body {
   margin-bottom: 1rem;
   border: none;
   border-bottom: 1px solid #ccc;
-  font-size: 1rem;
-  background-color: transparent;
-  color: #333;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+  color: var(--gray-800);
+  border-radius: 6px;
   box-sizing: border-box;
 }
 
 .textareaField {
   border: 1px solid #ccc;
-  border-radius: 5px;
   resize: vertical;
 }
 
@@ -82,7 +88,13 @@ html, body {
 }
 
 .uniqueChipProfile {
-  background-color: #d0e8f2;
+  background-color: var(--blue-100);
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%;
+  color: var(--gray-800);
+  border-radius: 6px;
 }
 
 .containerButtonProfile {
@@ -104,12 +116,12 @@ html, body {
 }
 
 .SaveChanges {
-  background-color: #4caf50;
+  background-color: #4299e1;
   color: white;
 }
 
 .DiscardChanges {
   background-color: transparent;
-  color: #4caf50;
-  border: 1px solid #4caf50;
+  color: #4299e1;
+  border: 1px solid #4299e1;
 }
