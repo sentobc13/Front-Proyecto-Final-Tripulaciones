@@ -1,38 +1,66 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GoChevronLeft } from 'react-icons/go';
 import Chip from '@mui/material/Chip';
 import { useNavigate } from 'react-router-dom';
 import '../EditProfile/EditProfile.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { Spinner } from '@chakra-ui/react'
+import { getLoggedAttendee, updateAttendee } from '../../../features/auth/attendee/authAttendeeSlice';
 
 const EditProfile = () => {
+  const { attendee, isLoadingAttendee } = useSelector((state) => state.authAttendee);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [name, setName] = useState('Fernando');
-  const [surname, setSurname] = useState('Redondo');
-  const [bio, setBio] = useState('Fernando supervisa las ventas globales de productos de LVIS.');
-  const [linkedin, setLinkedin] = useState('https://www.linkedin.com/in/fernando-redondo/');
-  const [interests, setInterests] = useState(['E-learning', 'Tecnología', 'Emprendimiento']);
+
+  useEffect(() => {
+    dispatch(getLoggedAttendee())
+  }, []);
+
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [bio, setBio] = useState("");
+  const [linkedin, setLinkedin] = useState('');
+  const [interests, setInterests] = useState([]);
   const [foodPreferences, setFoodPreferences] = useState('');
+
+  useEffect(() => {
+    if (attendee) {
+      setName(attendee.name);
+      setSurname(attendee.surname);
+      setLinkedin(attendee.linkedin)
+      setInterests(attendee.interests || [])
+      setFoodPreferences(attendee.dietary_restrictions || [])
+    }
+  }, [attendee]);
+
+  if (isLoadingAttendee) {
+    return <p>Cargando</p>;
+  }
+
+
+
 
   const handleSaveChanges = () => {
     console.log('Guardando cambios...');
-    console.log({
+    const attendee = {
       name,
       surname,
       bio,
       linkedin,
       interests,
       foodPreferences
-    });
+    }
+    console.log(attendee);
+    dispatch(updateAttendee(attendee))
   };
 
   const handleDiscardChanges = () => {
     console.log('Descartando cambios...');
-    setName('Fernando');
-    setSurname('Redondo');
-    setBio('Fernando supervisa las ventas globales de productos de LVIS.');
-    setLinkedin('https://www.linkedin.com/in/fernando-redondo/');
-    setInterests(['E-learning', 'Tecnología', 'Emprendimiento']);
-    setFoodPreferences('');
+    setName(attendee.name);
+    setSurname(attendee.surname);
+    setLinkedin(attendee.linkedin)
+    setInterests(attendee.interests || [])
+    setFoodPreferences(attendee.dietary_restrictions || [])
   };
 
   const handleBack = () => {
@@ -45,32 +73,32 @@ const EditProfile = () => {
 
   return (
     <>
-      <div className="topProfile">
-        <p className="pProfile" onClick={handleBack}>
-          <GoChevronLeft className="iconProfile" />
+      <div className="topProfileEdit">
+        <p className="pProfileEdit" onClick={handleBack}>
+          <GoChevronLeft className="iconProfileEdit" />
         </p>
       </div>
-      <div className="profile-content">
+      <div className="profile-contentEdit">
         <div>
-          <span className="titleNameProfile">Nombre</span>
+          <span className="titleNameProfileEdit">Nombre</span>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="inputField"
+            className="inputFieldEdit"
           />
         </div>
         <div>
-          <span className="titleNameProfile">Apellidos</span>
+          <span className="titleNameProfileEdit">Apellidos</span>
           <input
             type="text"
             value={surname}
             onChange={(e) => setSurname(e.target.value)}
-            className="inputField"
+            className="inputFieldEdit"
           />
         </div>
         <div>
-          <span className="titleNameProfile">Biografía</span>
+          <span className="titleNameProfileEdit">Biografía</span>
           <textarea
             value={bio}
             onChange={(e) => setBio(e.target.value)}
@@ -78,42 +106,42 @@ const EditProfile = () => {
           />
         </div>
         <div>
-          <span className="titleNameProfile">Enlace a Linkedin</span>
+          <span className="titleNameProfileEdit">Enlace a Linkedin</span>
           <input
             type="text"
             value={linkedin}
             onChange={(e) => setLinkedin(e.target.value)}
-            className="inputField"
+            className="inputFieldEdit"
           />
         </div>
         <div>
-          <span className="titleNameProfile">Intereses</span>
+          <span className="titleNameProfileEdit">Intereses</span>
           <div className="chipGrid">
             {interests.map((interest, index) => (
               <Chip
                 key={index}
                 label={interest}
                 onDelete={() => handleDeleteInterest(interest)}
-                className="uniqueChipProfile"
+                className="uniqueChipProfileEdit"
               />
             ))}
           </div>
         </div>
         <div>
-          <span className="titleNameProfile">Preferencias alimenticias</span>
+          <span className="titleNameProfileEdit">Preferencias alimenticias</span>
           <input
             type="text"
             value={foodPreferences}
             onChange={(e) => setFoodPreferences(e.target.value)}
-            className="inputField"
+            className="inputFieldEdit"
           />
         </div>
       </div>
       <div className='containerButtonProfileEdit'>
-        <button className='SaveChanges' onClick={handleSaveChanges}>
+        <button className='SaveChangesEdit' onClick={handleSaveChanges}>
           Guardar cambios
         </button>
-        <button className='DiscardChanges' onClick={handleDiscardChanges}>
+        <button className='DiscardChangesEdit' onClick={handleDiscardChanges}>
           Descartar
         </button>
       </div>

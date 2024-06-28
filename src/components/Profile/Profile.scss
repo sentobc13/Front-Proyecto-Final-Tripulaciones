@@ -1,5 +1,9 @@
 @import '../../../colors.scss';
 
+.mainContent-profile{
+    padding-left: 10px;
+    padding-right: 10px;
+}
 .profile-container {
     display: flex;
     justify-content: center;
@@ -47,32 +51,32 @@
 
 .pProfile {
     display: flex;
-    justify-content: center;
-    padding: 5px;
-    padding-right: 0px;
+    justify-content: space-between;
+    padding: 10px;
+
     gap: 25%;
 
     @media (max-width: 768px) {
-        flex-direction: column;
+
         gap: 10px;
     }
 
     @media (max-width: 480px) {
-        flex-direction: column;
+
         gap: 5px;
     }
 }
 
 .iconProfile {
-    margin-right: 35%;
+
 
     @media (max-width: 768px) {
-        margin-right: 0;
+
         margin-bottom: 10px;
     }
 
     @media (max-width: 480px) {
-        margin-right: 0;
+
         margin-bottom: 5px;
     }
 }
@@ -117,7 +121,8 @@
 }
 
 .interestsProfile {
-    margin: 6%;
+    margin: 2%;
+    margin-left: 6%;
 
     @media (max-width: 768px) {
         margin: 3%;
@@ -129,7 +134,7 @@
 }
 
 .interestsName {
-    margin-bottom: 5%;
+    
 
     @media (max-width: 768px) {
         margin-bottom: 3%;
@@ -190,6 +195,9 @@
 
     @media (max-width: 480px) {
         margin-left: 2%;
+    }
+    p {
+        margin-top: 5px;
     }
 }
 

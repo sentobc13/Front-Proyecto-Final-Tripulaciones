@@ -10,7 +10,8 @@ const initialState = {
     token: token,
     isError: false,
     isSuccess: false,
-    msg: ""
+    msg: "",
+    isLoadingAttendee: true
 }
 
 
@@ -23,6 +24,7 @@ export const authSlice = createSlice({
             state.isError = false
             state.isSuccess = false
             state.message = ""
+            state.isLoadingAttendee = true
         }
     },
     extraReducers: (builder) => {
@@ -48,11 +50,18 @@ export const authSlice = createSlice({
                 state.isError = true
             })
             .addCase(getLoggedAttendee.fulfilled, (state, action) => {
-                state.attendee = action.payload.userData;
-                state.isLoading = false;
+                state.attendee = action.payload.attendeeData;
+                state.isLoadingAttendee = false;
             })
             .addCase(getLoggedAttendee.pending, (state) => {
-                state.isLoading = true
+                state.isLoadingAttendee = true
+            })
+            .addCase(updateAttendee.fulfilled, (state, action) => {
+                state.attendee = action.payload.attendee;
+                state.isLoadingAttendee = false;
+            })
+            .addCase(updateAttendee.pending, (state) => {
+                state.isLoadingAttendee = true
             })
     }
 })
@@ -81,6 +90,14 @@ export const login = createAsyncThunk("auth/login", async (attendee, thunkAPI) =
 export const getLoggedAttendee = createAsyncThunk("auth/getLoggedAttendee", async () => {
     try {
         return await authAttendeeService.getLoggedAttendee();
+    } catch (error) {
+        console.error(error);
+    }
+}
+)
+export const updateAttendee = createAsyncThunk("auth/updateAttendee", async (attendee) => {
+    try {
+        return await authAttendeeService.updateAttendee(attendee);
     } catch (error) {
         console.error(error);
     }

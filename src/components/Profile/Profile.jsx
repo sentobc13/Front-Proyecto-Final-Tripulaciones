@@ -1,52 +1,67 @@
 import "./Profile.scss"
 import { GoChevronLeft } from "react-icons/go";
 import Chip from '@mui/material/Chip';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getLoggedAttendee } from "../../features/auth/attendee/authAttendeeSlice";
+import { useEffect } from "react";
+import { Spinner } from '@chakra-ui/react'
+
 
 const Profile = () => {
-  const { attendee,  } = useSelector((state) => state.authAttendee);
+  const { attendee, isLoadingAttendee } = useSelector((state) => state.authAttendee);
   const dispatch = useDispatch();
-  dispatch(getLoggedUser());
-  !attendee && 
 
 
-console.log(attendee);
+
+  useEffect(() => {
+    dispatch(getLoggedAttendee())
+  }, []);
+
+  if (isLoadingAttendee) {
+    return <Spinner /> ;
+  }
+
+  console.log(attendee);
   return (
-    <>
+    <div className="mainContent-profile">
       <div className="topProfile">
-        <p className="pProfile">
+        <div className="pProfile">
           <GoChevronLeft className="iconProfile" />
-          <span className="profileEdit">Editar perfil</span>
-        </p>
+          <p>Perfil</p>
+          <button className="profileEdit" onClick={()=>console.log("Hola")}>Editar perfil</button>
+        </div>
       </div>
       <div className="user-description-profile">
-      <div className="profile-container">
-        <img src="https://s3-alpha-sig.figma.com/img/a56f/6697/8a2b86f7a89eb3ed76a431148a72f3e6?Expires=1720396800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nHxXqJAkFm4ztlInhUPCZnHYV7XD2d7KYaIt9kHiPlAyxHBBu32YrGvywK~XMy-A3HQb~aMZQD6HpYVobMGvugIZFmsV0heAb0dDNV5X6VwDqFmVtk5Up1knh3-A~IcwQbLuw52LHkEjFUmlgYS2WuV5aQriJ~egFgkRIzrVMVwYh-sUxJVb~bbmhvoDOa0S931luy3KniC2151KifpxZ32wcj1UBcDkGEbQh4Ajw7T4PzSi8HOh9TgSZ7IBimxcQ2~D2wPqoJurjsdwCYNfWn7ZJmiXHK-gE979YNfDs0vQuO78mr~PybiuiRU-ZcfyD2WS~yYanf4JiCtLEaRGeg__" alt="Foto de Perfil" className="profile-picture" />
-      </div>
-      <div>
-        <span className="titleNameProfile">Fernando Redondo</span>
-      </div>
-      <div>
-        <span className="subtitleNameProfile">CEO en LVIS</span>
-      </div>
-      <div className="descriptionNameProfile">
-        <span>Fernando supervisa las ventas globales de productos de LVIS.</span>
-      </div>
+        <div className="profile-container">
+          <img src="https://s3-alpha-sig.figma.com/img/a56f/6697/8a2b86f7a89eb3ed76a431148a72f3e6?Expires=1720396800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nHxXqJAkFm4ztlInhUPCZnHYV7XD2d7KYaIt9kHiPlAyxHBBu32YrGvywK~XMy-A3HQb~aMZQD6HpYVobMGvugIZFmsV0heAb0dDNV5X6VwDqFmVtk5Up1knh3-A~IcwQbLuw52LHkEjFUmlgYS2WuV5aQriJ~egFgkRIzrVMVwYh-sUxJVb~bbmhvoDOa0S931luy3KniC2151KifpxZ32wcj1UBcDkGEbQh4Ajw7T4PzSi8HOh9TgSZ7IBimxcQ2~D2wPqoJurjsdwCYNfWn7ZJmiXHK-gE979YNfDs0vQuO78mr~PybiuiRU-ZcfyD2WS~yYanf4JiCtLEaRGeg__" alt="Foto de Perfil" className="profile-picture" />
+        </div>
+        <div>
+          <span className="titleNameProfile">{attendee.name} {attendee.surname}</span>
+        </div>
+        <div>
+          <span className="subtitleNameProfile">CEO en LVIS</span>
+        </div>
+        <div className="descriptionNameProfile">
+          <span>Fernando supervisa las ventas globales de productos de LVIS.</span>
+        </div>
       </div>
       <div className="interestsProfile">
         <p className="interestsName">Intereses</p>
         <div className="chipGrid">
-          <Chip className="uniqueChipProfile" label="E-learning" />
-          <Chip className="uniqueChipProfile" label="E-learning" />
-          <Chip className="uniqueChipProfile" label="E-learning" />
-          <Chip className="uniqueChipProfile" label="E-learning" />
+          {attendee.interests.map((interes) => (
+            <>
+              <Chip className="uniqueChipProfile" label={`${interes}`} />
+
+            </>
+          ))}
+
         </div>
       </div>
       <div className="moreInformationProfile">
-        <p>Linkedin : <a href="https://www.linkedin.com/in/manel-piernas-hernandez/" className="linkedinNameProfile">Fernando_Redondo</a></p>
-        <p>Website</p>
-        <p>Correo</p>
-        <p>Preferencias alimenticias</p>
+        <p>Linkedin : <a href={`https://www.linkedin.com/in/{attendee.linkedin}`} className="linkedinNameProfile">{attendee.linkedin}</a></p>
+        <p>Website: {attendee.linkedin}</p>
+        <p>Correo: {attendee.email}</p>
+        <p>Preferencias alimenticias: {attendee.dietary_restrictions}</p>
       </div>
       <div className='containerButtonProfile'>
         <button className='ShowQR'>
@@ -56,7 +71,7 @@ console.log(attendee);
           Escanear Código QR
         </button>
       </div>
-    </>
+    </div>
   )
 }
 
