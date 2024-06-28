@@ -4,7 +4,7 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/E-learning-Experience_Logo-negro.png';
-import './Header.scss'; 
+import './Header.scss';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -42,16 +42,18 @@ const Header = () => {
         <Spacer />
         <Box>
           <Link to="/home">
-            <Image src={logo} alt="Logo" height="40px" /> 
+            <Image src={logo} alt="Logo" height="40px" />
           </Link>
         </Box>
         <Spacer />
-        <IconButton
-          icon={<FaUserCircle />}
-          color="black"
-          variant="ghost"
-          aria-label="User Profile"
-        />
+        <Link to="/profile">
+          <IconButton
+            icon={<FaUserCircle />}
+            color="black"
+            variant="ghost"
+            aria-label="User Profile"
+          />
+        </Link>
       </Flex>
       {menuOpen && (
         <VStack

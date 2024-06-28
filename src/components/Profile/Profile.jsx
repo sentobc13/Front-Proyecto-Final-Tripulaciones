@@ -5,11 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getLoggedAttendee } from "../../features/auth/attendee/authAttendeeSlice";
 import { useEffect } from "react";
 import { Spinner } from '@chakra-ui/react'
+import { useNavigate } from "react-router-dom";
 
 
 const Profile = () => {
   const { attendee, isLoadingAttendee } = useSelector((state) => state.authAttendee);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
 
 
@@ -28,7 +30,7 @@ const Profile = () => {
         <div className="pProfile">
           <GoChevronLeft className="iconProfile" />
           <p>Perfil</p>
-          <button className="profileEdit" onClick={()=>console.log("Hola")}>Editar perfil</button>
+          <button className="profileEdit" onClick={()=>navigate('/editProfile')}>Editar perfil</button>
         </div>
       </div>
       <div className="user-description-profile">
