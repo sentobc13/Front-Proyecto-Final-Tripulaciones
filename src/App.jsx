@@ -19,6 +19,7 @@ import LoginSpeaker from "./components/LoginSpeaker/LoginSpeaker";
 import PrivateZone from "./guards/PrivateZone";
 import theme from './theme'
 import Agency from './components/Agency/Agency';
+import RegisterSegundoPaso from "./components/RegisterSegundoPaso/RegisterSegundoPaso";
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function MainContent() {
           <Route path="/aboutyou" element={<AboutYou />} />
           <Route path="/speaker" element={<Speaker />} />
           <Route path="/loginPrincipal" element={<LoginPrincipal />} />
+          <Route path="/registerSegundoPaso" element={<RegisterSegundoPaso />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
