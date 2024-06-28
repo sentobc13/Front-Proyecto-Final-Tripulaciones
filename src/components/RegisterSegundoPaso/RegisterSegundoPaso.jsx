@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../features/auth/authSlice';
+import { register } from '../../features/auth/attendee/authAttendeeSlice';
 import logo from '../../assets/E-learning-Experience_Logo-negro.png';
-import './RegisterSegundoPaso.scss'
+import './RegisterSegundoPaso.scss';
 import {
     Box,
     Button,
@@ -16,7 +16,7 @@ import {
     Flex,
     Text,
 } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MdArrowBackIos } from 'react-icons/md';
 
 const RegisterSegundoPaso = () => {
@@ -28,10 +28,12 @@ const RegisterSegundoPaso = () => {
 
     const [formError, setFormError] = useState(null);
     const [emailError, setEmailError] = useState(null);
+    const [passwordError, setPasswordError] = useState(null);
     const [successMessage, setSuccessMessage] = useState(null);
 
+    const navigate = useNavigate()
     const dispatch = useDispatch();
-    const { status, error } = useSelector((state) => state.auth);
+    const { status, error } = useSelector((state) => state.authAttendee);
 
     const handleChange = (e) => {
         setFormData({
@@ -67,17 +69,18 @@ const RegisterSegundoPaso = () => {
         }
 
         if (formData.password !== formData.password2) {
-            setFormError('Las contraseñas no coinciden.');
+            setPasswordError('Las contraseñas no coinciden.');
             return;
         }
 
+        // Guardar los datos en localStorage
+        localStorage.setItem('register', JSON.stringify(formData));
 
         setFormError(null);
+        setPasswordError(null);
         setSuccessMessage(null);
         dispatch(register(formData)).then(() => {
-            if (!error) {
-                setSuccessMessage('¡Registro exitoso!');
-            }
+            navigate('/connectLinkedin')
         });
     };
 
@@ -138,34 +141,33 @@ const RegisterSegundoPaso = () => {
                                         />
                                         {emailError && <Text color="red.500" fontSize="sm">{emailError}</Text>}
                                     </FormControl>
-                                    <FormControl isRequired>
+                                    <FormControl isRequired isInvalid={passwordError}>
                                         <FormLabel>Contraseña</FormLabel>
                                         <Input
                                             type="password"
                                             name="password"
-                                            value={formData.contraseña}
+                                            value={formData.password}
                                             onChange={handleChange}
                                             placeholder="Inserte su contraseña"
                                         />
                                     </FormControl>
-                                    <FormControl isRequired>
+                                    <FormControl isRequired isInvalid={passwordError}>
                                         <FormLabel>Confirmar contraseña</FormLabel>
                                         <Input
                                             type="password"
                                             name="password2"
-                                            value={formData.confirmar}
+                                            value={formData.password2}
                                             onChange={handleChange}
                                             placeholder="Confirme su contraseña"
                                         />
+                                        {passwordError && <Text color="red.500" fontSize="sm">{passwordError}</Text>}
                                     </FormControl>
                                     <Text fontSize="sm" textAlign="" color="gray.600" mt={4}>
-                                        Al registrarte, aceptas los <a href="/terminos" style={{ color: '#4299E1' }}>Términos de servicio</a> y la <a href="/privacidad" style={{ color: '#4299E1' }}>Política de privacidad</a>, incluida la politica de <a href="/cookies" style={{ color: '#4299E1' }}>Uso de Cookies.</a>
+                                        Al registrarte, aceptas los <a href="/terminos" style={{ color: '#4299E1' }}>Términos de servicio</a> y la <a href="/privacidad" style={{ color: '#4299E1' }}>Política de privacidad</a>, incluida la política de <a href="/cookies" style={{ color: '#4299E1' }}>Uso de Cookies.</a>
                                     </Text>
-                                    <Link to="/connectLinkedin">
-                                        <Button className='btn-register' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
-                                            Crear cuenta
-                                        </Button>
-                                    </Link>
+                                    <Button className='btn-register' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
+                                        Crear cuenta
+                                    </Button>
                                 </Stack>
                             </form>
                         </div>
@@ -173,7 +175,7 @@ const RegisterSegundoPaso = () => {
                 </div>
             </div>
         </>
-
     );
 };
+
 export default RegisterSegundoPaso;
