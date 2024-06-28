@@ -19,6 +19,7 @@ import LoginSpeaker from "./components/LoginSpeaker/LoginSpeaker";
 import PrivateZone from "./guards/PrivateZone";
 import theme from './theme'
 import Agency from './components/Agency/Agency';
+import EditProfile from './components/Profile/EditProfile/EditProfile';
 import RegisterSegundoPaso from "./components/RegisterSegundoPaso/RegisterSegundoPaso";
 
 function App() {
@@ -58,6 +59,7 @@ function MainContent() {
           <Route path="/connectLinkedin" element={<ConnectLinkedin />} />
           <Route path="/" element={<PrivateZone><Home /></PrivateZone>} />
           <Route path="/profile" element={<PrivateZone><Profile /></PrivateZone>} />
+          <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/loginAttendee" element={<LoginAttendee />} />
           <Route path="/loginSpeaker" element={<LoginSpeaker />} />
           <Route path="/attendee" element={<Attendee />} />

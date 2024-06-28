@@ -54,7 +54,11 @@ const AboutYou = () => {
 
     localStorage.setItem('register', JSON.stringify(updatedData));
 
-    navigate('/allergies');
+    if(typeUser == 'Speaker') {
+      navigate('/hastags');
+    }else{
+      navigate('/allergies');
+    }
   };
 
   return (
