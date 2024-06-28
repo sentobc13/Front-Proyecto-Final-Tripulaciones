@@ -1,27 +1,26 @@
-@import '../../../colors.scss';
 @import '../complements';
+@import '../../../colors.scss';
 
-.body {
-  font-family: $font-primary;  
-}
-
+.loginContainer,
 .registerContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 50vh;
+  min-height: 100vh;
   padding: 20px;
-
+ 
   .bienvenidos {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+   
 
     h3 {
       margin: 0;
       text-align: center;
+      font-family: $font-primary;
     }
 
     .logoImagen {
@@ -35,61 +34,99 @@
     }
   }
 
+  .btn-container,
   .form-register {
-    width: 100%;
-    max-width: 400px;
-    margin-top: -50px; // Ajusta este valor según tus necesidades
-  }
-
-  .btn-register {
     display: flex;
-    width: 342px;
-    height: 48px;
-    padding: 0 24px;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 8px;
-    margin-top: 100px;
-    background-color: #4299e1;
-    color: white;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
 
+    .btn-linkedin,
+    .btn-google,
+    .btn-crearCuenta,
+    .btn-iniciarSesion,
+    .btn-register {
+      display: flex;
+      width: 342px;
+      height: 48px;
+      padding: 0 24px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      background-color: #4299e1;
+      color: white;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #3182ce;
+      }
+    }
+
+    .btn-iniciarSesion {
+      background-color: white;
+      color: #4299e1;
+      border: 1px solid #4299e1;
+
+      &:hover {
+        background-color: #eee;
+      }
+    }
+
+    .separator {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin: 80px 0;
+
+      .line {
+        flex-grow: 1;
+        height: 1px;
+        background-color: #ccc;
+      }
+
+      .or {
+        margin: 0 10px;
+        color: #666;
+      }
+    }
+
+    .formulario-text {
+      font-family: $font-inter;
+    }
   }
+}
 
-  .stepper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    max-width: 400px;
-    margin: auto;
-    padding: 10px;
-    margin-top: 8%;
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 400px;
+  margin: auto;
+  padding: 10px;
+  margin-top: 8%;
 }
 
 .step {
-    width: 40px;
-    height: 4px;
-    background-color: #ddd;
-    margin: 0 10px;
-    border-radius: 10px;
+  width: 40px;
+  height: 4px;
+  background-color: #ddd;
+  margin: 0 10px;
+  border-radius: 10px;
 }
 
 .step.highlighted {
-    height:8px;
-    width: 60px;
-    /* Grosor de la línea resaltada */
-    background-color: $buttons-register;
-    /* Color de la línea resaltada */
+  height: 8px;
+  width: 60px;
+  background-color: $buttons-register;
 }
 
 .btn-back {
-    display: flex; // Ajusta el margen según sea necesario
-    margin-right: 40px;
-    margin-left: -50px;
-  }
+  display: flex;
+  margin-right: 40px;
+  margin-left: -50px;
 }
