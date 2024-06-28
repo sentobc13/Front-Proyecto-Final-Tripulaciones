@@ -1,4 +1,3 @@
-import React from 'react'
 import './ConnectLinkedin.scss'
 import { FaLinkedin } from "react-icons/fa";
 import { Link } from 'react-router-dom';

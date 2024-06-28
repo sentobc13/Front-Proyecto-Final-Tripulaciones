@@ -43,7 +43,8 @@ function MainContent() {
     "/connectLinkedin",
     "/aboutyou",
     "/loginSpeaker",
-    "/loginPrincipal"
+    "/loginPrincipal",
+    "/registerSegundoPaso"
   ];
 
   return (
