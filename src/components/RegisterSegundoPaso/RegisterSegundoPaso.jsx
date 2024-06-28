@@ -31,7 +31,6 @@ const RegisterSegundoPaso = () => {
     const [successMessage, setSuccessMessage] = useState(null);
 
     const dispatch = useDispatch();
-    const { status, error } = useSelector((state) => state.authAttendee);
     const navigate = useNavigate()
     const { status, error } = useSelector((state) => state.authAttendee);
 

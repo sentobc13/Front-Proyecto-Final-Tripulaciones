@@ -16,10 +16,11 @@ import LoginAttendee from "./components/LoginAttendee/LoginAttendee";
 import LoginSpeaker from "./components/LoginSpeaker/LoginSpeaker";
 import PrivateZone from "./guards/PrivateZone";
 import theme from './theme'
-
 import RegisterSegundoPaso from "./components/RegisterSegundoPaso/RegisterSegundoPaso";
 import PaymentMethods from "./components/PaymentMethods/PaymentMethods";
 import Diary from "./components/Diary/Diary";
+import EditProfile from './components/Profile/EditProfile/EditProfile';
+
 
 function App() {
   return (
