@@ -1,5 +1,5 @@
-@import '../../../../../colors.scss';
-@import '../../../../../complements.scss';
+@import '../../../../colors.scss';
+@import '../../../../complements.scss';
 
 .about-you-container {
   display: flex;
@@ -104,4 +104,8 @@ h2 {
 
 .BadgecontainerAboutYouButton button:hover {
   background-color: lighten($buttons-register, 10%);
+}
+
+.importantAboutYou {
+  color: red;
 }
