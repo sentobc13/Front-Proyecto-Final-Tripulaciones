@@ -10,7 +10,7 @@
 }
 
 .titleAllergies {
-    font-family: Montserrat;
+    font-family: Montserrat;   
     font-size: 30px;
     font-weight: 400;
     line-height: 33px;
@@ -174,3 +174,9 @@
     background-color: $buttons-register;
     /* Color de la línea resaltada */
 }
+
+.btn-back {
+    display: flex; // Ajusta el margen según sea necesario
+    margin-right: 40px;
+    margin-left: -50px;
+  }
