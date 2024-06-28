@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../features/auth/attendee/authAttendeeSlice';
+import {useSelector } from 'react-redux';
 import logo from '../../assets/E-learning-Experience_Logo-negro.png';
 import './RegisterSegundoPaso.scss';
 import {
@@ -30,7 +29,6 @@ const RegisterSegundoPaso = () => {
     const [successMessage, setSuccessMessage] = useState(null);
 
     const navigate = useNavigate()
-    const dispatch = useDispatch();
     const { status, error } = useSelector((state) => state.authAttendee);
 
     const handleChange = (e) => {
@@ -76,9 +74,7 @@ const RegisterSegundoPaso = () => {
         setFormError(null);
         setPasswordError(null);
         setSuccessMessage(null);
-        dispatch(register(formData)).then(() => {
-            navigate('/connectLinkedin')
-        });
+        navigate('/connectLinkedin')
     };
 
     return (
