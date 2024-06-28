@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../features/auth/authSlice';
+import { register } from '../../features/auth/attendee/authAttendeeSlice';
 import logo from '../../assets/E-learning-Experience_Logo-negro.png';
 import './RegisterSegundoPaso.scss'
 import {
@@ -31,7 +31,7 @@ const RegisterSegundoPaso = () => {
     const [successMessage, setSuccessMessage] = useState(null);
 
     const dispatch = useDispatch();
-    const { status, error } = useSelector((state) => state.auth);
+    const { status, error } = useSelector((state) => state.authAttendee);
 
     const handleChange = (e) => {
         setFormData({
