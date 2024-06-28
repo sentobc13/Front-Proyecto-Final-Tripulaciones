@@ -1,16 +1,24 @@
 
+import { MdArrowBackIos } from 'react-icons/md'
 import './Allergies.scss'
 import { Link } from 'react-router-dom'
 
 const Allergies = () => {
     return (
         <>
-            <div className="stepper">
-                <div className="step"></div>
-                <div className="step"></div>
-                <div className="step"></div>
-                <div className="step highlighted"></div>
-                <div className="step"></div>
+            <div className="about-you-container">
+                <div className="stepper">
+                    <div className="btn-back">
+                        <Link to="/aboutyou" style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <MdArrowBackIos style={{ fontSize: 18 }} /> {/* Ajusta el tamaño del ícono según tus necesidades */}
+                        </Link>
+                    </div>
+                    <div className="step"></div>
+                    <div className="step"></div>
+                    <div className="step"></div>
+                    <div className="step highlighted"></div>
+                    <div className="step"></div>
+                </div>
             </div>
             <div className="containerAllergies">
                 <div className='divtitleAllergiess'>

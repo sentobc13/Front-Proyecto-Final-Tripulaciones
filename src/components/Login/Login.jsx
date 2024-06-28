@@ -121,9 +121,10 @@ const Login = () => {
                   size="lg" // Ajusta el tamaño del input (lg: large)
                 />
               </FormControl>
-              <Text fontSize="sm" textAlign="" color="gray.600" mt={4}>
-                 <a href="/recuperarContraseña" style={{ color: '#4299E1' }}>Recuperar contraseña</a>
+              <Text fontSize="sm" textAlign="" color="gray.600" mt={2} style={{ marginBottom: "-10px" }}>
+                <a href="/recuperarContraseña" style={{ color: '#4299E1' }}>Recuperar contraseña</a>
               </Text>
+
               <Button className='btn-login' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
                 Entrar
               </Button>

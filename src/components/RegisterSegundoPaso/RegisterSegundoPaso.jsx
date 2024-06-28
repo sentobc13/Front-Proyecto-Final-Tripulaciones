@@ -17,6 +17,7 @@ import {
     Text,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import { MdArrowBackIos } from 'react-icons/md';
 
 const RegisterSegundoPaso = () => {
     const [formData, setFormData] = useState({
@@ -81,81 +82,98 @@ const RegisterSegundoPaso = () => {
     };
 
     return (
-        <div className="loginContainer">
-            <div className='bienvenidos'>
-                <h3>Bienvenid@ a</h3>
-                <div className='logoImagen'>
-                    <img className="logo" src={logo} alt="Logo" />
+        <>
+            <div className="about-you-container">
+                <div className="stepper">
+                    <div className="btn-back">
+                        <Link to="/loginPrincipal" style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <MdArrowBackIos style={{ fontSize: 18 }} /> {/* Ajusta el tamaño del ícono según tus necesidades */}
+                        </Link>
+                    </div>
+                    <div className="step highlighted"></div>
+                    <div className="step"></div>
+                    <div className="step"></div>
+                    <div className="step"></div>
+                    <div className="step"></div>
                 </div>
             </div>
-            <div className='form-register'>
-                <Flex minHeight="54vh" alignItems="center" justifyContent="center" p={5}>
-                    <div style={{ width: '100%', maxWidth: '500px' }}>
-                        {formError && (
-                            <Alert status="error" mb={4}>
-                                <AlertIcon />
-                                {formError}
-                            </Alert>
-                        )}
-                        {status === 'failed' && (
-                            <Alert status="error" mb={4}>
-                                <AlertIcon />
-                                {error}
-                            </Alert>
-                        )}
-                        {successMessage && (
-                            <Alert status="success" mb={4}>
-                                <AlertIcon />
-                                {successMessage}
-                            </Alert>
-                        )}
-                        <form onSubmit={handleSubmit}>
-                            <Stack spacing={4}>
-                                <FormControl isRequired isInvalid={emailError}>
-                                    <FormLabel>Email</FormLabel>
-                                    <Input
-                                        type="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        placeholder="Inserte su correo"
-                                    />
-                                    {emailError && <Text color="red.500" fontSize="sm">{emailError}</Text>}
-                                </FormControl>
-                                <FormControl isRequired>
-                                    <FormLabel>Contraseña</FormLabel>
-                                    <Input
-                                        type="password"
-                                        name="password"
-                                        value={formData.contraseña}
-                                        onChange={handleChange}
-                                        placeholder="Inserte su contraseña"
-                                    />
-                                </FormControl>
-                                <FormControl isRequired>
-                                    <FormLabel>Confirmar contraseña</FormLabel>
-                                    <Input
-                                        type="password"
-                                        name="password2"
-                                        value={formData.confirmar}
-                                        onChange={handleChange}
-                                        placeholder="Confirme su contraseña"
-                                    />
-                                </FormControl>
-                                <Link to="/connectLinkedin">
-                                <Button className='btn-register' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
-                                    Crear cuenta
-                                </Button>
-                                </Link>
-                                <Text fontSize="sm" textAlign="" color="gray.600" mt={4}>
-                                    Al registrarte, aceptas los <a href="/terminos" style={{ color: '#4299E1' }}>Términos de servicio</a> y la <a href="/privacidad" style={{ color: '#4299E1' }}>Política de privacidad</a>, incluida la politica de <a href="/cookies" style={{ color: '#4299E1' }}>Uso de Cookies.</a>
-                                </Text>
-                            </Stack>
-                        </form>
+            <div className="registerContainer">
+                <div className='bienvenidos'>
+                    <h3>Bienvenid@ a</h3>
+                    <div className='logoImagen'>
+                        <img className="logo" src={logo} alt="Logo" />
                     </div>
-                </Flex>
+                </div>
+                <div className='form-register'>
+                    <Flex minHeight="54vh" alignItems="center" justifyContent="center" p={5}>
+                        <div style={{ width: '100%', maxWidth: '500px' }}>
+                            {formError && (
+                                <Alert status="error" mb={4}>
+                                    <AlertIcon />
+                                    {formError}
+                                </Alert>
+                            )}
+                            {status === 'failed' && (
+                                <Alert status="error" mb={4}>
+                                    <AlertIcon />
+                                    {error}
+                                </Alert>
+                            )}
+                            {successMessage && (
+                                <Alert status="success" mb={4}>
+                                    <AlertIcon />
+                                    {successMessage}
+                                </Alert>
+                            )}
+                            <form onSubmit={handleSubmit}>
+                                <Stack spacing={4}>
+                                    <FormControl isRequired isInvalid={emailError}>
+                                        <FormLabel>Email</FormLabel>
+                                        <Input
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            placeholder="Inserte su correo"
+                                        />
+                                        {emailError && <Text color="red.500" fontSize="sm">{emailError}</Text>}
+                                    </FormControl>
+                                    <FormControl isRequired>
+                                        <FormLabel>Contraseña</FormLabel>
+                                        <Input
+                                            type="password"
+                                            name="password"
+                                            value={formData.contraseña}
+                                            onChange={handleChange}
+                                            placeholder="Inserte su contraseña"
+                                        />
+                                    </FormControl>
+                                    <FormControl isRequired>
+                                        <FormLabel>Confirmar contraseña</FormLabel>
+                                        <Input
+                                            type="password"
+                                            name="password2"
+                                            value={formData.confirmar}
+                                            onChange={handleChange}
+                                            placeholder="Confirme su contraseña"
+                                        />
+                                    </FormControl>
+                                    <Text fontSize="sm" textAlign="" color="gray.600" mt={4}>
+                                        Al registrarte, aceptas los <a href="/terminos" style={{ color: '#4299E1' }}>Términos de servicio</a> y la <a href="/privacidad" style={{ color: '#4299E1' }}>Política de privacidad</a>, incluida la politica de <a href="/cookies" style={{ color: '#4299E1' }}>Uso de Cookies.</a>
+                                    </Text>
+                                    <Link to="/connectLinkedin">
+                                        <Button className='btn-register' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
+                                            Crear cuenta
+                                        </Button>
+                                    </Link>
+                                </Stack>
+                            </form>
+                        </div>
+                    </Flex>
+                </div>
             </div>
-        </div>
+        </>
+
     );
 };
 export default RegisterSegundoPaso;

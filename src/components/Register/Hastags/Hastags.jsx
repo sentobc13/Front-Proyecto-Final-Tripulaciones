@@ -1,15 +1,24 @@
 import React from 'react'
 import './Hastags.scss'
 import { Stack, Badge } from '@chakra-ui/react'
+import { MdArrowBackIos } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 const Hastags = () => {
     return (
         <>
-            <div className="stepper">
-                <div className="step"></div>
-                <div className="step"></div>
-                <div className="step"></div>
-                <div className="step"></div>
-                <div className="step highlighted"></div>
+            <div className="about-you-container">
+                <div className="stepper">
+                    <div className="btn-back">
+                        <Link to="/allergies" style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <MdArrowBackIos style={{ fontSize: 18 }} /> {/* Ajusta el tamaño del ícono según tus necesidades */}
+                        </Link>
+                    </div>
+                    <div className="step"></div>
+                    <div className="step"></div>
+                    <div className="step"></div>
+                    <div className="step"></div>
+                    <div className="step highlighted"></div>
+                </div>
             </div>
             <div className="containerHastags">
                 <div className='divtitleHastags'>
