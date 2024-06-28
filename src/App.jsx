@@ -13,6 +13,8 @@ import Hastags from "./components/Register/Hastags/Hastags";
 import Allergies from "./components/Register/Allergies/Allergies";
 import ConnectLinkedin from "./components/Register/ConnectLinkedin/ConnectLinkedin";
 import LoginPrincipal from "./components/LoginPrincipal/LoginPrincipal";
+
+
 function App() {
   return (
     <div className="App">
