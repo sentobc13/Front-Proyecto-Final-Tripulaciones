@@ -146,3 +146,72 @@
     margin-left: 5px; /* Espacio a la izquierda del texto */
     font-size: 12px;
 }
+.div-agenda.blurred {
+    filter: blur(5px);
+    pointer-events: none; /* Evita que se pueda interactuar con el contenido de fondo */
+  }
+
+// Diary.scss
+
+// Estilos para el modal
+.modal-content {
+    margin-top: 20vh; // Margen desde la parte superior
+    z-index: 1500; // Z-index para asegurar que esté sobre otros elementos
+    background-color: white; // Fondo blanco
+    border: 1px solid black; // Borde negro sólido
+    border-radius: 8px; // Bordes redondeados
+  
+    // Estilo del título del modal
+    .div-nodal-titulo {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      padding: 16px; // Añade padding al título para separación del borde
+      border-bottom: 1px solid black; // Borde inferior del título
+    }
+  
+    // Estilo del botón de cerrar
+    .close-button {
+      font-size: 16px; // Tamaño del icono del botón de cerrar
+      width: 32px; // Ancho del botón
+      height: 32px; // Altura del botón
+      padding: 0; // Eliminar relleno si es necesario
+      position: absolute;
+      top: 12px; // Distancia desde la parte superior
+      right: 12px; // Distancia desde la derecha
+      color: gray; // Color del icono
+      cursor: pointer;
+  
+      &:hover {
+        color: black; // Cambia el color al pasar el cursor
+      }
+    }
+  
+    // Estilo del cuerpo del modal
+    .div-nodal-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px; // Padding interior del cuerpo del modal
+    }
+  
+    // Estilo de los botones en el footer del modal
+    .btn-nodal-save {
+      background-color: blue;
+      color: white;
+      &:hover {
+        background-color: darkblue; // Cambia el color al pasar el cursor
+      }
+    }
+  
+    .btn-nodal-cancel {
+      background-color: lightgray;
+      color: black;
+      &:hover {
+        background-color: darkgray; // Cambia el color al pasar el cursor
+      }
+    }
+  }
+  
