@@ -72,7 +72,6 @@ const RegisterSegundoPaso = () => {
             return;
         }
 
-        // Guardar los datos en localStorage
         localStorage.setItem('register', JSON.stringify(formData));
 
         setFormError(null);

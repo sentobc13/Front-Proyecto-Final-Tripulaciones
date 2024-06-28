@@ -59,8 +59,8 @@ function MainContent() {
           <Route path="/" element={<PrivateZone><Home /></PrivateZone>} />
           <Route path="/profile" element={<PrivateZone><Profile /></PrivateZone>} />
           <Route path="/editprofile" element={<EditProfile />} />
-          <Route path="/loginAttendee" element={<LoginAttendee />} />
           <Route path="/loginSpeaker" element={<LoginSpeaker />} />
+          <Route path="/loginAttendee" element={<LoginAttendee />} />
           <Route path="/aboutyou" element={<AboutYou />} />
           <Route path="/loginPrincipal" element={<LoginPrincipal />} />
           <Route path="/registerSegundoPaso" element={<RegisterSegundoPaso />} />
