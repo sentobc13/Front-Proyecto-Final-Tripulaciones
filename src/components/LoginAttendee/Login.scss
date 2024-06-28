@@ -1,55 +1,97 @@
+// Login.scss
 .loginContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh; // Asegura que el contenedor ocupe toda la altura de la pantalla
+  padding: 20px;
+
+  .bienvenidos {
+    position: absolute;
+    top: 20px; // Ajusta la distancia desde la parte superior
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-  
-    .bienvenidos {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 20px; // Ajusta este valor según tus necesidades
-  
-      h3 {
-        margin: 0;
-        text-align: center;
-      }
-  
-      .logoImagen {
-        margin-top: 10px; // Ajusta este valor según tus necesidades
-  
-        .logo {
-          height: 80px; // Ajusta este valor según tus necesidades
-          margin-bottom: 10px;
-        }
-      }
-    }
-  
-    .formLogin {
-      width: 100%;
-      max-width: 400px;
-      margin-top: -50px; // Ajusta este valor según tus necesidades
+    text-align: center;
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
     }
 
-    .btn-login{
-        display: flex;
-        width: 342px;
-        height: 48px;
-        padding: 0 24px;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 20px;
-        background-color: #4299e1;
-        color: white;
-        border: none;
-        cursor: pointer;
-        text-align: center;
-        border-radius: 6px;
-        transition: background-color 0.3s ease;
-
+    .logoImagen {
+      .logo {
+        width: 200px; // Ajusta el tamaño del logo según tus necesidades
+      }
     }
   }
-  
+
+  .formLogin {
+    position: absolute;
+    top: 20%; // Ajusta esta distancia para poner .formLogin inmediatamente debajo de .bienvenidos
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px; // Limita el ancho máximo del formulario
+    background-color: white; // Fondo blanco para el formulario
+    padding: 20px; // Añade padding alrededor del formulario
+    border-radius: 8px; // Bordes redondeados
+
+    form {
+      width: 100%;
+
+      .btn-login {
+        margin-top: 20px; // Añade un margen superior al botón
+      }
+    }
+  }
+
+  .chakra-form__label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .chakra-input {
+    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    width: 100%;
+
+    &:focus {
+      border-color: #4299E1;
+      box-shadow: 0 0 0 1px #4299E1;
+    }
+  }
+
+  .chakra-form__error-message {
+    font-size: 0.875rem;
+    color: red;
+    margin-top: 5px;
+  }
+
+  .chakra-button {
+    background-color: #4299E1;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #3182CE;
+    }
+  }
+  .recover-password {
+    color: #4299E1; // Azul para el texto
+    text-decoration: underline; // Subrayado
+    cursor: pointer;
+
+    &:hover {
+      color: #3182CE; // Color azul más oscuro al pasar el mouse
+    }
+  }
+}

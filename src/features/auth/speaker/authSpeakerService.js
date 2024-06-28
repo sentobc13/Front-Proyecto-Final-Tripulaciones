@@ -20,8 +20,6 @@ const login = async (speaker)=>{
 const authSpeakerService = {
     registerSpeaker,
     login,
-    
-    
   }
   
   

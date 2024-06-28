@@ -16,9 +16,11 @@ import LoginAttendee from "./components/LoginAttendee/LoginAttendee";
 import LoginSpeaker from "./components/LoginSpeaker/LoginSpeaker";
 import PrivateZone from "./guards/PrivateZone";
 import theme from './theme'
-import Agency from './components/Agency/Agency';
-import EditProfile from './components/Profile/EditProfile/EditProfile';
 import RegisterSegundoPaso from "./components/RegisterSegundoPaso/RegisterSegundoPaso";
+import PaymentMethods from "./components/PaymentMethods/PaymentMethods";
+import Diary from "./components/Diary/Diary";
+import EditProfile from './components/Profile/EditProfile/EditProfile';
+
 
 function App() {
   return (
@@ -52,15 +54,14 @@ function MainContent() {
       <main className="main-content">
         <Routes>
           <Route path="/identify" element={<Identify />} />
-          <Route path="/agency" element={<Agency />} />
           <Route path="/hastags" element={<Hastags />} />
           <Route path="/allergies" element={<Allergies />} />
           <Route path="/connectLinkedin" element={<ConnectLinkedin />} />
           <Route path="/" element={<PrivateZone><Home /></PrivateZone>} />
           <Route path="/profile" element={<PrivateZone><Profile /></PrivateZone>} />
           <Route path="/editprofile" element={<EditProfile />} />
-          <Route path="/loginAttendee" element={<LoginAttendee />} />
           <Route path="/loginSpeaker" element={<LoginSpeaker />} />
+          <Route path="/loginAttendee" element={<LoginAttendee />} />
           <Route path="/aboutyou" element={<AboutYou />} />
           <Route path="/loginPrincipal" element={<LoginPrincipal />} />
           <Route path="/registerSegundoPaso" element={<RegisterSegundoPaso />} />
