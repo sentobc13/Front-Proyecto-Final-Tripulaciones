@@ -19,6 +19,7 @@ import theme from './theme'
 import Agency from './components/Agency/Agency';
 import EditProfile from './components/Profile/EditProfile/EditProfile';
 import RegisterSegundoPaso from "./components/RegisterSegundoPaso/RegisterSegundoPaso";
+import PaymentMethods from "./components/PaymentMethods/PaymentMethods";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function MainContent() {
           <Route path="/aboutyou" element={<AboutYou />} />
           <Route path="/loginPrincipal" element={<LoginPrincipal />} />
           <Route path="/registerSegundoPaso" element={<RegisterSegundoPaso />} />
+          <Route path="/paymentmethods" element={<PaymentMethods />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
