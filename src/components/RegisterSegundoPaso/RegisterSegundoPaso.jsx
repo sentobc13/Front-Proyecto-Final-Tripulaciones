@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../features/auth/attendee/authAttendeeSlice';
-import {useSelector } from 'react-redux';
 import logo from '../../assets/E-learning-Experience_Logo-negro.png';
 import './RegisterSegundoPaso.scss';
 import {
@@ -30,7 +28,6 @@ const RegisterSegundoPaso = () => {
     const [passwordError, setPasswordError] = useState(null);
     const [successMessage, setSuccessMessage] = useState(null);
 
-    const dispatch = useDispatch();
     const navigate = useNavigate()
     const { status, error } = useSelector((state) => state.authAttendee);
 
