@@ -65,6 +65,7 @@ function MainContent() {
           <Route path="/aboutyou" element={<AboutYou />} />
           <Route path="/loginPrincipal" element={<LoginPrincipal />} />
           <Route path="/registerSegundoPaso" element={<RegisterSegundoPaso />} />
+          <Route path="/paymentmethods" element={<PaymentMethods />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
