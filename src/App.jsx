@@ -20,6 +20,7 @@ import RegisterSegundoPaso from "./components/RegisterSegundoPaso/RegisterSegund
 import PaymentMethods from "./components/PaymentMethods/PaymentMethods";
 import Diary from "./components/Diary/Diary";
 import EditProfile from './components/Profile/EditProfile/EditProfile';
+import AttendeeList from "./components/AttendeeList/AttendeeList";
 
 
 function App() {
@@ -66,6 +67,7 @@ function MainContent() {
           <Route path="/loginPrincipal" element={<LoginPrincipal />} />
           <Route path="/registerSegundoPaso" element={<RegisterSegundoPaso />} />
           <Route path="/paymentmethods" element={<PaymentMethods />} />
+          <Route path="/attendeelist" element={<AttendeeList />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

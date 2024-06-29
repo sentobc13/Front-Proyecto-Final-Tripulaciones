@@ -1,0 +1,70 @@
+// AttendeeList.scss
+.attendee-list {
+    padding: 20px;
+  
+    .title {
+      font-family: Montserrat;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+  
+    .attendees {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  
+    .attendee-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: calc(33.333% - 20px);
+      padding: 20px;
+      text-align: center;
+  
+      .attendee-photo {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        margin-bottom: 10px;
+      }
+  
+      .attendee-info {
+        .attendee-title {
+          background: #e0f7fa;
+          border-radius: 5px;
+          color: #00796b;
+          display: inline-block;
+          font-size: 12px;
+          margin-bottom: 5px;
+          padding: 2px 10px;
+        }
+  
+        .attendee-label {
+          background: #e1bee7;
+          border-radius: 5px;
+          color: #8e24aa;
+          display: inline-block;
+          font-size: 12px;
+          margin-bottom: 10px;
+          padding: 2px 10px;
+        }
+  
+        .attendee-name {
+          font-family: Montserrat;
+          font-size: 18px;
+          font-weight: 700;
+          margin-bottom: 5px;
+        }
+  
+        .attendee-position {
+          font-size: 14px;
+          color: #757575;
+        }
+      }
+    }
+  }
+  
