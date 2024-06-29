@@ -20,6 +20,7 @@ import RegisterSegundoPaso from "./components/RegisterSegundoPaso/RegisterSegund
 import PaymentMethods from "./components/PaymentMethods/PaymentMethods";
 import Diary from "./components/Diary/Diary";
 import EditProfile from './components/Profile/EditProfile/EditProfile';
+import RegisterTercerPaso from "./components/RegisterTercerPaso/RegisterTercerPaso";
 
 
 function App() {
@@ -45,7 +46,8 @@ function MainContent() {
     "/aboutyou",
     "/loginSpeaker",
     "/loginPrincipal",
-    "/registerSegundoPaso"
+    "/registerSegundoPaso",
+    "/registertercerpaso"
   ];
 
   return (
@@ -65,6 +67,7 @@ function MainContent() {
           <Route path="/aboutyou" element={<AboutYou />} />
           <Route path="/loginPrincipal" element={<LoginPrincipal />} />
           <Route path="/registerSegundoPaso" element={<RegisterSegundoPaso />} />
+          <Route path="/registertercerpaso" element={<RegisterTercerPaso />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

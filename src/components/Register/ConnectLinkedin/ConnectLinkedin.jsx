@@ -10,8 +10,8 @@ const ConnectLinkedin = () => {
             <div className="about-you-container">
                 <div className="stepper">
                     <div className="btn-back">
-                        <Link to="/registerSegundoPaso" style={{ textDecoration: 'none', color: 'inherit' }}>
-                            <MdArrowBackIos style={{ fontSize: 18 }} /> {/* Ajusta el tamaño del ícono según tus necesidades */}
+                        <Link to="/registertercerpaso" style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <MdArrowBackIos style={{ fontSize: 18 }} /> 
                         </Link>
                     </div>
                     <div className="step"></div>
@@ -43,7 +43,7 @@ const ConnectLinkedin = () => {
                         <FaLinkedin className='LinkedinIcon' />Conectar con Linkedin
                     </p>
                 </button>
-                <Link to="/aboutyou">
+                <Link to="/registertercerpaso">
                     <button className='ContinueButtonLinkedin'>Siguiente</button>
                 </Link>
             </div>
