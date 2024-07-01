@@ -3,23 +3,28 @@
 .menu-hamburguesa {
   background: var(--degradado-corporativo, radial-gradient(865.8% 89.15% at 6.03% 9.18%, #106AF2 0%, #6610F2 100%));
   width: 100%;
+  height: 100vh;
   padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 
-  a {
+  .menu-link {
     display: block;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 24px; /* Aumentado el tamaño de la fuente */
+    padding: 1rem 2rem; /* Ajustado el padding */
     text-decoration: none;
     width: 100%;
-    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Añadido borde inferior */
+    text-align: left; /* Alineado a la izquierda */
     
     &:hover {
       background: rgba(255, 255, 255, 0.1);
@@ -28,10 +33,11 @@
   
   .footer-text {
     color: white;
-    margin-top: 2rem;
+    margin-top: 6rem;
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    text-align: center;
+    font-size: 18px; /* Aumentado el tamaño de la fuente */
+    text-align: center; /* Alineado a la izquierda */
+    padding-left: 2.5rem; /* Añadido padding izquierdo */
   }
 }
 
