@@ -7,9 +7,8 @@ import { Chip } from '@mui/material';
 import { Button, Card, CardBody, Text, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, ModalFooter } from '@chakra-ui/react';
 import { getAllWorkshops } from '../../features/workshop/WorkshopSlice';
 import { useNavigate } from 'react-router-dom';
-import './Diary.scss';
-
 import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
+import './Diary.scss';
 
 const DescriptionModal = ({ isOpen, onClose }) => {
     const [showHorarios, setShowHorarios] = useState(false);
