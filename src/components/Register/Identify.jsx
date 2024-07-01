@@ -20,7 +20,7 @@ const Identify = () => {
 
     <div className="register-container">
 
-      <h3>
+      <h3 className='bienvenidos-text'>
         Bienvenid@ a
       </h3>
 

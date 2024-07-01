@@ -17,22 +17,85 @@
 
         .btn-back {
             display: flex;
-            margin-right: 40px;.register-tercer-paso-container {
-    font-family: 'Montserrat', sans-serif;
-
-    .stepper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 80%;
-        max-width: 400px;
-        margin: auto;
-        padding: 10px;
-        margin-top: 8%;
-
-        .btn-back {
-            display: flex;
             margin-right: 40px;
+
+            .register-tercer-paso-container {
+                font-family: 'Montserrat', sans-serif;
+
+                .stepper {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 80%;
+                    max-width: 400px;
+                    margin: auto;
+                    padding: 10px;
+                    margin-top: 8%;
+
+                    .btn-back {
+                        display: flex;
+                        margin-right: 40px;
+                        margin-left: -50px;
+                    }
+
+                    .step {
+                        width: 40px;
+                        height: 4px;
+                        background-color: #ddd;
+                        margin: 0 10px;
+                        border-radius: 10px;
+
+                        &.highlighted {
+                            height: 8px;
+                            width: 60px;
+                            background-color: $buttons-register;
+                        }
+                    }
+                }
+            }
+
+            .container-content3 {
+                margin-top: 20px;
+
+
+                .div-entry-type {
+                    margin-bottom: 1rem;
+
+                    .entry-type {
+                        font-size: 1rem;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+
+                .div-prices {
+                    .price {
+                        font-size: 1rem;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+
+            }
+
+            .container-button {
+                display: flex;
+                justify-content: center;
+                margin-top: 1rem;
+
+                .continue-button {
+                    background-color: blue;
+                    color: white;
+                    padding: 0.5rem 1rem;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+
+                    &:hover {
+                        background-color: darkblue;
+                    }
+                }
+            }
+
             margin-left: -50px;
         }
 
@@ -53,115 +116,32 @@
 }
 
 .containerRegister3 {
-    margin-top: 40px; 
-    font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 33px;
-    text-align: left;
+    margin-top: 40px;
+    font-family: Montserrat;
+    padding: 0 32px;
+
+    .div-title {
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 33px;
+        text-align: left
+    }
 }
 
 .container-content3 {
-    margin-top: 20px; 
-    
+    margin-top: 20px;
+    font-family: Montserrat;
+
     .div-subtitle {
         margin-bottom: 1rem;
 
-        .subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-
-            li {
-                margin-bottom: 0.5rem;
-            }
-        }
-    }
-
-    .div-entry-type {
-        margin-bottom: 1rem;
-
-        .entry-type {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-        }
-    }
-
-    .div-prices {
-        .price {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-        }
-    }
-}
-
-.container-button {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-
-    .continue-button {
-        background-color: blue;
-        color: white;
-        padding: 0.5rem 1rem;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-            background-color: darkblue;
-        }
-    }
-}
-            margin-left: -50px;
-        }
-
-        .step {
-            width: 40px;
-            height: 4px;
-            background-color: #ddd;
-            margin: 0 10px;
-            border-radius: 10px;
-
-            &.highlighted {
-                height: 8px;
-                width: 60px;
-                background-color: $buttons-register;
-            }
-        }
-    }
-}
-
-.containerRegister3 {
-    margin-top: 40px; 
-    font-family: Montserrat;
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 33px;
-    text-align: left;
-    
-}
-.container-content3 {
-    margin-top: 20px; 
-    font-family: Montserrat;
-    
-    .div-subtitle {
-        margin-bottom: 1rem;
-        
 
         .subtitle {
             font-size: 1.25rem;
             margin-bottom: 0.5rem;
             font-weight: bold;
             font-family: Montserrat;
-            
+
         }
 
         ul {
@@ -189,8 +169,21 @@
             margin-bottom: 0.5rem;
             font-family: Montserrat;
         }
+
+        &-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 8px;
+            height: 64px;
+            border-bottom: 1px solid rgba(226, 232, 240, 1);
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+            box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+            padding: 0 16px;
+        }
     }
 }
+
 .price-button {
     background-color: #007bff;
     color: white;
@@ -223,7 +216,7 @@
     font-family: Montserrat;
 
     .continue-button {
-        background-color:rgba(49, 130, 206, 1);
+        background-color: rgba(49, 130, 206, 1);
         color: white;
         padding: 0.5rem 1rem;
         border: none;
@@ -236,4 +229,3 @@
         }
     }
 }
-
