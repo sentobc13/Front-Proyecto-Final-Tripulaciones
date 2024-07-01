@@ -4,7 +4,9 @@
     align-items: center;
     padding: 20px;
   
-    .suggestions, .filters, .attendees {
+    .suggestions,
+    .filters,
+    .attendees {
       width: 100%;
       max-width: 1200px;
       margin-bottom: 20px;
@@ -22,7 +24,7 @@
         gap: 10px;
         padding-bottom: 10px;
         scrollbar-width: thin; /* For Firefox */
-        -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+        -ms-overflow-style: none; /* For Internet Explorer and Edge */
       }
   
       .suggestion-cards::-webkit-scrollbar { /* For WebKit-based browsers */
@@ -38,16 +40,42 @@
         background: #fff;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 15px;
+        padding: 10px;
         text-align: center;
-        width: 250px;
+        width: 150px;
         flex: 0 0 auto;
-      }
   
-      img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+        }
+  
+        .info {
+          margin-top: 5px;
+  
+          .title {
+            font-size: 0.9rem;
+          }
+  
+          .label {
+            font-size: 0.8rem;
+          }
+  
+          .name {
+            font-size: 1rem;
+            font-weight: bold;
+          }
+  
+          .position {
+            font-size: 0.8rem;
+            color: #666;
+          }
+        }
       }
     }
   
@@ -83,26 +111,32 @@
   
       .attendee-cards {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 10px;
   
         .attendee-card {
           background: #fff;
           border-radius: 8px;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          padding: 15px;
+          padding: 10px;
           text-align: center;
   
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+  
           img {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
           }
   
           .attendee-info {
-            margin-top: 10px;
+            margin-top: 5px;
+            text-align: center;
   
             .attendee-title {
+              font-size: 0.9rem;
               background: #e0f7fa;
               border-radius: 5px;
               padding: 5px 10px;
@@ -111,7 +145,7 @@
             }
   
             .attendee-label {
-              font-size: 1rem;
+              font-size: 0.8rem;
               background: #e0f7fa;
               border-radius: 5px;
               padding: 5px 10px;
@@ -120,12 +154,12 @@
             }
   
             .attendee-name {
-              font-size: 1.2em;
+              font-size: 1rem;
               font-weight: bold;
             }
   
             .attendee-position {
-              font-size: 0.9em;
+              font-size: 0.8rem;
               color: #666;
             }
           }
