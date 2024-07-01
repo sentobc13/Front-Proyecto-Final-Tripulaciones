@@ -154,8 +154,8 @@ const RegisterTercerPaso = () => {
             </div>
 
             <div className="container-button">
-                <Link to="/connectLinkedin">
-                    <button className="continue-button">Siguiente</button>
+                <Link className="continue-button" to="/connectLinkedin">
+                    <span>Siguiente</span>
                 </Link>
             </div>
         </>

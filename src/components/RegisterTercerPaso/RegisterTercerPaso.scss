@@ -76,26 +76,6 @@
 
             }
 
-            .container-button {
-                display: flex;
-                justify-content: center;
-                margin-top: 1rem;
-
-                .continue-button {
-                    background-color: blue;
-                    color: white;
-                    padding: 0.5rem 1rem;
-                    border: none;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    transition: background-color 0.3s ease;
-
-                    &:hover {
-                        background-color: darkblue;
-                    }
-                }
-            }
-
             margin-left: -50px;
         }
 
@@ -119,6 +99,10 @@
     margin-top: 40px;
     font-family: Montserrat;
     padding: 0 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     .div-title {
         font-size: 30px;
@@ -214,6 +198,12 @@
     justify-content: center;
     margin-top: 1rem;
     font-family: Montserrat;
+    font-size: 18px;
+    position: fixed;
+    bottom: 32px;
+    left: 32px;
+    right: 32px;
+    text-align: center;
 
     .continue-button {
         background-color: rgba(49, 130, 206, 1);
@@ -223,6 +213,8 @@
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        width: 100%;
+        height: 48px;
 
         &:hover {
             background-color: darkblue;
