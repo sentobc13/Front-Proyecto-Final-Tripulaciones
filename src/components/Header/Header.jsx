@@ -83,7 +83,7 @@ const Header = () => {
           <Link to="/identify" onClick={toggleMenu}>Identifícate</Link>
           <Link to="/programa" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Programa</Link>
           <Link to="/mi-agenda" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Mi agenda</Link>
-          <Link to="/lista-asistentes" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Lista de asistentes</Link>
+          <Link to="/attendeeList" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Lista de asistentes</Link>
           <Link to="/mapa-sitio" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Mapa del sitio</Link>
           <Link to="/alojamientos" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Alojamientos</Link>
           <Link to="/colaboradores" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Colaboradores</Link>
