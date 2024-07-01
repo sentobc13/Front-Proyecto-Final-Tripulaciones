@@ -1,0 +1,59 @@
+.paymentContainer {
+    padding: 20px;
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  
+    .ticketType {
+      margin-bottom: 20px;
+      span {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+      .price {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+  
+    .btn-container {
+      margin-bottom: 20px;
+      .btn-creditCard, .btn-paypal, .btn-paypalCredit {
+        margin-bottom: 10px;
+      }
+      .iconCreditCard, .iconPaypal, .iconPaypalCredit {
+        margin-right: 8px;
+      }
+    }
+  
+    .separator {
+      display: flex;
+      align-items: center;
+      .line {
+        flex-grow: 1;
+        border-top: 1px solid #ccc;
+      }
+      .or {
+        margin: 0 10px;
+      }
+    }
+  
+    .bankTransfer {
+      span {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      p {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  

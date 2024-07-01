@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import logo from '../../assets/E-learning-Experience_Logo-negro.png';
 import './RegisterSegundoPaso.scss';
 import {
