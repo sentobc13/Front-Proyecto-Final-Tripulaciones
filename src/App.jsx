@@ -70,7 +70,6 @@ function MainContent() {
           <Route path="/registerSegundoPaso" element={<RegisterSegundoPaso />} />
           <Route path="/paymentmethods" element={<PaymentMethods />} />
           <Route path="/registertercerpaso" element={<RegisterTercerPaso />} />
-          <Route path="/paymentmethods" element={<PaymentMethods />} />
           <Route path="/attendeelist" element={<AttendeeList />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
