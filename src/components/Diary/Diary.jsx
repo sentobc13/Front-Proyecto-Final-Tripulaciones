@@ -2,16 +2,30 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { PiSliders } from "react-icons/pi";
 import { FaChevronDown } from "react-icons/fa";
-import './Diary.scss';
+import { CiHeart } from "react-icons/ci";
 import { Chip } from '@mui/material';
 import { Button, Card, CardBody, Text, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, ModalFooter } from '@chakra-ui/react';
 import { getAllWorkshops } from '../../features/workshop/WorkshopSlice';
 import { useNavigate } from 'react-router-dom';
+import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
+import './Diary.scss';
 
 const DescriptionModal = ({ isOpen, onClose }) => {
+    const [showHorarios, setShowHorarios] = useState(false);
+
+    const handleSolicitarClick = () => {
+        setShowHorarios(prev => !prev); // Cambia el estado de showHorarios al hacer clic
+    };
+
+    const handleCloseModal = () => {
+        setShowHorarios(false); // Asegura que los horarios se oculten al cerrar el modal
+        onClose(); // Cierra el modal
+    };
+
+
     return (
         <Modal isOpen={isOpen} onClose={onClose} isCentered>
-            <ModalOverlay />
+            <ModalOverlay className="modal-overlay" />
             <ModalContent className='modal-content'>
                 <ModalHeader className='div-nodal-titulo'>Detalles de la Descripción</ModalHeader>
                 <ModalCloseButton className="close-button" />
@@ -20,14 +34,32 @@ const DescriptionModal = ({ isOpen, onClose }) => {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, tortor eget varius euismod, mauris justo ultricies ligula.
                     </p>
                 </ModalBody>
-                <ModalFooter>
-                    <Button className='btn-nodal-save' colorScheme='blue' onClick={onClose}>Save</Button>
-                    <Button className='btn-nodal-cancel' onClick={onClose}>Cancel</Button>
+                <ModalFooter className='div-btn'>
+                    <Button className='btn-nodal-one' bg="white" color="#4299E1" _hover={{ bg: '#eee' }} isFullWidth onClick={handleSolicitarClick}>
+                        Solicitar One to One
+                    </Button>
+                </ModalFooter>
+                {showHorarios && (
+                    <ModalFooter className='div-horarios'>
+                        <p>Horarios Disponibles:</p>
+                        <CheckboxGroup>
+                        <Checkbox defaultChecked>10:00</Checkbox>
+                        <Checkbox defaultChecked>10:30</Checkbox>
+                        <Checkbox defaultChecked>11:00</Checkbox>
+                        </CheckboxGroup>
+                        </ModalFooter>
+                )}
+                <ModalFooter className='div-btn'>
+                    <Button className='btn-nodal-interesa' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
+                        Me interesa  <CiHeart className="_CiHeart" />
+                    </Button>
                 </ModalFooter>
             </ModalContent>
         </Modal>
     );
 };
+
+
 
 const Diary = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -86,11 +118,11 @@ const Diary = () => {
                 <h3>Programa</h3>
             </div>
             <div className='div-dias'>
-                <p className={selectedDay === '22 de junio' ? 'active' : ''} onClick={() => handleDayClick('22 de junio')}>
-                    22 de junio
+                <p className={selectedDay === '22 Junio' ? 'active' : ''} onClick={() => handleDayClick('22 Junio')}>
+                    22 de Junio
                 </p>
-                <p className={selectedDay === '23 de junio' ? 'active' : ''} onClick={() => handleDayClick('23 de junio')}>
-                    23 de junio
+                <p className={selectedDay === '23 Junio' ? 'active' : ''} onClick={() => handleDayClick('23 Junio')}>
+                    23 de Junio
                 </p>
             </div>
             <div className='div-slider-chip'>
@@ -108,10 +140,11 @@ const Diary = () => {
                     <Card>
                         <CardBody className='card-content'>
                             <Text className='div-horario-card'>
-                                {formatTime(workshop.start_date)}
+                                {formatTime(workshop.start_date)} &#9210;
+                                <Chip className="div-ponencia" label="Ponencia" />
                             </Text>
                             <Text className='div-nombre' onClick={GoUserProfile}>
-                                {workshop.speaker_id.name}
+                                
                             </Text>
                             <Text className='div-cargo'>
                                 {workshop.speaker_id.role}
