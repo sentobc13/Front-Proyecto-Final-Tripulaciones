@@ -123,4 +123,4 @@ export const updateAttendee = createAsyncThunk("auth/updateAttendee", async (att
 
 export default authSlice.reducer
 
-export const { reset } = authSlice.actions
+export const { reset, setFilter, clearFilter } = authSlice.actions
