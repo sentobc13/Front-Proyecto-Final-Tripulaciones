@@ -14,8 +14,15 @@
   
     .suggestions {
       h2 {
+        font-family: Montserrat;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26.4px;
+        color: var(--gray-800, #1A202C);
         text-align: left;
-        margin-top: 20px;
+        margin-top: 55px; /* Aumenta el espacio desde arriba */
+        margin-bottom: 20px; /* Ajusta según sea necesario */
       }
   
       .suggestion-cards {
@@ -27,7 +34,7 @@
         -ms-overflow-style: none; /* For Internet Explorer and Edge */
       }
   
-      .suggestion-cards::-webkit-scrollbar { /* For WebKit-based browsers */
+      .suggestion-cards::-webkit-scrollbar {
         height: 8px;
       }
   
@@ -81,7 +88,14 @@
   
     .filters {
       h2 {
+        font-family: Montserrat;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26.4px;
+        color: var(--gray-800, #1A202C);
         text-align: left;
+        margin-bottom: 20px; /* Ajusta según sea necesario */
       }
   
       .filter-buttons {
@@ -105,8 +119,14 @@
   
     .attendees {
       h2 {
+        font-family: Montserrat;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26.4px;
+        color: var(--gray-800, #1A202C);
         text-align: left;
-        margin-bottom: 20px;
+        margin-bottom: 20px; /* Ajusta según sea necesario */
       }
   
       .attendee-cards {
@@ -135,15 +155,6 @@
             margin-top: 5px;
             text-align: center;
   
-            .attendee-title {
-              font-size: 0.9rem;
-              background: #e0f7fa;
-              border-radius: 5px;
-              padding: 5px 10px;
-              margin: 5px 0;
-              display: inline-block;
-            }
-  
             .attendee-label {
               font-size: 0.8rem;
               background: #e0f7fa;
@@ -151,6 +162,10 @@
               padding: 5px 10px;
               margin: 5px 0;
               display: inline-block;
+  
+              .attendee-title {
+                font-size: 0.9rem;
+              }
             }
   
             .attendee-name {

@@ -27,7 +27,7 @@ const AttendeeList = () => {
         <h2>Nuestras sugerencias para ti</h2>
         <div className="suggestion-cards">
           {attendees &&
-            attendees.slice(0, 5).map((att, index) => ( // Show max 3 suggestions
+            attendees.slice(0, 5).map((att, index) => (
               <div key={index} className="suggestion-card">
                 <img
                   src={
@@ -40,7 +40,7 @@ const AttendeeList = () => {
                 />
                 <div className="info">
                   <span className="title">{att.title}</span>
-                  {att.interests && ( // Display interests if available
+                  {att.interests && (
                     <span className="label">
                       {att.interests.join(', ')}
                     </span>
@@ -83,9 +83,13 @@ const AttendeeList = () => {
                   />
                 )}
                 <div className="attendee-info">
-                  <span className="attendee-title">{att.title}</span>
-                  {att.interests && ( // Display interests if available
-                    <span className="label">
+                  {att.title && (
+                    <span className="attendee-label">
+                      <span className="attendee-title">{att.title}</span>
+                    </span>
+                  )}
+                  {att.interests && (
+                    <span className="attendee-label">
                       {att.interests.join(', ')}
                     </span>
                   )}
