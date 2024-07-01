@@ -1,9 +1,11 @@
 import { GoChevronLeft } from 'react-icons/go';
+import { CiHeart } from "react-icons/ci";
 import { Card, CardBody, Text } from '@chakra-ui/react';
 import { Chip } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import { getAllWorkshops } from '../../features/workshop/WorkshopSlice';
+
 import './ExternalProfile.scss'
 
 const ExternalProfile = () => {
@@ -82,23 +84,21 @@ const ExternalProfile = () => {
                             <Text className='div-cargo'>
                                 {workshop.speaker_id.role}
                             </Text>
-                            <Chip className="div-ponencia" label="Ponencia" />
                             <Text className='div-descripcion'>
                                 {workshop.description}
                             </Text>
-                            <Text className='div-titulo'>
-                                {workshop.name}
-                            </Text>
+                            <div className='containerHeartProfile'>
+                                <button className='IlikeitButton'>
+                                    Me interesa <CiHeart />
+                                </button>
+                            </div>
                         </CardBody>
                     </Card>
                 </div>
             ))}
-            <div className='containerButtonProfile'>
-                <button className='ShowQR'>
-                    Mostrar Código QR
-                </button>
+            <div className='containerButton1to1'>
                 <button className='ScanQR'>
-                    Escanear Código QR
+                    Solicitar One to One
                 </button>
             </div>
         </div>
