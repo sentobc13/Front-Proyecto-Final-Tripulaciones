@@ -17,7 +17,109 @@
 
         .btn-back {
             display: flex;
+            margin-right: 40px;.register-tercer-paso-container {
+    font-family: 'Montserrat', sans-serif;
+
+    .stepper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        max-width: 400px;
+        margin: auto;
+        padding: 10px;
+        margin-top: 8%;
+
+        .btn-back {
+            display: flex;
             margin-right: 40px;
+            margin-left: -50px;
+        }
+
+        .step {
+            width: 40px;
+            height: 4px;
+            background-color: #ddd;
+            margin: 0 10px;
+            border-radius: 10px;
+
+            &.highlighted {
+                height: 8px;
+                width: 60px;
+                background-color: $buttons-register;
+            }
+        }
+    }
+}
+
+.containerRegister3 {
+    margin-top: 40px; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 33px;
+    text-align: left;
+}
+
+.container-content3 {
+    margin-top: 20px; 
+    
+    .div-subtitle {
+        margin-bottom: 1rem;
+
+        .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+
+            li {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+
+    .div-entry-type {
+        margin-bottom: 1rem;
+
+        .entry-type {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    .div-prices {
+        .price {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+.container-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+
+    .continue-button {
+        background-color: blue;
+        color: white;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: darkblue;
+        }
+    }
+}
             margin-left: -50px;
         }
 
@@ -89,6 +191,30 @@
         }
     }
 }
+.price-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.price-button.selected {
+    background-color: #0056b3;
+}
+
+.price-button:hover {
+    background-color: #0056b3;
+}
+
+.price-button.selected:hover {
+    background-color: #003f7f;
+}
+
 
 .container-button {
     display: flex;
@@ -111,115 +237,3 @@
     }
 }
 
-// @media (max-width: 768px) {
-//     // .register-tercer-paso-container {
-//     //     .stepper {
-//     //         justify-content: center;
-
-//     //         .btn-back {
-//     //             margin-right: 0.5rem;
-//     //         }
-
-//     //         .step {
-//     //             width: 8px;
-//     //             height: 8px;
-//     //             margin: 0 3px;
-//     //         }
-//     //     }
-//     // }
-
-//     .containerRegister3 {
-//         .div-title {
-//             .title {
-//                 font-size: 3rem;
-//             }
-//         }
-//     }
-
-//     .container-content3 {
-//         .div-subtitle {
-//             .subtitle {
-//                 font-size: 1.1rem;
-//             }
-
-//             ul {
-//                 padding-left: 15px;
-//             }
-//         }
-
-//         .div-entry-type {
-//             .entry-type {
-//                 font-size: 0.9rem;
-//             }
-//         }
-
-//         .div-prices {
-//             .price {
-//                 font-size: 0.9rem;
-//             }
-//         }
-//     }
-
-//     .container-button {
-//         .continue-button {
-//             padding: 0.5rem 0.75rem;
-//             font-size: 0.9rem;
-//         }
-//     }
-// }
-
-// @media (max-width: 480px) {
-//     // .register-tercer-paso-container {
-//     //     .stepper {
-//     //         flex-direction: column;
-//     //         align-items: flex-start;
-
-//     //         .btn-back {
-//     //             margin-bottom: 0.5rem;
-//     //         }
-
-//     //         .step {
-//     //             margin: 3px 0;
-//     //         }
-//     //     }
-//     // }
-
-//     .containerRegister3 {
-//         .div-title {
-//             .title {
-//                 font-size: 2rem;
-//             }
-//         }
-//     }
-
-//     .container-content3 {
-//         .div-subtitle {
-//             .subtitle {
-//                 font-size: 1rem;
-//             }
-
-//             ul {
-//                 padding-left: 10px;
-//             }
-//         }
-
-//         .div-entry-type {
-//             .entry-type {
-//                 font-size: 0.8rem;
-//             }
-//         }
-
-//         .div-prices {
-//             .price {
-//                 font-size: 0.8rem;
-//             }
-//         }
-//     }
-
-//     .container-button {
-//         .continue-button {
-//             padding: 0.5rem;
-//             font-size: 0.8rem;
-//         }
-//     }
-// }
