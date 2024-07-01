@@ -12,6 +12,7 @@ const AboutYou = () => {
     phone: '',
     cargo: '',
     linkedin: '',
+    partner_id: ''
   });
 
   const [formErrors, setFormErrors] = useState({});
@@ -41,6 +42,8 @@ const AboutYou = () => {
       errors.phone = 'El teléfono es requerido.';
     } else if (!formData.linkedin) {
       errors.linkedin = 'El LinkedIn es requerido.';
+    } else if (!formData.partner_id) {
+      errors.partner_id = 'El codigo de verificacion del partner es requerido.';
     }
 
     if (Object.keys(errors).length > 0) {
@@ -48,15 +51,17 @@ const AboutYou = () => {
       return;
     }
 
+
+
     const existingData = JSON.parse(localStorage.getItem('register')) || {};
 
     const updatedData = { ...existingData, ...formData };
 
     localStorage.setItem('register', JSON.stringify(updatedData));
 
-    if(typeUser == 'Speaker') {
+    if (typeUser == 'Speaker') {
       navigate('/hastags');
-    }else{
+    } else {
       navigate('/allergies');
     }
   };
@@ -115,16 +120,29 @@ const AboutYou = () => {
             {formErrors.nationality && <p className="error">{formErrors.nationality}</p>}
           </label>
           {typeUser === 'Speaker' && (
-            <label>
-              Empresa
-              <input
-                type="text"
-                name="enterprise_name"
-                value={formData.enterprise_name}
-                onChange={handleChange}
-                placeholder="Nombre de la empresa..."
-              />
-            </label>
+            <>
+              <label>
+                <p>Codigo del Partner<span className='importantAboutYou'> *</span></p>
+                <input
+                  type="text"
+                  name="partner_id"
+                  value={formData.partner_id}
+                  onChange={handleChange}
+                  placeholder="Colombia"
+                />
+                {formErrors.nationality && <p className="error">{formErrors.nationality}</p>}
+              </label>
+              <label>
+                Empresa
+                <input
+                  type="text"
+                  name="enterprise_name"
+                  value={formData.enterprise_name}
+                  onChange={handleChange}
+                  placeholder="Nombre de la empresa..."
+                />
+              </label>
+            </>
           )}
           {typeUser === 'Attendee' && (
             <label>
