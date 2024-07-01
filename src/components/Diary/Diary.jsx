@@ -4,27 +4,43 @@ import { PiSliders } from "react-icons/pi";
 import { FaChevronDown } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { Chip } from '@mui/material';
-import { Button, Card, CardBody, Text, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, ModalFooter } from '@chakra-ui/react';
+import { Button, Card, CardBody, Text, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, ModalFooter, Checkbox, CheckboxGroup } from '@chakra-ui/react';
 import { getAllWorkshops } from '../../features/workshop/WorkshopSlice';
 import { useNavigate } from 'react-router-dom';
-import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
 import './Diary.scss';
 
 const DescriptionModal = ({ isOpen, onClose }) => {
     const [showHorarios, setShowHorarios] = useState(false);
+    const [horariosSeleccionados, setHorariosSeleccionados] = useState([]);
+    const [showSolicitarButton, setShowSolicitarButton] = useState(false);
+    const [showMeInteresaButton, setShowMeInteresaButton] = useState(true); // Estado para controlar visibilidad del botón "Me interesa"
 
     const handleSolicitarClick = () => {
-        setShowHorarios(prev => !prev); // Cambia el estado de showHorarios al hacer clic
+        setShowHorarios(prev => !prev);
+        setShowSolicitarButton(false); // Oculta el botón "Solicitar" al abrir el modal
+        setShowMeInteresaButton(prev => !prev); // Alterna la visibilidad del botón "Me interesa"
     };
 
     const handleCloseModal = () => {
-        setShowHorarios(false); // Asegura que los horarios se oculten al cerrar el modal
-        onClose(); // Cierra el modal
+        setShowHorarios(false);
+        setShowSolicitarButton(false);
+        setShowMeInteresaButton(true); // Vuelve a mostrar el botón "Me interesa" al cerrar el modal
+        setHorariosSeleccionados([]);
+        onClose();
     };
 
+    const handleCheckboxChange = (value) => {
+        if (horariosSeleccionados.includes(value)) {
+            setHorariosSeleccionados(horariosSeleccionados.filter(item => item !== value));
+            setShowSolicitarButton(false); // Oculta el botón "Solicitar" al deseleccionar todos los horarios
+        } else {
+            setHorariosSeleccionados([value]);
+            setShowSolicitarButton(true); // Muestra el botón "Solicitar" al seleccionar un horario
+        }
+    };
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        <Modal isOpen={isOpen} onClose={handleCloseModal} isCentered>
             <ModalOverlay className="modal-overlay" />
             <ModalContent className='modal-content'>
                 <ModalHeader className='div-nodal-titulo'>Detalles de la Descripción</ModalHeader>
@@ -42,24 +58,35 @@ const DescriptionModal = ({ isOpen, onClose }) => {
                 {showHorarios && (
                     <ModalFooter className='div-horarios'>
                         <p>Horarios Disponibles:</p>
-                        <CheckboxGroup>
-                        <Checkbox defaultChecked>10:00</Checkbox>
-                        <Checkbox defaultChecked>10:30</Checkbox>
-                        <Checkbox defaultChecked>11:00</Checkbox>
-                        </CheckboxGroup>
-                        </ModalFooter>
+                        <div className="horario-item">
+                            <Checkbox isChecked={horariosSeleccionados.includes('10:00')} onChange={() => handleCheckboxChange('10:00')}>10:00</Checkbox>
+                        </div>
+                        <div className="horario-item">
+                            <Checkbox isChecked={horariosSeleccionados.includes('10:30')} onChange={() => handleCheckboxChange('10:30')}>10:30</Checkbox>
+                        </div>
+                        <div className="horario-item">
+                            <Checkbox isChecked={horariosSeleccionados.includes('11:00')} onChange={() => handleCheckboxChange('11:00')}>11:00</Checkbox>
+                        </div>
+                    </ModalFooter>
                 )}
-                <ModalFooter className='div-btn'>
-                    <Button className='btn-nodal-interesa' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
-                        Me interesa  <CiHeart className="_CiHeart" />
-                    </Button>
-                </ModalFooter>
+                {!showSolicitarButton && showMeInteresaButton && (
+                    <ModalFooter className='div-btn'>
+                        <Button className='btn-nodal-interesa' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
+                            Me interesa <CiHeart className="_CiHeart"/>
+                        </Button>
+                    </ModalFooter>
+                )}
+                {showSolicitarButton && (
+                    <ModalFooter className='div-btn'>
+                        <Button className='btn-nodal-interesa' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
+                            Solicitar
+                        </Button>
+                    </ModalFooter>
+                )}
             </ModalContent>
         </Modal>
     );
 };
-
-
 
 const Diary = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -144,13 +171,12 @@ const Diary = () => {
                                 <Chip className="div-ponencia" label="Ponencia" />
                             </Text>
                             <Text className='div-nombre' onClick={GoUserProfile}>
-                                
+
                             </Text>
                             <Text className='div-cargo'>
                                 {workshop.speaker_id.role}
                             </Text>
-                            <Chip className="div-ponencia" label="Ponencia" />
-                            <Text className='div-descripcion'>
+                            <Text className='div-card-descripcion'>
                                 {workshop.description}
                             </Text>
                             <Text className='div-titulo'>
