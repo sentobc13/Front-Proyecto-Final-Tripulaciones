@@ -14,7 +14,6 @@ const Profile = () => {
   const navigate = useNavigate();
 
 
-
   useEffect(() => {
     dispatch(getLoggedAttendee())
   }, []);

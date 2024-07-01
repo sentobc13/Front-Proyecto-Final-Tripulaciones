@@ -11,7 +11,8 @@ const initialState = {
     isError: false,
     isSuccess: false,
     msg: "",
-    isLoadingAttendee: true
+    isLoadingAttendee: true,
+    isLoadingAttendees: true
 }
 
 
@@ -56,6 +57,14 @@ export const authSlice = createSlice({
             .addCase(getLoggedAttendee.pending, (state) => {
                 state.isLoadingAttendee = true
             })
+            .addCase(getAllAttendees.fulfilled, (state, action) => {
+                state.attendees = action.payload;
+                state.isLoadingAttendees = false;
+            })
+            .addCase(getAllAttendees.pending, (state) => {
+                state.isLoadingAttendees = true
+            })
+
             .addCase(updateAttendee.fulfilled, (state, action) => {
                 state.attendee = action.payload.attendee;
                 state.isLoadingAttendee = false;
@@ -95,6 +104,14 @@ export const getLoggedAttendee = createAsyncThunk("auth/getLoggedAttendee", asyn
     }
 }
 )
+export const getAllAttendees = createAsyncThunk("auth/getAllAttendees", async () => {
+    try {
+        return await authAttendeeService.getAllAttendees();
+    } catch (error) {
+        console.error(error);
+    }
+}
+)
 export const updateAttendee = createAsyncThunk("auth/updateAttendee", async (attendee) => {
     try {
         return await authAttendeeService.updateAttendee(attendee);
@@ -106,4 +123,4 @@ export const updateAttendee = createAsyncThunk("auth/updateAttendee", async (att
 
 export default authSlice.reducer
 
-export const { reset } = authSlice.actions
+export const { reset, setFilter, clearFilter } = authSlice.actions
