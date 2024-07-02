@@ -14,6 +14,7 @@ const AttendeeList = () => {
     (state) => state.authAttendee
   );
   const [selectedAttendee, setSelectedAttendee] = useState(null);
+  const [searchTerm, setSearchTerm] = useState(""); // Estado para el término de búsqueda
 
   useEffect(() => {
     dispatch(getAllAttendees());
@@ -120,6 +121,11 @@ const AttendeeList = () => {
     );
   };
 
+  // Filtrar asistentes según el término de búsqueda
+  const filteredAttendees = attendees.filter((att) =>
+    att.name && att.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="container">
       {selectedAttendee ? (
@@ -167,9 +173,16 @@ const AttendeeList = () => {
 
           <div className="attendees">
             <h2>Asistentes al evento</h2>
+            <input 
+              type="text" 
+              placeholder="Buscar asistentes por nombre" 
+              value={searchTerm} 
+              onChange={(e) => setSearchTerm(e.target.value)} 
+              className="search-input"
+            />
             <div className="attendee-cards">
-              {attendees &&
-                attendees.map((att, index) => (
+              {filteredAttendees.length > 0 ? (
+                filteredAttendees.map((att, index) => (
                   <div key={index} className="attendee-card" onClick={() => handleAttendeeClick(att)}>
                     {!att.profilePic && (
                       <img
@@ -200,7 +213,10 @@ const AttendeeList = () => {
                       <p className="attendee-position">{att.position}</p>
                     </div>
                   </div>
-                ))}
+                ))
+              ) : (
+                <p>No se encontraron asistentes.</p>
+              )}
             </div>
           </div>
         </>
