@@ -101,8 +101,8 @@ const Hastags = () => {
                     ))}
                 </div>
             </div>
-            <div className='BadgecontainerButton'>
-                <button onClick={handleSubmit}>Finalizar</button>
+            <div className='container-button'>
+                <button className="continue-button" onClick={handleSubmit}>Finalizar</button>
             </div>
         </>
     )

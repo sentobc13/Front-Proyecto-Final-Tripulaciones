@@ -21,8 +21,8 @@ import PaymentMethods from "./components/PaymentMethods/PaymentMethods";
 import Diary from "./components/Diary/Diary";
 import EditProfile from './components/Profile/EditProfile/EditProfile';
 import AttendeeList from "./components/AttendeeList/AttendeeList";
-import RegisterTercerPaso from "./components/RegisterTercerPaso/RegisterTercerPaso";
 import Notifications from "./components/Notifications/Notifications";
+import Tickets from "./components/Tickets/Tickets";
 
 
 function App() {
@@ -49,7 +49,7 @@ function MainContent() {
     "/loginSpeaker",
     "/loginPrincipal",
     "/registerSegundoPaso",
-    "/registertercerpaso"
+    "/tickets"
   ];
 
   return (
@@ -71,7 +71,7 @@ function MainContent() {
           <Route path="/registerSegundoPaso" element={<RegisterSegundoPaso />} />
           <Route path="/diary" element={<PrivateZone><Diary /></PrivateZone>} />
           <Route path="/paymentmethods" element={<PaymentMethods />} />
-          <Route path="/registertercerpaso" element={<RegisterTercerPaso />} />
+          <Route path="/tickets" element={<Tickets />} />
           <Route path="/attendeelist" element={<AttendeeList />} />
           <Route path="/notification" element={<Notifications />} />
           <Route path="*" element={<NotFound />} />
