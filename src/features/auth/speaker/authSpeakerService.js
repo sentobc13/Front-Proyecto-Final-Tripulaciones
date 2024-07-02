@@ -17,9 +17,20 @@ const login = async (speaker)=>{
   return res.data
 }
 
+const getSpeaker = async (speaker_id)=>{
+  const token = localStorage.getItem("token");
+  const res = await axios.get(API_URL + "/getSpeaker" + speaker_id , token )
+  if (res.data) {
+    console.log(res.data)
+
+  }
+  return res.data
+}
+
 const authSpeakerService = {
     registerSpeaker,
     login,
+    getSpeaker,
   }
   
   
