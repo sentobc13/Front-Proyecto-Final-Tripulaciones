@@ -21,8 +21,8 @@
         line-height: 26.4px;
         color: var(--gray-800, #1A202C);
         text-align: left;
-        margin-top: 55px; /* Aumenta el espacio desde arriba */
-        margin-bottom: 20px; /* Ajusta según sea necesario */
+        margin-top: 55px; 
+        margin-bottom: 20px;
       }
 
       .suggestion-cards {
@@ -30,8 +30,8 @@
         overflow-x: auto;
         gap: 10px;
         padding-bottom: 10px;
-        scrollbar-width: thin; /* For Firefox */
-        -ms-overflow-style: none; /* For Internet Explorer and Edge */
+        scrollbar-width: thin; 
+        -ms-overflow-style: none; 
       }
 
       .suggestion-cards::-webkit-scrollbar {
@@ -53,20 +53,20 @@
         flex: 0 0 auto;
 
         display: flex;
-        flex-direction: column; /* Cambiado a row */
-        align-items: flex-start; /* Alineado a la izquierda */
+        flex-direction: column; 
+        align-items: flex-start; 
 
         img {
           width: 80px;
           height: 80px;
           border-radius: 50%;
-          margin-right: 10px; /* Añadido margen a la derecha */
+          margin-right: 10px; 
         }
 
         .info {
           display: flex;
           flex-direction: column;
-          align-items: flex-start; /* Alineado a la izquierda */
+          align-items: flex-start; 
 
           .title {
             font-size: 0.9rem;
@@ -98,13 +98,13 @@
         line-height: 26.4px;
         color: var(--gray-800, #1A202C);
         text-align: left;
-        margin-bottom: 20px; /* Ajusta según sea necesario */
+        margin-bottom: 20px; 
       }
 
       .filter-buttons {
         display: flex;
         gap: 10px;
-        justify-content: flex-start; /* Cambiado a flex-start */
+        justify-content: flex-start;
 
         button {
           background: #e0f7fa;
@@ -129,7 +129,7 @@
         line-height: 26.4px;
         color: var(--gray-800, #1A202C);
         text-align: left;
-        margin-bottom: 20px; /* Ajusta según sea necesario */
+        margin-bottom: 20px; 
       }
 
       .attendee-cards {
@@ -142,23 +142,23 @@
           border-radius: 8px;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           padding: 10px;
-          text-align: left; /* Cambiado a left */
+          text-align: left; 
 
           display: flex;
-          flex-direction: column; /* Cambiado a row */
-          align-items: flex-start; /* Alineado a la izquierda */
+          flex-direction: column; 
+          align-items: flex-start; 
 
           img {
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            margin-right: 10px; /* Añadido margen a la derecha */
+            margin-right: 10px;
           }
 
           .attendee-info {
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Alineado a la izquierda */
+            align-items: flex-start; 
 
             .attendee-label {
               font-size: 0.8rem;

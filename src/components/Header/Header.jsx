@@ -66,7 +66,7 @@ const Header = () => {
           right="0"
           padding="1rem 0"
           zIndex="999"
-          spacing="0" // Adjusted to remove default spacing
+          spacing="0" 
         >
           <Flex justify="flex-end" width="100%" padding="1rem">
             <IconButton
