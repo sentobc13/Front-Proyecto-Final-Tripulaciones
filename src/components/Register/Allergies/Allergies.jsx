@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdArrowBackIos } from 'react-icons/md';
 import './Allergies.scss';
 import { Link, useNavigate } from 'react-router-dom';
@@ -6,7 +6,13 @@ import { Link, useNavigate } from 'react-router-dom';
 const Allergies = () => {
     const [selectedAllergies, setSelectedAllergies] = useState([]);
     const [customAllergy, setCustomAllergy] = useState('');
-    const navigate = useNavigate();
+    const navigate = useNavigate()
+    useEffect(() => {
+
+        if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
+            navigate("/identify")
+        }
+    })
 
     const handleCheckboxChange = (e) => {
         const { value, checked } = e.target;
@@ -89,8 +95,8 @@ const Allergies = () => {
                             <input type="checkbox" value="Otro" onChange={handleCheckboxChange} /> Otro
                         </p>
                         <div className="custom-input">
-                            <input 
-                                type="text" 
+                            <input
+                                type="text"
                                 placeholder="Otros alérgenos"
                                 value={customAllergy}
                                 onChange={handleCustomAllergyChange}

@@ -98,7 +98,7 @@
     /* Para que los chips se ajusten y envuelvan si es necesario */
     align-items: center;
     /* Alinea los chips al centro verticalmente */
-    margin-left: 50px;
+    margin-left: 75px;
 }
 
 .uniqueChipProfile {
@@ -181,7 +181,10 @@
     /* Alinea el nombre a la derecha */
 }
 
+.div-card-descripcion{
+    margin-top: 10px;
 
+}
 .div-titulo {
     text-align: center;
     /* Centra el título */
@@ -220,16 +223,13 @@
     border: 1px solid black; // Borde negro sólido
     border-radius: 8px; // Bordes redondeados
     max-width: 400px; // Anchura máxima
-    max-height: 500px; // Altura máxima
+    max-height: 900px; // Altura máxima
     width: 80%; // Anchura relativa al contenedor
     height: auto; // Altura automática basada en el contenido
     display: flex;
     align-items: center;
     margin: auto; // Centrar el modal
     font-family: $font-primary;
-
-
-
 
 
 
@@ -309,7 +309,7 @@
         font-size: 1rem;
         padding: 10px 15px;
         border-radius: 4px;
-        width: 130%;
+        width: 134%;
         display: flex; /* Utiliza flexbox para alinear elementos */
         align-items: center; /* Alinea verticalmente los elementos */
         justify-content: center; /* Centra horizontalmente los elementos */
@@ -335,4 +335,31 @@
         background-color: #3182CE;
     }
 
+    .div-horarios {
+        margin-top: 5px;
+        background-color: #f5f5f5;
+        border-top: 1px solid #ccc;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap; /* Permite que los horarios se ajusten automáticamente a la siguiente línea */
+        align-items: center; /* Alinea los elementos horizontalmente */
+        justify-content: space-between; /* Distribuye los horarios de manera equitativa */
+        gap: 10px; /* Añade un espacio entre cada horario */
+        margin-bottom: 5px;
+        max-height: 200px; /* Ajusta esta altura según lo necesario */
+        overflow-y: auto; /* Añade scroll vertical */
+    }
+    
+    .horario-item {
+        flex: 1 1 calc(33.333% - 10px); /* Ajusta el tamaño de cada horario item para ocupar un tercio del ancho del contenedor menos el gap */
+        display: flex;
+
+        margin-top: 15px;
+
+    }
+    
+    .chakra-checkbox {
+        margin: 0; /* Resetea el margen de los checkboxes */
+        padding: 5px; /* Añade padding para mejorar la clicabilidad */
+    }
 }

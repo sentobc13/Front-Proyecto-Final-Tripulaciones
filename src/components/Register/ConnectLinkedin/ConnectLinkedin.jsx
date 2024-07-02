@@ -1,7 +1,8 @@
 import './ConnectLinkedin.scss'
 import { FaLinkedin } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MdArrowBackIos } from 'react-icons/md';
+import { useEffect } from 'react';
 
 
 const ConnectLinkedin = () => {
@@ -11,7 +12,7 @@ const ConnectLinkedin = () => {
                 <div className="stepper">
                     <div className="btn-back">
                         <Link to="/registertercerpaso" style={{ textDecoration: 'none', color: 'inherit' }}>
-                            <MdArrowBackIos style={{ fontSize: 18 }} /> 
+                            <MdArrowBackIos style={{ fontSize: 18 }} />
                         </Link>
                     </div>
                     <div className="step"></div>

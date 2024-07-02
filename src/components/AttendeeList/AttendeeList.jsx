@@ -7,9 +7,11 @@ import { Chip } from '@mui/material';
 import { Card, CardBody, Text } from '@chakra-ui/react';
 import { CiHeart } from 'react-icons/ci';
 import { GoChevronLeft } from 'react-icons/go';
+import { useNavigate } from 'react-router-dom';
 
 const AttendeeList = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { attendees, isLoadingAttendees, isError, message, attendeeSelected } = useSelector(
     (state) => state.authAttendee
   );
@@ -77,9 +79,13 @@ const AttendeeList = () => {
             <span className='InformationProfileAsistant'>{attendee.name} - CEO en LVIS</span>
           </div>
           <div className="interestsProfile">
-            <div className="chipGrid">
-              <Chip className="uniqueChipProfile" label="a" />
-            </div>
+            {attendee.interests.map((interes) => {
+              return (
+                <div className="chipGrid">
+                  <Chip className="uniqueChipProfile" label={interes} />
+                </div>
+              )
+            })}
           </div>
           <div className="descriptionNameProfileAsistant">
             <span>Fernando supervisa las ventas globales de productos de LVIS.</span>
