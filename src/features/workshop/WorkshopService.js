@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://backend-desafio-gvpr.onrender.com/workshop";
+const API_URL = "http://localhost:3001/workshop";
 
 const getWorkshop = async () => {
     try {
