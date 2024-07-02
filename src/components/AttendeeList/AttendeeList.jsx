@@ -27,7 +27,7 @@ const AttendeeList = () => {
       console.log(attendeeSelected);
       setSelectedAttendee(attendeeSelected);
     } else {
-      setSelectedAttendee(null); // Reset selectedAttendee when attendeeSelected is null or undefined
+      setSelectedAttendee(null); 
     }
   }, [attendeeSelected]);
 
@@ -127,7 +127,7 @@ const AttendeeList = () => {
     );
   };
 
-  // Filtrar asistentes según el término de búsqueda
+  
   const filteredAttendees = attendees.filter((att) =>
     att.name && att.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
