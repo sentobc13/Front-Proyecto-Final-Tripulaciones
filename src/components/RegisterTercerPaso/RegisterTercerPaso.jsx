@@ -10,14 +10,11 @@ import { Spinner } from '@chakra-ui/react';
 const RegisterTercerPaso = () => {
     const [selectedPrice, setSelectedPrice] = useState('');
     const dispatch = useDispatch();
-    const { isLoading, isError, errorMessage } = useSelector((state) => state.tickets);
+    const { tickets, isLoading, isError, errorMessage } = useSelector((state) => state.tickets);
 
     useEffect(() => {
-        const savedPrice = localStorage.getItem('selectedPrice');
-        if (savedPrice) {
-            setSelectedPrice(savedPrice);
-        }
-    }, []);
+        dispatch(getAllTickets());
+    }, [dispatch]);
 
     useEffect(() => {
         if (selectedPrice) {
@@ -25,9 +22,17 @@ const RegisterTercerPaso = () => {
         }
     }, [selectedPrice]);
 
-    const handlePriceClick = (price) => {
-        setSelectedPrice(price);
-        dispatch(getAllTickets({ price }));
+    const handlePriceClick = (id) => {
+        const register = JSON.parse(localStorage.getItem('register'))
+        if (register && typeof register === 'object') {
+            register.ticket_id = id;
+            localStorage.setItem('register', JSON.stringify(register));
+        }
+    };
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('es-ES', { day: '2-digit', month: 'short' });
     };
 
     return (
@@ -40,8 +45,8 @@ const RegisterTercerPaso = () => {
                         </Link>
                     </div>
                     <div className="step"></div>
-                    <div className="step"></div>
                     <div className="step highlighted"></div>
+                    <div className="step"></div>
                     <div className="step"></div>
                     <div className="step"></div>
                 </div>
@@ -73,33 +78,27 @@ const RegisterTercerPaso = () => {
                             </h2>
                             <AccordionPanel pb={4}>
                                 <div className="div-prices">
-                                    <div className="div-prices-card">
-                                        <span>Día 1: 23 de junio{' '}</span>
-                                        <button
-                                            className={`price-button ${selectedPrice === '180-1' ? 'selected' : ''}`}
-                                            onClick={() => handlePriceClick('180-1')}
-                                        >
-                                            180€
-                                        </button>
-                                    </div>
-                                    <div className="div-prices-card">
-                                        <span>Día 2: 24 de junio{' '}</span>
-                                        <button
-                                            className={`price-button ${selectedPrice === '180-2' ? 'selected' : ''}`}
-                                            onClick={() => handlePriceClick('180-2')}
-                                        >
-                                            180€
-                                        </button>
-                                    </div>
-                                    <div className="div-prices-card">
-                                        <span>2 días: 23 y 24 de junio{' '}</span>
-                                        <button
-                                            className={`price-button ${selectedPrice === '380-1' ? 'selected' : ''}`}
-                                            onClick={() => handlePriceClick('380-1')}
-                                        >
-                                            380€
-                                        </button>
-                                    </div>
+                                    {tickets && tickets.length > 0 && (
+                                        tickets.map((ticket, index) => (
+                                            <div key={index} className="div-prices-card">
+                                                <span>{
+                                                    Array.isArray(ticket.date) ? (
+                                                        ticket.date.map((tick, i) => (
+                                                            <span key={i}>{formatDate(tick)} </span>
+                                                        ))
+                                                    ) : (
+                                                        <span>{formatDate(ticket.date)}</span>
+                                                    )
+                                                }</span>
+                                                <button
+                                                    className={`price-button ${selectedPrice === `180-${index}` ? 'selected' : ''}`}
+                                                    onClick={() => handlePriceClick(ticket._id)}>
+                                                    {ticket.price}€
+                                                </button>
+                                            </div>
+                                        ))
+                                    )}
+
                                 </div>
                             </AccordionPanel>
                         </AccordionItem>
@@ -115,33 +114,7 @@ const RegisterTercerPaso = () => {
                             </h2>
                             <AccordionPanel pb={4}>
                                 <div className="div-prices">
-                                    <div className="div-prices-card">
-                                        <span>Día 1: 23 de junio{' '}</span>
-                                        <button
-                                            className={`price-button ${selectedPrice === '180-3' ? 'selected' : ''}`}
-                                            onClick={() => handlePriceClick('180-3')}
-                                        >
-                                            180€
-                                        </button>
-                                    </div>
-                                    <div className="div-prices-card">
-                                        <span>Día 2: 24 de junio{' '}</span>
-                                        <button
-                                            className={`price-button ${selectedPrice === '180-4' ? 'selected' : ''}`}
-                                            onClick={() => handlePriceClick('180-4')}
-                                        >
-                                            180€
-                                        </button>
-                                    </div>
-                                    <div className="div-prices-card">
-                                        <span>2 días: 23 y 24 de junio{' '}</span>
-                                        <button
-                                            className={`price-button ${selectedPrice === '380-2' ? 'selected' : ''}`}
-                                            onClick={() => handlePriceClick('380-2')}
-                                        >
-                                            380€
-                                        </button>
-                                    </div>
+                                    {/* Añadir aquí la lógica para los precios de la empresa privada */}
                                 </div>
                             </AccordionPanel>
                         </AccordionItem>

@@ -74,7 +74,12 @@ const RegisterSegundoPaso = () => {
         setFormError(null);
         setPasswordError(null);
         setSuccessMessage(null);
-        navigate('/connectLinkedin')
+        const goTo = localStorage.getItem('validator')
+        if(goTo === 'Attendee'){
+            navigate('/registertercerpaso')
+        }else{
+            navigate('/connectLinkedin')
+        }
     };
 
     return (

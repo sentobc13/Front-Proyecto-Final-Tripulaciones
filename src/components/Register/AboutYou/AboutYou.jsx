@@ -72,7 +72,7 @@ const AboutYou = () => {
         <div className="stepper">
           <div className="btn-back">
             <Link to="/connectLinkedin" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <MdArrowBackIos style={{ fontSize: 18 }} /> {/* Ajusta el tamaño del ícono según tus necesidades */}
+              <MdArrowBackIos style={{ fontSize: 18 }} /> 
             </Link>
           </div>
           <div className="step"></div>

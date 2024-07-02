@@ -43,7 +43,7 @@ const ConnectLinkedin = () => {
                         <FaLinkedin className='LinkedinIcon' />Conectar con Linkedin
                     </p>
                 </button>
-                <Link to="/registertercerpaso">
+                <Link to="/aboutyou">
                     <button className='ContinueButtonLinkedin'>Siguiente</button>
                 </Link>
             </div>

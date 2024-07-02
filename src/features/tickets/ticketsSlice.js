@@ -9,14 +9,14 @@ const initialState = {
 };
 
 export const getAllTickets = createAsyncThunk('tickets/getAll', async () => {
-        try {
-            const tickets = await ticketsService.getAllTickets();
-            return tickets;
-        } catch (error) {
-            console.error('Error obteniendo todos los tickets:', error);
-            throw error;
-        }
+    try {
+        const tickets = await ticketsService.getAllTickets();
+        return tickets;
+    } catch (error) {
+        console.error('Error obteniendo todos los tickets:', error);
+        throw error;
     }
+}
 );
 
 const ticketsSlice = createSlice({
@@ -25,7 +25,7 @@ const ticketsSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-        
+
             .addCase(getAllTickets.pending, (state) => {
                 state.isLoading = true;
                 state.isError = false;
