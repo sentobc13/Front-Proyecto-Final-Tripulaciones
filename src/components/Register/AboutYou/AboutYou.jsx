@@ -4,6 +4,8 @@ import { MdArrowBackIos } from "react-icons/md";
 import './AboutYou.scss';
 
 const AboutYou = () => {
+
+
   const [formData, setFormData] = useState({
     name: '',
     surname: '',
@@ -16,7 +18,11 @@ const AboutYou = () => {
   });
 
   const [formErrors, setFormErrors] = useState({});
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+
+  if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
+    navigate("/identify")
+  }
   const typeUser = localStorage.getItem('validator');
 
   const handleChange = (e) => {

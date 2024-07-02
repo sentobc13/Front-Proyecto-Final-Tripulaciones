@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './RegisterTercerPaso.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MdArrowBackIos } from 'react-icons/md';
 import { Accordion, AccordionItem, AccordionButton, AccordionPanel, Box, AccordionIcon } from '@chakra-ui/react';
 import { getAllTickets } from '../../features/tickets/ticketsSlice';
@@ -10,6 +10,11 @@ import { Spinner } from '@chakra-ui/react';
 const RegisterTercerPaso = () => {
     const [selectedPrice, setSelectedPrice] = useState('');
     const dispatch = useDispatch();
+    const navigate = useNavigate()
+
+    if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
+        navigate("/identify")
+    }
     const { isLoading, isError, errorMessage } = useSelector((state) => state.tickets);
 
     useEffect(() => {
