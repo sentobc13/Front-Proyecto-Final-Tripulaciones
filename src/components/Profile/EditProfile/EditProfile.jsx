@@ -4,8 +4,9 @@ import Chip from '@mui/material/Chip';
 import { useNavigate } from 'react-router-dom';
 import '../EditProfile/EditProfile.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { Spinner } from '@chakra-ui/react'
+import { Spinner } from '@chakra-ui/react';
 import { getLoggedAttendee, updateAttendee } from '../../../features/auth/attendee/authAttendeeSlice';
+import axios from 'axios';
 
 const EditProfile = () => {
   const { attendee, isLoadingAttendee } = useSelector((state) => state.authAttendee);
@@ -13,8 +14,8 @@ const EditProfile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(getLoggedAttendee())
-  }, []);
+    dispatch(getLoggedAttendee());
+  }, [dispatch]);
 
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -22,45 +23,66 @@ const EditProfile = () => {
   const [linkedin, setLinkedin] = useState('');
   const [interests, setInterests] = useState([]);
   const [foodPreferences, setFoodPreferences] = useState('');
+  const [file, setFile] = useState(null);
+  const [profilePicUrl, setProfilePicUrl] = useState('');
 
   useEffect(() => {
     if (attendee) {
       setName(attendee.name);
       setSurname(attendee.surname);
-      setLinkedin(attendee.linkedin)
-      setInterests(attendee.interests || [])
-      setFoodPreferences(attendee.dietary_restrictions || [])
+      setLinkedin(attendee.linkedin);
+      setInterests(attendee.interests || []);
+      setFoodPreferences(attendee.dietary_restrictions || []);
+      setProfilePicUrl(attendee.profilePicUrl || '');
     }
   }, [attendee]);
 
   if (isLoadingAttendee) {
-    return <p>Cargando</p>;
+    return <Spinner />;
   }
 
-
-
-
-  const handleSaveChanges = () => {
+  const handleSaveChanges = async () => {
     console.log('Guardando cambios...');
-    const attendee = {
+    let updatedProfilePicUrl = profilePicUrl;
+
+    if (file) {
+      const formData = new FormData();
+      formData.append('profilePic', file);
+
+      try {
+        const response = await axios.post('/api/upload-profile-pic', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+        updatedProfilePicUrl = response.data.filePath;
+      } catch (error) {
+        console.error('Error uploading profile pic', error);
+        return;
+      }
+    }
+
+    const attendeeData = {
       name,
       surname,
       bio,
       linkedin,
       interests,
-      foodPreferences
-    }
-    console.log(attendee);
-    dispatch(updateAttendee(attendee))
+      foodPreferences,
+      profilePicUrl: updatedProfilePicUrl
+    };
+
+    dispatch(updateAttendee(attendeeData));
   };
 
   const handleDiscardChanges = () => {
     console.log('Descartando cambios...');
     setName(attendee.name);
     setSurname(attendee.surname);
-    setLinkedin(attendee.linkedin)
-    setInterests(attendee.interests || [])
-    setFoodPreferences(attendee.dietary_restrictions || [])
+    setLinkedin(attendee.linkedin);
+    setInterests(attendee.interests || []);
+    setFoodPreferences(attendee.dietary_restrictions || []);
+    setProfilePicUrl(attendee.profilePicUrl || '');
   };
 
   const handleBack = () => {
@@ -71,6 +93,10 @@ const EditProfile = () => {
     setInterests((prevInterests) => prevInterests.filter((interest) => interest !== interestToDelete));
   };
 
+  const handleFileChangeUser = (e) => {
+    setFile(e.target.files[0]);
+  };
+
   return (
     <>
       <div className="topProfileEdit">
@@ -79,6 +105,10 @@ const EditProfile = () => {
         </p>
       </div>
       <div className="profile-contentEdit">
+        <div className="profile-pic-section">
+          <img src={profilePicUrl || '/default-profile-pic.jpg'} alt="Profile" className="profile-pic" />
+          <input type="file" onChange={handleFileChangeUser} />
+        </div>
         <div>
           <span className="titleNameProfileEdit">Nombre</span>
           <input
@@ -137,11 +167,11 @@ const EditProfile = () => {
           />
         </div>
       </div>
-      <div className='containerButtonProfileEdit'>
-        <button className='SaveChangesEdit' onClick={handleSaveChanges}>
+      <div className="containerButtonProfileEdit">
+        <button className="SaveChangesEdit" onClick={handleSaveChanges}>
           Guardar cambios
         </button>
-        <button className='DiscardChangesEdit' onClick={handleDiscardChanges}>
+        <button className="DiscardChangesEdit" onClick={handleDiscardChanges}>
           Descartar
         </button>
       </div>
@@ -150,3 +180,4 @@ const EditProfile = () => {
 };
 
 export default EditProfile;
+
