@@ -72,7 +72,8 @@ const EditProfile = () => {
       profilePicUrl: updatedProfilePicUrl
     };
 
-    dispatch(updateAttendee(attendeeData));
+    await dispatch(updateAttendee(attendeeData));
+    navigate('/profile'); // Redirige a la página de perfil después de guardar los cambios
   };
 
   const handleDiscardChanges = () => {
@@ -180,4 +181,3 @@ const EditProfile = () => {
 };
 
 export default EditProfile;
-
