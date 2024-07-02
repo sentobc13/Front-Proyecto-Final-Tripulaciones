@@ -57,17 +57,19 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
 
     function obtenerHorariosOrdenados(horarios) {
         const horariosOrdenados = [...horarios].sort((a, b) => new Date(a) - new Date(b));
-
+        return horariosOrdenados
         // Extraer la fecha y hora formateadas
-        const fechasHoras = horariosOrdenados.map(horario => {
-            const fecha = new Date(horario);
-            const dia = fecha.toLocaleDateString('es-ES', { day: 'numeric', month: 'long' });
-            const hora = fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            return `${dia} a las ${hora}`;
-        });
+        
+        }
+        const convertirHora = (horario)=> {
+        
+                const fecha = new Date(horario);
+                const dia = fecha.toLocaleDateString('es-ES', { day: 'numeric', month: 'long' });
+                const hora = fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                return `${dia} a las ${hora}`;
+            };
 
-        return fechasHoras;
-    }
+        
     console.log(workshop);
     const horariosOrdenados = obtenerHorariosOrdenados(workshop.speaker_id.freeSchedule);
     console.log(horariosOrdenados);
@@ -94,7 +96,7 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
                         {horariosOrdenados.map(horario => (
                             <div className="horario-item" key={horario}>
                                 <Checkbox isChecked={horariosSeleccionados.includes(horario)} onChange={() => handleCheckboxChange(horario)}>
-                                    {horario}
+                                    {convertirHora(horario)}
                                 </Checkbox>
                             </div>
                         ))}
