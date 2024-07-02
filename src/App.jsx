@@ -23,6 +23,7 @@ import EditProfile from './components/Profile/EditProfile/EditProfile';
 import AttendeeList from "./components/AttendeeList/AttendeeList";
 import Notifications from "./components/Notifications/Notifications";
 import Tickets from "./components/Tickets/Tickets";
+import Map from "./components/Map/Map";
 
 
 function App() {
@@ -74,6 +75,7 @@ function MainContent() {
           <Route path="/tickets" element={<Tickets />} />
           <Route path="/attendeelist" element={<AttendeeList />} />
           <Route path="/notification" element={<Notifications />} />
+          <Route path="/map" element={<Map />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
