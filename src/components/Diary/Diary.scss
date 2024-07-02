@@ -129,7 +129,6 @@
 
 .div-card {
     margin-top: 5px;
-    border: 1px solid #ccc;
     /* Borde de la tarjeta */
     border-radius: 5px;
     /* Esquinas redondeadas */
@@ -220,7 +219,6 @@
     margin-top: 20vh; // Margen desde la parte superior
     z-index: 1500; // Z-index para asegurar que esté sobre otros elementos
     background-color: white; // Fondo blanco
-    border: 1px solid black; // Borde negro sólido
     border-radius: 8px; // Bordes redondeados
     max-width: 400px; // Anchura máxima
     max-height: 900px; // Altura máxima
@@ -239,7 +237,7 @@
         font-weight: bold;
         margin-bottom: 10px;
         padding: 16px; // Añade padding al título para separación del borde
-        border-bottom: 1px solid black; // Borde inferior del título
+        border-bottom: 1px solid black; // Borde inferior del título    
     }
 
     // Estilo del botón de cerrar

@@ -7,13 +7,10 @@ import './Diary.scss';
 import { Chip } from '@mui/material';
 import { Button, Card, CardBody, Text, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, ModalFooter, Checkbox, CheckboxGroup } from '@chakra-ui/react';
 import { getAllWorkshops } from '../../features/workshop/WorkshopSlice';
-<<<<<<< HEAD
 import { ChakraProvider } from '@chakra-ui/react'; // Asegúrate de envolver tu aplicación con este proveedor
-=======
 import { useNavigate } from 'react-router-dom';
 import './Diary.scss';
 import registrationOne2OneService from "../../features/registrationOnetoOne/registrationOnetoOneService"
->>>>>>> agustin
 
 const DescriptionModal = ({ isOpen, onClose, workshop }) => {
     const [showHorarios, setShowHorarios] = useState(false);
