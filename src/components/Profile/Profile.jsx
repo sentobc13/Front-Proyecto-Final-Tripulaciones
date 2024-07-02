@@ -22,7 +22,7 @@ const Profile = () => {
     return <Spinner /> ;
   }
 
-  console.log(attendee);
+  
   return (
     <div className="mainContent-profile">
       <div className="topProfile">

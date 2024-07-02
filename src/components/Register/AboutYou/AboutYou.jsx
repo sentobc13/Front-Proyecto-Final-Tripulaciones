@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdArrowBackIos } from "react-icons/md";
 import './AboutYou.scss';
@@ -19,10 +19,12 @@ const AboutYou = () => {
 
   const [formErrors, setFormErrors] = useState({});
   const navigate = useNavigate()
+  useEffect(() => {
 
-  if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
-    navigate("/identify")
-  }
+    if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
+      navigate("/identify")
+    }
+  })
   const typeUser = localStorage.getItem('validator');
 
   const handleChange = (e) => {
@@ -78,7 +80,7 @@ const AboutYou = () => {
         <div className="stepper">
           <div className="btn-back">
             <Link to="/connectLinkedin" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <MdArrowBackIos style={{ fontSize: 18 }} /> {/* Ajusta el tamaño del ícono según tus necesidades */}
+              <MdArrowBackIos style={{ fontSize: 18 }} />
             </Link>
           </div>
           <div className="step"></div>

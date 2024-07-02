@@ -27,7 +27,7 @@ const Identify = () => {
       <img src={logo1} alt="Logo" className="logo" />
       <div className="buttons">
 
-          <button className="button" name = "Attendee" onClick={optionSelected}>Ya estoy</button>
+          <button className="button" name = "Attendee" onClick={optionSelected}>Ya estoy registrado</button>
 
 
           <button className="button" name = "Speaker" onClick={optionSelected}>Soy profesional</button>

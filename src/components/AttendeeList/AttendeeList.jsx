@@ -17,10 +17,6 @@ const AttendeeList = () => {
   );
   const [selectedAttendee, setSelectedAttendee] = useState(null);
 
-  if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
-    navigate("/identify")
-  }
-
   useEffect(() => {
     dispatch(getAllAttendees());
   }, [dispatch]);

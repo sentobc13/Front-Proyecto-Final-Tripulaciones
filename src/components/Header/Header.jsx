@@ -21,12 +21,12 @@ const Header = () => {
         bg={menuOpen ? "radial-gradient(865.8% 89.15% at 6.03% 9.18%, #106AF2 0%, #6610F2 100%)" : "white"}
         width="100%"
         padding="1rem 0"
-        boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
+        boxShadow={menuOpen ? "none" : "0 2px 4px rgba(0, 0, 0, 0.1)"}
         position="fixed"
         top="0"
         left="0"
         zIndex="1000"
-        transition="background-color 0.3s"
+        transition="background-color 0.3s, box-shadow 0.3s"
       >
         <Flex maxWidth="1200px" margin="0 auto" padding="0 2rem" alignItems="center">
           <IconButton
@@ -66,7 +66,7 @@ const Header = () => {
           right="0"
           padding="1rem 0"
           zIndex="999"
-          spacing="0" 
+          spacing="0"
         >
           <Flex justify="flex-end" width="100%" padding="1rem">
             <IconButton

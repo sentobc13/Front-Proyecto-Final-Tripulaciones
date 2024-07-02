@@ -62,13 +62,13 @@ function MainContent() {
           <Route path="/connectLinkedin" element={<ConnectLinkedin />} />
           <Route path="/" element={<PrivateZone><Home /></PrivateZone>} />
           <Route path="/profile" element={<PrivateZone><Profile /></PrivateZone>} />
-          <Route path="/editprofile" element={<EditProfile />} />
+          <Route path="/editprofile" element={<PrivateZone><EditProfile /></PrivateZone>} />
           <Route path="/loginSpeaker" element={<LoginSpeaker />} />
           <Route path="/loginAttendee" element={<LoginAttendee />} />
-          <Route path="/aboutyou" element={<AboutYou />} />
+          <Route path="/aboutyou" element={<PrivateZone><AboutYou /></PrivateZone>} />
           <Route path="/loginPrincipal" element={<LoginPrincipal />} />
           <Route path="/registerSegundoPaso" element={<RegisterSegundoPaso />} />
-          <Route path="/diary" element={<Diary />} />
+          <Route path="/diary" element={<PrivateZone><Diary /></PrivateZone>} />
           <Route path="/paymentmethods" element={<PaymentMethods />} />
           <Route path="/registertercerpaso" element={<RegisterTercerPaso />} />
           <Route path="/attendeelist" element={<AttendeeList />} />

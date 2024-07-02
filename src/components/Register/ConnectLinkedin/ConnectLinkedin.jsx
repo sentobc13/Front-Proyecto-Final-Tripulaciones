@@ -2,14 +2,10 @@ import './ConnectLinkedin.scss'
 import { FaLinkedin } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { MdArrowBackIos } from 'react-icons/md';
+import { useEffect } from 'react';
 
 
 const ConnectLinkedin = () => {
-    const navigate = useNavigate()
-
-    if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
-        navigate("/identify")
-    }
     return (
         <>
             <div className="about-you-container">
@@ -48,7 +44,7 @@ const ConnectLinkedin = () => {
                         <FaLinkedin className='LinkedinIcon' />Conectar con Linkedin
                     </p>
                 </button>
-                <Link to="/registertercerpaso">
+                <Link to="/aboutyou">
                     <button className='ContinueButtonLinkedin'>Siguiente</button>
                 </Link>
             </div>

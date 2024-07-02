@@ -8,13 +8,6 @@ import { registerAttendee } from '../../../features/auth/attendee/authAttendeeSl
 import { registerSpeaker } from '../../../features/auth/speaker/authSpeakerSlice';
 
 const Hastags = () => {
-
-    const navigate = useNavigate()
-
-    if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
-        navigate("/identify")
-    }
-
     const dispatch = useDispatch()
     const [selectedChips, setSelectedChips] = useState([]);
 
