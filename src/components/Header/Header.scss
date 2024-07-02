@@ -19,12 +19,12 @@
     display: block;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    font-size: 24px; /* Aumentado el tamaño de la fuente */
-    padding: 1rem 2rem; /* Ajustado el padding */
+    font-size: 24px; 
+    padding: 1rem 2rem; 
     text-decoration: none;
     width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Añadido borde inferior */
-    text-align: left; /* Alineado a la izquierda */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); 
+    text-align: left; 
     
     &:hover {
       background: rgba(255, 255, 255, 0.1);
@@ -35,9 +35,9 @@
     color: white;
     margin-top: 6rem;
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px; /* Aumentado el tamaño de la fuente */
-    text-align: center; /* Alineado a la izquierda */
-    padding-left: 2.5rem; /* Añadido padding izquierdo */
+    font-size: 18px; 
+    text-align: center; 
+    padding-left: 2.5rem; 
   }
 }
 
@@ -51,5 +51,5 @@ h1 {
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
-  line-height: 33px; /* 110% */
+  line-height: 33px;
 }
