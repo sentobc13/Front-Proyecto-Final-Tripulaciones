@@ -7,7 +7,7 @@ import Identify from "./components/Register/Identify";
 import Profile from "./components/Profile/Profile";
 import NotFound from "./components/NotFound/NotFound";
 import AboutYou from "./components/Register/AboutYou/AboutYou";
-import './App.css';
+import './App.scss';
 import Hastags from "./components/Register/Hastags/Hastags";
 import Allergies from "./components/Register/Allergies/Allergies";
 import ConnectLinkedin from "./components/Register/ConnectLinkedin/ConnectLinkedin";

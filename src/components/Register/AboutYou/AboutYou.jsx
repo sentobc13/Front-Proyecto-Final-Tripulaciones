@@ -178,8 +178,8 @@ const AboutYou = () => {
             />
             {formErrors.linkedin && <p className="error">{formErrors.linkedin}</p>}
           </label>
-          <div className="BadgecontainerButton">
-            <button type="submit">Siguiente</button>
+          <div className="container-button">
+            <button className="continue-button" type="submit">Siguiente</button>
           </div>
         </form>
       </div>

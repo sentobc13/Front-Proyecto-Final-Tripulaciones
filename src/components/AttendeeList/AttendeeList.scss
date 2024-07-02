@@ -1,9 +1,9 @@
 .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px;
-  
+
     .suggestions,
     .filters,
     .attendees {
@@ -11,7 +11,7 @@
       max-width: 1200px;
       margin-bottom: 20px;
     }
-  
+
     .suggestions {
       h2 {
         font-family: Montserrat;
@@ -21,63 +21,66 @@
         line-height: 26.4px;
         color: var(--gray-800, #1A202C);
         text-align: left;
-        margin-top: 55px; /* Aumenta el espacio desde arriba */
-        margin-bottom: 20px; /* Ajusta según sea necesario */
+        margin-top: 55px; 
+        margin-bottom: 20px;
       }
-  
+
       .suggestion-cards {
         display: flex;
         overflow-x: auto;
         gap: 10px;
         padding-bottom: 10px;
-        scrollbar-width: thin; /* For Firefox */
-        -ms-overflow-style: none; /* For Internet Explorer and Edge */
+        scrollbar-width: thin; 
+        -ms-overflow-style: none; 
       }
-  
+
       .suggestion-cards::-webkit-scrollbar {
         height: 8px;
       }
-  
+
       .suggestion-cards::-webkit-scrollbar-thumb {
         background-color: #ccc;
         border-radius: 10px;
       }
-  
+
       .suggestion-card {
         background: #fff;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         padding: 10px;
-        text-align: center;
+        text-align: left;
         width: 150px;
         flex: 0 0 auto;
-  
+
         display: flex;
-        flex-direction: column;
-        align-items: center;
-  
+        flex-direction: column; 
+        align-items: flex-start; 
+
         img {
           width: 80px;
           height: 80px;
           border-radius: 50%;
+          margin-right: 10px; 
         }
-  
+
         .info {
-          margin-top: 5px;
-  
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start; 
+
           .title {
             font-size: 0.9rem;
           }
-  
+
           .label {
             font-size: 0.8rem;
           }
-  
+
           .name {
             font-size: 1rem;
             font-weight: bold;
           }
-  
+
           .position {
             font-size: 0.8rem;
             color: #666;
@@ -85,7 +88,7 @@
         }
       }
     }
-  
+
     .filters {
       h2 {
         font-family: Montserrat;
@@ -95,28 +98,28 @@
         line-height: 26.4px;
         color: var(--gray-800, #1A202C);
         text-align: left;
-        margin-bottom: 20px; /* Ajusta según sea necesario */
+        margin-bottom: 20px; 
       }
-  
+
       .filter-buttons {
         display: flex;
         gap: 10px;
-        justify-content: center;
-  
+        justify-content: flex-start;
+
         button {
           background: #e0f7fa;
           border: none;
           border-radius: 20px;
           padding: 10px 20px;
           cursor: pointer;
-  
+
           &:hover {
             background: #b2ebf2;
           }
         }
       }
     }
-  
+
     .attendees {
       h2 {
         font-family: Montserrat;
@@ -126,35 +129,37 @@
         line-height: 26.4px;
         color: var(--gray-800, #1A202C);
         text-align: left;
-        margin-bottom: 20px; /* Ajusta según sea necesario */
+        margin-bottom: 20px; 
       }
-  
+
       .attendee-cards {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 10px;
-  
+
         .attendee-card {
           background: #fff;
           border-radius: 8px;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           padding: 10px;
-          text-align: center;
-  
+          text-align: left; 
+
           display: flex;
-          flex-direction: column;
-          align-items: center;
-  
+          flex-direction: column; 
+          align-items: flex-start; 
+
           img {
             width: 80px;
             height: 80px;
             border-radius: 50%;
+            margin-right: 10px;
           }
-  
+
           .attendee-info {
-            margin-top: 5px;
-            text-align: center;
-  
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; 
+
             .attendee-label {
               font-size: 0.8rem;
               background: #e0f7fa;
@@ -162,17 +167,17 @@
               padding: 5px 10px;
               margin: 5px 0;
               display: inline-block;
-  
+
               .attendee-title {
                 font-size: 0.9rem;
               }
             }
-  
+
             .attendee-name {
               font-size: 1rem;
               font-weight: bold;
             }
-  
+
             .attendee-position {
               font-size: 0.8rem;
               color: #666;
@@ -182,4 +187,3 @@
       }
     }
   }
-  

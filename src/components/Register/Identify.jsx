@@ -20,14 +20,14 @@ const Identify = () => {
 
     <div className="register-container">
 
-      <h3>
+      <h3 className='bienvenidos-text'>
         Bienvenid@ a
       </h3>
 
       <img src={logo1} alt="Logo" className="logo" />
       <div className="buttons">
 
-          <button className="button" name = "Attendee" onClick={optionSelected}>Soy visitante</button>
+          <button className="button" name = "Attendee" onClick={optionSelected}>Ya estoy</button>
 
 
           <button className="button" name = "Speaker" onClick={optionSelected}>Soy profesional</button>

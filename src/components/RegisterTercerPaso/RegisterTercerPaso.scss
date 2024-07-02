@@ -18,6 +18,64 @@
         .btn-back {
             display: flex;
             margin-right: 40px;
+
+            .register-tercer-paso-container {
+                font-family: 'Montserrat', sans-serif;
+
+                .stepper {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 80%;
+                    max-width: 400px;
+                    margin: auto;
+                    padding: 10px;
+                    margin-top: 8%;
+
+                    .btn-back {
+                        display: flex;
+                        margin-right: 40px;
+                        margin-left: -50px;
+                    }
+
+                    .step {
+                        width: 40px;
+                        height: 4px;
+                        background-color: #ddd;
+                        margin: 0 10px;
+                        border-radius: 10px;
+
+                        &.highlighted {
+                            height: 8px;
+                            width: 60px;
+                            background-color: $buttons-register;
+                        }
+                    }
+                }
+            }
+
+            .container-content3 {
+                margin-top: 20px;
+
+
+                .div-entry-type {
+                    margin-bottom: 1rem;
+
+                    .entry-type {
+                        font-size: 1rem;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+
+                .div-prices {
+                    .price {
+                        font-size: 1rem;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+
+            }
+
             margin-left: -50px;
         }
 
@@ -38,28 +96,36 @@
 }
 
 .containerRegister3 {
-    margin-top: 40px; 
+    margin-top: 40px;
     font-family: Montserrat;
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 33px;
-    text-align: left;
-    
+    padding: 0 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .div-title {
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 33px;
+        text-align: left
+    }
 }
+
 .container-content3 {
-    margin-top: 20px; 
+    margin-top: 20px;
     font-family: Montserrat;
-    
+
     .div-subtitle {
         margin-bottom: 1rem;
-        
+
 
         .subtitle {
             font-size: 1.25rem;
             margin-bottom: 0.5rem;
             font-weight: bold;
             font-family: Montserrat;
-            
+
         }
 
         ul {
@@ -87,139 +153,71 @@
             margin-bottom: 0.5rem;
             font-family: Montserrat;
         }
+
+        &-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 8px;
+            height: 64px;
+            border-bottom: 1px solid rgba(226, 232, 240, 1);
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+            box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+            padding: 0 16px;
+        }
     }
 }
+
+.price-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.price-button.selected {
+    background-color: #0056b3;
+}
+
+.price-button:hover {
+    background-color: #0056b3;
+}
+
+.price-button.selected:hover {
+    background-color: #003f7f;
+}
+
 
 .container-button {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
     font-family: Montserrat;
+    font-size: 18px;
+    position: fixed;
+    bottom: 32px;
+    left: 32px;
+    right: 32px;
+    text-align: center;
 
     .continue-button {
-        background-color:rgba(49, 130, 206, 1);
+        background-color: rgba(49, 130, 206, 1);
         color: white;
         padding: 0.5rem 1rem;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        width: 100%;
+        height: 48px;
 
         &:hover {
             background-color: darkblue;
         }
     }
 }
-
-// @media (max-width: 768px) {
-//     // .register-tercer-paso-container {
-//     //     .stepper {
-//     //         justify-content: center;
-
-//     //         .btn-back {
-//     //             margin-right: 0.5rem;
-//     //         }
-
-//     //         .step {
-//     //             width: 8px;
-//     //             height: 8px;
-//     //             margin: 0 3px;
-//     //         }
-//     //     }
-//     // }
-
-//     .containerRegister3 {
-//         .div-title {
-//             .title {
-//                 font-size: 3rem;
-//             }
-//         }
-//     }
-
-//     .container-content3 {
-//         .div-subtitle {
-//             .subtitle {
-//                 font-size: 1.1rem;
-//             }
-
-//             ul {
-//                 padding-left: 15px;
-//             }
-//         }
-
-//         .div-entry-type {
-//             .entry-type {
-//                 font-size: 0.9rem;
-//             }
-//         }
-
-//         .div-prices {
-//             .price {
-//                 font-size: 0.9rem;
-//             }
-//         }
-//     }
-
-//     .container-button {
-//         .continue-button {
-//             padding: 0.5rem 0.75rem;
-//             font-size: 0.9rem;
-//         }
-//     }
-// }
-
-// @media (max-width: 480px) {
-//     // .register-tercer-paso-container {
-//     //     .stepper {
-//     //         flex-direction: column;
-//     //         align-items: flex-start;
-
-//     //         .btn-back {
-//     //             margin-bottom: 0.5rem;
-//     //         }
-
-//     //         .step {
-//     //             margin: 3px 0;
-//     //         }
-//     //     }
-//     // }
-
-//     .containerRegister3 {
-//         .div-title {
-//             .title {
-//                 font-size: 2rem;
-//             }
-//         }
-//     }
-
-//     .container-content3 {
-//         .div-subtitle {
-//             .subtitle {
-//                 font-size: 1rem;
-//             }
-
-//             ul {
-//                 padding-left: 10px;
-//             }
-//         }
-
-//         .div-entry-type {
-//             .entry-type {
-//                 font-size: 0.8rem;
-//             }
-//         }
-
-//         .div-prices {
-//             .price {
-//                 font-size: 0.8rem;
-//             }
-//         }
-//     }
-
-//     .container-button {
-//         .continue-button {
-//             padding: 0.5rem;
-//             font-size: 0.8rem;
-//         }
-//     }
-// }
