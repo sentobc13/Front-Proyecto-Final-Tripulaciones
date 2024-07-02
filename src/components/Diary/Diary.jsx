@@ -3,12 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { PiSliders } from "react-icons/pi";
 import { FaChevronDown } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
+import './Diary.scss';
 import { Chip } from '@mui/material';
 import { Button, Card, CardBody, Text, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, ModalFooter } from '@chakra-ui/react';
 import { getAllWorkshops } from '../../features/workshop/WorkshopSlice';
-import { useNavigate } from 'react-router-dom';
-import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
-import './Diary.scss';
+import { ChakraProvider } from '@chakra-ui/react'; // Asegúrate de envolver tu aplicación con este proveedor
 
 const DescriptionModal = ({ isOpen, onClose }) => {
     const [showHorarios, setShowHorarios] = useState(false);
@@ -43,11 +42,11 @@ const DescriptionModal = ({ isOpen, onClose }) => {
                     <ModalFooter className='div-horarios'>
                         <p>Horarios Disponibles:</p>
                         <CheckboxGroup>
-                        <Checkbox defaultChecked>10:00</Checkbox>
-                        <Checkbox defaultChecked>10:30</Checkbox>
-                        <Checkbox defaultChecked>11:00</Checkbox>
+                            <Checkbox defaultChecked>10:00</Checkbox>
+                            <Checkbox defaultChecked>10:30</Checkbox>
+                            <Checkbox defaultChecked>11:00</Checkbox>
                         </CheckboxGroup>
-                        </ModalFooter>
+                    </ModalFooter>
                 )}
                 <ModalFooter className='div-btn'>
                     <Button className='btn-nodal-interesa' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
@@ -59,13 +58,10 @@ const DescriptionModal = ({ isOpen, onClose }) => {
     );
 };
 
-
-
 const Diary = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [selectedDay, setSelectedDay] = useState(null);
     const [filteredWorkshops, setFilteredWorkshops] = useState([]);
-    const navigate = useNavigate()
     const dispatch = useDispatch();
     const { workshops, isLoading } = useSelector(state => state.WorkshopSlice);
 
@@ -93,6 +89,8 @@ const Diary = () => {
         );
     }
 
+    console.log(workshops);
+
     const handleDayClick = (day) => {
         setSelectedDay(day);
     };
@@ -108,64 +106,61 @@ const Diary = () => {
         return strTime;
     };
 
-    const GoUserProfile = () => {
-        navigate("")
-    }
-
     return (
-        <div className={`div-agenda ${isOpen ? 'blurred' : ''}`}>
-            <div className='div-programa'>
-                <h3>Programa</h3>
-            </div>
-            <div className='div-dias'>
-                <p className={selectedDay === '22 Junio' ? 'active' : ''} onClick={() => handleDayClick('22 Junio')}>
-                    22 de Junio
-                </p>
-                <p className={selectedDay === '23 Junio' ? 'active' : ''} onClick={() => handleDayClick('23 Junio')}>
-                    23 de Junio
-                </p>
-            </div>
-            <div className='div-slider-chip'>
-                <div className='slider'>
-                    <PiSliders />
-                    <div className='chip'>
-                        <Chip className="uniqueChipProfile" label="LMS" />
-                        <Chip className="uniqueChipProfile" label="Diversidad" />
-                        <Chip className="uniqueChipProfile" label="Stem" />
+        <ChakraProvider> {/* Envuelve tu componente con ChakraProvider */}
+            <div className={`div-agenda ${isOpen ? 'blurred' : ''}`}>
+                <div className='div-programa'>
+                    <h3>Programa</h3>
+                </div>
+                <div className='div-dias'>
+                    <p className={selectedDay === '22 de junio' ? 'active' : ''} onClick={() => handleDayClick('22 de junio')}>
+                        22 de junio
+                    </p>
+                    <p className={selectedDay === '23 de junio' ? 'active' : ''} onClick={() => handleDayClick('23 de junio')}>
+                        23 de junio
+                    </p>
+                </div>
+                <div className='div-slider-chip'>
+                    <div className='slider'>
+                        <PiSliders />
+                        <div className='chip'>
+                            <Chip className="uniqueChipProfile" label="E-learning" />
+                            <Chip className="uniqueChipProfile" label="E-learning" />
+                            <Chip className="uniqueChipProfile" label="E-learning" />
+                        </div>
                     </div>
                 </div>
-            </div>
-            {filteredWorkshops.map(workshop => (
-                <div className='div-card' key={workshop._id}>
-                    <Card>
-                        <CardBody className='card-content'>
-                            <Text className='div-horario-card'>
-                                {formatTime(workshop.start_date)} &#9210;
+                {filteredWorkshops.map(workshop => (
+                    <div className='div-card' key={workshop._id}>
+                        <Card>
+                            <CardBody className='card-content'>
+                                <Text className='div-horario-card'>
+                                    {formatTime(workshop.start_date)}
+                                </Text>
+                                <Text className='div-nombre'>
+                                    {workshop.speaker_id.name}
+                                </Text>
+                                <Text className='div-cargo'>
+                                    {workshop.speaker_id.role}
+                                </Text>
                                 <Chip className="div-ponencia" label="Ponencia" />
-                            </Text>
-                            <Text className='div-nombre' onClick={GoUserProfile}>
-                                
-                            </Text>
-                            <Text className='div-cargo'>
-                                {workshop.speaker_id.role}
-                            </Text>
-                            <Chip className="div-ponencia" label="Ponencia" />
-                            <Text className='div-descripcion'>
-                                {workshop.description}
-                            </Text>
-                            <Text className='div-titulo'>
-                                {workshop.name}
-                            </Text>
-                            <div className='div-icon-text' onClick={onOpen} style={{ cursor: 'pointer' }}>
-                                <FaChevronDown />
-                                <span className='div-down-text'>Descripción</span>
-                            </div>
-                            <DescriptionModal isOpen={isOpen} onClose={onClose} />
-                        </CardBody>
-                    </Card>
-                </div>
-            ))}
-        </div>
+                                <Text className='div-descripcion'>
+                                    {workshop.description}
+                                </Text>
+                                <Text className='div-titulo'>
+                                    {workshop.name}
+                                </Text>
+                                <div className='div-icon-text' onClick={onOpen} style={{ cursor: 'pointer' }}>
+                                    <FaChevronDown />
+                                    <span className='div-down-text'>Descripción</span>
+                                </div>
+                                <DescriptionModal isOpen={isOpen} onClose={onClose} />
+                            </CardBody>
+                        </Card>
+                    </div>
+                ))}
+            </div>
+        </ChakraProvider>
     );
 };
 
