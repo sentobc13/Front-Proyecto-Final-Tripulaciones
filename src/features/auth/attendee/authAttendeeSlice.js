@@ -12,7 +12,8 @@ const initialState = {
     isSuccess: false,
     msg: "",
     isLoadingAttendee: true,
-    isLoadingAttendees: true
+    isLoadingAttendees: true,
+    attendeeSelected: []
 }
 
 
@@ -72,6 +73,14 @@ export const authSlice = createSlice({
             .addCase(updateAttendee.pending, (state) => {
                 state.isLoadingAttendee = true
             })
+            .addCase(getAttendeeById.fulfilled, (state, action) => {
+                state.attendeeSelected = action.payload
+                state.message = action.payload.msg
+                state.isLoadingAttendee = false
+            })
+            .addCase(getAttendeeById.pending, (state) => {
+                state.isLoadingAttendee = true
+            })
     }
 })
 
@@ -107,6 +116,14 @@ export const getLoggedAttendee = createAsyncThunk("auth/getLoggedAttendee", asyn
 export const getAllAttendees = createAsyncThunk("auth/getAllAttendees", async () => {
     try {
         return await authAttendeeService.getAllAttendees();
+    } catch (error) {
+        console.error(error);
+    }
+}
+)
+export const getAttendeeById = createAsyncThunk("auth/getAttendeeById", async (id) => {
+    try {
+        return await authAttendeeService.getAttendeeById(id);
     } catch (error) {
         console.error(error);
     }

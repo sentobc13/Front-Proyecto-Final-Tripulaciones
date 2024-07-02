@@ -26,6 +26,15 @@ const getLoggedAttendee = async () => {
   });
   return res.data;
 };
+const getAttendeeById = async (id) => {
+  const token = localStorage.getItem("token");
+  const res = await axios.get(API_URL + "/getAttendeeById/" + id , {
+    headers: {
+      authorization: token,
+    },
+  });
+  return res.data;
+};
 const getAllAttendees = async () => {
   const token = localStorage.getItem("token");
   const res = await axios.get(API_URL + "/getAttendees" , {
@@ -56,7 +65,8 @@ const authAttendeeService = {
   login,
   getLoggedAttendee,
   getAllAttendees,
-  updateAttendee
+  updateAttendee,
+  getAttendeeById
   
 }
 
