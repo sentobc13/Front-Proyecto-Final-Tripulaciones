@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = "http://localhost:3001/speaker"
+const API_URL = "https://backend-desafio-gvpr.onrender.com/speaker"
 
 const registerSpeaker = async (speaker)=>{
   const res = await axios.post(API_URL + "/registerSpeaker", speaker)
