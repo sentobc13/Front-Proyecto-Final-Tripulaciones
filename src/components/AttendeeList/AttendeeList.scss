@@ -132,6 +132,14 @@
         margin-bottom: 20px; 
       }
 
+      .search-input {
+        width: 60%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      
       .attendee-cards {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
