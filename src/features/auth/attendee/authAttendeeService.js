@@ -50,13 +50,24 @@ const updateAttendee = async (attendee)=>{
   }
   return res.data
 }
+const registerOnetoOne = async (horariosSeleccionado, speaker_id) => {
+  const reservarOne2One = { scheduled_time: horariosSeleccionado, speaker_id:speaker_id}
+  const token = localStorage.getItem("token");
+  const res = await axios.post(API_URL + "/getAttendees" , reservarOne2One,{
+    headers: {
+      authorization: token,
+    },
+  });
+  return res.data;
+};
 
 const authAttendeeService = {
   registerAttendee,
   login,
   getLoggedAttendee,
   getAllAttendees,
-  updateAttendee
+  updateAttendee,
+  registerOnetoOne
   
 }
 

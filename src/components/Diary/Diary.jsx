@@ -8,8 +8,9 @@ import { Button, Card, CardBody, Text, useDisclosure, Modal, ModalOverlay, Modal
 import { getAllWorkshops } from '../../features/workshop/WorkshopSlice';
 import { useNavigate } from 'react-router-dom';
 import './Diary.scss';
+import registrationOne2OneService from "../../features/registrationOnetoOne/registrationOnetoOneService"
 
-const DescriptionModal = ({ isOpen, onClose }) => {
+const DescriptionModal = ({ isOpen, onClose, workshop }) => {
     const [showHorarios, setShowHorarios] = useState(false);
     const [horariosSeleccionados, setHorariosSeleccionados] = useState([]);
     const [showSolicitarButton, setShowSolicitarButton] = useState(false);
@@ -38,9 +39,36 @@ const DescriptionModal = ({ isOpen, onClose }) => {
             setShowSolicitarButton(true); // Muestra el botón "Solicitar" al seleccionar un horario
         }
     };
+    const solicitar121 = (horariosSeleccionado, speaker_id) =>{
+       const one2oneDisponibles = workshop.speaker_id.partner_id.membership_type.benefits[0]
+       const one2oneTomados = workshop.speaker_id.partner_id.one2oneTaken
+       if (one2oneDisponibles - one2oneTomados != 0) {
+        return registrationOne2OneService.registerOnetoOne (horariosSeleccionado, speaker_id)
+       }
 
+    }
+    const handleSubmit = () => {
+        if (horariosSeleccionados.length > 0) {
+            solicitar121(horariosSeleccionados[0], workshop.speaker_id._id);
+        }
+    };
+    function obtenerHorariosOrdenados(horarios) {
+        const horariosOrdenados = [...horarios].sort((a, b) => new Date(a) - new Date(b));
+
+        // Extraer solo las horas
+        const horas = horariosOrdenados.map(horario => {
+            const fecha = new Date(horario);
+            return fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        });
+
+        return horas;
+    }
+    console.log(workshop);
+    const horariosOrdenados = obtenerHorariosOrdenados(workshop.speaker_id.freeSchedule);
+    console.log(horariosOrdenados);
     return (
         <Modal isOpen={isOpen} onClose={handleCloseModal} isCentered>
+            {console.log(workshop)}
             <ModalOverlay className="modal-overlay" />
             <ModalContent className='modal-content'>
                 <ModalHeader className='div-nodal-titulo'>Detalles de la Descripción</ModalHeader>
@@ -58,27 +86,25 @@ const DescriptionModal = ({ isOpen, onClose }) => {
                 {showHorarios && (
                     <ModalFooter className='div-horarios'>
                         <p>Horarios Disponibles:</p>
-                        <div className="horario-item">
-                            <Checkbox isChecked={horariosSeleccionados.includes('10:00')} onChange={() => handleCheckboxChange('10:00')}>10:00</Checkbox>
-                        </div>
-                        <div className="horario-item">
-                            <Checkbox isChecked={horariosSeleccionados.includes('10:30')} onChange={() => handleCheckboxChange('10:30')}>10:30</Checkbox>
-                        </div>
-                        <div className="horario-item">
-                            <Checkbox isChecked={horariosSeleccionados.includes('11:00')} onChange={() => handleCheckboxChange('11:00')}>11:00</Checkbox>
-                        </div>
+                        {horariosOrdenados.map(horario => (
+                            <div className="horario-item" key={horario}>
+                                <Checkbox isChecked={horariosSeleccionados.includes(horario)} onChange={() => handleCheckboxChange(horario)}>
+                                    {horario}
+                                </Checkbox>
+                            </div>
+                        ))}
                     </ModalFooter>
                 )}
                 {!showSolicitarButton && showMeInteresaButton && (
                     <ModalFooter className='div-btn'>
                         <Button className='btn-nodal-interesa' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
-                            Me interesa <CiHeart className="_CiHeart"/>
+                            Me interesa <CiHeart className="_CiHeart" />
                         </Button>
                     </ModalFooter>
                 )}
                 {showSolicitarButton && (
                     <ModalFooter className='div-btn'>
-                        <Button className='btn-nodal-interesa' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
+                        <Button className='btn-nodal-interesa' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth onClick={handleSubmit}>
                             Solicitar
                         </Button>
                     </ModalFooter>
@@ -171,7 +197,7 @@ const Diary = () => {
                                 <Chip className="div-ponencia" label="Ponencia" />
                             </Text>
                             <Text className='div-nombre' onClick={GoUserProfile}>
-
+                                {workshop.speaker_id.name}
                             </Text>
                             <Text className='div-cargo'>
                                 {workshop.speaker_id.role}
@@ -186,7 +212,7 @@ const Diary = () => {
                                 <FaChevronDown />
                                 <span className='div-down-text'>Descripción</span>
                             </div>
-                            <DescriptionModal isOpen={isOpen} onClose={onClose} />
+                            <DescriptionModal isOpen={isOpen} onClose={onClose} workshop={workshop} />
                         </CardBody>
                     </Card>
                 </div>
