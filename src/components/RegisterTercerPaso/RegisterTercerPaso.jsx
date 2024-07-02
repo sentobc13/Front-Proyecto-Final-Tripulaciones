@@ -120,7 +120,6 @@ const RegisterTercerPaso = () => {
                             </h2>
                             <AccordionPanel pb={4}>
                                 <div className="div-prices">
-                                    {/* Añadir aquí la lógica para los precios de la empresa privada */}
                                 </div>
                             </AccordionPanel>
                         </AccordionItem>
