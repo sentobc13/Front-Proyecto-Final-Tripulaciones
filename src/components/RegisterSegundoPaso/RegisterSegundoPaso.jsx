@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import logo from '../../assets/E-learning-Experience_Logo-negro.png';
 import './RegisterSegundoPaso.scss';
 import {
@@ -29,6 +29,10 @@ const RegisterSegundoPaso = () => {
     const [successMessage, setSuccessMessage] = useState(null);
 
     const navigate = useNavigate()
+
+    if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
+        navigate("/identify")
+    }
     const { status, error } = useSelector((state) => state.authAttendee);
 
     const handleChange = (e) => {
@@ -74,7 +78,12 @@ const RegisterSegundoPaso = () => {
         setFormError(null);
         setPasswordError(null);
         setSuccessMessage(null);
-        navigate('/connectLinkedin')
+        const goTo = localStorage.getItem('validator')
+        if(goTo === 'Attendee'){
+            navigate('/registertercerpaso')
+        }else{
+            navigate('/connectLinkedin')
+        }
     };
 
     return (
@@ -83,9 +92,10 @@ const RegisterSegundoPaso = () => {
                 <div className="stepper">
                     <div className="btn-back">
                         <Link to="/loginPrincipal" style={{ textDecoration: 'none', color: 'inherit' }}>
-                            <MdArrowBackIos style={{ fontSize: 14
-                                
-                             }} /> 
+                            <MdArrowBackIos style={{
+                                fontSize: 14
+
+                            }} />
                         </Link>
                     </div>
                     <div className="step highlighted"></div>
@@ -160,9 +170,11 @@ const RegisterSegundoPaso = () => {
                                     <Text fontSize="sm" textAlign="" color="gray.600" mt={4}>
                                         Al registrarte, aceptas los <a href="/terminos" style={{ color: '#4299E1' }}>Términos de servicio</a> y la <a href="/privacidad" style={{ color: '#4299E1' }}>Política de privacidad</a>, incluida la política de <a href="/cookies" style={{ color: '#4299E1' }}>Uso de Cookies.</a>
                                     </Text>
-                                    <Button className='btn-register' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
-                                        Crear cuenta
-                                    </Button>
+                                    <div className="container-button">
+                                        <Button className='continue-button btn-register' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
+                                            Crear cuenta
+                                        </Button>
+                                    </div>
                                 </Stack>
                             </form>
                         </div>

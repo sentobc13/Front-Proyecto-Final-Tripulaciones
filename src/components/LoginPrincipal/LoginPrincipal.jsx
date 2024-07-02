@@ -20,7 +20,7 @@ const LoginPrincipal = () => {
       </div>
       <div className="loginContainer">
         <div className='bienvenidos'>
-          <h3>Bienvenid@ a</h3>
+          <h3 className='bienvenidos-text'>Bienvenid@ a</h3>
           <div className='logoImagen'>
             <img className="logo" src={logo} alt="Logo" />
           </div>

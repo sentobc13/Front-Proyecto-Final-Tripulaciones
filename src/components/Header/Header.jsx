@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Flex, IconButton, Spacer, Image, VStack, Text } from '@chakra-ui/react';
+import { Box, Flex, IconButton, Spacer, Image, VStack, Text, Link as ChakraLink } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -21,12 +21,12 @@ const Header = () => {
         bg={menuOpen ? "radial-gradient(865.8% 89.15% at 6.03% 9.18%, #106AF2 0%, #6610F2 100%)" : "white"}
         width="100%"
         padding="1rem 0"
-        boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
+        boxShadow={menuOpen ? "none" : "0 2px 4px rgba(0, 0, 0, 0.1)"}
         position="fixed"
         top="0"
         left="0"
         zIndex="1000"
-        transition="background-color 0.3s"
+        transition="background-color 0.3s, box-shadow 0.3s"
       >
         <Flex maxWidth="1200px" margin="0 auto" padding="0 2rem" alignItems="center">
           <IconButton
@@ -58,7 +58,6 @@ const Header = () => {
       {menuOpen && (
         <VStack
           className="menu-hamburguesa"
-          bg="radial-gradient(865.8% 89.15% at 6.03% 9.18%, #106AF2 0%, #6610F2 100%)"
           width="100%"
           height="100vh"
           position="fixed"
@@ -67,7 +66,7 @@ const Header = () => {
           right="0"
           padding="1rem 0"
           zIndex="999"
-          spacing="1rem"
+          spacing="0"
         >
           <Flex justify="flex-end" width="100%" padding="1rem">
             <IconButton
@@ -80,18 +79,20 @@ const Header = () => {
               _hover={{ background: 'transparent' }}
             />
           </Flex>
-          <Link to="/identify" onClick={toggleMenu}>Identifícate</Link>
-          <Link to="/programa" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Programa</Link>
-          <Link to="/mi-agenda" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Mi agenda</Link>
-          <Link to="/attendeeList" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Lista de asistentes</Link>
-          <Link to="/mapa-sitio" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Mapa del sitio</Link>
-          <Link to="/alojamientos" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Alojamientos</Link>
-          <Link to="/colaboradores" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Colaboradores</Link>
-          <Link to="/premios-digit" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Premios Digit</Link>
-          <Link to="/contacto" onClick={toggleMenu} style={{ color: 'white', fontSize: '18px' }}>Contacto</Link>
-          <Text className="footer-text" style={{ color: 'white', marginTop: '2rem', fontSize: '14px', textAlign: 'center' }}>
-            E-LEARNING EXPERIENCE by SAMOO<br />23 y 24 de mayo 2025<br />Valencia
-          </Text>
+          <VStack spacing="0" width="100%" align="flex-start">
+            <ChakraLink as={Link} to="/identify" onClick={toggleMenu} className="menu-link">Identifícate</ChakraLink>
+            <ChakraLink as={Link} to="/programa" onClick={toggleMenu} className="menu-link">Programa</ChakraLink>
+            <ChakraLink as={Link} to="/mi-agenda" onClick={toggleMenu} className="menu-link">Mi agenda</ChakraLink>
+            <ChakraLink as={Link} to="/attendeeList" onClick={toggleMenu} className="menu-link">Lista de asistentes</ChakraLink>
+            <ChakraLink as={Link} to="/mapa-sitio" onClick={toggleMenu} className="menu-link">Mapa del sitio</ChakraLink>
+            <ChakraLink as={Link} to="/alojamientos" onClick={toggleMenu} className="menu-link">Alojamientos</ChakraLink>
+            <ChakraLink as={Link} to="/colaboradores" onClick={toggleMenu} className="menu-link">Colaboradores</ChakraLink>
+            <ChakraLink as={Link} to="/premios-digit" onClick={toggleMenu} className="menu-link">Premios Digit</ChakraLink>
+            <ChakraLink as={Link} to="/contacto" onClick={toggleMenu} className="menu-link">Contacto</ChakraLink>
+            <Text className="footer-text">
+              E-LEARNING EXPERIENCE by SAMOO<br />23 y 24 de mayo 2025<br />Valencia
+            </Text>
+          </VStack>
         </VStack>
       )}
     </Box>

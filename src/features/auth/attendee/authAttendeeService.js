@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = "http://localhost:3001/attendee"
+const API_URL = "https://backend-desafio-gvpr.onrender.com/attendee"
 
 const registerAttendee = async (attendee)=>{
 console.log(attendee)
@@ -20,6 +20,15 @@ const login = async (attendee)=>{
 const getLoggedAttendee = async () => {
   const token = localStorage.getItem("token");
   const res = await axios.get(API_URL + "/" , {
+    headers: {
+      authorization: token,
+    },
+  });
+  return res.data;
+};
+const getAttendeeById = async (id) => {
+  const token = localStorage.getItem("token");
+  const res = await axios.get(API_URL + "/getAttendeeById/" + id , {
     headers: {
       authorization: token,
     },
@@ -51,12 +60,15 @@ const updateAttendee = async (attendee)=>{
   return res.data
 }
 
+ 
+
 const authAttendeeService = {
   registerAttendee,
   login,
   getLoggedAttendee,
   getAllAttendees,
-  updateAttendee
+  updateAttendee,
+  getAttendeeById
   
 }
 

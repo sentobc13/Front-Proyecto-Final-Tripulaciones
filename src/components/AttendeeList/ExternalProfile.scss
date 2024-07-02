@@ -1,0 +1,85 @@
+@import '../../../colors.scss';
+
+.asistantProfileName {
+    margin-right: 30%;
+}
+
+.profile-picture-asistant {
+    width: 20%;
+    height: auto;
+    border-radius: 50%;
+    margin-left: 5%;
+}
+
+.divProfileAsistant {
+    display: flex;
+}
+
+.InformationProfileAsistant {
+    padding: 6%;
+    font-size: 16px;
+}
+
+.descriptionNameProfileAsistant {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.containerHeartProfile {
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+}
+
+.IlikeitButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+    margin: 7%;
+    margin-bottom: 0;
+    background-color: $buttons-register;
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
+
+.ScanQR {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+    background-color: white;
+    border: 2px solid $buttons-register;
+    color: $buttons-register;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.containerButton1to1 {
+    bottom: 40px;
+    width: 95%;
+    text-align: center;
+    position: fixed;
+    padding: 10px;
+    background-color: #ffffff;
+    z-index: 1000;
+
+    @media (max-width: 768px) {
+        padding: 5px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 3px;
+    }
+}

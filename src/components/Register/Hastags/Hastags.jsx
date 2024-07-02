@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Chip } from '@mui/material';
 import { MdArrowBackIos } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Hastags.scss';
 import { useDispatch } from 'react-redux';
 import { registerAttendee } from '../../../features/auth/attendee/authAttendeeSlice';
 import { registerSpeaker } from '../../../features/auth/speaker/authSpeakerSlice';
 
 const Hastags = () => {
-
     const dispatch = useDispatch()
     const [selectedChips, setSelectedChips] = useState([]);
 
@@ -43,9 +42,9 @@ const Hastags = () => {
 
     const handleSubmit = async () => {
         try {
-            if(localStorage.getItem('validator') == 'Attendee'){
+            if (localStorage.getItem('validator') == 'Attendee') {
                 dispatch(registerAttendee(JSON.parse(localStorage.getItem('register'))))
-            }else{
+            } else {
                 dispatch(registerSpeaker(JSON.parse(localStorage.getItem('register'))))
             }
         } catch (error) {
