@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { PiSliders } from "react-icons/pi";
-import { FaChevronDown } from "react-icons/fa";
 import { Chip } from '@mui/material';
-import { Button, Card, CardBody, Text, Accordion, AccordionItem, AccordionButton, Box, AccordionIcon, AccordionPanel } from '@chakra-ui/react';
+import { Card, CardBody, Text, Accordion, AccordionItem, AccordionButton, Box, AccordionIcon, AccordionPanel } from '@chakra-ui/react';
 import { ChakraProvider } from '@chakra-ui/react'; // Asegúrate de envolver tu aplicación con este proveedor
-import './MyDiary.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllWorkshops } from '../../features/workshop/WorkshopSlice';
+import './MyDiary.scss'
 
 
 const MyDiary = () => {
