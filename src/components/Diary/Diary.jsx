@@ -213,11 +213,11 @@ const Diary = () => {
                                 <Text className='div-cargo'>
                                     {workshop.speaker_id.role}
                                 </Text>
-                                <Text className='div-card-descripcion'>
-                                    {workshop.description}
-                                </Text>
                                 <Text className='div-titulo'>
                                     {workshop.name}
+                                </Text>
+                                <Text className='div-card-descripcion'>
+                                    {workshop.description}
                                 </Text>
                                 <div className='div-icon-text' onClick={onOpen} style={{ cursor: 'pointer' }}>
                                     <FaChevronDown />

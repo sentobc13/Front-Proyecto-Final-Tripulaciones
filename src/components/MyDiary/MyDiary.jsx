@@ -50,10 +50,6 @@ const MyDiary = () => {
         );
     }
 
-    const handleDayClick = (day) => {
-        setSelectedDay(day);
-    };
-
     const formatTime = (dateString) => {
         const date = new Date(dateString);
         let hours = date.getHours();
@@ -82,23 +78,23 @@ const MyDiary = () => {
                         </div>
                     </Card>
                 </div>
-                {filteredWorkshops.map(workshop => (
-                    <div className='div-card' key={workshop._id}>
+                {user.one2OneTaken.map((one2One , index) => (
+                    <div className='div-card' key={index}>
                         <Card>
                             <CardBody className='card-content'>
                                 <Text className='div-horario-card'>
-                                    {formatTime(workshop.start_date)}
+                                    {formatTime(one2One.time)}
                                 </Text>
                                 <Text className='div-nombre'>
-                                    {workshop.speaker_id.name}
+                                    {one2One.speaker.name}
                                 </Text>
                                 <Text className='div-cargo'>
-                                    {workshop.speaker_id.role}
-                                </Text>
-                                <Text className='div-card-descripcion'>
-                                    {workshop.description}
+                                    {one2One.speaker.job_title}
                                 </Text>
                                 <Text className='div-titulo'>
+                                    {one2One.description}
+                                </Text>
+                                <Text className='div-card-descripcion'>
                                     {workshop.name}
                                 </Text>
                                 <Accordion allowToggle>
