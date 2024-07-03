@@ -29,10 +29,10 @@ const Identify = () => {
       <img src={logo1} alt="Logo" className="logo" />
       <div className="container-button">
       
-      <Box mb={2}><button className="continue-button" name= "Attendee" onClick={optionSelected}>Ya estoy registrado</button></Box>
+      <Box mb={2}><button className="continue-button" name= "Attendee" onClick={optionSelected}>Inscribirme</button></Box>
 
 
-          <button className="continue-button" name = "Speaker" onClick={optionSelected}>Soy profesional</button>
+          <button className="continue-button" name = "Speaker" onClick={optionSelected}>Soy colaborador</button>
 
       </div>
     </div>
