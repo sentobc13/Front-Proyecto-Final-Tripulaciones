@@ -24,6 +24,7 @@ import AttendeeList from "./components/AttendeeList/AttendeeList";
 import Notifications from "./components/Notifications/Notifications";
 import Tickets from "./components/Tickets/Tickets";
 import Map from "./components/Map/Map";
+import Alojamientos from "./components/Alojamientos/Alojamientos";
 
 
 function App() {
@@ -76,6 +77,7 @@ function MainContent() {
           <Route path="/attendeelist" element={<AttendeeList />} />
           <Route path="/notification" element={<Notifications />} />
           <Route path="/map" element={<Map />} />
+          <Route path="/alojamientos" element={<Alojamientos />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
