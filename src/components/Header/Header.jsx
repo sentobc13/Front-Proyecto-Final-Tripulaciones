@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Flex, IconButton, Spacer, Image, VStack, Text, Link as ChakraLink } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { FaUserCircle } from 'react-icons/fa';
@@ -6,11 +6,31 @@ import { FaRegBell } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import logo from '../../assets/E-learning-Experience_Logo-negro.png';
 import logo1 from '../../assets/E-learning-Experience_Logo-Blanco.png';
-import './Header.scss'; 
+import './Header.scss';
 import '../../../complements.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllNotifications } from '../../features/notification/notificationSlice';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const dispatch = useDispatch();
+  const { notifications, error } = useSelector((state) => state.notificationSlice);
+  let notifiAlert = false;
+
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      await dispatch(getAllNotifications());
+    };
+    fetchNotifications();
+  }, [dispatch]);
+
+  if (notifications && notifications.length > 0) {
+    notifications.map((noti) => {
+      if (noti.status === 'pending') {
+        notifiAlert = true;
+      }
+    });
+  }
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -54,14 +74,46 @@ const Header = () => {
               aria-label="User Profile"
             />
           </Link>
-          <Link to="/notification">
-            <IconButton
-              icon={<FaRegBell />}
-              color={menuOpen ? 'white' : 'black'}
-              variant="ghost"
-              aria-label="User Profile"
-            />
-          </Link>
+          {
+            notifiAlert ? (
+              <Link to="/notification" style={{ position: 'relative', display: 'inline-block' }}>
+                <IconButton
+                  icon={<FaRegBell />}
+                  color={menuOpen ? 'white' : 'black'}
+                  variant="ghost"
+                  aria-label="User Profile"
+                />
+                <button
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    right: 0,
+                    backgroundColor: 'red',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '50%',
+                    width: '5px',
+                    height: '5px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                  }}
+                  aria-label="Notification Button"
+                >
+                </button>
+              </Link>
+            ) : (
+              <Link to="/notification">
+                <IconButton
+                  icon={<FaRegBell />}
+                  color={menuOpen ? 'white' : 'black'}
+                  variant="ghost"
+                  aria-label="User Profile"
+                />
+              </Link>
+            )
+          }
         </Flex>
       </Box>
       {menuOpen && (
@@ -90,8 +142,8 @@ const Header = () => {
           </Flex>
           <VStack spacing="0" width="100%" align="flex-start">
             <ChakraLink as={Link} to="/identify" onClick={toggleMenu} className="menu-link">Identifícate</ChakraLink>
-            <ChakraLink as={Link} to="/programa" onClick={toggleMenu} className="menu-link">Programa</ChakraLink>
-            <ChakraLink as={Link} to="/mi-agenda" onClick={toggleMenu} className="menu-link">Mi agenda</ChakraLink>
+            <ChakraLink as={Link} to="/diary" onClick={toggleMenu} className="menu-link">Programa</ChakraLink>
+            <ChakraLink as={Link} to="/mydiary" onClick={toggleMenu} className="menu-link">Mi agenda</ChakraLink>
             <ChakraLink as={Link} to="/attendeeList" onClick={toggleMenu} className="menu-link">Lista de asistentes</ChakraLink>
             <ChakraLink as={Link} to="/map" onClick={toggleMenu} className="menu-link">Mapa del sitio</ChakraLink>
             <ChakraLink as={Link} to="/alojamientos" onClick={toggleMenu} className="menu-link">Alojamientos</ChakraLink>
