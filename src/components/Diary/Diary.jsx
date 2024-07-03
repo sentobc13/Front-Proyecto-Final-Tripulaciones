@@ -66,7 +66,7 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
 
     }
     const convertirHora = (horario) => {
-
+        console.log(horario);
         const fecha = new Date(horario);
         const dia = fecha.toLocaleDateString('es-ES', { day: 'numeric', month: 'long' });
         const hora = fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });

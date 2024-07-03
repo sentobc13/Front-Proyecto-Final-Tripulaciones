@@ -42,60 +42,76 @@ const MyDiary = () => {
         }
     }, [selectedDay, workshops]);
 
-    if (isLoading) {
+    if (isLoadingAttendee) {
         return (
             <div className="custom-loader-container">
-                <div className="custom-loader"></div>
+                <div className="custom-loader">Cargando</div>
             </div>
         );
     }
 
-    const formatTime = (dateString) => {
-        const date = new Date(dateString);
-        let hours = date.getHours();
-        const minutes = date.getMinutes().toString().padStart(2, '0');
-        const ampm = hours >= 12 ? 'pm' : 'am';
-        hours = hours % 12;
-        hours = hours ? 12 : hours;
-        const strTime = `${hours.toString().padStart(2, '0')}:${minutes} ${ampm}`;
-        return strTime;
-    };
+    function formatTime(fechaISO) {
+        // Crear un objeto Date a partir de la cadena ISO 8601
+        let fecha = new Date(fechaISO);
+        
+        // Obtener las horas y minutos de la fecha
+        let horas = fecha.getHours();
+        let minutos = fecha.getMinutes();
+        
+        // Formatear las horas y minutos a dos dígitos si es necesario
+        if (horas < 10) {
+          horas = '0' + horas;
+        }
+        if (minutos < 10) {
+          minutos = '0' + minutos;
+        }
+        
+        // Devolver la hora en formato de 24 horas (HH:mm)
+        return horas + ':' + minutos;
+      }
+      let fechaISO = '2024-06-23T17:30:00';
+let horas = formatTime(fechaISO);
+console.log(horas)
 
+    const user = attendee || speaker
     return (
         <ChakraProvider>
             <div className='div-agenda'>
                 <div className='div-programa'>
                     <h3>Mi agenda</h3>
                 </div>
+                {user.one2OneTaken.map((one2One , index) => (
                 <div className='div-card-one2one'>
                     <Card className='card-one2one'>
                         <div className='div-content'>
-                            <div className='div-horario-one2one'><p>9:30hs</p></div>
+                            <div className='div-horario-one2one'><p>{one2One.time}</p></div>
                             <div className="div-chip-one2one"><Chip label="One to One" /></div>
-                            <div className='div-nombre-one2one'><Text>Fernando Redondo</Text></div>
-                            <div className='div-cargo-one2one'><Text>CEO en LVIS</Text></div>
-                            <img src="https://s3-alpha-sig.figma.com/img/a56f/6697/8a2b86f7a89eb3ed76a431148a72f3e6?Expires=1720396800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nHxXqJAkFm4ztlInhUPCZnHYV7XD2d7KYaIt9kHiPlAyxHBBu32YrGvywK~XMy-A3HQb~aMZQD6HpYVobMGvugIZFmsV0heAb0dDNV5X6VwDqFmVtk5Up1knh3-A~IcwQbLuw52LHkEjFUmlgYS2WuV5aQriJ~egFgkRIzrVMVwYh-sUxJVb~bbmhvoDOa0S931luy3KniC2151KifpxZ32wcj1UBcDkGEbQh4Ajw7T4PzSi8HOh9TgSZ7IBimxcQ2~D2wPqoJurjsdwCYNfWn7ZJmiXHK-gE979YNfDs0vQuO78mr~PybiuiRU-ZcfyD2WS~yYanf4JiCtLEaRGeg__" alt="Foto de Perfil" className="avatar-picture" />
+                            <div className='div-nombre-one2one'><Text>{one2One.speaker.name}</Text></div>
+                            <div className='div-cargo-one2one'><Text>{one2One.speaker.job_title}</Text></div>
+                            <img src={one2One.speaker.profilePic} alt="Foto de Perfil" className="avatar-picture" />
                         </div>
                     </Card>
                 </div>
-                {user.one2OneTaken.map((one2One , index) => (
+
+                ))}
+                {user.workshops_ids.map((workshop , index) => (
                     <div className='div-card' key={index}>
                         <Card>
                             <CardBody className='card-content'>
                                 <Text className='div-horario-card'>
-                                    {formatTime(one2One.time)}
+                                    {formatTime(workshop.start_date)}
                                 </Text>
                                 <Text className='div-nombre'>
-                                    {one2One.speaker.name}
+                                    {workshop.speaker_id.name}
                                 </Text>
                                 <Text className='div-cargo'>
-                                    {one2One.speaker.job_title}
+                                    {workshop.speaker_id.job_title}
                                 </Text>
                                 <Text className='div-titulo'>
-                                    {one2One.description}
+                                    {workshop.name}
                                 </Text>
                                 <Text className='div-card-descripcion'>
-                                    {workshop.name}
+                                    {workshop.description}
                                 </Text>
                                 <Accordion allowToggle>
                                     <AccordionItem>
