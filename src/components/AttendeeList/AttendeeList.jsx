@@ -216,7 +216,7 @@ const AttendeeList = () => {
                         </span>
                       )}
                       <h3 className="attendee-name">{att.name}</h3>
-                      <p className="attendee-position">{att.position}</p>
+                      <p className="attendee-position">{att.job_title}</p>
                     </div>
                   </div>
                 ))
