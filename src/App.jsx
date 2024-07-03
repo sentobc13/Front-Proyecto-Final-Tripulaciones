@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from '@mui/material/styles';
 import Home from "./components/Home/Home";
@@ -7,7 +6,6 @@ import Identify from "./components/Register/Identify";
 import Profile from "./components/Profile/Profile";
 import NotFound from "./components/NotFound/NotFound";
 import AboutYou from "./components/Register/AboutYou/AboutYou";
-import './App.scss';
 import Hastags from "./components/Register/Hastags/Hastags";
 import Allergies from "./components/Register/Allergies/Allergies";
 import ConnectLinkedin from "./components/Register/ConnectLinkedin/ConnectLinkedin";
@@ -49,7 +47,7 @@ function MainContent() {
     "/identify",
     "/hastags",
     "/loginAttendee",
-    "/connectLinkedin",
+    "/connectlinkedin",
     "/aboutyou",
     "/loginSpeaker",
     "/loginPrincipal",
@@ -66,7 +64,7 @@ function MainContent() {
           <Route path="/identify" element={<Identify />} />
           <Route path="/hastags" element={<Hastags />} />
           <Route path="/allergies" element={<Allergies />} />
-          <Route path="/connectLinkedin" element={<ConnectLinkedin />} />
+          <Route path="/connectlinkedin" element={<ConnectLinkedin />} />
           <Route path="/" element={<PrivateZone><Home /></PrivateZone>} />
           <Route path="/profile" element={<PrivateZone><Profile /></PrivateZone>} />
           <Route path="/editprofile" element={<PrivateZone><EditProfile /></PrivateZone>} />

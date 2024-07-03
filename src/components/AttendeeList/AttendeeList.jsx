@@ -8,7 +8,7 @@ import { Card, CardBody, Text } from '@chakra-ui/react';
 import { CiHeart } from 'react-icons/ci';
 import { GoChevronLeft } from 'react-icons/go';
 import { useNavigate } from 'react-router-dom';
-
+import getSpeakersRecomended from '../../features/getSpeakersRecomended/getSpeakersRecomendedService'
 const AttendeeList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
@@ -16,12 +16,19 @@ const AttendeeList = () => {
     (state) => state.authAttendee
   );
   const [selectedAttendee, setSelectedAttendee] = useState(null);
-  const [searchTerm, setSearchTerm] = useState(""); // Estado para el término de búsqueda
+  const [searchTerm, setSearchTerm] = useState("");
+  const [speakers, setSpeakers] = useState("");
+  const { notifications, error } = useSelector((state) => state.notificationSlice);
 
   useEffect(() => {
     dispatch(getAllAttendees());
+    
   }, [dispatch]);
 
+
+  if (speakers== "" ) {
+    setSpeakers( getSpeakersRecomended.getSpeakersRecomended())
+  } 
   useEffect(() => {
     if (attendeeSelected.length !== 0) {
       setSelectedAttendee(attendeeSelected);
@@ -30,14 +37,14 @@ const AttendeeList = () => {
     }
   }, [attendeeSelected]);
 
-  if (isLoadingAttendees) {
+  if (isLoadingAttendees || !speakers) {
     return <div>Loading...</div>;
   }
 
   if (isError) {
     return <div>{message}</div>;
   }
-
+  console.log(speakers);
   const formatTime = (dateString) => {
     const date = new Date(dateString);
     let hours = date.getHours();
@@ -54,7 +61,7 @@ const AttendeeList = () => {
 
   const renderAttendeeProfile = (attendee) => {
     if (!attendee) return null;
-
+    console.log();
     return (
       <div className="mainContent-profile">
         <div className="topProfile">
@@ -65,16 +72,16 @@ const AttendeeList = () => {
         </div>
         <div className="user-description-profile">
           <div className='divProfileAsistant'>
-            <img
+          <img
               src={
                 attendee.profilePic
-                  ? `http://localhost:3001/public/${attendee.profilePic}`
+                  ? `${attendee.profilePic}`
                   : "http://localhost:3001/public/noProfilePicture.jpg"
               }
               alt={attendee.name}
               className="profile-picture-asistant"
             />
-            <span className='InformationProfileAsistant'>{attendee.name} - CEO en LVIS</span>
+            <span className='InformationProfileAsistant'>{attendee.name} - {attendee?.job_title}</span>
           </div>
           <div className="interestsProfile">
             {attendee.interests.map((interes, index) => (
@@ -84,7 +91,7 @@ const AttendeeList = () => {
             ))}
           </div>
           <div className="descriptionNameProfileAsistant">
-            <span>Fernando supervisa las ventas globales de productos de LVIS.</span>
+            <span></span>
           </div>
         </div>
         {attendee &&
@@ -174,12 +181,12 @@ const AttendeeList = () => {
           </div>
 
           <div className="attendees">
-            <h2>Asistentes al evento</h2>
-            <input 
-              type="text" 
-              placeholder="Buscar asistentes por nombre" 
-              value={searchTerm} 
-              onChange={(e) => setSearchTerm(e.target.value)} 
+          <h2>Asistentes al evento</h2>
+            <input
+              type="text"
+              placeholder="Buscar asistentes por nombre"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               className="search-input"
             />
             <div className="attendee-cards">
@@ -195,7 +202,7 @@ const AttendeeList = () => {
                     )}
                     {att.profilePic && (
                       <img
-                        src={`http://localhost:3001/public/${att.profilePic}`}
+                        src={`${att.profilePic}`}
                         alt={att.name}
                         className="attendee-photo"
                       />

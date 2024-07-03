@@ -37,11 +37,17 @@ const getSpeaker = async (speaker_id)=>{
   return res.data
 }
 
+
+
 const authSpeakerService = {
     registerSpeaker,
     login,
     getSpeaker,
+<<<<<<< HEAD
     getLoggedSpeaker
+=======
+
+>>>>>>> e8ffdafaf3a62601f8d789118d26f3132abe8018
   }
   
   

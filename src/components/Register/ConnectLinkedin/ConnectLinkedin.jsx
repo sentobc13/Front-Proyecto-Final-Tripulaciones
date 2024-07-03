@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { MdArrowBackIos } from 'react-icons/md';
 import { useEffect } from 'react';
 
-
 const ConnectLinkedin = () => {
     return (
         <>
@@ -38,14 +37,19 @@ const ConnectLinkedin = () => {
                     <p className='subtitleLinkedin2'>Através de Linkedin completaremos tus datos del perfil, dando unas recomendaciones más precisas de networking.</p>
                 </div>
             </div>
-            <div className='LinkedincontainerButton'>
+          
+            <div className="imageContainer">
+                <img src="public/imagen connetLinkedin.png" alt="Descripción de la imagen" className="imagenLinkedin" />
+            </div>
+            
+            <div className='container-button'>
                 <button className='LinkedinButton'>
                     <p className='pLinkedin'>
                         <FaLinkedin className='LinkedinIcon' />Conectar con Linkedin
                     </p>
                 </button>
                 <Link to="/aboutyou">
-                    <button className='ContinueButtonLinkedin'>Siguiente</button>
+                    <button className='continue-button'>Siguiente</button>
                 </Link>
             </div>
         </>
