@@ -5,15 +5,27 @@ import { ChakraProvider } from '@chakra-ui/react'; // Asegúrate de envolver tu 
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllWorkshops } from '../../features/workshop/WorkshopSlice';
 import './MyDiary.scss'
+import { getLoggedAttendee } from '../../features/auth/attendee/authAttendeeSlice';
+import { getLoggedSpeaker } from '../../features/auth/speaker/authSpeakerSlice';
 
-const user = JSON.parse(localStorage.getItem('attendee')) || JSON.parse(localStorage.getItem('speaker'));
-console.log(user);
 const MyDiary = () => {
     const [selectedDay, setSelectedDay] = useState(null);
     const [filteredWorkshops, setFilteredWorkshops] = useState([]);
     const dispatch = useDispatch();
     const { workshops, isLoading } = useSelector(state => state.WorkshopSlice);
-
+    const { attendee, isLoadingAttendee } = useSelector((state) => state.authAttendee);
+    const { speaker, isLoadingSpeaker } = useSelector((state) => state.authSpeaker);
+  
+    if(attendee !== null ){
+      useEffect(() => {
+        dispatch(getLoggedAttendee())
+      }, []);
+    }else{
+      useEffect(() => {
+        dispatch(getLoggedSpeaker())
+      }, []);
+    }
+    console.log(attendee);
     useEffect(() => {
         dispatch(getAllWorkshops());
     }, [dispatch]);
