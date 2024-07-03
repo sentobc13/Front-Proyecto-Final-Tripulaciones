@@ -1,3 +1,5 @@
+@import '../../../colors.scss';
+
 .topNotification {
     margin-top: 3%;
     font-size: 20px;
@@ -63,7 +65,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 16px;
-    width: calc(33.333% - 16px);
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -71,9 +73,41 @@
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 8px;
+    display: flex;
+    gap: 5%;
 }
 
 .cardContent {
     font-size: 14px;
     color: #666;
+}
+
+.imgProfileNotification {
+    width: 15%;
+    border-radius: 50%;
+}
+
+.desplegarNotifi {
+    margin: auto;
+}
+
+.dropdown {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdownButton {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: $buttons-register;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: white;
+    border-radius: 10px;
+
+    &:hover {
+        background-color: #e0e0e0;
+    }
 }

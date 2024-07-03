@@ -3,7 +3,6 @@ import axios from 'axios';
 const API_URL = 'http://localhost:3001/notifications';
 
 const getAllNotifications = async () => {
-    console.log("si");
     const token = localStorage.getItem('token')
     const response = await axios.get(API_URL , {
         headers: {
