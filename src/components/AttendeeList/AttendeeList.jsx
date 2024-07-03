@@ -70,7 +70,7 @@ const AttendeeList = () => {
             <img
               src={
                 attendee.profilePic
-                  ? `http://localhost:3001/public/${attendee.profilePic}`
+                  ? `${attendee.profilePic}`
                   : "http://localhost:3001/public/noProfilePicture.jpg"
               }
               alt={attendee.name}
@@ -147,7 +147,7 @@ const AttendeeList = () => {
                     <img
                       src={
                         att.profilePic
-                          ? `http://localhost:3001/public/${att.profilePic}`
+                          ? `${att.profilePic}`
                           : "http://localhost:3001/public/noProfilePicture.jpg"
                       }
                       alt={att.name}
@@ -199,7 +199,7 @@ const AttendeeList = () => {
                     )}
                     {att.profilePic && (
                       <img
-                        src={`http://localhost:3001/public/${att.profilePic}`}
+                        src={`${att.profilePic}`}
                         alt={att.name}
                         className="attendee-photo"
                       />
