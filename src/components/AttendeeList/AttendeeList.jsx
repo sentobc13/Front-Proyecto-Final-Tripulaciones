@@ -72,16 +72,16 @@ const AttendeeList = () => {
         </div>
         <div className="user-description-profile">
           <div className='divProfileAsistant'>
-            <img
+          <img
               src={
                 attendee.profilePic
-                  ? `http://localhost:3001/public/${attendee.profilePic}`
+                  ? `${attendee.profilePic}`
                   : "http://localhost:3001/public/noProfilePicture.jpg"
               }
               alt={attendee.name}
               className="profile-picture-asistant"
             />
-            <span className='InformationProfileAsistant'>{attendee.name} - CEO en LVIS</span>
+            <span className='InformationProfileAsistant'>{attendee.name} - {attendee?.job_title}</span>
           </div>
           <div className="interestsProfile">
             {attendee.interests.map((interes, index) => (
@@ -91,7 +91,7 @@ const AttendeeList = () => {
             ))}
           </div>
           <div className="descriptionNameProfileAsistant">
-            <span>Fernando supervisa las ventas globales de productos de LVIS.</span>
+            <span></span>
           </div>
         </div>
         {attendee &&
