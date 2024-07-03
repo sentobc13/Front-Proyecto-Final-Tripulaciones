@@ -20,6 +20,9 @@ El proyecto consiste en el diseño y desarrollo de una aplicación móvil integr
 
 ### 3.2 Inscripciones
 - **Modalidades de Asistencia**: Gestión de inscripciones para las cuatro modalidades de asistencia al evento de 2 días.
+![Captura de pantalla 2024-07-03 182343](https://github.com/sentobc13/Front-Proyecto-Final-Tripulaciones/assets/160127899/58e59e5b-bcd9-4f08-828a-7dce5c54b18e)
+
+![Captura de pantalla 2024-07-03 182435](https://github.com/sentobc13/Front-Proyecto-Final-Tripulaciones/assets/160127899/86154855-9628-46ae-9e07-ae62dfc032b7)
 
 ### 3.3 Agenda de Ponencias y Talleres
 - **Reserva de asientos**: Inscripción y reserva para ponencias y talleres.
@@ -33,6 +36,8 @@ El proyecto consiste en el diseño y desarrollo de una aplicación móvil integr
 - **Notificaciones Personalizadas**: Digitalización y notificación de ponencias y talleres inscritos.
   - Control de inscripciones, asistencia y datos personales.
   - Seguimiento de actividades (ponencias, talleres, reuniones One2One).
+    
+![notificaciones](https://github.com/sentobc13/Front-Proyecto-Final-Tripulaciones/assets/160127899/c7f39f00-f21b-4084-b656-7142dca49b44)
 
 ### 3.6 Zona Partners
 - **Planificación de Agendas**: Gestión de agendas y áreas de networking para partners y asistentes.
