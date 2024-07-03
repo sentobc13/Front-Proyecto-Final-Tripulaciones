@@ -77,7 +77,7 @@ const RegisterSegundoPaso = () => {
         setSuccessMessage(null);
         const goTo = localStorage.getItem('validator')
         if(goTo === 'Attendee'){
-            navigate('/registertercerpaso')
+            navigate('/tickets')
         }else{
             navigate('/connectLinkedin')
         }
