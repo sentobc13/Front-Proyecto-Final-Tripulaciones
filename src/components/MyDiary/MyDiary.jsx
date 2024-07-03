@@ -6,7 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllWorkshops } from '../../features/workshop/WorkshopSlice';
 import './MyDiary.scss'
 
-
+const user = JSON.parse(localStorage.getItem('attendee')) || JSON.parse(localStorage.getItem('speaker'));
+console.log(user);
 const MyDiary = () => {
     const [selectedDay, setSelectedDay] = useState(null);
     const [filteredWorkshops, setFilteredWorkshops] = useState([]);
