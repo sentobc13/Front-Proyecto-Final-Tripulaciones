@@ -11,6 +11,7 @@ import { ChakraProvider } from '@chakra-ui/react'; // Asegúrate de envolver tu 
 import { useNavigate } from 'react-router-dom';
 import './Diary.scss';
 import registrationOne2OneService from "../../features/registrationOnetoOne/registrationOnetoOneService"
+import registrationWorkshop from "../../features/registrationWorkshop/registrationWorkshopService"
 
 const DescriptionModal = ({ isOpen, onClose, workshop }) => {
     const [showHorarios, setShowHorarios] = useState(false);
@@ -45,7 +46,10 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
         const one2oneDisponibles = workshop.speaker_id.partner_id.membership_type.benefits[0]
         const one2oneTomados = workshop.speaker_id.partner_id.one2oneTaken
         if (one2oneDisponibles - one2oneTomados != 0) {
-            return registrationOne2OneService.registerOnetoOne(horariosSeleccionado, speaker_id)
+            return (
+                registrationOne2OneService.registerOnetoOne(horariosSeleccionado, speaker_id)
+
+            )
         }
 
     }
@@ -59,23 +63,26 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
         const horariosOrdenados = [...horarios].sort((a, b) => new Date(a) - new Date(b));
         return horariosOrdenados
         // Extraer la fecha y hora formateadas
-        
-        }
-        const convertirHora = (horario)=> {
-        
-                const fecha = new Date(horario);
-                const dia = fecha.toLocaleDateString('es-ES', { day: 'numeric', month: 'long' });
-                const hora = fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                return `${dia} a las ${hora}`;
-            };
 
+    }
+    const convertirHora = (horario) => {
+
+        const fecha = new Date(horario);
+        const dia = fecha.toLocaleDateString('es-ES', { day: 'numeric', month: 'long' });
+        const hora = fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        return `${dia} a las ${hora}`;
+    };
+    const reservarWorkshop = (workshop) => {
+        registrationWorkshop.registerRegistrationWorkshop(workshop._id, workshop.start_date)
         
-    console.log(workshop);
+    }
+
+
     const horariosOrdenados = obtenerHorariosOrdenados(workshop.speaker_id.freeSchedule);
     console.log(horariosOrdenados);
     return (
         <Modal isOpen={isOpen} onClose={handleCloseModal} isCentered>
-            {console.log(workshop)}
+
             <ModalOverlay className="modal-overlay" />
             <ModalContent className='modal-content'>
                 <ModalHeader className='div-nodal-titulo'>Detalles de la Descripción</ModalHeader>
@@ -104,7 +111,7 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
                 )}
                 {!showSolicitarButton && showMeInteresaButton && (
                     <ModalFooter className='div-btn'>
-                        <Button className='btn-nodal-interesa' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
+                        <Button className='btn-nodal-interesa' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth onClick={() => reservarWorkshop(workshop)}>
                             Me interesa <CiHeart className="_CiHeart" />
                         </Button>
                     </ModalFooter>
