@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from '@mui/material/styles';
 import Home from "./components/Home/Home";
@@ -7,7 +6,6 @@ import Identify from "./components/Register/Identify";
 import Profile from "./components/Profile/Profile";
 import NotFound from "./components/NotFound/NotFound";
 import AboutYou from "./components/Register/AboutYou/AboutYou";
-import './App.scss';
 import Hastags from "./components/Register/Hastags/Hastags";
 import Allergies from "./components/Register/Allergies/Allergies";
 import ConnectLinkedin from "./components/Register/ConnectLinkedin/ConnectLinkedin";
@@ -25,6 +23,8 @@ import Notifications from "./components/Notifications/Notifications";
 import Tickets from "./components/Tickets/Tickets";
 import Map from "./components/Map/Map";
 import Alojamientos from "./components/Alojamientos/Alojamientos";
+import BellAdviser from "./components/BellAdviser/BellAdviser";
+import MyDiary from "./components/MyDiary/MyDiary";
 
 
 function App() {
@@ -32,7 +32,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <BrowserRouter>
-          <MainContent />
+          <BellAdviser />
+            <MainContent />
         </BrowserRouter>
       </div>
     </ThemeProvider>
@@ -51,7 +52,8 @@ function MainContent() {
     "/loginSpeaker",
     "/loginPrincipal",
     "/registerSegundoPaso",
-    "/tickets"
+    "/tickets",
+    "/registertercerpaso"
   ];
 
   return (
@@ -78,6 +80,7 @@ function MainContent() {
           <Route path="/notification" element={<Notifications />} />
           <Route path="/map" element={<Map />} />
           <Route path="/alojamientos" element={<Alojamientos />} />
+          <Route path="/mydiary" element={<MyDiary />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

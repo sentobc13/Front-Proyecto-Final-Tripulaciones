@@ -8,8 +8,7 @@ import { Card, CardBody, Text } from '@chakra-ui/react';
 import { CiHeart } from 'react-icons/ci';
 import { GoChevronLeft } from 'react-icons/go';
 import { useNavigate } from 'react-router-dom';
-import { getAllNotifications } from '../../features/notification/notificationSlice';
-
+import getSpeakersRecomended from '../../features/getSpeakersRecomended/getSpeakersRecomendedService'
 const AttendeeList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
@@ -18,32 +17,34 @@ const AttendeeList = () => {
   );
   const [selectedAttendee, setSelectedAttendee] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [speakers, setSpeakers] = useState("");
   const { notifications, error } = useSelector((state) => state.notificationSlice);
 
   useEffect(() => {
     dispatch(getAllAttendees());
-    dispatch(getAllNotifications());
+    
   }, [dispatch]);
 
+
+  if (speakers== "" ) {
+    setSpeakers( getSpeakersRecomended.getSpeakersRecomended())
+  } 
   useEffect(() => {
-    if (attendeeSelected.length != 0) {
-      console.log(attendeeSelected);
+    if (attendeeSelected.length !== 0) {
       setSelectedAttendee(attendeeSelected);
     } else {
-      setSelectedAttendee(null);
+      setSelectedAttendee(null); 
     }
   }, [attendeeSelected]);
 
-  if (isLoadingAttendees) {
+  if (isLoadingAttendees || !speakers) {
     return <div>Loading...</div>;
   }
 
   if (isError) {
     return <div>{message}</div>;
   }
-
-  console.log(notifications);
-
+  console.log(speakers);
   const formatTime = (dateString) => {
     const date = new Date(dateString);
     let hours = date.getHours();
@@ -51,8 +52,7 @@ const AttendeeList = () => {
     const ampm = hours >= 12 ? 'pm' : 'am';
     hours = hours % 12;
     hours = hours ? hours : 12;
-    const strTime = `${hours.toString().padStart(2, '0')}:${minutes} ${ampm}`;
-    return strTime;
+    return `${hours.toString().padStart(2, '0')}:${minutes} ${ampm}`;
   };
 
   const handleAttendeeClick = async (att) => {
@@ -61,7 +61,7 @@ const AttendeeList = () => {
 
   const renderAttendeeProfile = (attendee) => {
     if (!attendee) return null;
-
+    console.log();
     return (
       <div className="mainContent-profile">
         <div className="topProfile">
@@ -72,7 +72,7 @@ const AttendeeList = () => {
         </div>
         <div className="user-description-profile">
           <div className='divProfileAsistant'>
-            <img
+          <img
               src={
                 attendee.profilePic
                   ? `${attendee.profilePic}`
@@ -84,13 +84,11 @@ const AttendeeList = () => {
             <span className='InformationProfileAsistant'>{attendee.name} - {attendee?.job_title}</span>
           </div>
           <div className="interestsProfile">
-            {attendee.interests.map((interes) => {
-              return (
-                <div className="chipGrid">
-                  <Chip className="uniqueChipProfile" label={interes} />
-                </div>
-              )
-            })}
+            {attendee.interests.map((interes, index) => (
+              <div className="chipGrid" key={index}>
+                <Chip className="uniqueChipProfile" label={interes} />
+              </div>
+            ))}
           </div>
           <div className="descriptionNameProfileAsistant">
             <span></span>
@@ -132,7 +130,7 @@ const AttendeeList = () => {
     );
   };
 
-
+  
   const filteredAttendees = attendees.filter((att) =>
     att.name && att.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -152,7 +150,7 @@ const AttendeeList = () => {
                     <img
                       src={
                         att.profilePic
-                          ? `${att.profilePic}`
+                          ? `http://localhost:3001/public/${att.profilePic}`
                           : "http://localhost:3001/public/noProfilePicture.jpg"
                       }
                       alt={att.name}
@@ -160,11 +158,11 @@ const AttendeeList = () => {
                     />
                     <div className="info">
                       <span className="title">{att.title}</span>
-                      {att.interests && (
-                        <span className="label">
-                          {att.interests.join(', ')}
+                      {att.interests && att.interests.map((interest, idx) => (
+                        <span key={idx} className="label">
+                          {interest}
                         </span>
-                      )}
+                      ))}
                       <h3 className="name">{att.name}</h3>
                       <p className="position">{att.position}</p>
                     </div>
@@ -183,7 +181,7 @@ const AttendeeList = () => {
           </div>
 
           <div className="attendees">
-            <h2>Asistentes al evento</h2>
+          <h2>Asistentes al evento</h2>
             <input
               type="text"
               placeholder="Buscar asistentes por nombre"
@@ -215,11 +213,11 @@ const AttendeeList = () => {
                           <span className="attendee-title">{att.title}</span>
                         </span>
                       )}
-                      {att.interests && (
-                        <span className="attendee-label">
-                          {att.interests.join(', ')}
+                      {att.interests && att.interests.map((interest, idx) => (
+                        <span key={idx} className="attendee-label">
+                          {interest}
                         </span>
-                      )}
+                      ))}
                       <h3 className="attendee-name">{att.name}</h3>
                       <p className="attendee-position">{att.job_title}</p>
                     </div>

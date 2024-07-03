@@ -1,0 +1,304 @@
+@import '../complements';
+
+.div-agenda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    text-align: center;
+    /* Centra el texto dentro del contenedor */
+    font-family: $font-primary;
+}
+
+.div-programa {
+    margin-bottom: 20px;
+    /* Espacio entre el h3 y los párrafos */
+}
+
+.div-dias {
+    display: flex;
+    flex-wrap: wrap;
+    /* Envuelve los días si no hay suficiente espacio */
+    justify-content: center;
+    /* Centra los días horizontalmente */
+    width: 100%;
+    /* Ocupa todo el ancho del contenedor padre */
+    max-width: 400px;
+    /* Máximo ancho de los días */
+    cursor: pointer;
+}
+
+.div-dias p {
+    margin: 5px;
+    /* Espaciado entre los días */
+    padding: 5px 10px;
+    /* Espaciado interno de los días */
+    cursor: pointer;
+    /* Cambia el cursor a pointer al pasar sobre los días */
+    position: relative;
+    /* Permite posicionar de forma relativa */
+    text-align: center;
+    /* Centra el texto horizontalmente */
+}
+
+.div-dias p.active {
+    color: #4fc3f7;
+    /* Color celeste al activar */
+}
+
+.div-dias p.active::after {
+    content: '';
+    /* Agrega un elemento después del contenido */
+    position: absolute;
+    /* Posiciona de forma absoluta con respecto al elemento padre */
+    left: 50%;
+    /* Centra la línea horizontalmente */
+    transform: translateX(-50%);
+    /* Centra la línea horizontalmente */
+    bottom: -2px;
+    /* Distancia de la línea desde la parte inferior */
+    width: calc(100% - 20px);
+    /* Ancho calculado menos el padding */
+    height: 2px;
+    /* Grosor de la línea */
+    background-color: #4fc3f7;
+    /* Color de la línea celeste */
+}
+
+
+.div-slider-chip {
+    display: flex;
+    align-items: center;
+    /* Alinea el contenido verticalmente al centro */
+    background-color: #f5f5f5;
+    /* Fondo blanco roto */
+    border-radius: 5px;
+    /* Esquinas redondeadas */
+    width: 100%;
+    /* Ocupa todo el ancho disponible */
+    box-sizing: border-box;
+    /* Incluye el padding en el ancho total */
+    margin-top: 1px;
+    /* Espacio superior */
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    /* Alinea el contenido del slider al centro verticalmente */
+    margin-right: 20px;
+    /* Espacio entre el slider y los chips */
+    margin-left: 5px;
+
+}
+
+.chip {
+    display: flex;
+    flex-wrap: wrap;
+    /* Para que los chips se ajusten y envuelvan si es necesario */
+    align-items: center;
+    /* Alinea los chips al centro verticalmente */
+    margin-left: 45px;
+}
+
+.uniqueChipProfile {
+    margin: 10px;
+    /* Espaciado entre cada chip */
+}
+
+.div-horario {
+    text-align: left;
+    /* Alinea el texto a la izquierda */
+    margin-top: 10px;
+    /* Espacio superior */
+    width: 100%;
+    /* Ocupa todo el ancho disponible */
+    max-width: 400px;
+    /* Máximo ancho del horario */
+    margin-left: auto;
+    /* Empuja el horario hacia la izquierda */
+    margin-right: auto;
+    /* Empuja el horario hacia la derecha */
+    padding: 0 20px;
+    /* Espaciado interno */
+    box-sizing: border-box;
+    /* Incluye el padding en el ancho total */
+    margin-left: -10px;
+    font-weight: bold;
+}
+
+.div-card {
+    margin-top: 5px;
+    /* Borde de la tarjeta */
+    border-radius: 5px;
+    /* Esquinas redondeadas */
+    padding: 10px;
+    /* Espaciado interno reducido */
+    margin-bottom: 5px;
+    /* Espacio inferior entre tarjetas */
+    width: 400px;
+    /* Ancho deseado para la tarjeta */
+    max-width: 95%;
+    /* Ancho máximo de la tarjeta */
+    box-sizing: border-box;
+    /* Incluir el padding en el ancho total */
+}
+
+.div-card {
+    width: 95%;
+    max-width: 600px;
+    /* Ancho máximo deseado para la tarjeta */
+    margin: 5px auto;
+    /* Margen exterior para centrar la tarjeta */
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Alinea los elementos a la izquierda */
+}
+
+.div-horario-card {
+    align-self: flex-start;
+    color:gray
+}
+.div-ponencia{
+    margin-left: 5px;
+    color: gray;
+}
+
+.div-nombre {
+    margin-top: -30px;
+    align-self: flex-end;
+    /* Alinea el nombre a la derecha */
+    font-weight: bold;
+}
+
+.div-cargo {
+    align-self: flex-end;
+    /* Alinea el nombre a la derecha */
+}
+
+.div-card-descripcion{
+    margin-top: 10px;
+
+}
+.div-titulo {
+    text-align: center;
+    /* Centra el título */
+    margin-top: 50px;
+    /* Espacio superior entre el chip y el título */
+    ;
+}
+
+.div-icon-text {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    /* Alinea verticalmente los íconos y el texto */
+}
+
+.div-down-text {
+    margin-left: 5px;
+    /* Espacio a la izquierda del texto */
+    font-size: 12px;
+}
+
+.div-agenda.blurred {
+    filter: blur(5px);
+    pointer-events: none;
+    /* Evita que se pueda interactuar con el contenido de fondo */
+}
+
+// Estilos para la tarjeta One-to-One
+
+.div-card-one2one {
+    width: 90%;
+    max-width: 600px; /* Ancho máximo deseado para la tarjeta */
+    margin: 5px auto; /* Margen exterior para centrar la tarjeta */
+    font-family: $font-primary;
+    position: relative; /* Añadir posición relativa para alinear el avatar */
+}
+
+.card-one2one {
+    background: var(--degradado-corporativo, radial-gradient(865.8% 89.15% at 6.03% 9.18%, #106AF2 0%, #6610F2 100%));
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinear los elementos a la izquierda */
+    position: relative; /* Añadir posición relativa para alinear el avatar */
+    height: 90px; /* Ajusta automáticamente la altura */
+}
+
+
+.div-horario-one2one {
+    margin-left:-100px;
+    align-self: flex-start; 
+    color: white;
+    margin-top: 5px;
+}
+
+.div-chip-one2one {
+    align-self: flex-start;
+    margin-top: 5px; /* Espacio sobre el chip */
+    margin-bottom: 10px; /* Espacio bajo el chip */
+    margin-left: -85px;
+}
+
+.div-nombre-one2one {
+    font-size: 14px;
+    font-weight: bold;
+    color: white; /* Color del texto del nombre */
+    position: absolute; /* Posición absoluta para ajustar el nombre */
+    top: -70px; /* Ajusta esta propiedad para mover hacia arriba o abajo */
+    left: 100px; /* Ajusta esta propiedad para mover hacia la derecha o izquierda */
+}
+
+
+.div-cargo-one2one {
+    font-size: 14px;
+    color: white;
+    position: absolute; /* Posición absoluta para ajustar el cargo */
+    left: 73px; /* Ajusta la posición izquierda */
+    top: -78px; /* Ajusta esta propiedad para mover hacia arriba o abajo */
+}
+
+
+.avatar-picture {
+    width: 50px; /* Tamaño del avatar */
+    height: 50px;
+    border-radius: 50%; /* Para hacerlo redondo */
+    position: absolute;
+    top: 10px; /* Ajuste la posición superior */
+    right: 5px; /* Ajuste la posición derecha */
+}
+
+@media (max-width: 768px) {
+    .div-card-one2one {
+        width: 90%; /* Ajusta el ancho para dispositivos móviles */
+    }
+    
+    .card-one2one {
+        padding: 10px; /* Reduce el padding para dispositivos móviles */
+    }
+    
+    .card-one2one img.avatar-picture {
+        width: 60px; /* Ajusta el tamaño de la imagen para móviles */
+        
+    }
+    
+    .div-nombre-one2one {
+        margin-bottom: 10px; /* Añade espacio debajo del nombre */
+    }
+
+    @media (max-width: 768px) {
+        .div-nombre-one2one,
+        .div-cargo-one2one {
+            position: relative; /* Cambia a posición relativa en dispositivos más pequeños */
+
+
+            margin-left: 10px; /* Añade un margen izquierdo para separar del borde */
+            text-align: center; /* Centra el texto en dispositivos móviles */
+        }
+    }
+}

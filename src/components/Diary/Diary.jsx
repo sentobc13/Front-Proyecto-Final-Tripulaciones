@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { PiSliders } from "react-icons/pi";
 import { FaChevronDown } from "react-icons/fa";
-import { CiHeart } from "react-icons/ci";
+import { CiHeart } from "react-icons/ci";   
 import './Diary.scss';
 import { Chip } from '@mui/material';
 import { Button, Card, CardBody, Text, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, ModalFooter, Checkbox, CheckboxGroup } from '@chakra-ui/react';
@@ -177,10 +177,10 @@ const Diary = () => {
                 </div>
                 <div className='div-dias'>
                     <p className={selectedDay === '22 de junio' ? 'active' : ''} onClick={() => handleDayClick('22 de junio')}>
-                        22 de junio
+                        22 de Junio
                     </p>
                     <p className={selectedDay === '23 de junio' ? 'active' : ''} onClick={() => handleDayClick('23 de junio')}>
-                        23 de junio
+                        23 de Junio
                     </p>
                 </div>
                 <div className='div-slider-chip'>
