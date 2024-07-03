@@ -9,6 +9,14 @@
     gap: 0px;
     opacity: 0px;
 }
+.imagenLinkedin {
+    width: 75%;  // Ajusta el tamaño según necesites
+    max-width: 400px;  // Establece un ancho máximo
+    height: auto;  // Mantén la proporción de la imagen
+    margin: 20px auto;  // Centra la imagen y añade un margen superior e inferior
+    display: block;  // Centra la imagen horizontalmente
+  
+}
 
 .titleLinkedin {
     font-family: Montserrat;
@@ -18,22 +26,11 @@
     text-align: left;
 }
 
-.containerLinkedin {
+.containerLinkedin, .containerLinkedin2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 3%;
-    padding-left: 10%;
-    padding-right: 10%;
-    margin-top: 7%;
-    font-family: $font-primary; 
-}
-
-.containerLinkedin2 {
-    display: flex;
-    margin-left: 5%;
-    align-items: center;
-    padding-left: 5%;
+    margin: 7% 10% 3% 10%;
 }
 
 .divsubtitleLinkedin {
