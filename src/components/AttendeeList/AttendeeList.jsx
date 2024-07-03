@@ -9,19 +9,25 @@ import { CiHeart } from 'react-icons/ci';
 import { GoChevronLeft } from 'react-icons/go';
 import { useNavigate } from 'react-router-dom';
 import { getAllNotifications } from '../../features/notification/notificationSlice';
-
+import getSpeakersRecomended from '../../features/getSpeakersRecomended/getSpeakersRecomendedService'
 const AttendeeList = () => {
   const dispatch = useDispatch();
   const { attendees, isLoadingAttendees, isError, message, attendeeSelected } = useSelector((state) => state.authAttendee);
   const [selectedAttendee, setSelectedAttendee] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [speakers, setSpeakers] = useState("");
   const { notifications, error } = useSelector((state) => state.notificationSlice);
 
   useEffect(() => {
     dispatch(getAllAttendees());
     dispatch(getAllNotifications());
+    
   }, [dispatch]);
 
+
+  if (speakers== "" ) {
+    setSpeakers( getSpeakersRecomended.getSpeakersRecomended())
+  } 
   useEffect(() => {
     if (attendeeSelected.length !== 0) {
       setSelectedAttendee(attendeeSelected);
@@ -30,14 +36,14 @@ const AttendeeList = () => {
     }
   }, [attendeeSelected]);
 
-  if (isLoadingAttendees) {
+  if (isLoadingAttendees || !speakers) {
     return <div>Loading...</div>;
   }
 
   if (isError) {
     return <div>{message}</div>;
   }
-
+  console.log(speakers);
   const formatTime = (dateString) => {
     const date = new Date(dateString);
     let hours = date.getHours();
@@ -54,7 +60,7 @@ const AttendeeList = () => {
 
   const renderAttendeeProfile = (attendee) => {
     if (!attendee) return null;
-
+    console.log();
     return (
       <div className="mainContent-profile">
         <div className="topProfile">
