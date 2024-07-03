@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import authSpeakerService from "./authSpeakerService"
 
-
 const token = localStorage.getItem("token") || ""
 const speaker = JSON.parse(localStorage.getItem("speaker")) || null
 
@@ -12,8 +11,6 @@ const initialState = {
     isSuccess: false,
     msg: ""
 }
-
-
 
 export const authSlice = createSlice({
     name: "authSpeaker",
@@ -47,6 +44,13 @@ export const authSlice = createSlice({
                 state.message = action.payload
                 state.isError = true
             })
+            .addCase(getLoggedSpeaker.fulfilled, (state, action) => {
+                state.attendee = action.payload.attendeeData;
+                state.isLoadingAttendee = false;
+            })
+            .addCase(getLoggedSpeaker.pending, (state) => {
+                state.isLoadingAttendee = true
+            })
     }
 })
 
@@ -69,6 +73,13 @@ export const login = createAsyncThunk("auth/login", async (speaker, thunkAPI) =>
         console.error(error)
         const msgError = error.response.data.message
         return thunkAPI.rejectWithValue(msgError)
+    }
+})
+export const getLoggedSpeaker = createAsyncThunk("auth/getLoggedSpeaker", async () => {
+    try {
+        return await authSpeakerService.getLoggedSpeaker();
+    } catch (error) {
+        console.error(error);
     }
 })
 

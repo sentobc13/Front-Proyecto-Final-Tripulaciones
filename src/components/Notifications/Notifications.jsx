@@ -14,6 +14,14 @@ const Notifications = () => {
         dispatch(getAllNotifications());
     }, [dispatch]);
 
+    const aceptSolic = (id) => {
+        dispatch(updateOnetoOne())
+    }
+
+    const rejectSolic = (id) => {
+
+    }
+
     const handleChevronClick = (id) => {
         setOpenNotificationId(openNotificationId === id ? null : id);
     };
@@ -48,7 +56,7 @@ const Notifications = () => {
             </div>
             <div className="cardContainer">
                 {notifications &&
-                    [...notifications] // Crear una copia del array notifications
+                    [...notifications]
                         .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // Ordenar de más reciente a más antiguo
                         .map((noti) => (
                             user.role === 'attendee' ? (
@@ -90,8 +98,8 @@ const Notifications = () => {
                                         </div>
                                         {openNotificationId === noti._id && (
                                             <div className="dropdown">
-                                                <button className="dropdownButton">Aceptar</button>
-                                                <button className="dropdownButton">Rechazar</button>
+                                                <button className="dropdownButton" onClick={() => aceptSolic(noti.registrationOne2One._id)}>Aceptar</button>
+                                                <button className="dropdownButton" onClick={() => rejectSolic(noti.registrationOne2One._id)}>Rechazar</button>
                                             </div>
                                         )}
                                     </div>

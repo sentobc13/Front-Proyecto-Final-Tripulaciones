@@ -6,17 +6,26 @@ import { getLoggedAttendee } from "../../features/auth/attendee/authAttendeeSlic
 import { useEffect } from "react";
 import { Spinner } from '@chakra-ui/react'
 import { useNavigate } from "react-router-dom";
+import { getLoggedSpeaker } from "../../features/auth/speaker/authSpeakerSlice";
 
 
 const Profile = () => {
   const { attendee, isLoadingAttendee } = useSelector((state) => state.authAttendee);
+  const { speaker, isLoadingSpeaker } = useSelector((state) => state.authSpeaker);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  if(attendee !== null ){
+    useEffect(() => {
+      dispatch(getLoggedAttendee())
+    }, []);
+  }else{
+    useEffect(() => {
+      dispatch(getLoggedSpeaker())
+    }, []);
+  }
 
-  useEffect(() => {
-    dispatch(getLoggedAttendee())
-  }, []);
+  
 
   if (isLoadingAttendee) {
     return <Spinner /> ;

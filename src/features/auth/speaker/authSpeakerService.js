@@ -17,6 +17,16 @@ const login = async (speaker)=>{
   return res.data
 }
 
+const getLoggedSpeaker = async () => {
+  const token = localStorage.getItem("token");
+  const res = await axios.get(API_URL + "/" , {
+    headers: {
+      authorization: token,
+    },
+  });
+  return res.data;
+};
+
 const getSpeaker = async (speaker_id)=>{
   const token = localStorage.getItem("token");
   const res = await axios.get(API_URL + "/getSpeaker" + speaker_id , token )
@@ -31,6 +41,7 @@ const authSpeakerService = {
     registerSpeaker,
     login,
     getSpeaker,
+    getLoggedSpeaker
   }
   
   
