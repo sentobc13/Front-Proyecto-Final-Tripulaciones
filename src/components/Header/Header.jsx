@@ -142,8 +142,8 @@ const Header = () => {
           </Flex>
           <VStack spacing="0" width="100%" align="flex-start">
             <ChakraLink as={Link} to="/identify" onClick={toggleMenu} className="menu-link">Identifícate</ChakraLink>
-            <ChakraLink as={Link} to="/programa" onClick={toggleMenu} className="menu-link">Programa</ChakraLink>
-            <ChakraLink as={Link} to="/mi-agenda" onClick={toggleMenu} className="menu-link">Mi agenda</ChakraLink>
+            <ChakraLink as={Link} to="/diary" onClick={toggleMenu} className="menu-link">Programa</ChakraLink>
+            <ChakraLink as={Link} to="/mydiary" onClick={toggleMenu} className="menu-link">Mi agenda</ChakraLink>
             <ChakraLink as={Link} to="/attendeeList" onClick={toggleMenu} className="menu-link">Lista de asistentes</ChakraLink>
             <ChakraLink as={Link} to="/map" onClick={toggleMenu} className="menu-link">Mapa del sitio</ChakraLink>
             <ChakraLink as={Link} to="/alojamientos" onClick={toggleMenu} className="menu-link">Alojamientos</ChakraLink>
