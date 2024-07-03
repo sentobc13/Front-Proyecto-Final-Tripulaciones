@@ -181,12 +181,12 @@ const AttendeeList = () => {
           </div>
 
           <div className="attendees">
-            <h2>Asistentes al evento</h2>
-            <input 
-              type="text" 
-              placeholder="Buscar asistentes por nombre" 
-              value={searchTerm} 
-              onChange={(e) => setSearchTerm(e.target.value)} 
+          <h2>Asistentes al evento</h2>
+            <input
+              type="text"
+              placeholder="Buscar asistentes por nombre"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               className="search-input"
             />
             <div className="attendee-cards">
@@ -202,7 +202,7 @@ const AttendeeList = () => {
                     )}
                     {att.profilePic && (
                       <img
-                        src={`http://localhost:3001/public/${att.profilePic}`}
+                        src={`${att.profilePic}`}
                         alt={att.name}
                         className="attendee-photo"
                       />
