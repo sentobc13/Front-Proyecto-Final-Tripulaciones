@@ -21,10 +21,26 @@ const registerOnetoOne = async (horariosSeleccionado, speaker_id) => {
   }
 };
 
-const updateOne2One = async (id) => {
+const confirmOne2One = async (id) => {
+  const token = localStorage.getItem("token");
+  console.log(token);
+  try {
+    const res = await axios.put(`${API_URL}/confirmOne2One/${id}`, {
+      headers: {
+        authorization: token,
+      },
+    });
+    return res.data;
+  } catch (error) {
+    console.error("Error updating One to One session:", error);
+    throw error;
+  }
+};
+
+const rejectOne2One = async (id) => {
   const token = localStorage.getItem("token");
   try {
-    const res = await axios.put(`${API_URL}/confirmOne2One/${id}`,{
+    const res = await axios.put(`${API_URL}/confirmOne2One/${id}`, {
       headers: {
         authorization: token,
       },
@@ -38,7 +54,8 @@ const updateOne2One = async (id) => {
 
 const registrationOne2OneService = {
   registerOnetoOne,
-  updateOne2One,
+  rejectOne2One,
+  confirmOne2One
 };
 
 export default registrationOne2OneService;

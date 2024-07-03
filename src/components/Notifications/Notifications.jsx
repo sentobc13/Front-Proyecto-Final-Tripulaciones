@@ -3,6 +3,7 @@ import { GoChevronLeft, GoChevronRight } from 'react-icons/go';
 import './Notifications.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllNotifications, updateNotification } from '../../features/notification/notificationSlice';
+import registrationOne2OneService from '../../features/registrationOnetoOne/registrationOnetoOneService'
 
 const Notifications = () => {
     const [openNotificationId, setOpenNotificationId] = useState(null);
@@ -10,16 +11,17 @@ const Notifications = () => {
     const { notifications, error, isLoading } = useSelector((state) => state.notificationSlice);
     const user = JSON.parse(localStorage.getItem('attendee')) || JSON.parse(localStorage.getItem('speaker'));
 
+
     useEffect(() => {
         dispatch(getAllNotifications());
     }, [dispatch]);
 
     const aceptSolic = (id) => {
-        dispatch(updateOnetoOne())
+        dispatch(registrationOne2OneService.confirmOne2One(id))
     }
 
     const rejectSolic = (id) => {
-
+        dispatch(registrationOne2OneService.rejectOne2One(id))
     }
 
     const handleChevronClick = (id) => {
