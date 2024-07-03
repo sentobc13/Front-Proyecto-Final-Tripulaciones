@@ -8,25 +8,25 @@ import { Card, CardBody, Text } from '@chakra-ui/react';
 import { CiHeart } from 'react-icons/ci';
 import { GoChevronLeft } from 'react-icons/go';
 import { useNavigate } from 'react-router-dom';
-import { getAllNotifications } from '../../features/notification/notificationSlice';
 
 const AttendeeList = () => {
   const dispatch = useDispatch();
-  const { attendees, isLoadingAttendees, isError, message, attendeeSelected } = useSelector((state) => state.authAttendee);
+  const navigate = useNavigate()
+  const { attendees, isLoadingAttendees, isError, message, attendeeSelected } = useSelector(
+    (state) => state.authAttendee
+  );
   const [selectedAttendee, setSelectedAttendee] = useState(null);
-  const [searchTerm, setSearchTerm] = useState("");
-  const { notifications, error } = useSelector((state) => state.notificationSlice);
+  const [searchTerm, setSearchTerm] = useState(""); // Estado para el término de búsqueda
 
   useEffect(() => {
     dispatch(getAllAttendees());
-    dispatch(getAllNotifications());
   }, [dispatch]);
 
   useEffect(() => {
     if (attendeeSelected.length !== 0) {
       setSelectedAttendee(attendeeSelected);
     } else {
-      setSelectedAttendee(null);
+      setSelectedAttendee(null); 
     }
   }, [attendeeSelected]);
 
@@ -68,13 +68,13 @@ const AttendeeList = () => {
             <img
               src={
                 attendee.profilePic
-                  ? `${attendee.profilePic}`
+                  ? `http://localhost:3001/public/${attendee.profilePic}`
                   : "http://localhost:3001/public/noProfilePicture.jpg"
               }
               alt={attendee.name}
               className="profile-picture-asistant"
             />
-            <span className='InformationProfileAsistant'>{attendee.name} - {attendee?.job_title}</span>
+            <span className='InformationProfileAsistant'>{attendee.name} - CEO en LVIS</span>
           </div>
           <div className="interestsProfile">
             {attendee.interests.map((interes, index) => (
@@ -84,7 +84,7 @@ const AttendeeList = () => {
             ))}
           </div>
           <div className="descriptionNameProfileAsistant">
-            <span></span>
+            <span>Fernando supervisa las ventas globales de productos de LVIS.</span>
           </div>
         </div>
         {attendee &&
@@ -123,6 +123,7 @@ const AttendeeList = () => {
     );
   };
 
+  
   const filteredAttendees = attendees.filter((att) =>
     att.name && att.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -142,7 +143,7 @@ const AttendeeList = () => {
                     <img
                       src={
                         att.profilePic
-                          ? `${att.profilePic}`
+                          ? `http://localhost:3001/public/${att.profilePic}`
                           : "http://localhost:3001/public/noProfilePicture.jpg"
                       }
                       alt={att.name}
@@ -174,11 +175,11 @@ const AttendeeList = () => {
 
           <div className="attendees">
             <h2>Asistentes al evento</h2>
-            <input
-              type="text"
-              placeholder="Buscar asistentes por nombre"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+            <input 
+              type="text" 
+              placeholder="Buscar asistentes por nombre" 
+              value={searchTerm} 
+              onChange={(e) => setSearchTerm(e.target.value)} 
               className="search-input"
             />
             <div className="attendee-cards">
@@ -194,7 +195,7 @@ const AttendeeList = () => {
                     )}
                     {att.profilePic && (
                       <img
-                        src={`${att.profilePic}`}
+                        src={`http://localhost:3001/public/${att.profilePic}`}
                         alt={att.name}
                         className="attendee-photo"
                       />

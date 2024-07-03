@@ -23,8 +23,8 @@ import Notifications from "./components/Notifications/Notifications";
 import Tickets from "./components/Tickets/Tickets";
 import Map from "./components/Map/Map";
 import Alojamientos from "./components/Alojamientos/Alojamientos";
+import BellAdviser from "./components/BellAdviser/BellAdviser";
 import MyDiary from "./components/MyDiary/MyDiary";
-import './App.scss';
 
 
 function App() {
@@ -32,7 +32,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <BrowserRouter>
-          <MainContent />
+          <BellAdviser />
+            <MainContent />
         </BrowserRouter>
       </div>
     </ThemeProvider>
@@ -51,7 +52,8 @@ function MainContent() {
     "/loginSpeaker",
     "/loginPrincipal",
     "/registerSegundoPaso",
-    "/tickets"
+    "/tickets",
+    "/registertercerpaso"
   ];
 
   return (
