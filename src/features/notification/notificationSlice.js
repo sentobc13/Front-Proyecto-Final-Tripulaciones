@@ -3,19 +3,34 @@ import notificationService from './notificationService';
 
 const initialState = {
     notifications: [],
+    notificationUpdate: null,
     isLoading: false,
     isError: false,
     error: '',
-}
+};
 
-export const getAllNotifications = createAsyncThunk('notifications/getAll', async (_, thunkAPI) => {
-    try {
-        const notification = await notificationService.getAllNotifications();
-        return notification
-    } catch (error) {
-        return thunkAPI.rejectWithValue(error.response.data);
+export const getAllNotifications = createAsyncThunk(
+    'notifications/getAll',
+    async (_, thunkAPI) => {
+        try {
+            const notifications = await notificationService.getAllNotifications();
+            return notifications;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data);
+        }
     }
-}
+);
+
+export const updateNotification = createAsyncThunk(
+    'notifications/update',
+    async (newData, thunkAPI) => {
+        try {
+            const updatedNotification = await notificationService.updateNotification(newData);
+            return updatedNotification;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data);
+        }
+    }
 );
 
 const notificationSlice = createSlice({
@@ -36,7 +51,19 @@ const notificationSlice = createSlice({
             .addCase(getAllNotifications.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
-                state.errorMessage = action.error.message || 'Error obteniendo todos los tickets';
+            })
+            .addCase(updateNotification.pending, (state) => {
+                state.isLoading = true;
+                state.isError = false;
+            })
+            .addCase(updateNotification.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.notificationUpdate = action.payload;
+                state.isError = false;
+            })
+            .addCase(updateNotification.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
             });
     },
 });

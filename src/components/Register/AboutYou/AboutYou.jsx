@@ -22,7 +22,8 @@ const AboutYou = () => {
   useEffect(() => {
 
     if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
-      navigate("/identify")
+      // navigate("/identify")
+      navigate("/aboutyou")
     }
   })
   const typeUser = localStorage.getItem('validator');
