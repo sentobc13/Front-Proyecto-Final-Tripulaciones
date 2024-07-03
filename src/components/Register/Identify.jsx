@@ -1,6 +1,8 @@
 import logo1 from '../../assets/E-learning-Experience_Logo-Blanco.png';
 import { useNavigate } from 'react-router-dom';
+import { Box } from '@chakra-ui/react'
 import './Identify.scss';
+import '../../../colors.scss';
 
 
 const Identify = () => {
@@ -25,12 +27,12 @@ const Identify = () => {
       </h3>
 
       <img src={logo1} alt="Logo" className="logo" />
-      <div className="buttons">
+      <div className="container-button">
+      
+      <Box mb={2}><button className="continue-button" name= "Attendee" onClick={optionSelected}>Ya estoy registrado</button></Box>
 
-          <button className="button" name = "Attendee" onClick={optionSelected}>Ya estoy registrado</button>
 
-
-          <button className="button" name = "Speaker" onClick={optionSelected}>Soy profesional</button>
+          <button className="continue-button" name = "Speaker" onClick={optionSelected}>Soy profesional</button>
 
       </div>
     </div>

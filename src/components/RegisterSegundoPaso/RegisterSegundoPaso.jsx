@@ -171,7 +171,7 @@ const RegisterSegundoPaso = () => {
                                         Al registrarte, aceptas los <a href="/terminos" style={{ color: '#4299E1' }}>Términos de servicio</a> y la <a href="/privacidad" style={{ color: '#4299E1' }}>Política de privacidad</a>, incluida la política de <a href="/cookies" style={{ color: '#4299E1' }}>Uso de Cookies.</a>
                                     </Text>
                                     <div className="container-button">
-                                        <Button className='continue-button btn-register' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
+                                        <Button className='continue-button' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>
                                             Crear cuenta
                                         </Button>
                                     </div>
