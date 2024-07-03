@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Box, Flex, IconButton, Spacer, Image, VStack, Text, Link as ChakraLink } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { FaUserCircle } from 'react-icons/fa';
+import { FaRegBell } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import logo from '../../assets/E-learning-Experience_Logo-negro.png';
 import logo1 from '../../assets/E-learning-Experience_Logo-Blanco.png';
@@ -45,9 +46,17 @@ const Header = () => {
             </Link>
           </Box>
           <Spacer />
-          <Link to="/profile">
+          <Link to="/profile" style={{ padding: '10px' }}>
             <IconButton
               icon={<FaUserCircle />}
+              color={menuOpen ? 'white' : 'black'}
+              variant="ghost"
+              aria-label="User Profile"
+            />
+          </Link>
+          <Link to="/notification">
+            <IconButton
+              icon={<FaRegBell />}
               color={menuOpen ? 'white' : 'black'}
               variant="ghost"
               aria-label="User Profile"
