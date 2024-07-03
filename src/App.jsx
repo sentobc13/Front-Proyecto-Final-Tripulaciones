@@ -25,6 +25,7 @@ import Notifications from "./components/Notifications/Notifications";
 import Tickets from "./components/Tickets/Tickets";
 import Map from "./components/Map/Map";
 import Alojamientos from "./components/Alojamientos/Alojamientos";
+import BellAdviser from "./components/BellAdviser/BellAdviser";
 
 
 function App() {
@@ -32,7 +33,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <BrowserRouter>
-          <MainContent />
+          <BellAdviser />
+            <MainContent />
         </BrowserRouter>
       </div>
     </ThemeProvider>
