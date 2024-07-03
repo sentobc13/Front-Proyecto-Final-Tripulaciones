@@ -101,3 +101,39 @@
     }
   }
   
+  .stepper {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 10%;
+  }
+  
+  .btn-back {
+    display: flex; // Ajusta el margen según sea necesario
+    margin-right: 40px;
+    margin-left: -50px;
+  }
+  
+  .stepper {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+  
+  }
+  
+  .step {
+    width: 40px;
+    height: 4px;
+    background-color: #ddd;
+    margin: 0 10px;
+    border-radius: 10px;
+  }
+  
+  .step.highlighted {
+    height: 8px;
+    width: 60px;
+
+  }
