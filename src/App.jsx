@@ -26,6 +26,7 @@ import Tickets from "./components/Tickets/Tickets";
 import Map from "./components/Map/Map";
 import Alojamientos from "./components/Alojamientos/Alojamientos";
 import BellAdviser from "./components/BellAdviser/BellAdviser";
+import MyDiary from "./components/MyDiary/MyDiary";
 
 
 function App() {
@@ -53,7 +54,8 @@ function MainContent() {
     "/loginSpeaker",
     "/loginPrincipal",
     "/registerSegundoPaso",
-    "/tickets"
+    "/tickets",
+    "/registertercerpaso"
   ];
 
   return (
@@ -80,6 +82,7 @@ function MainContent() {
           <Route path="/notification" element={<Notifications />} />
           <Route path="/map" element={<Map />} />
           <Route path="/alojamientos" element={<Alojamientos />} />
+          <Route path="/mydiary" element={<MyDiary />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

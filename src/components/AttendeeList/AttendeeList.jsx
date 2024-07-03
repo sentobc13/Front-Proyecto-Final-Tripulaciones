@@ -23,8 +23,7 @@ const AttendeeList = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (attendeeSelected.length != 0) {
-      console.log(attendeeSelected);
+    if (attendeeSelected.length !== 0) {
       setSelectedAttendee(attendeeSelected);
     } else {
       setSelectedAttendee(null); 
@@ -46,8 +45,7 @@ const AttendeeList = () => {
     const ampm = hours >= 12 ? 'pm' : 'am';
     hours = hours % 12;
     hours = hours ? hours : 12;
-    const strTime = `${hours.toString().padStart(2, '0')}:${minutes} ${ampm}`;
-    return strTime;
+    return `${hours.toString().padStart(2, '0')}:${minutes} ${ampm}`;
   };
 
   const handleAttendeeClick = async (att) => {
@@ -79,13 +77,11 @@ const AttendeeList = () => {
             <span className='InformationProfileAsistant'>{attendee.name} - CEO en LVIS</span>
           </div>
           <div className="interestsProfile">
-            {attendee.interests.map((interes) => {
-              return (
-                <div className="chipGrid">
-                  <Chip className="uniqueChipProfile" label={interes} />
-                </div>
-              )
-            })}
+            {attendee.interests.map((interes, index) => (
+              <div className="chipGrid" key={index}>
+                <Chip className="uniqueChipProfile" label={interes} />
+              </div>
+            ))}
           </div>
           <div className="descriptionNameProfileAsistant">
             <span>Fernando supervisa las ventas globales de productos de LVIS.</span>
@@ -155,11 +151,11 @@ const AttendeeList = () => {
                     />
                     <div className="info">
                       <span className="title">{att.title}</span>
-                      {att.interests && (
-                        <span className="label">
-                          {att.interests.join(', ')}
+                      {att.interests && att.interests.map((interest, idx) => (
+                        <span key={idx} className="label">
+                          {interest}
                         </span>
-                      )}
+                      ))}
                       <h3 className="name">{att.name}</h3>
                       <p className="position">{att.position}</p>
                     </div>
@@ -210,11 +206,11 @@ const AttendeeList = () => {
                           <span className="attendee-title">{att.title}</span>
                         </span>
                       )}
-                      {att.interests && (
-                        <span className="attendee-label">
-                          {att.interests.join(', ')}
+                      {att.interests && att.interests.map((interest, idx) => (
+                        <span key={idx} className="attendee-label">
+                          {interest}
                         </span>
-                      )}
+                      ))}
                       <h3 className="attendee-name">{att.name}</h3>
                       <p className="attendee-position">{att.job_title}</p>
                     </div>
