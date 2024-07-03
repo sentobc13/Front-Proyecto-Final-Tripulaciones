@@ -10,7 +10,8 @@ const Allergies = () => {
     useEffect(() => {
 
         if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
-            navigate("/identify")
+            // navigate("/identify")
+            navigate("/allergies")
         }
     })
 
@@ -106,8 +107,8 @@ const Allergies = () => {
                     </div>
                 </div>
             </div>
-            <div className='BadgecontainerButton'>
-                <button onClick={handleNext}>Siguiente</button>
+            <div className='container-button'>
+                <button className="continue-button" onClick={handleNext}>Siguiente</button>
             </div>
         </>
     );

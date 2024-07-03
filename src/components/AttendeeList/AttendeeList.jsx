@@ -75,13 +75,13 @@ const AttendeeList = () => {
             <img
               src={
                 attendee.profilePic
-                  ? `http://localhost:3001/public/${attendee.profilePic}`
+                  ? `${attendee.profilePic}`
                   : "http://localhost:3001/public/noProfilePicture.jpg"
               }
               alt={attendee.name}
               className="profile-picture-asistant"
             />
-            <span className='InformationProfileAsistant'>{attendee.name} - CEO en LVIS</span>
+            <span className='InformationProfileAsistant'>{attendee.name} - {attendee?.job_title}</span>
           </div>
           <div className="interestsProfile">
             {attendee.interests.map((interes) => {
@@ -93,7 +93,7 @@ const AttendeeList = () => {
             })}
           </div>
           <div className="descriptionNameProfileAsistant">
-            <span>Fernando supervisa las ventas globales de productos de LVIS.</span>
+            <span></span>
           </div>
         </div>
         {attendee &&
@@ -152,7 +152,7 @@ const AttendeeList = () => {
                     <img
                       src={
                         att.profilePic
-                          ? `http://localhost:3001/public/${att.profilePic}`
+                          ? `${att.profilePic}`
                           : "http://localhost:3001/public/noProfilePicture.jpg"
                       }
                       alt={att.name}
@@ -204,7 +204,7 @@ const AttendeeList = () => {
                     )}
                     {att.profilePic && (
                       <img
-                        src={`http://localhost:3001/public/${att.profilePic}`}
+                        src={`${att.profilePic}`}
                         alt={att.name}
                         className="attendee-photo"
                       />

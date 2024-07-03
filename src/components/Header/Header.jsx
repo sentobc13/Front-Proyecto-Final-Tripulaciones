@@ -93,7 +93,7 @@ const Header = () => {
             <ChakraLink as={Link} to="/programa" onClick={toggleMenu} className="menu-link">Programa</ChakraLink>
             <ChakraLink as={Link} to="/mi-agenda" onClick={toggleMenu} className="menu-link">Mi agenda</ChakraLink>
             <ChakraLink as={Link} to="/attendeeList" onClick={toggleMenu} className="menu-link">Lista de asistentes</ChakraLink>
-            <ChakraLink as={Link} to="/mapa-sitio" onClick={toggleMenu} className="menu-link">Mapa del sitio</ChakraLink>
+            <ChakraLink as={Link} to="/map" onClick={toggleMenu} className="menu-link">Mapa del sitio</ChakraLink>
             <ChakraLink as={Link} to="/alojamientos" onClick={toggleMenu} className="menu-link">Alojamientos</ChakraLink>
             <ChakraLink as={Link} to="/colaboradores" onClick={toggleMenu} className="menu-link">Colaboradores</ChakraLink>
             <ChakraLink as={Link} to="/premios-digit" onClick={toggleMenu} className="menu-link">Premios Digit</ChakraLink>

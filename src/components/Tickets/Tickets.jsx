@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './RegisterTercerPaso.scss';
+import './Tickets.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdArrowBackIos } from 'react-icons/md';
 import { Accordion, AccordionItem, AccordionButton, AccordionPanel, Box, AccordionIcon } from '@chakra-ui/react';
 import { getAllTickets } from '../../features/tickets/ticketsSlice';
 import { Spinner } from '@chakra-ui/react';
 
-const RegisterTercerPaso = () => {
-    const [selectedPrice, setSelectedPrice] = useState('');
+const Tickets = () => {
+    const [selectedPrice] = useState('');
     const dispatch = useDispatch();
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
-    if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
-        navigate("/identify")
-    }
+    // if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
+    //     navigate("/ConnectLinkedin")
+    // }
     
     const { tickets, isLoading, isError, errorMessage } = useSelector((state) => state.tickets);
 
@@ -120,7 +120,6 @@ const RegisterTercerPaso = () => {
                             </h2>
                             <AccordionPanel pb={4}>
                                 <div className="div-prices">
-                                    {/* Añadir aquí la lógica para los precios de la empresa privada */}
                                 </div>
                             </AccordionPanel>
                         </AccordionItem>
@@ -133,12 +132,13 @@ const RegisterTercerPaso = () => {
             </div>
 
             <div className="container-button">
-                <Link className="continue-button" to="/connectLinkedin">
-                    <span>Siguiente</span>
+           
+                <Link to="/connectLinkedin">
+                    <button className="continue-button" name = "Siguiente">Siguiente</button>
                 </Link>
             </div>
         </>
     );
 };
 
-export default RegisterTercerPaso;
+export default Tickets;
