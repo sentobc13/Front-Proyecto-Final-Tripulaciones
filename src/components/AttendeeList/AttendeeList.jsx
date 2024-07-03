@@ -12,10 +12,7 @@ import { getAllNotifications } from '../../features/notification/notificationSli
 
 const AttendeeList = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
-  const { attendees, isLoadingAttendees, isError, message, attendeeSelected } = useSelector(
-    (state) => state.authAttendee
-  );
+  const { attendees, isLoadingAttendees, isError, message, attendeeSelected } = useSelector((state) => state.authAttendee);
   const [selectedAttendee, setSelectedAttendee] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const { notifications, error } = useSelector((state) => state.notificationSlice);
