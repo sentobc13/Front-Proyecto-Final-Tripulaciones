@@ -82,7 +82,7 @@ function MainContent() {
           <Route path="/alojamientos" element={<Alojamientos />} />
           <Route path="/mydiary" element={<MyDiary />} />
           <Route path="*" element={<NotFound />} />
-        </Routes>
+        </Routes> 
       </main>
     </>
   );
