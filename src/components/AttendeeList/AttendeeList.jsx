@@ -76,7 +76,7 @@ const AttendeeList = () => {
               alt={attendee.name}
               className="profile-picture-asistant"
             />
-            <span className='InformationProfileAsistant'>{attendee.name} - CEO en LVIS</span>
+            <span className='InformationProfileAsistant'>{attendee.name} - {attendee?.job_title}</span>
           </div>
           <div className="interestsProfile">
             {attendee.interests.map((interes) => {
@@ -88,7 +88,7 @@ const AttendeeList = () => {
             })}
           </div>
           <div className="descriptionNameProfileAsistant">
-            <span>Fernando supervisa las ventas globales de productos de LVIS.</span>
+            <span></span>
           </div>
         </div>
         {attendee &&
