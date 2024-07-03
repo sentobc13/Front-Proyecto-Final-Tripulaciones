@@ -1,21 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Tickets.scss';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MdArrowBackIos } from 'react-icons/md';
 import { Accordion, AccordionItem, AccordionButton, AccordionPanel, Box, AccordionIcon } from '@chakra-ui/react';
 import { getAllTickets } from '../../features/tickets/ticketsSlice';
 import { Spinner } from '@chakra-ui/react';
 
 const Tickets = () => {
-    const [selectedPrice] = useState('');
+    const [selectedPrice, setSelectedPrice] = useState('');
     const dispatch = useDispatch();
-    // const navigate = useNavigate()
 
-    // if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
-    //     navigate("/ConnectLinkedin")
-    // }
-    
     const { tickets, isLoading, isError, errorMessage } = useSelector((state) => state.tickets);
 
     useEffect(() => {
@@ -34,6 +29,7 @@ const Tickets = () => {
             register.ticket_id = id;
             localStorage.setItem('register', JSON.stringify(register));
         }
+        setSelectedPrice(id);
     };
 
     const formatDate = (dateString) => {
@@ -97,18 +93,16 @@ const Tickets = () => {
                                                     )
                                                 }</span>
                                                 <button
-                                                    className={`price-button ${selectedPrice === `180-${index}` ? 'selected' : ''}`}
+                                                    className={`price-button ${selectedPrice === ticket._id ? 'selected' : ''}`}
                                                     onClick={() => handlePriceClick(ticket._id)}>
                                                     {ticket.price}€
                                                 </button>
                                             </div>
                                         ))
                                     )}
-
                                 </div>
                             </AccordionPanel>
                         </AccordionItem>
-
                         <AccordionItem>
                             <h2>
                                 <AccordionButton>
@@ -120,6 +114,33 @@ const Tickets = () => {
                             </h2>
                             <AccordionPanel pb={4}>
                                 <div className="div-prices">
+                                    <div className="div-prices-card">
+                                        <span>Día 1: 23 de junio</span>
+                                        <button
+                                            className={`price-button ${selectedPrice === '180-3' ? 'selected' : ''}`}
+                                            onClick={() => handlePriceClick('180-3')}
+                                        >
+                                            180€
+                                        </button>
+                                    </div>
+                                    <div className="div-prices-card">
+                                        <span>Día 2: 24 de junio</span>
+                                        <button
+                                            className={`price-button ${selectedPrice === '180-4' ? 'selected' : ''}`}
+                                            onClick={() => handlePriceClick('180-4')}
+                                        >
+                                            180€
+                                        </button>
+                                    </div>
+                                    <div className="div-prices-card">
+                                        <span>2 días: 23 y 24 de junio</span>
+                                        <button
+                                            className={`price-button ${selectedPrice === '380-2' ? 'selected' : ''}`}
+                                            onClick={() => handlePriceClick('380-2')}
+                                        >
+                                            380€
+                                        </button>
+                                    </div>
                                 </div>
                             </AccordionPanel>
                         </AccordionItem>
@@ -132,9 +153,8 @@ const Tickets = () => {
             </div>
 
             <div className="container-button">
-           
                 <Link to="/connectLinkedin">
-                    <button className="continue-button" name = "Siguiente">Siguiente</button>
+                    <button className="continue-button">Siguiente</button>
                 </Link>
             </div>
         </>
