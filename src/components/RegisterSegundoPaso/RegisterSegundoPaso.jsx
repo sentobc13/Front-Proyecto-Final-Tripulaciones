@@ -30,9 +30,6 @@ const RegisterSegundoPaso = () => {
 
     const navigate = useNavigate()
 
-    if (!localStorage.getItem('attendee') || !localStorage.getItem('speaker')) {
-        navigate("/identify")
-    }
     const { status, error } = useSelector((state) => state.authAttendee);
 
     const handleChange = (e) => {
