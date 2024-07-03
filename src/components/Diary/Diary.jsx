@@ -41,12 +41,12 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
             setShowSolicitarButton(true); // Muestra el botón "Solicitar" al seleccionar un horario
         }
     };
-    const solicitar121 = (horariosSeleccionado, speaker_id) =>{
-       const one2oneDisponibles = workshop.speaker_id.partner_id.membership_type.benefits[0]
-       const one2oneTomados = workshop.speaker_id.partner_id.one2oneTaken
-       if (one2oneDisponibles - one2oneTomados != 0) {
-        return registrationOne2OneService.registerOnetoOne (horariosSeleccionado, speaker_id)
-       }
+    const solicitar121 = (horariosSeleccionado, speaker_id) => {
+        const one2oneDisponibles = workshop.speaker_id.partner_id.membership_type.benefits[0]
+        const one2oneTomados = workshop.speaker_id.partner_id.one2oneTaken
+        if (one2oneDisponibles - one2oneTomados != 0) {
+            return registrationOne2OneService.registerOnetoOne(horariosSeleccionado, speaker_id)
+        }
 
     }
     const handleSubmit = () => {
@@ -54,17 +54,22 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
             solicitar121(horariosSeleccionados[0], workshop.speaker_id._id);
         }
     };
+
     function obtenerHorariosOrdenados(horarios) {
         const horariosOrdenados = [...horarios].sort((a, b) => new Date(a) - new Date(b));
+        return horariosOrdenados
+        // Extraer la fecha y hora formateadas
+        
+        }
+        const convertirHora = (horario)=> {
+        
+                const fecha = new Date(horario);
+                const dia = fecha.toLocaleDateString('es-ES', { day: 'numeric', month: 'long' });
+                const hora = fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                return `${dia} a las ${hora}`;
+            };
 
-        // Extraer solo las horas
-        const horas = horariosOrdenados.map(horario => {
-            const fecha = new Date(horario);
-            return fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        });
-
-        return horas;
-    }
+        
     console.log(workshop);
     const horariosOrdenados = obtenerHorariosOrdenados(workshop.speaker_id.freeSchedule);
     console.log(horariosOrdenados);
@@ -91,7 +96,7 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
                         {horariosOrdenados.map(horario => (
                             <div className="horario-item" key={horario}>
                                 <Checkbox isChecked={horariosSeleccionados.includes(horario)} onChange={() => handleCheckboxChange(horario)}>
-                                    {horario}
+                                    {convertirHora(horario)}
                                 </Checkbox>
                             </div>
                         ))}
@@ -196,27 +201,27 @@ const Diary = () => {
                                     {formatTime(workshop.start_date)}
                                 </Text>
                                 <Text className='div-nombre'>
-                                {workshop.speaker_id.name}
-                            </Text>
-                            <Text className='div-cargo'>
-                                {workshop.speaker_id.role}
-                            </Text>
-                            <Text className='div-card-descripcion'>
-                                {workshop.description}
-                            </Text>
-                            <Text className='div-titulo'>
-                                {workshop.name}
-                            </Text>
-                            <div className='div-icon-text' onClick={onOpen} style={{ cursor: 'pointer' }}>
-                                <FaChevronDown />
-                                <span className='div-down-text'>Descripción</span>
-                            </div>
-                            <DescriptionModal isOpen={isOpen} onClose={onClose} workshop={workshop} />
-                        </CardBody>
-                    </Card>
-                </div>
-            ))}
-        </div>
+                                    {workshop.speaker_id.name}
+                                </Text>
+                                <Text className='div-cargo'>
+                                    {workshop.speaker_id.role}
+                                </Text>
+                                <Text className='div-card-descripcion'>
+                                    {workshop.description}
+                                </Text>
+                                <Text className='div-titulo'>
+                                    {workshop.name}
+                                </Text>
+                                <div className='div-icon-text' onClick={onOpen} style={{ cursor: 'pointer' }}>
+                                    <FaChevronDown />
+                                    <span className='div-down-text'>Descripción</span>
+                                </div>
+                                <DescriptionModal isOpen={isOpen} onClose={onClose} workshop={workshop} />
+                            </CardBody>
+                        </Card>
+                    </div>
+                ))}
+            </div>
         </ChakraProvider>
     );
 };
