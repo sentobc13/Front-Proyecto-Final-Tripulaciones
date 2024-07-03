@@ -46,7 +46,7 @@ function MainContent() {
     "/identify",
     "/hastags",
     "/loginAttendee",
-    "/connectLinkedin",
+    "/connectlinkedin",
     "/aboutyou",
     "/loginSpeaker",
     "/loginPrincipal",
@@ -62,7 +62,7 @@ function MainContent() {
           <Route path="/identify" element={<Identify />} />
           <Route path="/hastags" element={<Hastags />} />
           <Route path="/allergies" element={<Allergies />} />
-          <Route path="/connectLinkedin" element={<ConnectLinkedin />} />
+          <Route path="/connectlinkedin" element={<ConnectLinkedin />} />
           <Route path="/" element={<PrivateZone><Home /></PrivateZone>} />
           <Route path="/profile" element={<PrivateZone><Profile /></PrivateZone>} />
           <Route path="/editprofile" element={<PrivateZone><EditProfile /></PrivateZone>} />
