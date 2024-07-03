@@ -22,9 +22,13 @@ import Diary from "./components/Diary/Diary";
 import EditProfile from './components/Profile/EditProfile/EditProfile';
 import AttendeeList from "./components/AttendeeList/AttendeeList";
 import Notifications from "./components/Notifications/Notifications";
+<<<<<<< HEAD
 import Tickets from "./components/Tickets/Tickets";
 import Map from "./components/Map/Map";
 import Alojamientos from "./components/Alojamientos/Alojamientos";
+=======
+import MyDiary from "./components/MyDiary/MyDiary";
+>>>>>>> agustin
 
 
 function App() {
@@ -51,7 +55,11 @@ function MainContent() {
     "/loginSpeaker",
     "/loginPrincipal",
     "/registerSegundoPaso",
+<<<<<<< HEAD
     "/tickets"
+=======
+    "/registertercerpaso",
+>>>>>>> agustin
   ];
 
   return (
@@ -76,8 +84,12 @@ function MainContent() {
           <Route path="/tickets" element={<Tickets />} />
           <Route path="/attendeelist" element={<AttendeeList />} />
           <Route path="/notification" element={<Notifications />} />
+<<<<<<< HEAD
           <Route path="/map" element={<Map />} />
           <Route path="/alojamientos" element={<Alojamientos />} />
+=======
+          <Route path="/mydiary" element={<MyDiary />} />
+>>>>>>> agustin
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
