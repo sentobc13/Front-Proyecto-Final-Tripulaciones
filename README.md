@@ -36,7 +36,7 @@ El proyecto consiste en el diseño y desarrollo de una aplicación móvil integr
   - Control de inscripciones, asistencia y datos personales.
   - Seguimiento de actividades (ponencias, talleres, reuniones One2One).
     
-![Captura de pantalla 2024-07-03 182125](https://github.com/sentobc13/Front-Proyecto-Final-Tripulaciones/assets/160127899/65832808-3803-43a2-8aa1-92e62c293a71)
+![Captura de pantalla 2024-07-03 182125](https://github.com/sentobc13/Front-Proyecto-Final-Tripulaciones/assets/160127899/bab3c7c0-12ae-413c-9601-77a2cf5b1c95)
 
 ### 3.6 Zona Partners
 - **Planificación de Agendas**: Gestión de agendas y áreas de networking para partners y asistentes.
