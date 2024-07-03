@@ -87,7 +87,7 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
                 </ModalFooter>
                 {showHorarios && (
                     <ModalFooter className='div-horarios'>
-                        <p>Horarios Disponibles:</p>
+                        <p className='div-horarios-disponibles'>Horarios Disponibles:</p>
                         {horariosOrdenados.map(horario => (
                             <div className="horario-item" key={horario}>
                                 <Checkbox isChecked={horariosSeleccionados.includes(horario)} onChange={() => handleCheckboxChange(horario)}>
@@ -106,7 +106,7 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
                 )}
                 {showSolicitarButton && (
                     <ModalFooter className='div-btn'>
-                        <Button className='btn-nodal-interesa' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth onClick={handleSubmit}>
+                        <Button className='btn-nodal-solicitar' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth onClick={handleSubmit}>
                             Solicitar
                         </Button>
                     </ModalFooter>
