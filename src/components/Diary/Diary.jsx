@@ -74,7 +74,7 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
     };
     const reservarWorkshop = (workshop) => {
         registrationWorkshop.registerRegistrationWorkshop(workshop._id, workshop.start_date)
-        
+        //completarrr
     }
 
 
@@ -89,7 +89,7 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
                 <ModalCloseButton className="close-button" />
                 <ModalBody className='div-nodal-body'>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, tortor eget varius euismod, mauris justo ultricies ligula.
+                        {workshop.description}
                     </p>
                 </ModalBody>
                 <ModalFooter className='div-btn'>

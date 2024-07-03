@@ -25,7 +25,7 @@ const confirmOne2One = async (id) => {
   const token = localStorage.getItem("token");
   console.log(token);
   try {
-    const res = await axios.put(`${API_URL}/confirmOne2One/${id}`, {
+    const res = await axios.put(`${API_URL}/confirmOne2One/${id}`,"" , {
       headers: {
         authorization: token,
       },
@@ -40,7 +40,7 @@ const confirmOne2One = async (id) => {
 const rejectOne2One = async (id) => {
   const token = localStorage.getItem("token");
   try {
-    const res = await axios.put(`${API_URL}/confirmOne2One/${id}`, {
+    const res = await axios.put(`${API_URL}/rejectOne2One/${id}`,"" , {
       headers: {
         authorization: token,
       },
