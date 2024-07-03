@@ -23,6 +23,7 @@ import EditProfile from './components/Profile/EditProfile/EditProfile';
 import AttendeeList from "./components/AttendeeList/AttendeeList";
 import RegisterTercerPaso from "./components/RegisterTercerPaso/RegisterTercerPaso";
 import Notifications from "./components/Notifications/Notifications";
+import MyDiary from "./components/MyDiary/MyDiary";
 
 
 function App() {
@@ -49,7 +50,7 @@ function MainContent() {
     "/loginSpeaker",
     "/loginPrincipal",
     "/registerSegundoPaso",
-    "/registertercerpaso"
+    "/registertercerpaso",
   ];
 
   return (
@@ -74,6 +75,7 @@ function MainContent() {
           <Route path="/registertercerpaso" element={<RegisterTercerPaso />} />
           <Route path="/attendeelist" element={<AttendeeList />} />
           <Route path="/notification" element={<Notifications />} />
+          <Route path="/mydiary" element={<MyDiary />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
