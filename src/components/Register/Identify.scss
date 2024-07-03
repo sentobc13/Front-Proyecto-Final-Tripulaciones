@@ -13,6 +13,12 @@
   font-family: $font-primary; 
 }
 
+.logo {
+  width: 200px; /* Tamaño logo */
+  height: auto;
+  margin-bottom: 10rem; /* Espacio entre el logo y los botones */
+}
+
 .buttons {
   display: flex;
   flex-direction: column; 

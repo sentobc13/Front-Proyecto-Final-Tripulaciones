@@ -10,7 +10,7 @@ const ConnectLinkedin = () => {
             <div className="about-you-container">
                 <div className="stepper">
                     <div className="btn-back">
-                        <Link to="/registertercerpaso" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Link to="/tickets" style={{ textDecoration: 'none', color: 'inherit' }}>
                             <MdArrowBackIos style={{ fontSize: 18 }} />
                         </Link>
                     </div>

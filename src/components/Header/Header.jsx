@@ -149,7 +149,8 @@ const Header = () => {
             <ChakraLink as={Link} to="/alojamientos" onClick={toggleMenu} className="menu-link">Alojamientos</ChakraLink>
             <ChakraLink as={Link} to="/colaboradores" onClick={toggleMenu} className="menu-link">Colaboradores</ChakraLink>
             <ChakraLink as={Link} to="/premios-digit" onClick={toggleMenu} className="menu-link">Premios Digit</ChakraLink>
-            <ChakraLink as={Link} to="/contacto" onClick={toggleMenu} className="menu-link">Contacto</ChakraLink>
+            <ChakraLink as={Link} to="/contact" onClick={toggleMenu} className="menu-link">Contacto</ChakraLink>
+            
             <Text className="footer-text">
               E-LEARNING EXPERIENCE by SAMOO<br />23 y 24 de mayo 2025<br />Valencia
             </Text>

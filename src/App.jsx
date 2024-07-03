@@ -25,6 +25,8 @@ import Map from "./components/Map/Map";
 import Alojamientos from "./components/Alojamientos/Alojamientos";
 import BellAdviser from "./components/BellAdviser/BellAdviser";
 import MyDiary from "./components/MyDiary/MyDiary";
+import Contact from "./components/Contact/Contact";
+
 
 
 function App() {
@@ -53,7 +55,7 @@ function MainContent() {
     "/loginPrincipal",
     "/registerSegundoPaso",
     "/tickets",
-    "/registertercerpaso"
+ 
   ];
 
   return (
@@ -81,6 +83,7 @@ function MainContent() {
           <Route path="/map" element={<Map />} />
           <Route path="/alojamientos" element={<Alojamientos />} />
           <Route path="/mydiary" element={<MyDiary />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes> 
       </main>
