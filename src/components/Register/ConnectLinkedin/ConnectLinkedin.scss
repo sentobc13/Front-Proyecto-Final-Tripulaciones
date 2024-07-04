@@ -10,11 +10,11 @@
     opacity: 0px;
 }
 .imagenLinkedin {
-    width: 75%;  // Ajusta el tamaño según necesites
-    max-width: 400px;  // Establece un ancho máximo
-    height: auto;  // Mantén la proporción de la imagen
-    margin: 20px auto;  // Centra la imagen y añade un margen superior e inferior
-    display: block;  // Centra la imagen horizontalmente
+    width: 75%;  
+    max-width: 400px;  
+    height: auto;  
+    margin: 20px auto;  
+    display: block; 
   
 }
 
@@ -172,13 +172,12 @@
 .step.highlighted {
     height:8px;
     width: 60px;
-    /* Grosor de la línea resaltada */
     background-color: $buttons-register;
-    /* Color de la línea resaltada */
+
 }
 
 .btn-back {
-    display: flex; // Ajusta el margen según sea necesario
+    display: flex; 
     margin-right: 40px;
     margin-left: -50px;
   }

@@ -4,9 +4,9 @@ import { Card, CardBody, Text, Accordion, AccordionItem, AccordionButton, Box, A
 import { ChakraProvider } from '@chakra-ui/react'; // Asegúrate de envolver tu aplicación con este proveedor
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllWorkshops } from '../../features/workshop/WorkshopSlice';
-import './MyDiary.scss'
 import { getLoggedAttendee } from '../../features/auth/attendee/authAttendeeSlice';
 import { getLoggedSpeaker } from '../../features/auth/speaker/authSpeakerSlice';
+import './MyDiary.scss'
 
 const MyDiary = () => {
     const [selectedDay, setSelectedDay] = useState(null);
@@ -72,7 +72,6 @@ const MyDiary = () => {
     let horas = formatTime(fechaISO);
 
     const user = attendee || speaker
-    console.log(user);
 
     return (
         <ChakraProvider>

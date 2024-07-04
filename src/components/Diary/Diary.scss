@@ -6,88 +6,65 @@
     align-items: center;
     margin-top: 100px;
     text-align: center;
-    /* Centra el texto dentro del contenedor */
     font-family: $font-primary;
 }
 
 .div-programa {
     margin-bottom: 20px;
-    /* Espacio entre el h3 y los párrafos */
+
 }
 
 .div-dias {
     display: flex;
     flex-wrap: wrap;
-    /* Envuelve los días si no hay suficiente espacio */
     justify-content: center;
-    /* Centra los días horizontalmente */
     width: 100%;
-    /* Ocupa todo el ancho del contenedor padre */
     max-width: 400px;
-    /* Máximo ancho de los días */
     cursor: pointer;
 }
 
 .div-dias p {
     margin: 5px;
-    /* Espaciado entre los días */
     padding: 5px 10px;
-    /* Espaciado interno de los días */
     cursor: pointer;
-    /* Cambia el cursor a pointer al pasar sobre los días */
     position: relative;
-    /* Permite posicionar de forma relativa */
     text-align: center;
-    /* Centra el texto horizontalmente */
+
 }
 
 .div-dias p.active {
     color: #4fc3f7;
-    /* Color celeste al activar */
+
 }
 
 .div-dias p.active::after {
     content: '';
-    /* Agrega un elemento después del contenido */
     position: absolute;
-    /* Posiciona de forma absoluta con respecto al elemento padre */
     left: 50%;
-    /* Centra la línea horizontalmente */
     transform: translateX(-50%);
-    /* Centra la línea horizontalmente */
     bottom: -2px;
-    /* Distancia de la línea desde la parte inferior */
     width: calc(100% - 20px);
-    /* Ancho calculado menos el padding */
     height: 2px;
-    /* Grosor de la línea */
     background-color: #4fc3f7;
-    /* Color de la línea celeste */
+
 }
 
 
 .div-slider-chip {
     display: flex;
     align-items: center;
-    /* Alinea el contenido verticalmente al centro */
     background-color: #f5f5f5;
-    /* Fondo blanco roto */
     border-radius: 5px;
-    /* Esquinas redondeadas */
     width: 100%;
-    /* Ocupa todo el ancho disponible */
     box-sizing: border-box;
-    /* Incluye el padding en el ancho total */
     margin-top: 1px;
-    /* Espacio superior */
+
 }
 
 .slider {
     display: flex;
     align-items: center;
-    /* Alinea el contenido del slider al centro verticalmente */
     margin-right: 20px;
-    /* Espacio entre el slider y los chips */
     margin-left: 5px;
 
 }
@@ -95,68 +72,51 @@
 .chip {
     display: flex;
     flex-wrap: wrap;
-    /* Para que los chips se ajusten y envuelvan si es necesario */
     align-items: center;
-    /* Alinea los chips al centro verticalmente */
     margin-left: 45px;
 }
 
 .uniqueChipProfile {
     margin: 10px;
-    /* Espaciado entre cada chip */
+
 }
 
 .div-horario {
     text-align: left;
-    /* Alinea el texto a la izquierda */
     margin-top: 10px;
-    /* Espacio superior */
     width: 100%;
-    /* Ocupa todo el ancho disponible */
     max-width: 400px;
-    /* Máximo ancho del horario */
     margin-left: auto;
-    /* Empuja el horario hacia la izquierda */
     margin-right: auto;
-    /* Empuja el horario hacia la derecha */
     padding: 0 20px;
-    /* Espaciado interno */
     box-sizing: border-box;
-    /* Incluye el padding en el ancho total */
     margin-left: -10px;
     font-weight: bold;
 }
 
 .div-card {
     margin-top: 5px;
-    /* Borde de la tarjeta */
     border-radius: 5px;
-    /* Esquinas redondeadas */
     padding: 10px;
-    /* Espaciado interno reducido */
     margin-bottom: 5px;
-    /* Espacio inferior entre tarjetas */
     width: 400px;
-    /* Ancho deseado para la tarjeta */
     max-width: 95%;
-    /* Ancho máximo de la tarjeta */
     box-sizing: border-box;
-    /* Incluir el padding en el ancho total */
+
 }
 
 .div-card {
     width: 95%;
     max-width: 600px;
-    /* Ancho máximo deseado para la tarjeta */
     margin: 5px auto;
-    /* Margen exterior para centrar la tarjeta */
+
 }
 
 .card-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* Alinea los elementos a la izquierda */
+
 }
 
 .div-horario-card {
@@ -171,13 +131,12 @@
 .div-nombre {
     margin-top: -30px;
     align-self: flex-end;
-    /* Alinea el nombre a la derecha */
     font-weight: bold;
 }
 
 .div-cargo {
     align-self: flex-end;
-    /* Alinea el nombre a la derecha */
+
 }
 
 .div-card-descripcion{
@@ -186,92 +145,86 @@
 }
 .div-titulo {
     text-align: center;
-    /* Centra el título */
     margin-top: 50px;
-    /* Espacio superior entre el chip y el título */
-    ;
+
+    
 }
 
 .div-icon-text {
     margin-top: 40px;
     display: flex;
     align-items: center;
-    /* Alinea verticalmente los íconos y el texto */
+
 }
 
 .div-down-text {
     margin-left: 5px;
-    /* Espacio a la izquierda del texto */
     font-size: 12px;
 }
 
 .div-agenda.blurred {
     filter: blur(5px);
     pointer-events: none;
-    /* Evita que se pueda interactuar con el contenido de fondo */
+
 }
 
-// Diary.scss
 
-// Estilos para el modal
 
 .modal-content {
-    margin-top: 20vh; // Margen desde la parte superior
-    z-index: 1500; // Z-index para asegurar que esté sobre otros elementos
-    background-color: white; // Fondo blanco
-    border-radius: 8px; // Bordes redondeados
-    max-width: 400px; // Anchura máxima
-    max-height: 900px; // Altura máxima
-    width: 80%; // Anchura relativa al contenedor
-    height: auto; // Altura automática basada en el contenido
+    margin-top: 20vh; 
+    z-index: 1500; 
+    background-color: white; 
+    border-radius: 8px; 
+    max-width: 400px; 
+    max-height: 900px; 
+    width: 80%; 
+    height: auto; 
     display: flex;
     align-items: center;
-    margin: auto; // Centrar el modal
+    margin: auto; 
     font-family: $font-primary;
 
 
-
-    // Estilo del título del modal
     .div-nodal-titulo {
         font-size: 18px;
         font-weight: bold;
         margin-bottom: 10px;
-        padding: 16px; // Añade padding al título para separación del borde
-        border-bottom: 1px solid black; // Borde inferior del título    
+        padding: 16px; 
+        border-bottom: 1px solid black; 
     }
 
-    // Estilo del botón de cerrar
+
     .close-button {
-        font-size: 16px; // Tamaño del icono del botón de cerrar
-        width: 32px; // Ancho del botón
-        height: 32px; // Altura del botón
-        padding: 0; // Eliminar relleno si es necesario
+        font-size: 16px; 
+        width: 32px; 
+        height: 32px; 
+        padding: 0; 
         position: absolute;
-        top: 12px; // Distancia desde la parte superior
-        right: 12px; // Distancia desde la derecha
-        color: gray; // Color del icono
+        top: 12px; 
+        right: 12px; 
+        color: gray; 
         cursor: pointer;
 
         &:hover {
-            color: black; // Cambia el color al pasar el cursor
+            color: black; 
         }
     }
 
-    // Estilo del cuerpo del modal
+
     .div-nodal-body {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 20px; // Padding interior del cuerpo del modal
+        padding: 20px; 
     }
     .div-btn {
         display: flex;
         flex-direction: column;
-        gap: 5px; /* Reduce aún más la separación entre los botones */
-        align-items: stretch; /* Asegura que los botones ocupen todo el ancho disponible */
-        padding: 10px; /* Añade un poco de padding si es necesario */
+        gap: 5px; 
+        align-items: stretch; 
+        padding: 10px; 
     }
     
     .btn-nodal-one,
@@ -282,8 +235,8 @@
         border-radius: 4px;
         transition: background-color 0.2s;
         box-sizing: border-box;
-        width: 100%; /* Ocupa todo el ancho disponible *
-        margin: 0; /* Elimina cualquier margen adicional */
+        width: 100%; 
+        margin: 0; 
     }
     
     .btn-nodal-one {
@@ -300,18 +253,18 @@
         font-size: 1rem;
         padding: 10px 15px;
         border-radius: 4px;
-        display: flex; /* Utiliza flexbox para alinear elementos */
-        align-items: center; /* Alinea verticalmente los elementos */
-        justify-content: center; /* Centra horizontalmente los elementos */
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
         transition: background-color 0.2s;
         width: 207%;
         margin-left: -52px;
     }
     
     .btn-nodal-interesa ._CiHeart {
-        margin-left: 5px; /* Espacio a la izquierda del icono */
-        display: inline-block; /* Asegura que el icono se muestre en línea */
-        vertical-align: middle; /* Alinea verticalmente el icono */
+        margin-left: 5px; 
+        display: inline-block; 
+        vertical-align: middle; 
     }
     
     .btn-nodal-interesa:hover {
@@ -336,15 +289,15 @@
     }
     
     .div-horarios-disponibles {
-        margin-bottom: 10px; /* Espacio entre el párrafo y los horarios */
+        margin-bottom: 10px; 
 
     }
     
     .horario-item {
-        margin-bottom: 5px;  /* Espacio entre cada horario */
+        margin-bottom: 5px;
     }
     .chakra-checkbox {
-        margin: 0; /* Resetea el margen de los checkboxes */
-        padding: 5px; /* Añade padding para mejorar la clicabilidad */
+        margin: 0; 
+        padding: 5px; 
     }
 }

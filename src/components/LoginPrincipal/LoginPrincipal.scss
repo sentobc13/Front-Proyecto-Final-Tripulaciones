@@ -51,10 +51,10 @@
         cursor: pointer;
         text-align: center;
         border-radius: 6px;
-        transition: background-color 0.3s ease; // Transición suave para el color de fondo
+        transition: background-color 0.3s ease; 
   
         &:hover {
-          background-color: #3182ce; // Cambia el color de fondo al pasar el ratón
+          background-color: #3182ce; 
         }
       }
   
@@ -64,7 +64,7 @@
         border: 1px solid #4299e1;
   
         &:hover {
-          background-color: #eee; // Cambia el color de fondo al pasar el ratón
+          background-color: #eee; 
         }
       }
   
@@ -111,7 +111,7 @@
   }
   
   .btn-back {
-    display: flex; // Ajusta el margen según sea necesario
+    display: flex; 
     margin-right: 40px;
     margin-left: -50px;
   }

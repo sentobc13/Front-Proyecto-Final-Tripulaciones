@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import "../PaymentMethods/PaymentMethods.scss";
 import { Button } from '@chakra-ui/react';
 import { FaCreditCard, FaPaypal } from "react-icons/fa";
+import "../PaymentMethods/PaymentMethods.scss";
 
 const PaymentMethods = () => {
 

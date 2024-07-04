@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { GoChevronLeft } from 'react-icons/go';
 import Chip from '@mui/material/Chip';
 import { useNavigate } from 'react-router-dom';
-import '../EditProfile/EditProfile.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { Spinner } from '@chakra-ui/react';
 import { getLoggedAttendee, updateAttendee } from '../../../features/auth/attendee/authAttendeeSlice';
 import axios from 'axios';
+import '../EditProfile/EditProfile.scss';
 
 const EditProfile = () => {
   const { attendee, isLoadingAttendee } = useSelector((state) => state.authAttendee);

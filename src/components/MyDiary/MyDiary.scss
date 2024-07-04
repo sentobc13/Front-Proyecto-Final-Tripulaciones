@@ -59,9 +59,7 @@
 .slider {
     display: flex;
     align-items: center;
-    /* Alinea el contenido del slider al centro verticalmente */
     margin-right: 20px;
-    /* Espacio entre el slider y los chips */
     margin-left: 5px;
 
 }
@@ -69,68 +67,51 @@
 .chip {
     display: flex;
     flex-wrap: wrap;
-    /* Para que los chips se ajusten y envuelvan si es necesario */
     align-items: center;
-    /* Alinea los chips al centro verticalmente */
     margin-left: 45px;
 }
 
 .uniqueChipProfile {
     margin: 10px;
-    /* Espaciado entre cada chip */
+
 }
 
 .div-horario {
     text-align: left;
-    /* Alinea el texto a la izquierda */
     margin-top: 10px;
-    /* Espacio superior */
     width: 100%;
-    /* Ocupa todo el ancho disponible */
     max-width: 400px;
-    /* Máximo ancho del horario */
     margin-left: auto;
-    /* Empuja el horario hacia la izquierda */
     margin-right: auto;
-    /* Empuja el horario hacia la derecha */
     padding: 0 20px;
-    /* Espaciado interno */
     box-sizing: border-box;
-    /* Incluye el padding en el ancho total */
     margin-left: -10px;
     font-weight: bold;
 }
 
 .div-card {
     margin-top: 5px;
-    /* Borde de la tarjeta */
     border-radius: 5px;
-    /* Esquinas redondeadas */
     padding: 10px;
-    /* Espaciado interno reducido */
     margin-bottom: 5px;
-    /* Espacio inferior entre tarjetas */
     width: 400px;
-    /* Ancho deseado para la tarjeta */
     max-width: 95%;
-    /* Ancho máximo de la tarjeta */
     box-sizing: border-box;
-    /* Incluir el padding en el ancho total */
+
 }
 
 .div-card {
     width: 95%;
     max-width: 600px;
-    /* Ancho máximo deseado para la tarjeta */
     margin: 5px auto;
-    /* Margen exterior para centrar la tarjeta */
+
 }
 
 .card-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* Alinea los elementos a la izquierda */
+
 }
 
 .div-horario-card {
@@ -146,7 +127,6 @@
 .div-nombre {
     margin-top: -30px;
     align-self: flex-end;
-    /* Alinea el nombre a la derecha */
     font-weight: bold;
 }
 
@@ -163,42 +143,37 @@
 
 .div-titulo-name{
     text-align: center;
-    /* Centra el título */
     margin-top: 50px;
-    /* Espacio superior entre el chip y el título */
-    ;
+
+    
 }
 
 .div-icon-text {
     margin-top: 40px;
     display: flex;
     align-items: center;
-    /* Alinea verticalmente los íconos y el texto */
+
 }
 
 .div-down-text {
     margin-left: 5px;
-    /* Espacio a la izquierda del texto */
     font-size: 12px;
 }
 
 .div-agenda.blurred {
     filter: blur(5px);
     pointer-events: none;
-    /* Evita que se pueda interactuar con el contenido de fondo */
+
 }
 
-// Estilos para la tarjeta One-to-One
 
 .div-card-one2one {
     width: 90%;
     max-width: 600px;
-    /* Ancho máximo deseado para la tarjeta */
     margin: 5px auto;
-    /* Margen exterior para centrar la tarjeta */
     font-family: $font-primary;
     position: relative;
-    /* Añadir posición relativa para alinear el avatar */
+
 }
 
 .card-one2one {
@@ -206,17 +181,14 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* Alinear los elementos a la izquierda */
     position: relative;
-    /* Añadir posición relativa para alinear el avatar */
     height: 90px;
-    /* Ajusta automáticamente la altura */
+
 }
 
 .div-content-one2one {
     display: flex;
     justify-content: space-between;
-    /* Espacio entre columnas */
     width: 100%;
     align-items: center;
 }
@@ -234,19 +206,17 @@
 
 .div-chip-one2one {
     margin-top: 5px;
-    /* Espacio sobre el chip */
     margin-bottom: 10px;
-    /* Espacio bajo el chip */
+
 }
 
 .div-nombre-one2one {
     font-size: 14px;
     font-weight: bold;
     color: white;
-    /* Color del texto del nombre */
     text-align: end;
     margin-left: 200px
-    /* Mueve el texto hacia la derecha */
+
 }
 
 .div-cargo-one2one {
@@ -254,16 +224,14 @@
     color: white;
     text-align: end;
     margin-left: auto;
-    /* Mueve el texto hacia la derecha */
+
 }
 
 .avatar-picture {
     border-radius: 50%;
-    /* Para hacerlo redondo */
     width: 60px;
-    /* Ajuste el tamaño según sea necesario */
     height: 60px;
-    /* Ajuste el tamaño según sea necesario */
+
 }
 
 
@@ -271,23 +239,23 @@
 @media (max-width: 768px) {
     .div-card-one2one {
         width: 90%;
-        /* Ajusta el ancho para dispositivos móviles */
+
     }
 
     .card-one2one {
         padding: 10px;
-        /* Reduce el padding para dispositivos móviles */
+
     }
 
     .card-one2one img.avatar-picture {
         width: 60px;
-        /* Ajusta el tamaño de la imagen para móviles */
+
 
     }
 
     .div-nombre-one2one {
         margin-bottom: 10px;
-        /* Añade espacio debajo del nombre */
+
     }
 
     @media (max-width: 768px) {
@@ -295,13 +263,9 @@
         .div-nombre-one2one,
         .div-cargo-one2one {
             position: relative;
-            /* Cambia a posición relativa en dispositivos más pequeños */
-
-
             margin-left: 10px;
-            /* Añade un margen izquierdo para separar del borde */
             text-align: center;
-            /* Centra el texto en dispositivos móviles */
+
         }
     }
 }

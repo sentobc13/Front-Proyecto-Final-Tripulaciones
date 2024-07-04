@@ -9,24 +9,24 @@ const Alojamientos = () => {
       padding="20px" 
       borderRadius="10px" 
       backgroundColor="white"
-      mt="80px"  // Ajusta según la altura de tu header
-      textAlign="center" // Centra el contenido
+      mt="80px"  
+      textAlign="center" 
     >
       <Box 
         position="relative" 
         width="100%" 
-        maxWidth="430px" // Tamaño fijo para evitar pixeleado
+        maxWidth="430px" 
         margin="auto" 
         marginBottom="20px"
         overflow="hidden" 
         borderRadius="10px"
       >
         <Image 
-          src="/cabecera1.png" // Cambia a la ruta de tu imagen de cabecera
+          src="/cabecera1.png" 
           alt="Alojamiento"
           objectFit="cover" 
           width="100%" 
-          height={{ base: '150px', md: '200px' }} // Altura más pequeña para la cabecera
+          height={{ base: '150px', md: '200px' }} 
         />
         <Text 
           position="absolute" 
@@ -38,7 +38,7 @@ const Alojamientos = () => {
           padding="10px" 
           borderRadius="5px"
         >
-          Hotel
+          
         </Text>
       </Box>
 
@@ -50,7 +50,7 @@ const Alojamientos = () => {
         {/* Card 1 */}
         <Box 
           width="100%" 
-          maxWidth="430px" // Tamaño fijo para evitar pixeleado
+          maxWidth="430px"
           height="auto" 
           overflow="hidden" 
           borderRadius="10px" 

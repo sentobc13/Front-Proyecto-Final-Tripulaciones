@@ -34,7 +34,7 @@ export const authSlice = createSlice({
             .addCase(registerAttendee.fulfilled, (state, action) => {
                 console.log(action)
                 state.isSuccess = true
-                state.message = action.payload.msg //Porque guardas el mns en el estado???
+                state.message = action.payload.msg 
             })
             .addCase(registerAttendee.rejected, (state, action) => {
                 state.isSuccess = false

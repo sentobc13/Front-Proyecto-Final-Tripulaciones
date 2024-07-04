@@ -14,21 +14,21 @@
 }
 
 .logo {
-  width: 200px; /* Tamaño logo */
+  width: 200px; 
   height: auto;
-  margin-bottom: 10rem; /* Espacio entre el logo y los botones */
+  margin-bottom: 10rem; 
 }
 
 .buttons {
   display: flex;
   flex-direction: column; 
-  gap: 1rem; /* Espacio entre los botones */
+  gap: 1rem; 
 }
 
 .button {
-  width: 400px; /* Ancho fijo para los botones */
+  width: 400px; 
   padding: 0.5rem;
-  background-color: rgba(49, 130, 206, 1); /* Fondo semi-transparente blanco */
+  background-color: rgba(49, 130, 206, 1); 
   color: white;
   border: none;
   border-radius: 5px;
@@ -37,6 +37,6 @@
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.3); /* Cambio de color al pasar el ratón */
+    background-color: rgba(255, 255, 255, 0.3); 
   }
 }

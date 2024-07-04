@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from '@mui/material/styles';
-import Home from "./components/Home/Home";
 import Header from "./components/Header/Header";
 import Identify from "./components/Register/Identify";
 import Profile from "./components/Profile/Profile";
@@ -77,7 +76,6 @@ function MainContent() {
           <Route path="/hastags" element={<Hastags />} />
           <Route path="/allergies" element={<Allergies />} />
           <Route path="/connectlinkedin" element={<ConnectLinkedin />} />
-          <Route path="/" element={<PrivateZone><Home /></PrivateZone>} />
           <Route path="/profile" element={<PrivateZone><Profile /></PrivateZone>} />
           <Route path="/editprofile" element={<PrivateZone><EditProfile /></PrivateZone>} />
           <Route path="/loginSpeaker" element={<LoginSpeaker />} />
