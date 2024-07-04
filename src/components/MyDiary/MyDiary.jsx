@@ -50,14 +50,14 @@ const MyDiary = () => {
     }
 
     function formatTime(fechaISO) {
-        // Crear un objeto Date a partir de la cadena ISO 8601
+        
         let fecha = new Date(fechaISO);
 
-        // Obtener las horas y minutos de la fecha
+        
         let horas = fecha.getHours();
         let minutos = fecha.getMinutes();
 
-        // Formatear las horas y minutos a dos dígitos si es necesario
+        
         if (horas < 10) {
             horas = '0' + horas;
         }
@@ -65,7 +65,7 @@ const MyDiary = () => {
             minutos = '0' + minutos;
         }
 
-        // Devolver la hora en formato de 24 horas (HH:mm)
+
         return horas + ':' + minutos;
     }
     let fechaISO = '2024-06-23T17:30:00';
