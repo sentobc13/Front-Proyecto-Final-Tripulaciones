@@ -76,6 +76,7 @@ const DescriptionModal = ({ isOpen, onOpen, onClose, workshop }) => {
 
     return (
         <Modal isOpen={isOpen} onClose={handleCloseModal} isCentered>
+            {console.log("workshoppp:", workshop)}
             <ModalOverlay className="modal-overlay" />
             <ModalContent className='modal-content'>
                 <ModalHeader className='div-nodal-titulo'>Detalles de la Descripción</ModalHeader>
@@ -125,7 +126,12 @@ const Diary = () => {
     const dispatch = useDispatch();
     const { workshops, isLoading } = useSelector(state => state.WorkshopSlice);
     const { isOpen, onOpen, onClose } = useDisclosure(); // Asegúrate de tener useDisclosure configurado correctamente
+    const [selectedWorkshop, setSelectedWorkshop] = useState(null);
 
+    const handleOpen = (workshop) => {
+        setSelectedWorkshop(workshop);
+        onOpen();
+    };
     useEffect(() => {
         dispatch(getAllWorkshops());
     }, [dispatch]);
@@ -200,21 +206,23 @@ const Diary = () => {
                                 <Text className='div-card-descripcion'>
                                     {workshop.description}
                                 </Text>
-                                <div className='div-icon-text' onClick={() => onOpen(workshop)} style={{ cursor: 'pointer' }}>
+
+                                <div className='div-icon-text' onClick={() => handleOpen(workshop)} style={{ cursor: 'pointer' }}>
                                     <FaChevronDown />
                                     <span className='div-down-text'>Descripción</span>
                                 </div>
-                                <DescriptionModal
-                                    isOpen={isOpen} // Asegúrate de pasar isOpen aquí
-                                    onOpen={onOpen}
-                                    onClose={onClose}
-                                    workshop={workshop}
-                                    key={workshop._id}
-                                />
                             </CardBody>
                         </Card>
                     </div>
                 ))}
+
+                {selectedWorkshop && (
+                    <DescriptionModal
+                        isOpen={isOpen}
+                        onClose={onClose}
+                        workshop={selectedWorkshop}
+                    />
+                )}
             </div>
         </ChakraProvider>
     );
