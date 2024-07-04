@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3001/notifications';
+const API_URL = 'https://backend-desafio-1yqs.onrender.com/notifications';
 
 const getAllNotifications = async () => {
     const token = localStorage.getItem('token');

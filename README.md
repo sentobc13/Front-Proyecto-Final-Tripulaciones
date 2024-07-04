@@ -3,6 +3,8 @@
 ## 1. Resumen del Proyecto
 El proyecto consiste en el diseño y desarrollo de una aplicación móvil integral para la gestión, promoción y comunicación de eventos, enfocada en la E-learning Experience 2025. La app debe proporcionar herramientas avanzadas para la planificación y gestión de agendas, inscripciones, y ofrecer funcionalidades adicionales para mejorar la experiencia de los usuarios y partners durante el evento.
 
+Desplegado en AWS: https://main.diynx7lmpg68y.amplifyapp.com/
+
 ## 2. Objetivos del Proyecto
 - Facilitar la gestión de agendas y reuniones entre clientes y partners.
 - Proporcionar una plataforma eficiente para inscripciones y asistencia a ponencias, talleres y eventos relacionados.
