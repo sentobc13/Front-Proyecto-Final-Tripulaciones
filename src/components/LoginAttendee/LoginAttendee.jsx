@@ -34,7 +34,7 @@ const LoginAttendee = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      navigate('/profile/');
+      navigate('/profile');
     }
     dispatch(reset());
   }, [isSuccess, dispatch, navigate]);

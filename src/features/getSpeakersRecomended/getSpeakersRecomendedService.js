@@ -4,7 +4,7 @@ const user = JSON.parse(localStorage.getItem('attendee')) || JSON.parse(localSto
 
 const getSpeakersRecomended = async ()=>{
     const token = localStorage.getItem("token");
-    const res = await axios.get("https://api-match-1.onrender.com/similarity" + user._id ,{
+    const res = await axios.get("https://api-match-1.onrender.com/similarity/" + user._id ,{
       headers: {
         authorization: token,
       },

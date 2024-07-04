@@ -39,7 +39,7 @@ const ConnectLinkedin = () => {
             </div>
           
             <div className="imageContainer">
-                <img src="public/imagen connetLinkedin.png" alt="Descripción de la imagen" className="imagenLinkedin" />
+                <img src="public/imagenconnetLinkedin.png" alt="Descripción de la imagen" className="imagenLinkedin" />
             </div>
             
             <div className='container-button'>
