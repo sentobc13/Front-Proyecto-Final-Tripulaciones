@@ -61,7 +61,6 @@ const AttendeeList = () => {
 
   const renderAttendeeProfile = (attendee) => {
     if (!attendee) return null;
-    console.log();
     return (
       <div className="mainContent-profile">
         <div className="topProfile">

@@ -83,16 +83,29 @@ const MyDiary = () => {
                 {user.one2OneTaken.map((one2One, index) => (
                     <div className='div-card-one2one'>
                         <Card className='card-one2one'>
-                            <div className='div-content'>
-                                <div className='div-horario-one2one'><p>{formatTime(one2One.time)}</p></div>
-                                <div className="div-chip-one2one"><Chip label="One to One" /></div>
-                                <div className='div-nombre-one2one'><Text>{one2One.speaker.name}</Text></div>
-                                <div className='div-cargo-one2one'><Text>{one2One.speaker.job_title}</Text></div>
-                                <img src={one2One.speaker.profilePic} alt="Foto de Perfil" className="avatar-picture" />
+                            <div className='div-content-one2one'>
+                                <div className='column'>
+                                    <div className='div-horario-one2one'><p>{formatTime(one2One.time)}</p></div>
+                                    <div className="div-chip-one2one"><Chip label="One to One" /></div>
+                                </div>
+                                <div className='column'>
+                                    <div className='div-nombre-one2one'><Text>{one2One.speaker.name}</Text></div>
+                                    <div className='div-cargo-one2one'><Text>{one2One.speaker.job_title}</Text></div>
+                                </div>
+                                <div className='column'>
+                                    <img
+                                        src={
+                                            one2One.speaker.profilePic
+                                                ? `${one2One.speaker.profilePic}`
+                                                : "http://localhost:3001/public/noProfilePicture.jpg"
+                                        }
+                                        alt={one2One.speaker.profilePic}
+                                        className="avatar-picture"
+                                    />
+                                </div>
                             </div>
                         </Card>
                     </div>
-
                 ))}
                 {user.workshops_ids.map((workshop, index) => (
                     <div className='div-card' key={index}>
