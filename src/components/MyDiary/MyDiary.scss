@@ -152,7 +152,8 @@
 
 .div-cargo {
     align-self: flex-end;
-    /* Alinea el nombre a la derecha */
+    margin-top: 5px;
+    
 }
 
 .div-card-descripcion {
@@ -160,7 +161,7 @@
 
 }
 
-.div-titulo {
+.div-titulo-name{
     text-align: center;
     /* Centra el título */
     margin-top: 50px;

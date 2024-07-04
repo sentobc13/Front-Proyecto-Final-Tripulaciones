@@ -120,11 +120,8 @@ const MyDiary = () => {
                                 <Text className='div-cargo'>
                                     {workshop.speaker_id.job_title}
                                 </Text>
-                                <Text className='div-titulo'>
+                                <Text className='div-titulo-name'>
                                     {workshop.name}
-                                </Text>
-                                <Text className='div-card-descripcion'>
-                                    {workshop.description}
                                 </Text>
                                 <Accordion allowToggle>
                                     <AccordionItem>
