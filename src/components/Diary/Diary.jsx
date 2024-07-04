@@ -18,6 +18,8 @@ const DescriptionModal = ({ isOpen, onOpen, onClose, workshop }) => {
     const [showSolicitarButton, setShowSolicitarButton] = useState(false);
     const [showMeInteresaButton, setShowMeInteresaButton] = useState(true);
 
+    const navigate = useNavigate(); 
+
     const handleSolicitarClick = () => {
         setShowHorarios(prev => !prev);
         setShowSolicitarButton(false);
@@ -53,6 +55,7 @@ const DescriptionModal = ({ isOpen, onOpen, onClose, workshop }) => {
     const handleSubmit = () => {
         if (horariosSeleccionados.length > 0) {
             solicitar121(horariosSeleccionados[0], workshop.speaker_id._id);
+            navigate('/notification');
         }
     };
 
