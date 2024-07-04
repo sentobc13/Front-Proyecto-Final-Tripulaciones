@@ -18,7 +18,7 @@ const Notifications = () => {
     const aceptSolic = async (noti) => {
         try {
             await registrationOne2OneService.confirmOne2One(noti.registrationOne2One._id);
-            await dispatch(deleteNotification(noti._id));
+            dispatch(deleteNotification(noti._id));
             dispatch({ type: 'DELETE_NOTIFICATION_LOCALLY', payload: noti._id });
         } catch (error) {
             console.error('Error confirmando solicitud uno a uno:', error);
