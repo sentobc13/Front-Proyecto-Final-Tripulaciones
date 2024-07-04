@@ -23,7 +23,6 @@ const registerOnetoOne = async (horariosSeleccionado, speaker_id) => {
 
 const confirmOne2One = async (id) => {
   const token = localStorage.getItem("token");
-  console.log(token);
   try {
     const res = await axios.put(`${API_URL}/confirmOne2One/${id}`,"" , {
       headers: {

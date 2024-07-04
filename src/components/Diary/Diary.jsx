@@ -2,33 +2,32 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { PiSliders } from "react-icons/pi";
 import { FaChevronDown } from "react-icons/fa";
-import { CiHeart } from "react-icons/ci";   
+import { CiHeart } from "react-icons/ci";
 import './Diary.scss';
 import { Chip } from '@mui/material';
-import { Button, Card, CardBody, Text, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, ModalFooter, Checkbox, CheckboxGroup } from '@chakra-ui/react';
-import { getAllWorkshops } from '../../features/workshop/WorkshopSlice';
-import { ChakraProvider } from '@chakra-ui/react'; // Asegúrate de envolver tu aplicación con este proveedor
+import { Button, Card, CardBody, Text, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, ModalFooter, Checkbox } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import './Diary.scss';
-import registrationOne2OneService from "../../features/registrationOnetoOne/registrationOnetoOneService"
-import registrationWorkshop from "../../features/registrationWorkshop/registrationWorkshopService"
+import registrationOne2OneService from "../../features/registrationOnetoOne/registrationOnetoOneService";
+import registrationWorkshop from "../../features/registrationWorkshop/registrationWorkshopService";
+import { getAllWorkshops } from '../../features/workshop/WorkshopSlice';
 
-const DescriptionModal = ({ isOpen, onClose, workshop }) => {
+const DescriptionModal = ({ isOpen, onOpen, onClose, workshop }) => {
     const [showHorarios, setShowHorarios] = useState(false);
     const [horariosSeleccionados, setHorariosSeleccionados] = useState([]);
     const [showSolicitarButton, setShowSolicitarButton] = useState(false);
-    const [showMeInteresaButton, setShowMeInteresaButton] = useState(true); // Estado para controlar visibilidad del botón "Me interesa"
+    const [showMeInteresaButton, setShowMeInteresaButton] = useState(true);
 
     const handleSolicitarClick = () => {
         setShowHorarios(prev => !prev);
-        setShowSolicitarButton(false); // Oculta el botón "Solicitar" al abrir el modal
-        setShowMeInteresaButton(prev => !prev); // Alterna la visibilidad del botón "Me interesa"
+        setShowSolicitarButton(false);
+        setShowMeInteresaButton(true);
     };
 
     const handleCloseModal = () => {
         setShowHorarios(false);
         setShowSolicitarButton(false);
-        setShowMeInteresaButton(true); // Vuelve a mostrar el botón "Me interesa" al cerrar el modal
+        setShowMeInteresaButton(true);
         setHorariosSeleccionados([]);
         onClose();
     };
@@ -36,61 +35,53 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
     const handleCheckboxChange = (value) => {
         if (horariosSeleccionados.includes(value)) {
             setHorariosSeleccionados(horariosSeleccionados.filter(item => item !== value));
-            setShowSolicitarButton(false); // Oculta el botón "Solicitar" al deseleccionar todos los horarios
+            setShowSolicitarButton(false);
         } else {
             setHorariosSeleccionados([value]);
-            setShowSolicitarButton(true); // Muestra el botón "Solicitar" al seleccionar un horario
+            setShowSolicitarButton(true);
         }
     };
+
     const solicitar121 = (horariosSeleccionado, speaker_id) => {
-        const one2oneDisponibles = workshop.speaker_id.partner_id.membership_type.benefits[0]
-        const one2oneTomados = workshop.speaker_id.partner_id.one2oneTaken
-        if (one2oneDisponibles - one2oneTomados != 0) {
-            return (
-                registrationOne2OneService.registerOnetoOne(horariosSeleccionado, speaker_id)
-
-            )
+        const one2oneDisponibles = workshop.speaker_id.partner_id.membership_type.benefits[0];
+        const one2oneTomados = workshop.speaker_id.partner_id.one2oneTaken;
+        if (one2oneDisponibles - one2oneTomados !== 0) {
+            registrationOne2OneService.registerOnetoOne(horariosSeleccionado, speaker_id);
         }
+    };
 
-    }
     const handleSubmit = () => {
         if (horariosSeleccionados.length > 0) {
             solicitar121(horariosSeleccionados[0], workshop.speaker_id._id);
         }
     };
 
-    function obtenerHorariosOrdenados(horarios) {
+    const obtenerHorariosOrdenados = (horarios) => {
         const horariosOrdenados = [...horarios].sort((a, b) => new Date(a) - new Date(b));
-        return horariosOrdenados
-        // Extraer la fecha y hora formateadas
+        return horariosOrdenados;
+    };
 
-    }
     const convertirHora = (horario) => {
-        console.log(horario);
         const fecha = new Date(horario);
         const dia = fecha.toLocaleDateString('es-ES', { day: 'numeric', month: 'long' });
         const hora = fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         return `${dia} a las ${hora}`;
     };
-    const reservarWorkshop = (workshop) => {
-        registrationWorkshop.registerRegistrationWorkshop(workshop._id, workshop.start_date)
-        //completarrr
-    }
 
+    const reservarWorkshop = (workshop) => {
+        registrationWorkshop.registerRegistrationWorkshop(workshop._id, workshop.start_date);
+    };
 
     const horariosOrdenados = obtenerHorariosOrdenados(workshop.speaker_id.freeSchedule);
-    console.log(horariosOrdenados);
+
     return (
         <Modal isOpen={isOpen} onClose={handleCloseModal} isCentered>
-
             <ModalOverlay className="modal-overlay" />
             <ModalContent className='modal-content'>
                 <ModalHeader className='div-nodal-titulo'>Detalles de la Descripción</ModalHeader>
                 <ModalCloseButton className="close-button" />
                 <ModalBody className='div-nodal-body'>
-                    <p>
-                        {workshop.description}
-                    </p>
+                    <p>{workshop.description}</p>
                 </ModalBody>
                 <ModalFooter className='div-btn'>
                     <Button className='btn-nodal-one' bg="white" color="#4299E1" _hover={{ bg: '#eee' }} isFullWidth onClick={handleSolicitarClick}>
@@ -129,11 +120,11 @@ const DescriptionModal = ({ isOpen, onClose, workshop }) => {
 };
 
 const Diary = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
     const [selectedDay, setSelectedDay] = useState(null);
     const [filteredWorkshops, setFilteredWorkshops] = useState([]);
     const dispatch = useDispatch();
     const { workshops, isLoading } = useSelector(state => state.WorkshopSlice);
+    const { isOpen, onOpen, onClose } = useDisclosure(); // Asegúrate de tener useDisclosure configurado correctamente
 
     useEffect(() => {
         dispatch(getAllWorkshops());
@@ -151,16 +142,6 @@ const Diary = () => {
         }
     }, [selectedDay, workshops]);
 
-    if (isLoading) {
-        return (
-            <div className="custom-loader-container">
-                <div className="custom-loader"></div>
-            </div>
-        );
-    }
-
-    console.log(workshops);
-
     const handleDayClick = (day) => {
         setSelectedDay(day);
     };
@@ -177,8 +158,8 @@ const Diary = () => {
     };
 
     return (
-        <ChakraProvider> {/* Envuelve tu componente con ChakraProvider */}
-            <div className={`div-agenda ${isOpen ? 'blurred' : ''}`}>
+        <ChakraProvider>
+            <div className={`div-agenda`}>
                 <div className='div-programa'>
                     <h3>Programa</h3>
                 </div>
@@ -219,11 +200,17 @@ const Diary = () => {
                                 <Text className='div-card-descripcion'>
                                     {workshop.description}
                                 </Text>
-                                <div className='div-icon-text' onClick={onOpen} style={{ cursor: 'pointer' }}>
+                                <div className='div-icon-text' onClick={() => onOpen(workshop)} style={{ cursor: 'pointer' }}>
                                     <FaChevronDown />
                                     <span className='div-down-text'>Descripción</span>
                                 </div>
-                                <DescriptionModal isOpen={isOpen} onClose={onClose} workshop={workshop} />
+                                <DescriptionModal
+                                    isOpen={isOpen} // Asegúrate de pasar isOpen aquí
+                                    onOpen={onOpen}
+                                    onClose={onClose}
+                                    workshop={workshop}
+                                    key={workshop._id}
+                                />
                             </CardBody>
                         </Card>
                     </div>

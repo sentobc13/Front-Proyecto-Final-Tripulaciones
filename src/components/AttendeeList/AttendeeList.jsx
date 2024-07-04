@@ -98,6 +98,7 @@ const AttendeeList = () => {
           attendee.workshops_ids &&
           attendee.workshops_ids.map(workshop => (
             <div className='div-card' key={workshop._id}>
+              {console.log(attendee)}
               <Card>
                 <CardBody className='card-content'>
                   <Text className='div-horario-card'>

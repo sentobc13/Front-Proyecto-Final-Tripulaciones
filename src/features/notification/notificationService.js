@@ -21,13 +21,29 @@ const updateNotification = async (newData) => {
             },
         });
         return response.data;
-    } catch (error) { 
+    } catch (error) {
         console.error(`Error updating notification ${newData._id}:`, error);
         return { data: null, error: 'Error updating notification' };
+    }
+};
+
+const deleteNotification = async (id) => {
+    try {
+        const token = localStorage.getItem('token');
+        const response = await axios.delete(`${API_URL}/id/${id}`, {
+            headers: {
+                Authorization: token,
+            },
+        });
+        return response.data;
+    } catch (error) {
+        console.error(`Error deleting notification ${id}:`, error);
+        return { data: null, error: 'Error deleting notification' };
     }
 };
 
 export default {
     getAllNotifications,
     updateNotification,
+    deleteNotification,
 };

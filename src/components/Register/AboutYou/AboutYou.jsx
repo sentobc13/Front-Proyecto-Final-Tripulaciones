@@ -18,15 +18,8 @@ const AboutYou = () => {
   });
 
   const [formErrors, setFormErrors] = useState({});
-  const navigate = useNavigate()
-  useEffect(() => {
-
-    if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
-      // navigate("/identify")
-      navigate("/aboutyou")
-    }
-  })
   const typeUser = localStorage.getItem('validator');
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,8 +44,10 @@ const AboutYou = () => {
       errors.phone = 'El teléfono es requerido.';
     } else if (!formData.linkedin) {
       errors.linkedin = 'El LinkedIn es requerido.';
-    } else if (!formData.partner_id) {
-      errors.partner_id = 'El codigo de verificacion del partner es requerido.';
+    } else if (typeUser === 'Speaker') {
+      if (!formData.partner_id) {
+        errors.partner_id = 'El codigo de verificacion del partner es requerido.';
+      }
     }
 
     if (Object.keys(errors).length > 0) {
@@ -67,6 +62,7 @@ const AboutYou = () => {
     const updatedData = { ...existingData, ...formData };
 
     localStorage.setItem('register', JSON.stringify(updatedData));
+    console.log("si");
 
     if (typeUser == 'Speaker') {
       navigate('/hastags');

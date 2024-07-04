@@ -79,7 +79,7 @@ const RegisterSegundoPaso = () => {
         if(goTo === 'Attendee'){
             navigate('/tickets')
         }else{
-            navigate('/connectLinkedin')
+            navigate('/connectlinkedin')
         }
     };
 

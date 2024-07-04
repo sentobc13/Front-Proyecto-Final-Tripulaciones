@@ -4,6 +4,7 @@ import notificationService from './notificationService';
 const initialState = {
     notifications: [],
     notificationUpdate: null,
+    notificationDelete: null,
     isLoading: false,
     isError: false,
     error: '',
@@ -33,6 +34,18 @@ export const updateNotification = createAsyncThunk(
     }
 );
 
+export const deleteNotification = createAsyncThunk(
+    'notifications/delete',
+    async (id, thunkAPI) => {
+        try {
+            const deletedNotification = await notificationService.deleteNotification(id);
+            return deletedNotification;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data);
+        }
+    }
+);
+
 const notificationSlice = createSlice({
     name: 'notifications',
     initialState,
@@ -51,6 +64,7 @@ const notificationSlice = createSlice({
             .addCase(getAllNotifications.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
+                state.error = action.payload;
             })
             .addCase(updateNotification.pending, (state) => {
                 state.isLoading = true;
@@ -64,6 +78,21 @@ const notificationSlice = createSlice({
             .addCase(updateNotification.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
+                state.error = action.payload;
+            })
+            .addCase(deleteNotification.pending, (state) => {
+                state.isLoading = true;
+                state.isError = false;
+            })
+            .addCase(deleteNotification.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.notifications = action.payload;
+                state.isError = false;
+            })
+            .addCase(deleteNotification.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.error = action.payload;
             });
     },
 });

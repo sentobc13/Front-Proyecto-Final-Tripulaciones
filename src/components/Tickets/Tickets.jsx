@@ -153,7 +153,7 @@ const Tickets = () => {
             </div>
 
             <div className="container-button">
-                <Link to="/connectLinkedin">
+                <Link to="/connectlinkedin">
                     <button className="continue-button">Siguiente</button>
                 </Link>
             </div>

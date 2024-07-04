@@ -2,27 +2,38 @@ import React, { useEffect, useState } from 'react';
 import { GoChevronLeft, GoChevronRight } from 'react-icons/go';
 import './Notifications.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllNotifications, updateNotification } from '../../features/notification/notificationSlice';
-import registrationOne2OneService from '../../features/registrationOnetoOne/registrationOnetoOneService'
+import { deleteNotification, getAllNotifications, updateNotification } from '../../features/notification/notificationSlice';
+import registrationOne2OneService from '../../features/registrationOnetoOne/registrationOnetoOneService';
 
 const Notifications = () => {
-    const [openNotificationId, setOpenNotificationId] = useState(null);
     const dispatch = useDispatch();
-    const { notifications, error, isLoading } = useSelector((state) => state.notificationSlice);
+    const [openNotificationId, setOpenNotificationId] = useState(null);
+    const { notifications, isLoading, isError, error } = useSelector(state => state.notificationSlice);
     const user = JSON.parse(localStorage.getItem('attendee')) || JSON.parse(localStorage.getItem('speaker'));
-
 
     useEffect(() => {
         dispatch(getAllNotifications());
     }, [dispatch]);
 
-    const aceptSolic = (id) => {
-        dispatch(registrationOne2OneService.confirmOne2One(id))
-    }
+    const aceptSolic = async (noti) => {
+        try {
+            await registrationOne2OneService.confirmOne2One(noti.registrationOne2One._id);
+            await dispatch(deleteNotification(noti._id));
+            dispatch({ type: 'DELETE_NOTIFICATION_LOCALLY', payload: noti._id });
+        } catch (error) {
+            console.error('Error confirmando solicitud uno a uno:', error);
+        }
+    };
 
-    const rejectSolic = (id) => {
-        dispatch(registrationOne2OneService.rejectOne2One(id))
-    }
+    const rejectSolic = async (noti) => {
+        try {
+            await registrationOne2OneService.rejectOne2One(noti.registrationOne2One._id);
+            await dispatch(deleteNotification(noti._id));
+            dispatch({ type: 'DELETE_NOTIFICATION_LOCALLY', payload: noti._id });
+        } catch (error) {
+            console.error('Error rechazando solicitud uno a uno:', error);
+        }
+    };
 
     const handleChevronClick = (id) => {
         setOpenNotificationId(openNotificationId === id ? null : id);
@@ -33,7 +44,7 @@ const Notifications = () => {
         updatedNoti.status = 'view';
         dispatch(updateNotification(updatedNoti))
             .then(() => {
-                dispatch(getAllNotifications());
+                dispatch({ type: 'UPDATE_NOTIFICATION_LOCALLY', payload: updatedNoti });
             })
             .catch((error) => {
                 console.error('Error updating notification:', error);
@@ -48,6 +59,10 @@ const Notifications = () => {
         return <p>Error: {error}</p>;
     }
 
+    if (!Array.isArray(notifications) || notifications.length === 0) {
+        return dispatch(getAllNotifications());
+    }
+
     return (
         <>
             <div className="topNotification">
@@ -57,57 +72,56 @@ const Notifications = () => {
                 </div>
             </div>
             <div className="cardContainer">
-                {notifications &&
-                    [...notifications]
-                        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // Ordenar de más reciente a más antiguo
-                        .map((noti) => (
-                            user.role === 'attendee' ? (
-                                noti.registrationOne2One.attendee_id._id === user._id && (
-                                    <div className={`${noti.status === 'pending' ? 'cardPending' : 'card'}`} key={noti._id} onClick={() => updateNotifi(noti)}>
-                                        <div className="cardTitle">
-                                            <img
-                                                src={
-                                                    noti.registrationOne2One.speaker_id.profilePic
-                                                        ? `http://localhost:3001/public/${noti.registrationOne2One.speaker_id.profilePic}`
-                                                        : "http://localhost:3001/public/noProfilePicture.jpg"
-                                                }
-                                                alt={noti.registrationOne2One.speaker_id.name}
-                                                className='imgProfileNotification'
-                                            />
-                                            {noti.description}<br />
-                                            {noti.registrationOne2One.speaker_id.name} 11:00
-                                        </div>
+                {notifications.map((noti) =>
+                    user.role === 'attendee' ? (
+                        noti.registrationOne2One.attendee_id._id === user._id && (
+                            <div className={`${noti.status === 'pending' ? 'cardPending' : 'card'}`} key={noti._id} onClick={() => updateNotifi(noti)}>
+                                <div className="cardTitle">
+                                    <img
+                                        src={
+                                            noti.registrationOne2One.speaker_id.profilePic
+                                                ? noti.registrationOne2One.speaker_id.profilePic
+                                                : "http://localhost:3001/public/noProfilePicture.jpg"
+                                        }
+                                        alt={noti.registrationOne2One.speaker_id.name}
+                                        className='imgProfileNotification'
+                                    />
+                                    {noti.description}<br />
+                                    {noti.registrationOne2One.speaker_id.name} 11:00
+                                </div>
+                            </div>
+                        )
+                    ) : (
+                        noti.registrationOne2One.speaker_id._id === user._id && (
+                            noti.status === 'pending' && (
+                                <div className={`${noti.status === 'pending' ? 'cardPending' : 'card'}`} key={noti._id}>
+                                    <div className="cardTitle">
+                                        <img
+                                            src={
+                                                noti.registrationOne2One.attendee_id.profilePic
+                                                    ? noti.registrationOne2One.attendee_id.profilePic
+                                                    : "http://localhost:3001/public/noProfilePicture.jpg"
+                                            }
+                                            alt={noti.registrationOne2One.attendee_id.name}
+                                            className='imgProfileNotification'
+                                        />
+                                        {noti.description}<br />
+                                        {noti.registrationOne2One.attendee_id.name} 11:00
+                                        <GoChevronRight
+                                            className='desplegarNotifi' onClick={() => handleChevronClick(noti._id)}
+                                        />
                                     </div>
-                                )
-                            ) : (
-                                noti.registrationOne2One.speaker_id._id === user._id && (
-                                    <div className={`${noti.status === 'pending' ? 'cardPending' : 'card'}`} key={noti._id}>
-                                        <div className="cardTitle">
-                                            <img
-                                                src={
-                                                    noti.registrationOne2One.attendee_id.profilePic
-                                                        ? `http://localhost:3001/public/${noti.registrationOne2One.attendee_id.profilePic}`
-                                                        : "http://localhost:3001/public/noProfilePicture.jpg"
-                                                }
-                                                alt={noti.registrationOne2One.attendee_id.name}
-                                                className='imgProfileNotification'
-                                            />
-                                            {noti.description}<br />
-                                            {noti.registrationOne2One.attendee_id.name} 11:00
-                                            <GoChevronRight
-                                                className='desplegarNotifi' onClick={() => handleChevronClick(noti._id)}
-                                            />
+                                    {openNotificationId === noti._id && (
+                                        <div className="dropdown">
+                                            <button className="dropdownButton" onClick={() => aceptSolic(noti)}>Aceptar</button>
+                                            <button className="dropdownButton" onClick={() => rejectSolic(noti)}>Rechazar</button>
                                         </div>
-                                        {openNotificationId === noti._id && (
-                                            <div className="dropdown">
-                                                <button className="dropdownButton" onClick={() => aceptSolic(noti.registrationOne2One._id)}>Aceptar</button>
-                                                <button className="dropdownButton" onClick={() => rejectSolic(noti.registrationOne2One._id)}>Rechazar</button>
-                                            </div>
-                                        )}
-                                    </div>
-                                )
+                                    )}
+                                </div>
                             )
-                        ))}
+                        )
+                    )
+                )}
             </div>
         </>
     );

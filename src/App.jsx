@@ -27,15 +27,12 @@ import BellAdviser from "./components/BellAdviser/BellAdviser";
 import MyDiary from "./components/MyDiary/MyDiary";
 import Contact from "./components/Contact/Contact";
 
-
-
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
         <BrowserRouter>
-          <BellAdviser />
-            <MainContent />
+          <MainContent />
         </BrowserRouter>
       </div>
     </ThemeProvider>
@@ -55,12 +52,25 @@ function MainContent() {
     "/loginPrincipal",
     "/registerSegundoPaso",
     "/tickets",
- 
+  ];
+
+  const noBellAdviserPaths = [
+    "/allergies",
+    "/identify",
+    "/hastags",
+    "/loginAttendee",
+    "/connectlinkedin",
+    "/aboutyou",
+    "/loginSpeaker",
+    "/loginPrincipal",
+    "/registerSegundoPaso",
+    "/tickets",
   ];
 
   return (
     <>
       {!noHeaderPaths.includes(location.pathname) && <Header />}
+      {!noBellAdviserPaths.includes(location.pathname) && <BellAdviser />}
       <main className="main-content">
         <Routes>
           <Route path="/identify" element={<Identify />} />
@@ -72,7 +82,7 @@ function MainContent() {
           <Route path="/editprofile" element={<PrivateZone><EditProfile /></PrivateZone>} />
           <Route path="/loginSpeaker" element={<LoginSpeaker />} />
           <Route path="/loginAttendee" element={<LoginAttendee />} />
-          <Route path="/aboutyou" element={<PrivateZone><AboutYou /></PrivateZone>} />
+          <Route path="/aboutyou" element={<AboutYou />} />
           <Route path="/loginPrincipal" element={<LoginPrincipal />} />
           <Route path="/registerSegundoPaso" element={<RegisterSegundoPaso />} />
           <Route path="/diary" element={<PrivateZone><Diary /></PrivateZone>} />
@@ -85,7 +95,7 @@ function MainContent() {
           <Route path="/mydiary" element={<MyDiary />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
-        </Routes> 
+        </Routes>
       </main>
     </>
   );

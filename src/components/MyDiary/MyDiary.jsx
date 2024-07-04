@@ -15,17 +15,16 @@ const MyDiary = () => {
     const { workshops, isLoading } = useSelector(state => state.WorkshopSlice);
     const { attendee, isLoadingAttendee } = useSelector((state) => state.authAttendee);
     const { speaker, isLoadingSpeaker } = useSelector((state) => state.authSpeaker);
-  
-    if(attendee !== null ){
-      useEffect(() => {
-        dispatch(getLoggedAttendee())
-      }, []);
-    }else{
-      useEffect(() => {
-        dispatch(getLoggedSpeaker())
-      }, []);
+
+    if (attendee !== null) {
+        useEffect(() => {
+            dispatch(getLoggedAttendee())
+        }, []);
+    } else {
+        useEffect(() => {
+            dispatch(getLoggedSpeaker())
+        }, []);
     }
-    console.log(attendee);
     useEffect(() => {
         dispatch(getAllWorkshops());
     }, [dispatch]);
@@ -53,48 +52,49 @@ const MyDiary = () => {
     function formatTime(fechaISO) {
         // Crear un objeto Date a partir de la cadena ISO 8601
         let fecha = new Date(fechaISO);
-        
+
         // Obtener las horas y minutos de la fecha
         let horas = fecha.getHours();
         let minutos = fecha.getMinutes();
-        
+
         // Formatear las horas y minutos a dos dígitos si es necesario
         if (horas < 10) {
-          horas = '0' + horas;
+            horas = '0' + horas;
         }
         if (minutos < 10) {
-          minutos = '0' + minutos;
+            minutos = '0' + minutos;
         }
-        
+
         // Devolver la hora en formato de 24 horas (HH:mm)
         return horas + ':' + minutos;
-      }
-      let fechaISO = '2024-06-23T17:30:00';
-let horas = formatTime(fechaISO);
-console.log(horas)
+    }
+    let fechaISO = '2024-06-23T17:30:00';
+    let horas = formatTime(fechaISO);
 
     const user = attendee || speaker
+    console.log(user);
+
     return (
         <ChakraProvider>
             <div className='div-agenda'>
                 <div className='div-programa'>
                     <h3>Mi agenda</h3>
                 </div>
-                {user.one2OneTaken.map((one2One , index) => (
-                <div className='div-card-one2one'>
-                    <Card className='card-one2one'>
-                        <div className='div-content'>
-                            <div className='div-horario-one2one'><p>{one2One.time}</p></div>
-                            <div className="div-chip-one2one"><Chip label="One to One" /></div>
-                            <div className='div-nombre-one2one'><Text>{one2One.speaker.name}</Text></div>
-                            <div className='div-cargo-one2one'><Text>{one2One.speaker.job_title}</Text></div>
-                            <img src={one2One.speaker.profilePic} alt="Foto de Perfil" className="avatar-picture" />
-                        </div>
-                    </Card>
-                </div>
+                {user.one2OneTaken.map((one2One, index) => (
+                    <div className='div-card-one2one'>
+                        <Card className='card-one2one'>
+                            <div className='div-content'>
+                                <div className='div-horario-one2one'><p>{formatTime(one2One.time)}</p></div>
+                                <div className="div-chip-one2one"><Chip label="One to One" /></div>
+                                <div className='div-nombre-one2one'><Text>{one2One.speaker.name}</Text></div>
+                                <div className='div-cargo-one2one'><Text>{one2One.speaker.job_title}</Text></div>
+                                <img src={one2One.speaker.profilePic} alt="Foto de Perfil" className="avatar-picture" />
+                            </div>
+                        </Card>
+                    </div>
 
                 ))}
-                {user.workshops_ids.map((workshop , index) => (
+                {user.workshops_ids.map((workshop, index) => (
                     <div className='div-card' key={index}>
                         <Card>
                             <CardBody className='card-content'>
