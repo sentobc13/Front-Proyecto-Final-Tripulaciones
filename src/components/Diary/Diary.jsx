@@ -79,7 +79,6 @@ const DescriptionModal = ({ isOpen, onOpen, onClose, workshop }) => {
 
     return (
         <Modal isOpen={isOpen} onClose={handleCloseModal} isCentered>
-            {console.log("workshoppp:", workshop)}
             <ModalOverlay className="modal-overlay" />
             <ModalContent className='modal-content'>
                 <ModalHeader className='div-nodal-titulo'>Detalles de la Descripción</ModalHeader>

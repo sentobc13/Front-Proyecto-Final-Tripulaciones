@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Chip } from '@mui/material';
 import { MdArrowBackIos } from 'react-icons/md';
-import { Link, useNavigate } from 'react-router-dom';
-import './Hastags.scss';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { registerAttendee } from '../../../features/auth/attendee/authAttendeeSlice';
 import { registerSpeaker } from '../../../features/auth/speaker/authSpeakerSlice';
+import './Hastags.scss';
 
 const Hastags = () => {
     const dispatch = useDispatch()

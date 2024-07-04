@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MdArrowBackIos } from 'react-icons/md';
-import './Allergies.scss';
 import { Link, useNavigate } from 'react-router-dom';
+import './Allergies.scss';
 
 const Allergies = () => {
     const [selectedAllergies, setSelectedAllergies] = useState([]);
@@ -10,7 +10,6 @@ const Allergies = () => {
     useEffect(() => {
 
         if (!localStorage.getItem('Attendee') || !localStorage.getItem('Speaker')) {
-            // navigate("/identify")
             navigate("/allergies")
         }
     })
@@ -61,7 +60,7 @@ const Allergies = () => {
                 <div className="stepper">
                     <div className="btn-back">
                         <Link to="/aboutyou" style={{ textDecoration: 'none', color: 'inherit' }}>
-                            <MdArrowBackIos style={{ fontSize: 18 }} /> {/* Ajusta el tamaño del ícono según tus necesidades */}
+                            <MdArrowBackIos style={{ fontSize: 18 }} /> 
                         </Link>
                     </div>
                     <div className="step"></div>

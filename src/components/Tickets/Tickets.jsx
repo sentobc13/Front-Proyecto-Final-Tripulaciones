@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './Tickets.scss';
 import { Link } from 'react-router-dom';
 import { MdArrowBackIos } from 'react-icons/md';
 import { Accordion, AccordionItem, AccordionButton, AccordionPanel, Box, AccordionIcon } from '@chakra-ui/react';
 import { getAllTickets } from '../../features/tickets/ticketsSlice';
 import { Spinner } from '@chakra-ui/react';
+import './Tickets.scss';
 
 const Tickets = () => {
     const [selectedPrice, setSelectedPrice] = useState('');

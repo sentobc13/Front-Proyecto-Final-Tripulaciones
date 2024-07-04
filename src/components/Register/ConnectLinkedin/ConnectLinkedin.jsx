@@ -1,8 +1,8 @@
 import './ConnectLinkedin.scss'
 import { FaLinkedin } from "react-icons/fa";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MdArrowBackIos } from 'react-icons/md';
-import { useEffect } from 'react';
+
 
 const ConnectLinkedin = () => {
     return (

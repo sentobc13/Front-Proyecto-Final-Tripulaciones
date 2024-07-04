@@ -106,7 +106,7 @@ const Login = () => {
                   value={email}
                   onChange={onChange}
                   placeholder="Inserte su correo"
-                  size="lg" // Ajusta el tamaño del input (lg: large)
+                  size="lg" 
                 />
                 {emailError && <Text color="red.500" fontSize="sm">{emailError}</Text>}
               </FormControl>
@@ -118,7 +118,7 @@ const Login = () => {
                   value={password}
                   onChange={onChange}
                   placeholder="Inserte su contraseña"
-                  size="lg" // Ajusta el tamaño del input (lg: large)
+                  size="lg" 
                 />
               </FormControl>
               <Button className='btn-login' type="submit" bg="#4299E1" color="white" _hover={{ bg: '#3182CE' }} isFullWidth>

@@ -170,13 +170,12 @@
 .step.highlighted {
     height:8px;
     width: 60px;
-    /* Grosor de la línea resaltada */
     background-color: $buttons-register;
-    /* Color de la línea resaltada */
+
 }
 
 .btn-back {
-    display: flex; // Ajusta el margen según sea necesario
+    display: flex; 
     margin-right: 40px;
     margin-left: -50px;
   }

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { GoChevronLeft, GoChevronRight } from 'react-icons/go';
-import './Notifications.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteNotification, getAllNotifications, updateNotification } from '../../features/notification/notificationSlice';
 import registrationOne2OneService from '../../features/registrationOnetoOne/registrationOnetoOneService';
+import './Notifications.scss';
 
 const Notifications = () => {
     const dispatch = useDispatch();

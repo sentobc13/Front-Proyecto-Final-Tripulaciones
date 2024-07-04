@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdArrowBackIos } from "react-icons/md";
 import './AboutYou.scss';
@@ -62,7 +62,6 @@ const AboutYou = () => {
     const updatedData = { ...existingData, ...formData };
 
     localStorage.setItem('register', JSON.stringify(updatedData));
-    console.log("si");
 
     if (typeUser == 'Speaker') {
       navigate('/hastags');

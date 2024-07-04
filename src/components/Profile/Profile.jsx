@@ -11,7 +11,6 @@ import { getLoggedSpeaker } from "../../features/auth/speaker/authSpeakerSlice";
 
 const Profile = () => {
   const { attendee, isLoadingAttendee } = useSelector((state) => state.authAttendee);
-  const { speaker, isLoadingSpeaker } = useSelector((state) => state.authSpeaker);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
