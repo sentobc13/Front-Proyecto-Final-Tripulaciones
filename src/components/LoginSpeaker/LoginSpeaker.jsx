@@ -34,7 +34,7 @@ const LoginSpeaker = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      navigate('/profile');
+      navigate('/diary/');
     }
     dispatch(reset());
   }, [isSuccess, dispatch, navigate]);
