@@ -49,10 +49,10 @@ const Profile = () => {
           <span className="titleNameProfile">{attendee.name} {attendee.surname}</span>
         </div>
         <div>
-          <span className="subtitleNameProfile">CEO en LVIS</span>
+          <span className="subtitleNameProfile">{attendee.job_title}</span>
         </div>
         <div className="descriptionNameProfile">
-          <span>Fernando supervisa las ventas globales de productos de LVIS.</span>
+          <span>Javier supervisa es profesor de progamacion en EDEM.</span>
         </div>
       </div>
       <div className="interestsProfile">

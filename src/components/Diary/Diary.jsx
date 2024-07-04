@@ -198,10 +198,10 @@ const Diary = () => {
                                     {formatTime(workshop.start_date)}
                                 </Text>
                                 <Text className='div-nombre'>
-                                    {workshop.speaker_id.name}
+                                    {workshop.speaker_id.name} {workshop.speaker_id.surname}
                                 </Text>
                                 <Text className='div-cargo'>
-                                    {workshop.speaker_id.role}
+                                    {workshop.speaker_id.job_title}
                                 </Text>
                                 <Text className='div-titulo'>
                                     {workshop.name}
