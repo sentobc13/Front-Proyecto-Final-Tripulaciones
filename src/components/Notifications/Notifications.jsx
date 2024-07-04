@@ -63,6 +63,28 @@ const Notifications = () => {
         return dispatch(getAllNotifications());
     }
 
+    function formatTime(fechaISO) {
+        
+        let fecha = new Date(fechaISO);
+
+        
+        let horas = fecha.getHours();
+        let minutos = fecha.getMinutes();
+
+        
+        if (horas < 10) {
+            horas = '0' + horas;
+        }
+        if (minutos < 10) {
+            minutos = '0' + minutos;
+        }
+
+
+        return horas + ':' + minutos;
+    }
+    let fechaISO = '2024-06-23T17:30:00';
+    let horas = formatTime(fechaISO);
+
     return (
         <>
             <div className="topNotification">
@@ -87,7 +109,7 @@ const Notifications = () => {
                                         className='imgProfileNotification'
                                     />
                                     {noti.description}<br />
-                                    {noti.registrationOne2One.speaker_id.name} 11:00
+                                    {noti.registrationOne2One.speaker_id.name} -  {formatTime(noti.registrationOne2One.scheduled_time)}
                                 </div>
                             </div>
                         )
