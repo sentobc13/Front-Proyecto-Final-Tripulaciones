@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = "http://localhost:3001/attendee"
+const API_URL = "https://backend-desafio-c3ws.onrender.com/attendee"
 
 const registerAttendee = async (attendee)=>{
   const res = await axios.post(API_URL + "/registerAttendee", attendee)

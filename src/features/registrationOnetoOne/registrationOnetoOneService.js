@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3001/registrationOne2One";
+const API_URL = "https://backend-desafio-c3ws.onrender.com/registrationOne2One";
 
 const registerOnetoOne = async (horariosSeleccionado, speaker_id) => {
   const reservarOne2One = {

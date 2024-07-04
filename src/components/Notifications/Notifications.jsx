@@ -18,7 +18,7 @@ const Notifications = () => {
     const aceptSolic = async (noti) => {
         try {
             await registrationOne2OneService.confirmOne2One(noti.registrationOne2One._id);
-            await dispatch(deleteNotification(noti._id));
+            dispatch(deleteNotification(noti._id));
             dispatch({ type: 'DELETE_NOTIFICATION_LOCALLY', payload: noti._id });
         } catch (error) {
             console.error('Error confirmando solicitud uno a uno:', error);
@@ -28,7 +28,7 @@ const Notifications = () => {
     const rejectSolic = async (noti) => {
         try {
             await registrationOne2OneService.rejectOne2One(noti.registrationOne2One._id);
-            await dispatch(deleteNotification(noti._id));
+            dispatch(deleteNotification(noti._id));
             dispatch({ type: 'DELETE_NOTIFICATION_LOCALLY', payload: noti._id });
         } catch (error) {
             console.error('Error rechazando solicitud uno a uno:', error);
@@ -81,7 +81,7 @@ const Notifications = () => {
                                         src={
                                             noti.registrationOne2One.speaker_id.profilePic
                                                 ? noti.registrationOne2One.speaker_id.profilePic
-                                                : "http://localhost:3001/public/noProfilePicture.jpg"
+                                                : "https://backend-desafio-c3ws.onrender.com/public/noProfilePicture.jpg"
                                         }
                                         alt={noti.registrationOne2One.speaker_id.name}
                                         className='imgProfileNotification'
@@ -100,7 +100,7 @@ const Notifications = () => {
                                             src={
                                                 noti.registrationOne2One.attendee_id.profilePic
                                                     ? noti.registrationOne2One.attendee_id.profilePic
-                                                    : "http://localhost:3001/public/noProfilePicture.jpg"
+                                                    : "https://backend-desafio-c3ws.onrender.com/public/noProfilePicture.jpg"
                                             }
                                             alt={noti.registrationOne2One.attendee_id.name}
                                             className='imgProfileNotification'
