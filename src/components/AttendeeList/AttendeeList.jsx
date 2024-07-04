@@ -75,7 +75,7 @@ const AttendeeList = () => {
               src={
                 attendee.profilePic
                   ? `${attendee.profilePic}`
-                  : "http://localhost:3001/public/noProfilePicture.jpg"
+                  : "https://backend-desafio-1yqs.onrender.com/public/noProfilePicture.jpg"
               }
               alt={attendee.name}
               className="profile-picture-asistant"
@@ -150,8 +150,8 @@ const AttendeeList = () => {
                     <img
                       src={
                         att.profilePic
-                          ? `http://localhost:3001/public/${att.profilePic}`
-                          : "http://localhost:3001/public/noProfilePicture.jpg"
+                          ? `https://backend-desafio-1yqs.onrender.com/public/${att.profilePic}`
+                          : "https://backend-desafio-1yqs.onrender.com/public/noProfilePicture.jpg"
                       }
                       alt={att.name}
                       className="suggestion-photo"
@@ -195,7 +195,7 @@ const AttendeeList = () => {
                   <div key={index} className="attendee-card" onClick={() => handleAttendeeClick(att)}>
                     {!att.profilePic && (
                       <img
-                        src="http://localhost:3001/public/noProfilePicture.jpg"
+                        src="https://backend-desafio-1yqs.onrender.com/public/noProfilePicture.jpg"
                         alt={att.name}
                         className="attendee-photo"
                       />
