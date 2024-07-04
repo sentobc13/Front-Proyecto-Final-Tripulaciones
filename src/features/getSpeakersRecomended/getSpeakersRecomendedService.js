@@ -7,7 +7,7 @@ const getSpeakersRecomended = async () => {
     "id": user.id
   }
 
-  const res = await axios.post("https://api-match-1.onrender.com/similarity/", id)
+  const res = await axios.post("https://api-match-1.onrender.com/similarity", id)
   return res.data
 }
 
