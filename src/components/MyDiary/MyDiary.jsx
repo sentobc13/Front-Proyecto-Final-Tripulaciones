@@ -97,7 +97,7 @@ const MyDiary = () => {
                                         src={
                                             one2One.speaker.profilePic
                                                 ? `${one2One.speaker.profilePic}`
-                                                : "http://localhost:3001/public/noProfilePicture.jpg"
+                                                : "https://backend-desafio-c3ws.onrender.com/public/noProfilePicture.jpg"
                                         }
                                         alt={one2One.speaker.profilePic}
                                         className="avatar-picture"

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3001/workshop";
+const API_URL = "https://backend-desafio-c3ws.onrender.com/workshop";
 
 const getWorkshop = async () => {
     try {

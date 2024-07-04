@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://backend-desafio-1yqs.onrender.com/tickets";
+const API_URL = "https://backend-desafio-c3ws.onrender.com/tickets";
 
 const getAllTickets = async () => {
   const res = await axios.get(API_URL);

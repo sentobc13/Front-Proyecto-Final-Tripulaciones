@@ -81,7 +81,7 @@ const Notifications = () => {
                                         src={
                                             noti.registrationOne2One.speaker_id.profilePic
                                                 ? noti.registrationOne2One.speaker_id.profilePic
-                                                : "http://localhost:3001/public/noProfilePicture.jpg"
+                                                : "https://backend-desafio-c3ws.onrender.com/public/noProfilePicture.jpg"
                                         }
                                         alt={noti.registrationOne2One.speaker_id.name}
                                         className='imgProfileNotification'
@@ -100,7 +100,7 @@ const Notifications = () => {
                                             src={
                                                 noti.registrationOne2One.attendee_id.profilePic
                                                     ? noti.registrationOne2One.attendee_id.profilePic
-                                                    : "http://localhost:3001/public/noProfilePicture.jpg"
+                                                    : "https://backend-desafio-c3ws.onrender.com/public/noProfilePicture.jpg"
                                             }
                                             alt={noti.registrationOne2One.attendee_id.name}
                                             className='imgProfileNotification'
