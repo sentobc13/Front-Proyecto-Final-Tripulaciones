@@ -128,7 +128,7 @@ const Notifications = () => {
                                             className='imgProfileNotification'
                                         />
                                         {noti.description}<br />
-                                        {noti.registrationOne2One.attendee_id.name} 11:00
+                                        {noti.registrationOne2One.attendee_id.name} - {formatTime(noti.registrationOne2One.scheduled_time)}
                                         <GoChevronRight
                                             className='desplegarNotifi' onClick={() => handleChevronClick(noti._id)}
                                         />
