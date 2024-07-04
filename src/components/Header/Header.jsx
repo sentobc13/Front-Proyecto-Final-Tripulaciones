@@ -62,7 +62,7 @@ const Header = () => {
           <Spacer />
           <Box>
             <Link to="/diary">
-              <Image src={menuOpen ? logo1 : logo} alt="Logo" height="40px" />
+              <Image className='div-imagen' src={menuOpen ? logo1 : logo} alt="Logo" height="40px" />
             </Link>
           </Box>
           <Spacer />
